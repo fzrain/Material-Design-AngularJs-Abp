@@ -1,0 +1,210 @@
+.listview {
+    position: relative;
+    
+    &:not(.lv-lg):not(.lv-message) {
+        .lv-item {
+            padding: 10px 15px;
+        }
+    }
+    
+    &.lv-lg {
+        .lv-item {
+            @media (min-width: @screen-xs-min) {
+                padding: 17px 35px 17px 25px;
+            }
+            
+            @media (max-width: @screen-xs-max) {
+                padding: 17px 35px 17px 20px;
+            }
+            
+            &:hover {
+                background-color: #FFFFDB;
+            }
+        }
+    }
+    
+    .lv-item {
+        position: relative;
+        display: block;
+        .transition(background-color);
+        .transition-duration(300ms);
+
+        .lv-small {
+            font-size: 12px;
+            color: #A9A9A9;
+            .text-overflow();
+            display: block;
+            width: 100%;
+        }
+        
+        .checkbox,
+        &.media {
+            margin: 0;
+        }
+        
+        .lv-actions {
+            position: absolute;
+        }
+        
+        @media (min-width: @screen-xs-min) {
+            .lv-actions {
+                right: 15px;
+                height: 30px;
+                margin-top: -15px;
+                top: 50%;
+            }
+        }
+        
+        @media (max-width: @screen-xs-max) {
+            .lv-actions {
+                right: 7px;
+                top: 10px;
+            }
+        }
+        
+    }
+    
+    .lv-title {
+        .text-overflow();
+        display: block;
+    }
+    
+    a.lv-item:hover {
+        background: #ECF9FF;
+    }
+    
+    [class*="lv-img"] {
+        border-radius: 50%;
+    }
+    
+    .lv-img {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .lv-img-sm {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .lv-header {
+        text-align: center;
+        padding: 15px 10px 13px;
+        line-height: 100%;
+        text-transform: uppercase;
+        border-bottom: 1px solid #F0F0F0;
+        font-weight: 500;
+        color: #4C4C4C; 
+        
+        .actions {
+            position: absolute;
+            top: 6px;
+            right: 8px;
+            z-index: 10;
+        }
+    }
+    
+    .lv-header-alt {
+        background: #f8f8f8;
+        padding: 12px;
+        border-bottom: 1px solid #EEE;
+        
+        .clearfix();
+        
+        .lv-actions {
+            z-index: 3;
+            float: right;
+            margin-top: 3px;
+            position: relative;
+            
+            & > li > a {
+                margin: 0 3px;
+            }
+        }
+    }
+    
+    .lvh-label {
+        color: #818181;
+        display: inline-block;
+        margin: 0;
+        font-size: 14px;
+        font-weight: normal;
+        padding: 0 10px;
+        line-height: 33px;
+        vertical-align: middle;
+    }
+    
+    
+
+    .lv-footer {
+        display: block;
+        text-align: center;
+        padding: 7px 10px 8px;
+        border-top: 1px solid #F0F0F0;
+        line-height: 100%;
+        font-size: 11px;
+        margin-top: 20px;
+        color: #828282;
+    }
+    
+    a.lv-footer:hover {
+        color: darken(#919191, 55%);
+    }
+    
+    &.lv-bordered {
+        .lv-item {
+            &:not(:last-child) {
+                border-bottom: 1px solid #f0f0f0;
+            }
+        }
+    }
+    
+    .lv-attrs {
+        list-style: none;
+        padding: 0;
+        margin: 5px 0 0 0;
+        
+        .listview-attrs(@b-color: lighten(@text-color, 50%), @bg: #fff, @color: @text-color) {
+            border: 1px solid @b-color;
+            background: @bg;
+            color: @color;
+        }
+        
+        & > li {
+            display: inline-block;
+            padding: 2px 10px 3px;
+            font-size: 12px;
+            margin-top: 5px;
+            margin-right: 2px;
+            
+            &:not(.info):not(.primary):not(.warning):not(.danger) {
+                .listview-attrs();
+            }
+            
+            &.info { .listview-attrs(@m-cyan, @m-cyan, #fff); }
+            &.primary { .listview-attrs(@m-blue, @m-blue, #fff); }
+            &.warning { .listview-attrs(@m-orange, @m-orange, #fff); }
+            &.danger { .listview-attrs(@m-red, @m-red, #fff); }
+            
+            & > a {
+                display: block;
+            }
+        }
+    }
+    
+    &:not(.lv-message) {
+        .lv-title {
+            color: #000;
+        }
+    }
+}
+  
+
+/*
+ * Inside Card will have more padding
+ */
+.card-body {
+    .lv-item {
+        padding: 12px 20px;
+    }
+}

@@ -88,6 +88,9 @@
     <Compile Include="FzrainApplicationModule.cs" />
     <Compile Include="FzrainAppServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\Dto\UserDto.cs" />
+    <Compile Include="Users\IUserAppService.cs" />
+    <Compile Include="Users\UserAppService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

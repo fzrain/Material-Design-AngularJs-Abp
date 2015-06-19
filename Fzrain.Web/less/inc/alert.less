@@ -1,0 +1,51 @@
+.alert {
+    padding-left: 30px;
+    font-size: 13px;
+    
+    span {
+        cursor: pointer;
+    }
+
+    &:not(.alert-dismissible) {
+        padding-right: 30px;
+    }
+
+    &.alert-dismissable {
+        padding-right: 44px;
+    } 
+}
+
+.alert-inverse {
+    background: fade(#333, 90%);
+    box-shadow: 0 0 5px fade(#333, 50%);
+    color: #fff;
+    
+    a {
+        color: #fff;
+    }
+}
+
+.growl-animated {
+    border: 0;
+    color: #fff;
+
+    &.alert-info {
+        background: fade(@m-blue, 80%);
+        box-shadow: 0 0 5px fade(@m-blue, 50%);
+    }
+
+    &.alert-success {
+        background: fade(@m-green, 80%);
+        box-shadow: 0 0 5px fade(@m-green, 50%);
+    }
+
+    &.alert-warning {
+        background: fade(@m-orange, 80%);
+        box-shadow: 0 0 5px fade(@m-orange, 50%);
+    }
+
+    &.alert-danger {
+        background: fade(@m-red, 80%);
+        box-shadow: 0 0 5px fade(@m-red, 50%);
+    }
+}

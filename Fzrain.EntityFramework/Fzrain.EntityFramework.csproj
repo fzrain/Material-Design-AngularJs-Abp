@@ -97,6 +97,10 @@
     <Compile Include="Migrations\201506170626591_InitialCreate.Designer.cs">
       <DependentUpon>201506170626591_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201506190108149_UserFields.cs" />
+    <Compile Include="Migrations\201506190108149_UserFields.Designer.cs">
+      <DependentUpon>201506190108149_UserFields.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="FzrainDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,6 +118,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201506170626591_InitialCreate.resx">
       <DependentUpon>201506170626591_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201506190108149_UserFields.resx">
+      <DependentUpon>201506190108149_UserFields.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

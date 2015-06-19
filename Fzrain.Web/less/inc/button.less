@@ -1,0 +1,144 @@
+.btn {
+    .transition(all);
+    .transition-duration(300ms);
+    border: 0;
+    text-transform: uppercase;
+    
+    &[class*="bgm-"] {
+        color: #fff;
+    }
+
+    &:not(.btn-link):not(.btn-float):not(.command-edit):not(.command-delete):not(.selectpicker) {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+        
+        &:hover {
+            box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+        }
+    }
+    
+    .caret {
+        margin-top: -3px;
+    }
+}
+
+.btn-group, .btn-group-vertical {
+    &:not(.bootstrap-select) {
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .btn,
+    .btn:active,
+    .btn:focus,
+    .btn-group {
+        box-shadow: none !important;
+    }
+    
+    .btn {
+        margin: 0;
+    }
+}
+
+.btn-xs {
+  .button-size(2px; @padding-xs-horizontal; 11px; @line-height-small; @border-radius-small);
+}
+
+.btn-link {
+    color: #797979;
+    text-decoration: none;
+    border-radius: 2px;
+
+    &:hover {
+        color: #0a0a0a;
+    }
+
+    &:hover,
+    &:active,
+    &:focus  {
+        text-decoration: none;
+    }
+}
+
+.btn-inverse {
+    .button-variant(#fff, #454545, transparent);
+}
+
+.btn-icon {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    text-align: center;
+    
+    .hover-pop(50%, 300ms);
+
+    .md {
+        font-size: 17px;
+    }
+    
+    
+    &.btn-default {
+        &:hover {
+            background: #fff;
+        }
+    }
+}
+
+.btn-icon-text {
+    & > .md, 
+    & > .socicon{
+        font-size: 15px;
+        vertical-align: top;
+        display: inline-block;
+        margin-top: 1px;
+        line-height: 100%;
+        margin-right: 5px;
+    }
+}
+
+.btn-float { 
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    line-height: 38px;
+    
+    &:hover {
+        box-shadow: 0 2px 7px rgba(0, 0, 0, 0.18);
+    }
+
+    i {
+        font-size: 23px;
+        .transition(all);
+        .transition-duration(500ms);
+    }
+    
+    &:hover {
+        i {
+            .rotate(360deg);
+        }
+    }
+    
+    &:not(.bgm-white):not(.bgm-gray) {
+        & > i {
+            color: #fff;
+        }
+    }
+    
+    &.bgm-white,
+    &.bgm-gray {
+        & > i {
+            color: #333;
+        }
+    }
+}
+
+
+.open .btn {
+    outline: none !important;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    
+    &:focus, &:active {
+        outline: none !important;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
+    }
+}

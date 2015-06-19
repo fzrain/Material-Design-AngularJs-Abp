@@ -1,0 +1,182 @@
+/** CALENDAR WIDGET **/
+#calendar-widget {
+    margin-bottom: 30px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.15);
+}
+
+#fc-actions {
+	position: absolute;
+	top: 24px;
+	right: 12px;
+}
+
+.fc {
+	background-color: #fff;
+	box-shadow: 0 1px 1px rgba(0,0,0,.15);
+	margin-bottom: 30px;
+
+	td {
+		border-color: @table-border-color;
+		text-align: center !important;
+	}
+
+	th {
+	    background: darken(@m-red, 5%);
+	    color: rgba(255, 255, 255, 0.9);
+	    font-weight: 400;
+	    padding: 6px 0;
+	}
+
+	table tr {
+		& > td:first-child {
+			border-left-width: 0;
+		}
+	}
+
+	.ui-widget-header {
+		border-width: 0;
+	}
+}
+
+.fc-toolbar {
+    background-color: @m-red;
+    margin-bottom: 0;
+    padding: 20px 7px 19px;
+    position: relative;
+    
+    h2 {
+		color: rgba(255, 255, 255, 0.9);
+		margin-top: 7px;
+		font-size: 20px;
+		font-weight: 300;
+		text-transform: uppercase;
+    }
+    
+    .ui-button  {
+		border: 0;
+		background: 0 0;
+		padding: 0;
+		outline: none !important;
+		text-align: center;
+		
+		& > span {
+		    position: relative;
+		    font-family: 'Material Design Iconic Font';
+		    font-size: 20px;
+		    color: #FFF;
+		    line-height: 100%;
+		    width: 30px;
+		    padding-top: 5px;
+		    display: block;
+		    margin-top: 2px;
+		    
+		    &:before {
+				position: relative;
+				z-index: 1;
+		    }
+		    
+		    &.ui-icon-circle-triangle-w:before {
+				content: "\f297";
+		    }
+		    
+		    &.ui-icon-circle-triangle-e:before {
+				content: "\f298"; 
+		    }
+		    
+		    &:after {
+				content: "";
+				width: 0;
+				position: absolute;
+				top: 50%;
+				height: 0;
+				border-radius: 50%;
+				left: 50%;
+				z-index: 0;
+				.transition(all);
+				.transition-duration(200ms);
+				.backface-visibility(hidden);
+		    }
+		}
+	
+		&:hover {
+		    & > span:after {
+			width: 31px;
+			height: 31px;
+			left: 0;
+			top: 0;
+			background: rgba(0,0,0,0.2);
+		    }
+		}
+    }
+}
+.fc-event {
+	padding: 0;
+    font-size: 11px;
+    border-radius: 0;
+    border: 0;
+    border-radius: 2px;
+    
+    .fc-title {
+		padding: 2px 0;
+		display: block;
+    }
+    
+    .fc-time {
+		float: left;
+		background: rgba(0, 0, 0, 0.2);
+		padding: 2px 6px;
+		margin: 0 0 0 -1px;
+    }
+}
+
+.fc-view, .fc-view > table {
+    border: 0;
+    overflow: hidden;
+    /*
+    @media @min-992 {
+	    width: ~"calc(100% + 1px)";
+    }
+    */
+}
+
+.fc-view > table > tbody > tr > .ui-widget-content {
+	border-top: 0;
+}
+
+div.fc-row {
+    margin-right: 0 !important;
+    border: 0 !important;
+}
+
+
+/* Even Tag Color */
+.event-tag {
+    margin-top: 5px;
+    
+    & > span {
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+    margin-right: 3px;
+	position: relative;
+	display: inline-block; 
+	cursor: pointer;
+	
+	&:hover {
+	    .opacity(0.8);
+	}
+	
+	&.selected {
+	    &:before {
+		font-family: 'Material Design Iconic Font';
+		content: "\f299";
+		position: absolute;
+		text-align: center;
+		top: 3px;
+		width: 100%;
+		font-size: 17px;
+		color: #FFF;
+	    }
+	}
+    }
+}
