@@ -67,7 +67,7 @@ materialAdmin
                     ]
                 });
             }
-        }
+        };
     })
     
 
@@ -192,7 +192,7 @@ materialAdmin
                 //var x = $compile(scope.$eval(attrs.actionLinks))(scope);
                 element.find('.fc-toolbar').append($compile(scope.actionLinks)(scope));
             }
-        }
+        };
     })
     
 
@@ -203,8 +203,8 @@ materialAdmin
             link: function(scope, element, attrs) {
                 element.on('click', function(){
                     $('#calendar').fullCalendar('changeView', attrs.calendarView);  
-                })
+                });
             }
-        }
-    })
+        };
+})
 

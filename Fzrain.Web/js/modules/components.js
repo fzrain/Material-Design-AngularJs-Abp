@@ -20,7 +20,7 @@ materialAdmin
                     element.popover();
                 } 
             }
-        }
+        };
     })
 
     
@@ -45,7 +45,7 @@ materialAdmin
                     $(this).closest('.panel').find('.panel-heading').addClass('active');
                 });
             }
-        }
+        };
     })
 
 
@@ -76,7 +76,7 @@ materialAdmin
                             $animationDuration = $animArray[2];
                         }
 
-                        $(this).find('.dropdown-menu').removeClass($animationOut)
+                        $(this).find('.dropdown-menu').removeClass($animationOut);
                         $(this).find('.dropdown-menu').addClass($animationIn);
                     }
                 });
@@ -89,14 +89,13 @@ materialAdmin
 
                         $dropdownMenu.addClass($animationOut);
                         setTimeout(function(){
-                            $this.removeClass('open')
-
+                            $this.removeClass('open');
                         }, $animationDuration);
                         
                     }
                 });
             }
-        }
+        };
     })
 
 
@@ -131,7 +130,6 @@ materialAdmin
                     }
                 });
             }
-        }
-        
-    })
+        };
+})
 

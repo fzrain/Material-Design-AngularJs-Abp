@@ -11,7 +11,7 @@ namespace Fzrain.Web.Controllers
 
         public ActionResult Index()
         {          
-            return View("~/index.html"); //Layout of the angular application.
+            return View("~/Views/index.cshtml"); //Layout of the angular application.
         }
 	}
 }

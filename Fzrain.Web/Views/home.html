@@ -1,9 +1,9 @@
-<header id="header" data-ng-include="'includes/header.html'" data-ng-controller="headerCtrl as hctrl"></header>
+<header id="header" data-ng-include="'/AbpAppView/Load?viewUrl=/views/includes/header.cshtml'" data-ng-controller="headerCtrl as hctrl"></header>
 
 <section id="main">
-    <aside id="sidebar" data-ng-include="'includes/sidebar-left.html'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }" data-ng-controller="sidebarCtrl as sctrl"></aside>
+    <aside id="sidebar" data-ng-include="'/AbpAppView/Load?viewUrl=/views/includes/sidebar-left.cshtml'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }" data-ng-controller="sidebarCtrl as sctrl"></aside>
 
-    <aside id="chat" data-ng-include="'includes/chat.html'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.right === true }"></aside>
+    <aside id="chat" data-ng-include="'/AbpAppView/Load?viewUrl=/views/includes/chat.cshtml'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.right === true }"></aside>
 
     <section id="content">
 

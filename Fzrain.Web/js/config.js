@@ -1,6 +1,4 @@
-materialAdmin
-
-    materialAdmin.config(function ($stateProvider, $urlRouterProvider){
+materialAdmin.config(function ($stateProvider, $urlRouterProvider){
         $urlRouterProvider.otherwise("/home");
 
 
@@ -12,7 +10,7 @@ materialAdmin
         
             .state ('home', {
                 url: '/home',
-                templateUrl: 'App/home.html',
+                templateUrl: 'views/home.html',
                 resolve: {
                     loadPlugin: function($ocLazyLoad) {
                         return $ocLazyLoad.load ([
@@ -20,7 +18,7 @@ materialAdmin
                                 name: 'css',
                                 insertBefore: '#app-level',
                                 files: [
-                                    'vendors/bower_components/fullcalendar/dist/fullcalendar.min.css',
+                                    'vendors/bower_components/fullcalendar/dist/fullcalendar.min.css'
                                 ]
                             },
                             {
@@ -36,7 +34,7 @@ materialAdmin
                                     'vendors/bower_components/fullcalendar/dist/fullcalendar.min.js'
                                 ]
                             }
-                        ])
+                        ]);
                     }
                 }
             })
@@ -71,7 +69,7 @@ materialAdmin
                                 name: 'css',
                                 insertBefore: '#app-level',
                                 files: [
-                                    'vendors/bower_components/mediaelement/build/mediaelementplayer.css',
+                                    'vendors/bower_components/mediaelement/build/mediaelementplayer.css'
                                 ]
                             },
                             {
@@ -80,7 +78,7 @@ materialAdmin
                                     'vendors/bower_components/mediaelement/build/mediaelement-and-player.js'
                                 ]
                             }
-                        ])
+                        ]);
                     }
                 }
             })
@@ -115,7 +113,7 @@ materialAdmin
                                 name: 'css',
                                 insertBefore: '#app-level',
                                 files: [
-                                    'vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid.min.css',
+                                    'vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid.min.css'
                                 ]
                             },
                             {
@@ -124,7 +122,7 @@ materialAdmin
                                     'vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid-override.min.js'
                                 ]
                             }
-                        ])
+                        ]);
                     }
                 }
             })
@@ -150,7 +148,7 @@ materialAdmin
                                     'vendors/bower_components/autosize/dist/autosize.min.js'
                                 ]
                             }
-                        ])
+                        ]);
                     }
                 }
             })
@@ -187,7 +185,7 @@ materialAdmin
                                     'vendors/fileinput/fileinput.min.js'
                                 ]
                             }
-                        ])
+                        ]);
                     }
                 }
             })
@@ -268,7 +266,7 @@ materialAdmin
                                     'vendors/bower_components/lightgallery/light-gallery/js/lightGallery.min.js'
                                 ]
                             }
-                        ])
+                        ]);
                     }
                 }
             })
@@ -310,7 +308,7 @@ materialAdmin
                                     'vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js'
                                 ]
                             }
-                        ])
+                        ]);
                     }
                 }
             })
@@ -325,10 +323,10 @@ materialAdmin
                                 name: 'vendors',
                                 files: [
                                     'vendors/sparklines/jquery.sparkline.min.js',
-                                    'vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js',
+                                    'vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js'
                                 ]
                             }
-                        ])
+                        ]);
                     }
                 }
             })
@@ -348,7 +346,7 @@ materialAdmin
                                 name: 'css',
                                 insertBefore: '#app-level',
                                 files: [
-                                    'vendors/bower_components/fullcalendar/dist/fullcalendar.min.css',
+                                    'vendors/bower_components/fullcalendar/dist/fullcalendar.min.css'
                                 ]
                             },
                             {
@@ -358,7 +356,7 @@ materialAdmin
                                     'vendors/bower_components/fullcalendar/dist/fullcalendar.min.js'
                                 ]
                             }
-                        ])
+                        ]);
                     }
                 }
             })
@@ -415,7 +413,7 @@ materialAdmin
                                     'vendors/bower_components/lightgallery/light-gallery/js/lightGallery.min.js'
                                 ]
                             }
-                        ])
+                        ]);
                     }
                 }
             })
@@ -439,7 +437,7 @@ materialAdmin
                                     'vendors/bower_components/lightgallery/light-gallery/js/lightGallery.min.js'
                                 ]
                             }
-                        ])
+                        ]);
                     }
                 }
             })
@@ -470,5 +468,5 @@ materialAdmin
             .state ('breadcrumb-demo', {
                 url: '/breadcrumb-demo',
                 templateUrl: 'views/breadcrumb-demo.html'
-            })
-    });
+            });
+});

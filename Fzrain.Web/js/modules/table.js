@@ -19,7 +19,7 @@ materialAdmin
                     }
                 });
             }
-        }
+        };
     })
 
     //Selection
@@ -41,7 +41,7 @@ materialAdmin
                     keepSelection: true
                 });
             }
-        }
+        };
     })
 
     //Command
@@ -65,5 +65,5 @@ materialAdmin
                     }
                 });
             }
-        }
-    })
+        };
+})

@@ -352,11 +352,12 @@
     <Content Include="img\widgets\mate7.jpg" />
     <Content Include="img\widgets\note4.jpg" />
     <Content Include="img\widgets\preview.jpg" />
-    <Content Include="includes\chat.html" />
-    <Content Include="includes\header.html" />
-    <Content Include="includes\profile-menu.html" />
-    <Content Include="includes\sidebar-left.html" />
-    <Content Include="index.html" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <None Include="Views\includes\chat.cshtml" />
+    <Content Include="Views\includes\header.cshtml" />
+    <Content Include="Views\includes\sidebar-left.cshtml" />
+    <Content Include="Views\includes\profile-menu.cshtml" />
+    <None Include="Views\index.cshtml" />
     <Content Include="js\app.js" />
     <Content Include="js\config.js" />
     <Content Include="js\controllers.js" />
@@ -2150,7 +2151,7 @@
     <Content Include="vendors\socicon\socicon.min.css" />
     <Content Include="vendors\sparklines\jquery.sparkline.js" />
     <Content Include="vendors\sparklines\jquery.sparkline.min.js" />
-    <Content Include="App\home.html" />
+    <Content Include="Views\home.html" />
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
   </ItemGroup>
@@ -2159,6 +2160,7 @@
     <Compile Include="App_Start\FzrainNavigationProvider.cs" />
     <Compile Include="App_Start\FzrainWebModule.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FzrainControllerBase.cs" />
     <Compile Include="Global.asax.cs">
@@ -2744,6 +2746,7 @@
     <Content Include="fonts\weather-icons\weather-icons.eot" />
     <Content Include="fonts\weather-icons\weather-icons.ttf" />
     <Content Include="fonts\weather-icons\weather-icons.woff" />
+    <Content Include="App\web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2788,7 +2791,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>6234</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

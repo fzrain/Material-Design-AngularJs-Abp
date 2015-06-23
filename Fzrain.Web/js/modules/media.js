@@ -10,8 +10,7 @@ materialAdmin
             link: function(scope, element) {
                 element.mediaelementplayer();
             }
-        }
-        
+        };
     })
 
 
@@ -27,6 +26,5 @@ materialAdmin
                     enableTouch: true
                 }); 
             }
-        }
-        
-    })
+        };
+})

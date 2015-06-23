@@ -75,8 +75,7 @@
                 }
             }
         }
-    }
-
+    };
     var abpModule = angular.module('abp', []);
 
     abpModule.config([
@@ -110,8 +109,7 @@
                             message: ngError.data,
                             details: ngError.statusText,
                             responseError: true
-                        }
-
+                        };
                         abp.ng.http.showError(error);
 
                         abp.ng.http.logError(error);

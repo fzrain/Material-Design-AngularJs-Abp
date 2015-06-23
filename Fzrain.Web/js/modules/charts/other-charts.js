@@ -24,7 +24,7 @@ materialAdmin
                 sparkLineBar('.stats-bar', [6,4,8,6,5,6,7,8,3,5,9,5,8,4,3,6,8], '45px', 3, '#fff', 2);
                 sparkLineBar('.stats-bar-2', [4,7,6,2,5,3,8,6,6,4,8,6,5,8,2,4,6], '45px', 3, '#fff', 2);
             }
-        }
+        };
     })
     
 
@@ -57,7 +57,7 @@ materialAdmin
                 sparkLineLine('.dash-widget-visits', [9,4,6,5,6,4,5,7,9,3,6,5], '100%', '95px', 'rgba(255,255,255,0.7)', 'rgba(0,0,0,0)', 2, 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.4)', 5, 'rgba(255,255,255,0.4)', '#fff');
 
             }
-        }
+        };
     })
 
     
@@ -82,7 +82,7 @@ materialAdmin
                     sparklinePie('.stats-pie', [20, 35, 30, 5], 45, 45, ['#fff', 'rgba(255,255,255,0.7)', 'rgba(255,255,255,0.4)', 'rgba(255,255,255,0.2)']);
                 }
             }
-        }
+        };
     })
 
 
@@ -110,5 +110,5 @@ materialAdmin
                 easyPieChart('.sub-pie-1', '#eee', '#ccc', '#2196F3', 4, 'butt', 95);
                 easyPieChart('.sub-pie-2', '#eee', '#ccc', '#FFC107', 4, 'butt', 95);
             }
-        }
-    })
+        };
+})

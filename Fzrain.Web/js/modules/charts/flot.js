@@ -90,7 +90,7 @@ materialAdmin
                     $("<div class='flot-tooltip' class='chart-tooltip'></div>").appendTo("body");
                 }
             }
-        }
+        };
     })
 
     
@@ -128,7 +128,7 @@ materialAdmin
 
                     var res = [];
                     for (var i = 0; i < data.length; ++i) {
-                        res.push([i, data[i]])
+                        res.push([i, data[i]]);
                     }
 
                     return res;
@@ -200,7 +200,7 @@ materialAdmin
                     ], options);
                 }
             }
-        }
+        };
     })
 
 
@@ -298,7 +298,7 @@ materialAdmin
                     }
                 });
             }
-        }
+        };
     })
 
 
@@ -337,7 +337,7 @@ materialAdmin
 
                     var res = [];
                     for (var i = 0; i < data.length; ++i) {
-                        res.push([i, data[i]])
+                        res.push([i, data[i]]);
                     }
 
                     return res;
@@ -408,7 +408,7 @@ materialAdmin
                 }
                 update();
             }
-        }
+        };
     })
 
 
@@ -503,8 +503,8 @@ materialAdmin
                     });
                 }
             }
-        }
-    })
+        };
+})
 
 
     

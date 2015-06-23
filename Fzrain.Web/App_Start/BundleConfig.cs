@@ -9,6 +9,18 @@ namespace Fzrain.Web
             bundles.IgnoreList.Clear();
 
             //VENDOR RESOURCES
+            //~/Bundles/App/vendor/js
+            bundles.Add(
+                new ScriptBundle("~/Bundles/App/abp/js")
+                    .Include(                      
+                        "~/Abp/Framework/scripts/abp.js",
+                        "~/Abp/Framework/scripts/libs/abp.jquery.js",
+                        "~/Abp/Framework/scripts/libs/abp.toastr.js",
+                        "~/Abp/Framework/scripts/libs/abp.blockUI.js",
+                        "~/Abp/Framework/scripts/libs/abp.spin.js",
+                        "~/Abp/Framework/scripts/libs/angularjs/abp.ng.js"
+                    )
+                );
 
             //~/Bundles/App/vendor/css
             //bundles.Add(

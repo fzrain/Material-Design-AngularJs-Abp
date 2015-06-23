@@ -13,8 +13,7 @@ materialAdmin
                 if($('.fg-line')[0]) {
                     $('body').on('focus', '.form-control', function(){
                         $(this).closest('.fg-line').addClass('fg-toggled');
-                    })
-
+                    });
                     $('body').on('blur', '.form-control', function(){
                         var p = $(this).closest('.form-group');
                         var i = p.find('.form-control').val();
@@ -31,8 +30,7 @@ materialAdmin
                 }
     
             }
-        }
-        
+        };
     })
 
     
@@ -49,7 +47,7 @@ materialAdmin
                    autosize(element);
                 }
             }
-        }
+        };
     })
     
 
@@ -65,7 +63,7 @@ materialAdmin
                     element.selectpicker();
                 //}
             }
-        }
+        };
     })
     
 
@@ -85,7 +83,7 @@ materialAdmin
                     });
                 }
             }
-        }
+        };
     })
 
     
@@ -103,7 +101,7 @@ materialAdmin
             link: function(scope, element){
                 element.mask(scope.inputMask.mask);
             }
-        }
+        };
     })
 
 
@@ -128,7 +126,7 @@ materialAdmin
                     }
                 });
             }
-        }
+        };
     })
 
     //Range
@@ -146,7 +144,7 @@ materialAdmin
                     connect: true
                 });
             }
-        }
+        };
     })
     
     //Values
@@ -170,7 +168,7 @@ materialAdmin
                 $('.input-slider-values').Link('upper').to($('#value-upper'), 'html');
                 
             }
-        }
+        };
     })
 
 
@@ -189,7 +187,7 @@ materialAdmin
                     format: format
                 });
             }
-        }
+        };
     })
 
 
@@ -208,7 +206,7 @@ materialAdmin
                 });
                 
             }
-        }
+        };
     })
 
 
@@ -228,7 +226,7 @@ materialAdmin
                 });
             }
             
-        }
+        };
     })
 
     //Edit and Save
@@ -240,17 +238,15 @@ materialAdmin
                 element.on('click', function(){
                     $('.hec-click').summernote({
                         focus: true
-                    })
-                    
+                    });
                     $('.hec-save').show();
-                })
-                
+                });
                 $('.hec-save').on('click', function(){
                     $('.hec-click').destroy();
                     $('.hec-save').hide();
-                })
+                });
             }
-        }
+        };
     })
 
     //Air Mode
@@ -261,7 +257,7 @@ materialAdmin
             link: function(scope, element, attrs){
                 element.summernote({
                     airMode: true
-                })
+                });
             }
-        }
-    })
+        };
+})

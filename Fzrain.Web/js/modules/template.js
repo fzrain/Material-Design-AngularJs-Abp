@@ -25,17 +25,17 @@ materialAdmin
                         localStorage.setItem('ma-layout-status', 1);
                         scope.$apply(function(){
                             scope.changeLayout = '1';
-                        })
+                        });
                     }
                     else {
                         localStorage.setItem('ma-layout-status', 0);
                         scope.$apply(function(){
                             scope.changeLayout = '0';
-                        })
+                        });
                     }
-                })
+                });
             }
-        }
+        };
     })
 
 
@@ -60,12 +60,12 @@ materialAdmin
                         if (scope.modelLeft === false) {
                             scope.$apply(function(){
                                 scope.modelLeft = true;
-                            })
+                            });
                         }
                         else {
                             scope.$apply(function(){
                                 scope.modelLeft = false;
-                            })
+                            });
                         }
                     }
                     
@@ -73,19 +73,18 @@ materialAdmin
                         if (scope.modelRight === false) {
                             scope.$apply(function(){
                                 scope.modelRight = true;
-                            })
+                            });
                         }
                         else {
                             scope.$apply(function(){
                                 scope.modelRight = false;
-                            })
+                            });
                         }
                         
                     }
-                })
+                });
             }
-        }
-    
+        };
     })
 
 
@@ -102,7 +101,7 @@ materialAdmin
                     event.stopPropagation();
                 });
             }
-        }
+        };
     })
 
     .directive('aPrevent', function(){
@@ -113,5 +112,5 @@ materialAdmin
                     event.preventDefault();
                 });
             }
-        }
-    })
+        };
+})

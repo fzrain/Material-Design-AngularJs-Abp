@@ -5,10 +5,7 @@ materialAdmin
 
     .controller('materialadminCtrl', function($timeout, $state, growlService){
         //Welcome Message
-        growlService.growl('Welcome back Mallinda!', 'inverse')
-        
-        
-        // Detact Mobile Browser
+        growlService.growl('Welcome back Mallinda!', 'inverse'); // Detact Mobile Browser
         if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
            angular.element('html').addClass('ismobile');
         }
@@ -17,9 +14,7 @@ materialAdmin
         this.sidebarToggle = {
             left: false,
             right: false
-        }
-
-        // By default template has a boxed layout
+        }; // By default template has a boxed layout
         this.layoutType = localStorage.getItem('ma-layout-status');
         
         // For Mainmenu Active Class
@@ -36,13 +31,10 @@ materialAdmin
         this.openSearch = function(){
             angular.element('#header').addClass('search-toggled');
             //growlService.growl('Welcome back Mallinda Hollaway', 'inverse');
-        }
-
+        };
         this.closeSearch = function(){
             angular.element('#header').removeClass('search-toggled');
-        }
-        
-        // Get messages and notification for header
+        }; // Get messages and notification for header
         this.img = messageService.img;
         this.user = messageService.user;
         this.user = messageService.text;
@@ -71,14 +63,11 @@ materialAdmin
                         z.remove();
                     });
                 }, w+=150);
-            })
-            
+            });
             $timeout(function(){
                 angular.element('#notifications').addClass('empty');
             }, (z*150)+200);
-        }
-        
-        // Clear Local Storage
+        }; // Clear Local Storage
         this.clearLocalStorage = function() {
             
             //Get confirmation, if confirmed clear the localStorage
@@ -95,9 +84,7 @@ materialAdmin
                 swal("Done!", "localStorage is cleared", "success"); 
             });
             
-        }
-        
-        //Fullscreen View
+        }; //Fullscreen View
         this.fullScreen = function() {
             //Launch
             function launchIntoFullscreen(element) {
@@ -129,8 +116,7 @@ materialAdmin
             else {
                 launchIntoFullscreen(document.documentElement);
             }
-        }
-    
+        };
     })
 
 
@@ -144,8 +130,7 @@ materialAdmin
         this.toggleSubmenu = function($event) {
             angular.element($event.target).parent().toggleClass('toggled');
             angular.element($event.target).parent().find('ul').stop(true, false).slideToggle(200);
-        }
-        
+        };
     })
 
 
@@ -181,7 +166,7 @@ materialAdmin
         this.clearTodo = function(event) {            
             this.addTodoStat = 0;
             this.todo = '';
-        }
+        };
     })
 
 
@@ -260,8 +245,7 @@ materialAdmin
             }
             
             growlService.growl(message+' has updated Successfully!', 'inverse'); 
-        }
-
+        };
     })
 
 
@@ -332,21 +316,16 @@ materialAdmin
             'bgm-purple',
             'bgm-gray',
             'bgm-black',
-        ]
-        
-        this.onTagClick = function(tag, $index) {
+        ];
+    this.onTagClick = function(tag, $index) {
             this.activeState = $index;
             this.activeTagColor = tag;
-        } 
-            
-        //Open new event modal on selecting a day
+        }; //Open new event modal on selecting a day
         this.onSelect = function(argStart, argEnd) {
             $('#addNew-event').modal('show');   
             this.calendarData.getStart = argStart;
             this.calendarData.getEnd = argEnd;
-        }
-        
-        //Add new event
+        }; //Add new event
         this.addEvent = function() {
             var tagColor = $('.event-tag > span.selected').data('tag');
 
@@ -366,7 +345,5 @@ materialAdmin
                 this.calendarData.eventName = '';
                 $('#addNew-event').modal('hide');
             }
-        }
-
-        
-    })
+        };
+})
