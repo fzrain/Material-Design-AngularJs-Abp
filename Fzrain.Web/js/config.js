@@ -1,4 +1,10 @@
-materialAdmin.config(function ($stateProvider, $urlRouterProvider){
+materialAdmin
+
+    .run(function($templateCache,$http){
+          $http.get('includes/templates.html', {cache:$templateCache});
+    })
+
+    .config(function ($stateProvider, $urlRouterProvider){
         $urlRouterProvider.otherwise("/home");
 
 
@@ -18,23 +24,19 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
                                 name: 'css',
                                 insertBefore: '#app-level',
                                 files: [
-                                    'vendors/bower_components/fullcalendar/dist/fullcalendar.min.css'
+                                    'vendors/bower_components/fullcalendar/dist/fullcalendar.min.css',
                                 ]
                             },
                             {
                                 name: 'vendors',
+                                insertBefore: '#app-level-js',
                                 files: [
-                                    'vendors/bower_components/flot/jquery.flot.js',
-                                    'vendors/bower_components/flot.curvedlines/curvedLines.js',
-                                    'vendors/bower_components/flot/jquery.flot.resize.js',
                                     'vendors/sparklines/jquery.sparkline.min.js',
                                     'vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js',
-                                    'vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js',
-                                    'vendors/bower_components/moment/min/moment.min.js',
-                                    'vendors/bower_components/fullcalendar/dist/fullcalendar.min.js'
+                                    'vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js'
                                 ]
                             }
-                        ]);
+                        ])
                     }
                 }
             })
@@ -69,7 +71,7 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
                                 name: 'css',
                                 insertBefore: '#app-level',
                                 files: [
-                                    'vendors/bower_components/mediaelement/build/mediaelementplayer.css'
+                                    'vendors/bower_components/mediaelement/build/mediaelementplayer.css',
                                 ]
                             },
                             {
@@ -78,7 +80,7 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
                                     'vendors/bower_components/mediaelement/build/mediaelement-and-player.js'
                                 ]
                             }
-                        ]);
+                        ])
                     }
                 }
             })
@@ -113,7 +115,7 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
                                 name: 'css',
                                 insertBefore: '#app-level',
                                 files: [
-                                    'vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid.min.css'
+                                    'vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid.min.css',
                                 ]
                             },
                             {
@@ -122,7 +124,7 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
                                     'vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid-override.min.js'
                                 ]
                             }
-                        ]);
+                        ])
                     }
                 }
             })
@@ -148,7 +150,7 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
                                     'vendors/bower_components/autosize/dist/autosize.min.js'
                                 ]
                             }
-                        ]);
+                        ])
                     }
                 }
             })
@@ -185,7 +187,7 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
                                     'vendors/fileinput/fileinput.min.js'
                                 ]
                             }
-                        ]);
+                        ])
                     }
                 }
             })
@@ -266,7 +268,7 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
                                     'vendors/bower_components/lightgallery/light-gallery/js/lightGallery.min.js'
                                 ]
                             }
-                        ]);
+                        ])
                     }
                 }
             })
@@ -294,23 +296,6 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
             .state ('charts.flot-charts', {
                 url: '/flot-charts',
                 templateUrl: 'views/flot-charts.html',
-                resolve: {
-                    loadPlugin: function($ocLazyLoad) {
-                        return $ocLazyLoad.load ([
-                            {
-                                name: 'vendors',
-                                files: [
-                                    'vendors/bower_components/flot/jquery.flot.js',
-                                    'vendors/bower_components/flot/jquery.flot.resize.js',
-                                    'vendors/bower_components/flot.curvedlines/curvedLines.js',
-                                    'vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js',
-                                    'vendors/bower_components/flot/jquery.flot.pie.js',
-                                    'vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js'
-                                ]
-                            }
-                        ]);
-                    }
-                }
             })
 
             .state ('charts.other-charts', {
@@ -323,10 +308,10 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
                                 name: 'vendors',
                                 files: [
                                     'vendors/sparklines/jquery.sparkline.min.js',
-                                    'vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js'
+                                    'vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js',
                                 ]
                             }
-                        ]);
+                        ])
                     }
                 }
             })
@@ -346,7 +331,7 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
                                 name: 'css',
                                 insertBefore: '#app-level',
                                 files: [
-                                    'vendors/bower_components/fullcalendar/dist/fullcalendar.min.css'
+                                    'vendors/bower_components/fullcalendar/dist/fullcalendar.min.css',
                                 ]
                             },
                             {
@@ -356,7 +341,7 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
                                     'vendors/bower_components/fullcalendar/dist/fullcalendar.min.js'
                                 ]
                             }
-                        ]);
+                        ])
                     }
                 }
             })
@@ -413,7 +398,7 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
                                     'vendors/bower_components/lightgallery/light-gallery/js/lightGallery.min.js'
                                 ]
                             }
-                        ]);
+                        ])
                     }
                 }
             })
@@ -437,7 +422,7 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
                                     'vendors/bower_components/lightgallery/light-gallery/js/lightGallery.min.js'
                                 ]
                             }
-                        ]);
+                        ])
                     }
                 }
             })
@@ -468,5 +453,5 @@ materialAdmin.config(function ($stateProvider, $urlRouterProvider){
             .state ('breadcrumb-demo', {
                 url: '/breadcrumb-demo',
                 templateUrl: 'views/breadcrumb-demo.html'
-            });
-});
+            })
+    });

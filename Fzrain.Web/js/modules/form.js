@@ -13,7 +13,8 @@ materialAdmin
                 if($('.fg-line')[0]) {
                     $('body').on('focus', '.form-control', function(){
                         $(this).closest('.fg-line').addClass('fg-toggled');
-                    });
+                    })
+
                     $('body').on('blur', '.form-control', function(){
                         var p = $(this).closest('.form-group');
                         var i = p.find('.form-control').val();
@@ -30,7 +31,8 @@ materialAdmin
                 }
     
             }
-        };
+        }
+        
     })
 
     
@@ -47,7 +49,7 @@ materialAdmin
                    autosize(element);
                 }
             }
-        };
+        }
     })
     
 
@@ -63,7 +65,7 @@ materialAdmin
                     element.selectpicker();
                 //}
             }
-        };
+        }
     })
     
 
@@ -83,7 +85,7 @@ materialAdmin
                     });
                 }
             }
-        };
+        }
     })
 
     
@@ -101,7 +103,7 @@ materialAdmin
             link: function(scope, element){
                 element.mask(scope.inputMask.mask);
             }
-        };
+        }
     })
 
 
@@ -126,7 +128,7 @@ materialAdmin
                     }
                 });
             }
-        };
+        }
     })
 
     //Range
@@ -144,7 +146,7 @@ materialAdmin
                     connect: true
                 });
             }
-        };
+        }
     })
     
     //Values
@@ -168,7 +170,7 @@ materialAdmin
                 $('.input-slider-values').Link('upper').to($('#value-upper'), 'html');
                 
             }
-        };
+        }
     })
 
 
@@ -179,16 +181,29 @@ materialAdmin
 
     .directive('dtPicker', function(){
         return {
+            require : '?ngModel',
             restrict: 'A',
-            link: function(scope, element, attrs){
-                var format = attrs.dtPicker;
-                
+            scope: {
+                viewMode: '@',
+                format: '@'
+            },
+            link: function(scope, element, attrs, ngModel){
                 element.datetimepicker({
-                    format: format
-                });
+                    viewMode: scope.viewMode,
+                    format: scope.format
+                })
+                .on('dp.change', function (e) {
+                    // datepick doesn't update the value of the ng-model when the date is changed
+                    // when date changed event is triggered 
+                    // retreive the value of the new date
+                    // set the value to the ng-model 
+                    ngModel.$setViewValue($(element).val());
+                });   
             }
-        };
+        }
     })
+
+
 
 
     
@@ -206,7 +221,7 @@ materialAdmin
                 });
                 
             }
-        };
+        }
     })
 
 
@@ -226,7 +241,7 @@ materialAdmin
                 });
             }
             
-        };
+        }
     })
 
     //Edit and Save
@@ -238,15 +253,17 @@ materialAdmin
                 element.on('click', function(){
                     $('.hec-click').summernote({
                         focus: true
-                    });
+                    })
+                    
                     $('.hec-save').show();
-                });
+                })
+                
                 $('.hec-save').on('click', function(){
                     $('.hec-click').destroy();
                     $('.hec-save').hide();
-                });
+                })
             }
-        };
+        }
     })
 
     //Air Mode
@@ -257,7 +274,27 @@ materialAdmin
             link: function(scope, element, attrs){
                 element.summernote({
                     airMode: true
-                });
+                })
             }
-        };
-})
+        }
+    })
+
+
+
+    // =========================================================================
+    // PLACEHOLDER FOR IE 9 (on .form-control class)
+    // =========================================================================
+
+    .directive('formControl', function(){
+        return {
+            restrict: 'C',
+            link: function(scope, element, attrs) {
+                if(angular.element('html').hasClass('ie9')) {
+                    $('input, textarea').placeholder({
+                        customClass: 'ie9-placeholder'
+                    });
+                }
+            }
+            
+        }
+    })

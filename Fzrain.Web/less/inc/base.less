@@ -9,23 +9,25 @@
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
 }
 
-html, body {
-    min-height: 100%;
-}
-
 html {
     overflow-x: ~"hidden\0/";
     -ms-overflow-style: none;
 }
 
-body {
-    font-weight: 400;
-    padding-top: 65px;
-    .animated(fadeIn, 1000ms);
+html, body {
+    min-height: 100vh;
 }
 
-audio, video { 
-      outline: none;
+body {
+    font-weight: 400;
+    padding-top: @header-height;
+    padding-bottom: @footer-height;
+    .animated(fadeIn, 1000ms);
+    position: relative;
+}
+
+audio, video {  
+      outline: none; 
 }
 
 p {
@@ -84,7 +86,7 @@ body {
     &.sw-toggled {
         #content {
             @media (min-width: @screen-lg-min) {
-                padding: 30px 0 30px 250px;
+                padding: 30px 0 30px @sidebar-left-width;
             }
             
             & > .container {

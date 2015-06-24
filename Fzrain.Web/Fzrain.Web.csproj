@@ -197,6 +197,11 @@
     <Content Include="css\demo.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\roboto\Roboto-Bold-webfont.svg" />
+    <Content Include="fonts\roboto\Roboto-Light-webfont.svg" />
+    <Content Include="fonts\roboto\Roboto-Medium-webfont.svg" />
+    <Content Include="fonts\roboto\Roboto-Regular-webfont.svg" />
+    <Content Include="fonts\roboto\Roboto-Thin-webfont.svg" />
     <Content Include="fonts\weather-icons\weather-icons.svg" />
     <Content Include="Global.asax" />
     <Content Include="gruntfile.js" />
@@ -352,11 +357,33 @@
     <Content Include="img\widgets\mate7.jpg" />
     <Content Include="img\widgets\note4.jpg" />
     <Content Include="img\widgets\preview.jpg" />
+    <Content Include="js\templates.js" />
+    <Content Include="vendors\bower_components\jquery-placeholder\jquery.placeholder.js" />
+    <Content Include="vendors\bower_components\jquery-placeholder\jquery.placeholder.min.js" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="vendors\bower_components\jquery-placeholder\.bower.json" />
+    <Content Include="vendors\bower_components\jquery-placeholder\bower.json" />
+    <Content Include="vendors\bower_components\jquery-placeholder\jquery.placeholder.min.js.map" />
+    <Content Include="fonts\roboto\Roboto-Bold-webfont.eot" />
+    <Content Include="fonts\roboto\Roboto-Bold-webfont.ttf" />
+    <Content Include="fonts\roboto\Roboto-Bold-webfont.woff" />
+    <Content Include="fonts\roboto\Roboto-Light-webfont.eot" />
+    <Content Include="fonts\roboto\Roboto-Light-webfont.ttf" />
+    <Content Include="fonts\roboto\Roboto-Light-webfont.woff" />
+    <Content Include="fonts\roboto\Roboto-Medium-webfont.eot" />
+    <Content Include="fonts\roboto\Roboto-Medium-webfont.ttf" />
+    <Content Include="fonts\roboto\Roboto-Medium-webfont.woff" />
+    <Content Include="fonts\roboto\Roboto-Regular-webfont.eot" />
+    <Content Include="fonts\roboto\Roboto-Regular-webfont.ttf" />
+    <Content Include="fonts\roboto\Roboto-Regular-webfont.woff" />
+    <Content Include="fonts\roboto\Roboto-Thin-webfont.eot" />
+    <Content Include="fonts\roboto\Roboto-Thin-webfont.ttf" />
+    <Content Include="fonts\roboto\Roboto-Thin-webfont.woff" />
     <None Include="Views\includes\chat.cshtml" />
     <Content Include="Views\includes\header.cshtml" />
     <Content Include="Views\includes\sidebar-left.cshtml" />
     <Content Include="Views\includes\profile-menu.cshtml" />
+    <Content Include="Views\includes\footer.cshtml" />
     <None Include="Views\index.cshtml" />
     <Content Include="js\app.js" />
     <Content Include="js\config.js" />
@@ -377,7 +404,6 @@
     <Content Include="log4net.config" />
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
-    <Content Include="login.html" />
     <Content Include="media\big_buck_bunny.jpg" />
     <Content Include="media\big_buck_bunny.mp4" />
     <Content Include="media\carousel\c-1.jpg" />
@@ -2746,7 +2772,6 @@
     <Content Include="fonts\weather-icons\weather-icons.eot" />
     <Content Include="fonts\weather-icons\weather-icons.ttf" />
     <Content Include="fonts\weather-icons\weather-icons.woff" />
-    <Content Include="App\web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

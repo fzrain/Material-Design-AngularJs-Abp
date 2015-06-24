@@ -13,7 +13,7 @@ materialAdmin
                 user: user,
                 text: text
             });
-        };
+        }
     }])
     
 
@@ -30,7 +30,7 @@ materialAdmin
                 name: name,
                 range: range,
             });
-        };
+        }
     }])
 
     
@@ -45,7 +45,7 @@ materialAdmin
             return todoList.get({
                 todo: todo
             });
-        };
+        }
     }])
 
 
@@ -61,8 +61,8 @@ materialAdmin
                 id: id,
                 name: name,
                 price: price
-            });
-        };
+            })
+        }
     }])
 
 
@@ -78,8 +78,8 @@ materialAdmin
                 img: img,
                 user: user,
                 text: text
-            });
-        };
+            })
+        }
     }])
 
 
@@ -95,9 +95,11 @@ materialAdmin
                 cursorborderradius: 0,
                 cursorwidth: cursorWidth,
                 bouncescroll: true,
-                mousescrollstep: 100
+                mousescrollstep: 100,
+                autohidemode: false
             });
-        };
+        }
+        
         return ns;
     })
 
@@ -130,6 +132,7 @@ materialAdmin
                     y: 85
                 }
             });
-        };
-    return gs;
+        }
+        
+        return gs;
     })

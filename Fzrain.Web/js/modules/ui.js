@@ -17,7 +17,7 @@ materialAdmin
                     }
                 }
             }
-        };
+        }
     }])
 
 
@@ -32,7 +32,7 @@ materialAdmin
                     nicescrollService.niceScroll(element, 'rgba(0,0,0,0.3)', '5px');
                 }
             }
-        };
+        }
     }])
 
 
@@ -47,7 +47,7 @@ materialAdmin
                     nicescrollService.niceScroll(element, 'rgba(0,0,0,0.3)', '5px');
                 }
             }
-        };
+        }
     }])
 
     
@@ -62,7 +62,7 @@ materialAdmin
                     nicescrollService.niceScroll(element, 'rgba(0,0,0,0.3)', '1px');
                 }
             }
-        };
+        }
     }])
 
     
@@ -74,10 +74,10 @@ materialAdmin
             link: function(scope, element) {
         
                 if (!$('html').hasClass('ismobile')) {                    
-                    nicescrollService.niceScroll(element, 'rgba(0,0,0,0.3)', '1px');
+                    nicescrollService.niceScroll(element, 'rgba(0,0,0,0.4)', '5px');
                 }
             }
-        };
+        }
     }])
 
 
@@ -94,7 +94,7 @@ materialAdmin
                 Waves.attach(element);
                 Waves.init();
             }
-        };
+        }
     })
     
     //Wave buttons for .btn-wave class
@@ -105,5 +105,5 @@ materialAdmin
                 Waves.attach(element);
                 Waves.init();
             }
-        };
-})
+        }
+    })

@@ -25,17 +25,17 @@ materialAdmin
                         localStorage.setItem('ma-layout-status', 1);
                         scope.$apply(function(){
                             scope.changeLayout = '1';
-                        });
+                        })
                     }
                     else {
                         localStorage.setItem('ma-layout-status', 0);
                         scope.$apply(function(){
                             scope.changeLayout = '0';
-                        });
+                        })
                     }
-                });
+                })
             }
-        };
+        }
     })
 
 
@@ -60,12 +60,12 @@ materialAdmin
                         if (scope.modelLeft === false) {
                             scope.$apply(function(){
                                 scope.modelLeft = true;
-                            });
+                            })
                         }
                         else {
                             scope.$apply(function(){
                                 scope.modelLeft = false;
-                            });
+                            })
                         }
                     }
                     
@@ -73,20 +73,39 @@ materialAdmin
                         if (scope.modelRight === false) {
                             scope.$apply(function(){
                                 scope.modelRight = true;
-                            });
+                            })
                         }
                         else {
                             scope.$apply(function(){
                                 scope.modelRight = false;
-                            });
+                            })
                         }
                         
                     }
-                });
+                })
             }
-        };
+        }
+    
     })
+    
 
+    
+    // =========================================================================
+    // SUBMENU TOGGLE
+    // =========================================================================
+
+    .directive('toggleSubmenu', function(){
+
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.click(function(){
+                    element.parent().toggleClass('toggled');
+                    element.parent().find('ul').stop(true, false).slideToggle(200);
+                })
+            }
+        }
+    })
 
 
     // =========================================================================
@@ -101,7 +120,7 @@ materialAdmin
                     event.stopPropagation();
                 });
             }
-        };
+        }
     })
 
     .directive('aPrevent', function(){
@@ -112,5 +131,12 @@ materialAdmin
                     event.preventDefault();
                 });
             }
-        };
-})
+        }
+    })
+
+
+
+
+
+
+   

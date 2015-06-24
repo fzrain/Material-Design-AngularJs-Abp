@@ -1,7 +1,7 @@
 #header {
     background: #4285F4;
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
-    height: 65px;
+    height: @header-height;
     position: fixed;
     z-index: 10;
     width: 100%;
@@ -45,7 +45,7 @@
 }
 
 #menu-trigger  {
-    width: 65px;
+    width: 65px; 
     height: 35px;
     cursor: pointer;
 
@@ -83,7 +83,7 @@
     & > li { 
         display: inline-block;
         
-        @media (max-width: @screen-xs-max) {
+        @media (max-width: @screen-xs-max) { 
             position: static !important;
         }
         

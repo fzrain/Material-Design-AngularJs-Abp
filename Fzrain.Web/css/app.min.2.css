@@ -1,3 +1,41 @@
+.mejs-container .mejs-controls .mejs-pause button {
+  background-image: url("../img/icons/pause.png");
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .mejs-container .mejs-controls .mejs-pause button {
+    background-image: url("../img/icons/pause@2x.png");
+    background-size: 15px 15px;
+  }
+}
+
+.mejs-container .mejs-controls .mejs-mute button {
+  background-image: url("../img/icons/speaker.png");
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .mejs-container .mejs-controls .mejs-mute button {
+    background-image: url("../img/icons/speaker@2x.png");
+    background-size: 15px 15px;
+  }
+}
+
+.mejs-container .mejs-controls .mejs-unmute button {
+  background-image: url("../img/icons/speaker-2.png");
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+  .mejs-container .mejs-controls .mejs-unmute button {
+    background-image: url("../img/icons/speaker-2@2x.png");
+    background-size: 15px 15px;
+  }
+}
+
+.mejs-container .mejs-controls .mejs-fullscreen-button {
+  position: absolute;
+  right: 5px;
+}
+
 .mejs-container .mejs-controls .mejs-fullscreen-button button {
   background-image: url("../img/icons/fullscreen.png");
 }

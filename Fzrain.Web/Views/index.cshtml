@@ -1,61 +1,63 @@
-﻿@using System.Web.Optimization
-<!DOCTYPE html>
-    <html data-ng-app="materialAdmin" data-ng-controller="materialadminCtrl as mactrl">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Material Admin</title>
-    
-        <!-- Vendor CSS -->
-        <link href="~/vendors/socicon/socicon.min.css" rel="stylesheet">
-        <link href="~/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
-        <link href="~/vendors/bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet">
-        <link href="~/vendors/bower_components/sweetalert/dist/sweetalert-override.min.css" rel="stylesheet">
-        <link href="~/vendors/bower_components/angular-loading-bar/src/loading-bar.css" rel="stylesheet">
-        
-            
-        <!-- CSS -->
-        <link href="~/css/app.min.1.css" rel="stylesheet" id="app-level">
-        <link href="~/css/app.min.2.css" rel="stylesheet">
-        <link href="~/css/demo.css" rel="stylesheet">
-        
-    </head>
-    
-    <body data-ng-class="{ 'sw-toggled': mactrl.layoutType === '1' }">
+﻿<!DOCTYPE html>
+<!--[if IE 9 ]><html class="ie9" data-ng-app="materialAdmin" data-ng-controller="materialadminCtrl as mactrl"><![endif]-->
+    <![if IE 9 ]>
+<html data-ng-app="materialAdmin" data-ng-controller="materialadminCtrl as mactrl">
+<![endif]>
 
-       
-        <div ui-view></div>
-        
-        
-        <!-- Older IE warning message -->   
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Material Admin</title>
 
-        <!--[if lt IE 9]>
-            <div class="ie-warning">
-                <h1 class="c-white">IE SUCKS!</h1>
-                <p>You are using an outdated version of Internet Explorer, upgrade to any of the following web browser <br/>in order to access the maximum functionality of this website. </p>
+    <!-- Vendor CSS -->
+    <link href="~/vendors/socicon/socicon.min.css" rel="stylesheet">
+    <link href="~/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/vendors/bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="~/vendors/bower_components/sweetalert/dist/sweetalert-override.min.css" rel="stylesheet">
+    <link href="~/vendors/bower_components/angular-loading-bar/src/loading-bar.css" rel="stylesheet">
+
+
+    <!-- CSS -->
+    <link href="~/css/app.min.1.css" rel="stylesheet" id="app-level">
+    <link href="~/css/app.min.2.css" rel="stylesheet">
+    <link href="~/css/demo.css" rel="stylesheet">
+
+</head>
+
+<body data-ng-class="{ 'sw-toggled': mactrl.layoutType === '1' }">
+
+
+    <div ui-view></div>
+
+    <!-- Older IE warning message -->
+    <!--[if lt IE 9]>
+        <div class="ie-warning">
+            <h1 class="c-white">Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+            <div class="iew-container">
                 <ul class="iew-download">
                     <li>
                         <a href="http://www.google.com/chrome/">
-                            <img src="img/browsers/chrome.png" alt="">
+                            <img src="~/img/browsers/chrome.png" alt="">
                             <div>Chrome</div>
                         </a>
                     </li>
                     <li>
                         <a href="https://www.mozilla.org/en-US/firefox/new/">
-                            <img src="img/browsers/firefox.png" alt="">
+                            <img src="~/img/browsers/firefox.png" alt="">
                             <div>Firefox</div>
                         </a>
                     </li>
                     <li>
                         <a href="http://www.opera.com">
-                            <img src="img/browsers/opera.png" alt="">
+                            <img src="~/img/browsers/opera.png" alt="">
                             <div>Opera</div>
                         </a>
                     </li>
                     <li>
                         <a href="https://www.apple.com/safari/">
-                            <img src="img/browsers/safari.png" alt="">
+                            <img src="~/img/browsers/safari.png" alt="">
                             <div>Safari</div>
                         </a>
                     </li>
@@ -66,49 +68,63 @@
                         </a>
                     </li>
                 </ul>
-                <p>Upgrade your browser for a Safer and Faster web experience. <br/>Thank you for your patience...</p>
-            </div>   
-        <![endif]-->
+            </div>
+            <p>Sorry for the inconvenience!</p>
+        </div>
+    <![endif]-->
+    <!-- Core -->
+    <script src="~/vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
-    
-        <!-- Core -->
-        <script src="~/vendors/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="~/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        @Scripts.Render("~/Bundles/App/abp/js");
-        <!-- Angular -->
-        <script src="~/vendors/angular/angular.min.js"></script>
-        <script src="~/vendors/angular/angular-route.min.js"></script>
-        <script src="~/vendors/angular/angular-resource.min.js"></script>
-        <script src="~/vendors/angular/angular-animate.min.js"></script>
-        
-        <!-- Angular Modules -->
-        <script src="~/vendors/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-        <script src="~/vendors/bower_components/angular-loading-bar/src/loading-bar.js"></script>
-        <script src="~/vendors/bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
-        
-        <!-- Vendors -->
-        <script src="~/vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-        <script src="~/vendors/bower_components/sweetalert/dist/sweetalert.min.js"></script>
-        <script src="~/vendors/bower_components/Waves/dist/waves.min.js"></script>
-        <script src="~/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
-     
-        <!-- App level -->
-        <script src="~/js/app.js"></script>
-        <script src="~/js/config.js"></script>
-        <script src="~/js/controllers.js"></script>
-        <script src="~/js/services.js"></script>
-        
-        <!-- Template Modules -->
-        <script src="~/js/modules/template.js"></script> 
-        <script src="~/js/modules/ui.js"></script>
-        <script src="~/js/modules/charts/flot.js"></script>
-        <script src="~/js/modules/charts/other-charts.js"></script>
-        <script src="~/js/modules/form.js"></script>
-        <script src="~/js/modules/table.js"></script>
-        <script src="~/js/modules/media.js"></script>
-        <script src="~/js/modules/components.js"></script>
-        <script src="~/js/modules/calendar.js"></script>
-        <script src="~/js/modules/demo.js"></script>
-        
-    </body>
-</html>
+    <!-- Angular -->
+    <script src="~/vendors/angular/angular.min.js"></script>
+    <script src="~/vendors/angular/angular-route.min.js"></script>
+    <script src="~/vendors/angular/angular-resource.min.js"></script>
+    <script src="~/vendors/angular/angular-animate.min.js"></script>
+
+    <!-- Angular Modules -->
+    <script src="~/vendors/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="~/vendors/bower_components/angular-loading-bar/src/loading-bar.js"></script>
+    <script src="~/vendors/bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+
+    <!-- Common Vendors -->
+    <script src="~/vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="~/vendors/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/vendors/bower_components/Waves/dist/waves.min.js"></script>
+    <script src="~/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+
+    <!-- Placeholder for IE9 -->
+    <!--[if IE 9 ]>
+        <script src="~/vendors/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+    <![endif]-->
+    <!-- Using below vendors in order to avoid misloading on resolve -->
+    <script src="~/vendors/bower_components/flot/jquery.flot.js"></script>
+    <script src="~/vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
+    <script src="~/vendors/bower_components/flot/jquery.flot.resize.js"></script>
+    <script src="~/vendors/bower_components/moment/min/moment.min.js"></script>
+    <script src="~/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="~/vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>,
+    <script src="~/vendors/bower_components/flot/jquery.flot.pie.js"></script>,
+    <script src="~/vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+
+    <!-- App level -->
+    <script src="~/js/app.js"></script>
+    <script src="~/js/config.js"></script>
+    <script src="~/js/controllers.js"></script>
+    <script src="~/js/services.js"></script>
+    <script src="~/js/templates.js"></script>
+
+
+    <!-- Template Modules -->
+    <script src="~/js/modules/template.js"></script>
+    <script src="~/js/modules/ui.js"></script>
+    <script src="~/js/modules/charts/flot.js"></script>
+    <script src="~/js/modules/charts/other-charts.js"></script>
+    <script src="~/js/modules/form.js"></script>
+    <script src="~/js/modules/table.js"></script>
+    <script src="~/js/modules/media.js"></script>
+    <script src="~/js/modules/components.js"></script>
+    <script src="~/js/modules/calendar.js"></script>
+    <script src="~/js/modules/demo.js"></script>
+
+</body>
