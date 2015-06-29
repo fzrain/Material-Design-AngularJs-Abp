@@ -1,7 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization
+<!DOCTYPE html>
 <!--[if IE 9 ]><html class="ie9" data-ng-app="materialAdmin" data-ng-controller="materialadminCtrl as mactrl"><![endif]-->
     <![if IE 9 ]>
-<html data-ng-app="materialAdmin" data-ng-controller="materialadminCtrl as mactrl">
+        <html data-ng-app="materialAdmin" data-ng-controller="materialadminCtrl as mactrl">
 <![endif]>
 
 <head>
@@ -17,12 +18,15 @@
     <link href="~/vendors/bower_components/sweetalert/dist/sweetalert-override.min.css" rel="stylesheet">
     <link href="~/vendors/bower_components/angular-loading-bar/src/loading-bar.css" rel="stylesheet">
 
-
     <!-- CSS -->
     <link href="~/css/app.min.1.css" rel="stylesheet" id="app-level">
     <link href="~/css/app.min.2.css" rel="stylesheet">
     <link href="~/css/demo.css" rel="stylesheet">
-
+    <style>
+        * {
+            font-family:'Microsoft YaHei'
+        }
+    </style>
 </head>
 
 <body data-ng-class="{ 'sw-toggled': mactrl.layoutType === '1' }">
@@ -63,7 +67,7 @@
                     </li>
                     <li>
                         <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                            <img src="img/browsers/ie.png" alt="">
+                            <img src="~/img/browsers/ie.png" alt="">
                             <div>IE (New)</div>
                         </a>
                     </li>
@@ -106,7 +110,7 @@
     <script src="~/vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>,
     <script src="~/vendors/bower_components/flot/jquery.flot.pie.js"></script>,
     <script src="~/vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-
+    @Scripts.Render("~/Bundles/App/abp/js")
     <!-- App level -->
     <script src="~/js/app.js"></script>
     <script src="~/js/config.js"></script>
@@ -126,5 +130,9 @@
     <script src="~/js/modules/components.js"></script>
     <script src="~/js/modules/calendar.js"></script>
     <script src="~/js/modules/demo.js"></script>
-
+    
+    
+    <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
+    <script src="~/api/AbpServiceProxies/GetAll?type=angular"></script>
+    <script src="~/AbpScripts/GetScripts" type="text/javascript"></script>
 </body>

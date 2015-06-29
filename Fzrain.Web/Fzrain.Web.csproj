@@ -191,7 +191,6 @@
     <Content Include="Abp\Framework\styles\abp.css" />
     <Content Include="Abp\Framework\styles\abp.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
-    <Content Include="css\app.css" />
     <Content Include="css\app.min.1.css" />
     <Content Include="css\app.min.2.css" />
     <Content Include="css\demo.css" />
@@ -379,6 +378,8 @@
     <Content Include="fonts\roboto\Roboto-Thin-webfont.eot" />
     <Content Include="fonts\roboto\Roboto-Thin-webfont.ttf" />
     <Content Include="fonts\roboto\Roboto-Thin-webfont.woff" />
+    <Content Include="Views\common.cshtml" />
+    <Content Include="bower.json" />
     <None Include="Views\includes\chat.cshtml" />
     <Content Include="Views\includes\header.cshtml" />
     <Content Include="Views\includes\sidebar-left.cshtml" />
@@ -2772,6 +2773,7 @@
     <Content Include="fonts\weather-icons\weather-icons.eot" />
     <Content Include="fonts\weather-icons\weather-icons.ttf" />
     <Content Include="fonts\weather-icons\weather-icons.woff" />
+    <Content Include="Views\userManager\user.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

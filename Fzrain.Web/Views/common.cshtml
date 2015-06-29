@@ -1,0 +1,47 @@
+﻿<header id="header" data-ng-include src="'/views/includes/header.cshtml'" data-ng-controller="headerCtrl as hctrl"></header>
+
+<section id="main">
+    <aside id="sidebar" data-ng-include src="'/views/includes/sidebar-left.cshtml'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
+    <div class="modal fade" id="modalDefault" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">我的信息</h4>
+                </div>
+             
+                <div class="modal-body">
+                    <div class="form-group fg-float">
+                        <div class="fg-line">
+                            <input type="text" class="form-control">
+                        </div>
+                        <label class="fg-label">姓名</label>
+                    </div>
+
+                    <div class="form-group fg-float">
+                        <div class="fg-line">
+                            <input type="text" class="form-control">
+                        </div>
+                        <label class="fg-label">邮箱</label>
+                    </div>
+
+                    <div class="form-group fg-float">
+                        <div class="fg-line">
+                            <input type="text" class="form-control">
+                        </div>
+                        <label class="fg-label">用户名</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info waves-effect"><i class="md md-save"></i>保存</button>
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="md md-cancel"></i>取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <aside id="chat" data-ng-include src="'/views/includes/chat.cshtml'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.right === true }"></aside>
+
+    <section id="content" class="page-view" data-ui-view></section>
+</section>
+
+<footer id="footer" data-ng-include src="'/views/includes/footer.cshtml'"></footer>
+

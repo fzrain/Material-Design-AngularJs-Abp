@@ -1,0 +1,16 @@
+﻿{
+  "name": "fzrain",
+  "version": "1.0.0",
+  "authors": [
+    "Fzrain <fzrain@hotmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "1.3.16"
+  }
+}

@@ -7371,7 +7371,7 @@ button.close {
 
 .modal-header {
   padding: 15px;
-  border-bottom: 1px solid transparent;
+  border-bottom: 1px solid #efefef;
   min-height: #0f0f0f;
 }
 
@@ -9757,7 +9757,7 @@ body #content {
 }
 
 #header {
-  background: #4285F4;
+  background: #18B69E;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
   height: 65px;
   position: fixed;
@@ -13486,7 +13486,7 @@ html:not(.ie9) .select.fg-line:before {
 }
 
 .fg-line:not([class*=has-]):after {
-  background: #2196f3;
+  background: #26a69a;
 }
 
 .fg-line.input-toggled:after {
@@ -14347,7 +14347,7 @@ a.thumbnail.active {
 }
 
 .modal .modal-body {
-  padding: 0 26px 10px;
+  padding: 20px;
 }
 
 .modal .modal-footer .btn-link {

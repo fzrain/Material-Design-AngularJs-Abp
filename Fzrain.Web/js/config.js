@@ -24,7 +24,7 @@ materialAdmin
                                 name: 'css',
                                 insertBefore: '#app-level',
                                 files: [
-                                    'vendors/bower_components/fullcalendar/dist/fullcalendar.min.css',
+                                    'vendors/bower_components/fullcalendar/dist/fullcalendar.min.css'
                                 ]
                             },
                             {
@@ -42,42 +42,31 @@ materialAdmin
             })
         
 
+
             //------------------------------
-            // TYPOGRAPHY
+            // 后台（用户、角色）
             //------------------------------
-        
-            .state ('typography', {
-                url: '/typography',
-                templateUrl: 'views/typography.html'
+            .state('userManager', {
+                url: '/userManager',
+                templateUrl:abp.appPath+ 'views/common.cshtml'
             })
-
-
-            //------------------------------
-            // WIDGETS
-            //------------------------------
-        
-            .state ('widgets', {
-                url: '/widgets',
-                templateUrl: 'views/common.html'
-            })
-
-            .state ('widgets.widgets', {
-                url: '/widgets',
-                templateUrl: 'views/widgets.html',
+            .state('userManager.user', {
+                url: '/userManager-user',
+                templateUrl:abp.appPath+ 'views/userManager/user.cshtml',
                 resolve: {
                     loadPlugin: function($ocLazyLoad) {
-                        return $ocLazyLoad.load ([
+                        return $ocLazyLoad.load([
                             {
                                 name: 'css',
                                 insertBefore: '#app-level',
                                 files: [
-                                    'vendors/bower_components/mediaelement/build/mediaelementplayer.css',
+                                    'vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid.min.css'
                                 ]
                             },
                             {
                                 name: 'vendors',
                                 files: [
-                                    'vendors/bower_components/mediaelement/build/mediaelement-and-player.js'
+                                    'vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid-override.min.js'
                                 ]
                             }
                         ])
@@ -115,7 +104,7 @@ materialAdmin
                                 name: 'css',
                                 insertBefore: '#app-level',
                                 files: [
-                                    'vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid.min.css',
+                                    'vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid.min.css'
                                 ]
                             },
                             {

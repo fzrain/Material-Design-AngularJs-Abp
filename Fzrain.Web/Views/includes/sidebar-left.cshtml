@@ -5,93 +5,37 @@
                 <img src="img/profile-pics/1.jpg" alt="">
             </div>
             <div class="profile-info">
-                Malinda Hollaway
-
+                用户名
                 <i class="md md-arrow-drop-down"></i>
             </div>
         </a>
         <ul class="main-menu">
             <li>
-                <a href="profile-about.html"><i class="md md-person"></i> View Profile</a>
+                <a data-toggle="modal" href="" data-target="#modalDefault"><i class="md md-person"></i>我</a>           
             </li>
             <li>
-                <a href=""><i class="md md-settings-input-antenna"></i> Privacy Settings</a>
+                <a href=""><i class="md md-settings-input-antenna"></i> 修改头像</a>
             </li>
             <li>
-                <a href=""><i class="md md-settings"></i> Settings</a>
+                <a href=""><i class="md md-settings"></i> 修改密码</a>
             </li>
             <li>
-                <a href=""><i class="md md-history"></i> Logout</a>
+                <a href=""><i class="md md-history"></i> 注销</a>
             </li>
         </ul>
     </div>
     <ul class="main-menu">
         <li data-ui-sref-active="active">
-            <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="md md-home"></i> Home</a>
-        </li>
-        <li data-ui-sref-active="active">
-            <a data-ui-sref="typography" data-ng-click="mactrl.sidebarStat($event)"><i class="md md-format-underline"></i> Typography</a>
-        </li>
-        <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('widgets') }">
-            <a href="" toggle-submenu><i class="md md-now-widgets"></i> Widgets</a>
+            <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="md md-home"></i> 首页</a>
+        </li>      
+        <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('userManager') }">
+            <a href="" toggle-submenu><i class="md md-now-widgets"></i> 后台</a>
             <ul>
-                <li><a data-ui-sref-active="active" data-ui-sref="widgets.widget-templates" data-ng-click="mactrl.sidebarStat($event)">Templates</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="widgets.widgets" data-ng-click="mactrl.sidebarStat($event)">Widgets</a></li>
+                <li><a data-ui-sref-active="active" data-ui-sref="userManager.user" data-ng-click="mactrl.sidebarStat($event)">用户</a></li>
+                <li><a data-ui-sref-active="active" data-ui-sref="userManager.role" data-ng-click="mactrl.sidebarStat($event)">角色</a></li>
+                <li><a data-ui-sref-active="active" data-ui-sref="userManager.operateLog" data-ng-click="mactrl.sidebarStat($event)">操作日志</a></li>
             </ul>
         </li>
-        <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('tables') }">
-            <a href="" toggle-submenu><i class="md md-view-list"></i> Tables</a>
-            <ul>
-                <li><a data-ui-sref-active="active" data-ui-sref="tables.tables" data-ng-click="mactrl.sidebarStat($event)">Normal Tables</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="tables.data-tables" data-ng-click="mactrl.sidebarStat($event)">Data Tables</a></li>
-            </ul>
-        </li>
-        <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('form') }">
-            <a href="" toggle-submenu><i class="md md-my-library-books"></i> Forms</a>
-            <ul>
-                <li><a data-ui-sref-active="active" data-ui-sref="form.basic-form-elements" data-ng-click="mactrl.sidebarStat($event)">Basic Form Elements</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="form.form-components" data-ng-click="mactrl.sidebarStat($event)">Form Components</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="form.form-examples" data-ng-click="mactrl.sidebarStat($event)">Form Examples</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="form.form-validations" data-ng-click="mactrl.sidebarStat($event)">Form Validation</a></li>
-            </ul>
-        </li>
-        <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('user-interface') }">
-            <a href="" toggle-submenu><i class="md md-swap-calls"></i>User Interface</a>
-            <ul>
-                <li><a data-ui-sref-active="active" data-ui-sref="user-interface.colors" data-ng-click="mactrl.sidebarStat($event)">Colors</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="user-interface.animations" data-ng-click="mactrl.sidebarStat($event)">Animations</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="user-interface.box-shadow" data-ng-click="mactrl.sidebarStat($event)">Box Shadow</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="user-interface.buttons" data-ng-click="mactrl.sidebarStat($event)">Buttons</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="user-interface.icons" data-ng-click="mactrl.sidebarStat($event)">Icons</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="user-interface.alerts" data-ng-click="mactrl.sidebarStat($event)">Alerts</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="user-interface.notifications-dialogs" data-ng-click="mactrl.sidebarStat($event)">Notifications & Dialogs</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="user-interface.media" data-ng-click="mactrl.sidebarStat($event)">Media</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="user-interface.components" data-ng-click="mactrl.sidebarStat($event)">Components</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="user-interface.other-components" data-ng-click="mactrl.sidebarStat($event)">Others</a></li>
-            </ul>
-        </li>
-        <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('charts') }">
-            <a href="" toggle-submenu><i class="md md-trending-up"></i>Charts</a>
-            <ul>
-                <li><a data-ui-sref-active="active" data-ui-sref="charts.flot-charts" data-ng-click="mactrl.sidebarStat($event)">Flot Charts</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="charts.other-charts" data-ng-click="mactrl.sidebarStat($event)">Other Charts</a></li>
-            </ul>
-        </li>
-        <li data-ui-sref-active="active">
-            <a data-ui-sref="calendar" data-ng-click="mactrl.sidebarStat($event)"><i class="md md-today"></i> Calendar</a>
-        </li>
-        <li data-ui-sref-active="active">
-            <a data-ui-sref="generic-classes" data-ng-click="mactrl.sidebarStat($event)"><i class="md md-layers"></i> Generic Classes</a>
-        </li>
-        <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('pages') }">
-            <a href="" toggle-submenu><i class="md md-content-copy"></i> Sample Pages</a>
-            <ul>
-                <li><a data-ui-sref-active="active" data-ui-sref="pages.profile.profile-about" data-ng-click="mactrl.sidebarStat($event)">Profile</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="pages.listview" data-ng-click="mactrl.sidebarStat($event)">List View</a></li>
-                <li><a data-ui-sref-active="active" data-ui-sref="pages.messages" data-ng-click="mactrl.sidebarStat($event)">Messages</a></li>
-                <li><a href="login.html">Login and Sign Up</a></li>
-                <li><a href="404.html">Error 404</a></li>
-            </ul>
-        </li>
+     
     </ul>
 </div>

@@ -1228,3 +1228,426 @@ DEBUG 2015-06-24 17:08:26,187 [1    ] Abp.Localization.LocalizationManager     -
 DEBUG 2015-06-24 17:08:26,190 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
 DEBUG 2015-06-24 17:08:26,213 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
 DEBUG 2015-06-24 17:08:26,213 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-06-25 10:38:57,135 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-06-25 10:38:58,061 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-06-25 10:38:58,065 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:38:58,066 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:38:58,067 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:38:58,067 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:38:58,067 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:38:58,067 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:38:58,067 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:38:58,067 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:38:58,067 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:38:58,067 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:38:58,067 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:38:58,070 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-06-25 10:38:58,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2015-06-25 10:38:58,597 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-06-25 10:38:59,633 [1    ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-06-25 10:39:37,633 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-06-25 10:39:38,490 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-06-25 10:39:38,493 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:39:38,495 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:39:38,495 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:39:38,495 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:39:38,495 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:39:38,495 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:39:38,495 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:39:38,496 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:39:38,496 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:39:38,496 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:39:38,496 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 10:39:38,500 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-06-25 10:39:39,014 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2015-06-25 10:39:39,014 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-06-25 10:39:39,651 [1    ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-06-25 10:39:39,912 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-06-25 10:39:39,918 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-06-25 10:39:39,919 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-06-25 10:39:39,920 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-06-25 15:17:30,342 [282  ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-06-25 15:17:32,353 [282  ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-06-25 15:17:32,357 [282  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:17:32,359 [282  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:17:32,359 [282  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:17:32,360 [282  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:17:32,360 [282  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:17:32,360 [282  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:17:32,360 [282  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:17:32,360 [282  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:17:32,360 [282  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:17:32,360 [282  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:17:32,360 [282  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:17:32,363 [282  ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-06-25 15:17:32,934 [282  ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2015-06-25 15:17:32,934 [282  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-06-25 15:17:33,686 [282  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-06-25 15:17:33,718 [282  ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-06-25 15:17:33,722 [282  ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-06-25 15:17:33,723 [282  ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-06-25 15:17:33,723 [282  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-06-25 15:57:24,814 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-06-25 15:57:26,433 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-06-25 15:57:26,436 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:57:26,439 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:57:26,439 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:57:26,439 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:57:26,439 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:57:26,440 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:57:26,440 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:57:26,440 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:57:26,440 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:57:26,440 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:57:26,440 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 15:57:26,443 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-06-25 15:57:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2015-06-25 15:57:26,955 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-06-25 15:57:27,874 [1    ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-06-25 15:57:27,911 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-06-25 15:57:27,917 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-06-25 15:57:27,919 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-06-25 15:57:27,919 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-06-25 16:01:59,845 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-06-25 16:02:01,414 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-06-25 16:02:01,417 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:02:01,419 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:02:01,419 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:02:01,419 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:02:01,419 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:02:01,419 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:02:01,419 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:02:01,420 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:02:01,420 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:02:01,420 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:02:01,420 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:02:01,425 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-06-25 16:02:01,951 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2015-06-25 16:02:01,951 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-06-25 16:02:02,660 [1    ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-06-25 16:02:02,697 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-06-25 16:02:02,701 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-06-25 16:02:02,702 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-06-25 16:02:02,702 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-06-25 16:10:26,475 [32   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-06-25 16:10:27,819 [32   ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-06-25 16:10:27,822 [32   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:10:27,823 [32   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:10:27,823 [32   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:10:27,823 [32   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:10:27,823 [32   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:10:27,824 [32   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:10:27,824 [32   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:10:27,824 [32   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:10:27,824 [32   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:10:27,824 [32   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:10:27,824 [32   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:10:27,828 [32   ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-06-25 16:10:28,367 [32   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2015-06-25 16:10:28,367 [32   ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-06-25 16:10:28,994 [32   ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-06-25 16:10:29,010 [32   ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-06-25 16:10:29,013 [32   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-06-25 16:10:29,015 [32   ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-06-25 16:10:29,016 [32   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-06-25 16:18:54,168 [42   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-06-25 16:18:55,596 [42   ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-06-25 16:18:55,598 [42   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:18:55,600 [42   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:18:55,601 [42   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:18:55,601 [42   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:18:55,601 [42   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:18:55,601 [42   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:18:55,601 [42   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:18:55,601 [42   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:18:55,602 [42   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:18:55,602 [42   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:18:55,602 [42   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:18:55,607 [42   ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-06-25 16:18:56,185 [42   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2015-06-25 16:18:56,185 [42   ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-06-25 16:18:56,850 [42   ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-06-25 16:18:56,864 [42   ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-06-25 16:18:56,866 [42   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-06-25 16:18:56,867 [42   ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-06-25 16:18:56,868 [42   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+ERROR 2015-06-25 16:36:59,334 [56   ] .Mvc.Controllers.AbpHandleErrorAttribute - System.InvalidOperationException: The view '~/AbpAppView/Load?viewUrl=/views/includes/footer.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/AbpAppView/Load?viewUrl=/views/includes/footer.cshtml
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+System.InvalidOperationException: The view '~/AbpAppView/Load?viewUrl=/views/includes/footer.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/AbpAppView/Load?viewUrl=/views/includes/footer.cshtml
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ERROR 2015-06-25 16:36:59,737 [52   ] .Mvc.Controllers.AbpHandleErrorAttribute - System.InvalidOperationException: The view '~/AbpAppView/Load?viewUrl=/views/includes/chat.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/AbpAppView/Load?viewUrl=/views/includes/chat.cshtml
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+System.InvalidOperationException: The view '~/AbpAppView/Load?viewUrl=/views/includes/chat.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/AbpAppView/Load?viewUrl=/views/includes/chat.cshtml
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ERROR 2015-06-25 16:37:00,252 [57   ] .Mvc.Controllers.AbpHandleErrorAttribute - System.InvalidOperationException: The view '~/AbpAppView/Load?viewUrl=/views/includes/sidebar-left.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/AbpAppView/Load?viewUrl=/views/includes/sidebar-left.cshtml
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+System.InvalidOperationException: The view '~/AbpAppView/Load?viewUrl=/views/includes/sidebar-left.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/AbpAppView/Load?viewUrl=/views/includes/sidebar-left.cshtml
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ERROR 2015-06-25 16:37:00,746 [58   ] .Mvc.Controllers.AbpHandleErrorAttribute - System.InvalidOperationException: The view '~/AbpAppView/Load?viewUrl=/views/includes/header.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/AbpAppView/Load?viewUrl=/views/includes/header.cshtml
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+System.InvalidOperationException: The view '~/AbpAppView/Load?viewUrl=/views/includes/header.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/AbpAppView/Load?viewUrl=/views/includes/header.cshtml
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ERROR 2015-06-25 16:38:46,099 [66   ] .Mvc.Controllers.AbpHandleErrorAttribute - System.ArgumentException: The relative virtual path '~views/common.cshtml' is not allowed here.
+   at System.Web.VirtualPath.FailIfRelativePath()
+   at System.Web.Hosting.HostingEnvironment.MapPathActual(VirtualPath virtualPath, Boolean permitNull)
+   at System.Web.Hosting.HostingEnvironment.MapPathInternal(VirtualPath virtualPath)
+   at System.Web.Hosting.MapPathBasedVirtualPathProvider.CacheLookupOrInsert(String virtualPath, Boolean isFile)
+   at System.Web.Hosting.MapPathBasedVirtualPathProvider.FileExists(String virtualPath)
+   at System.Web.WebPages.FileExistenceCache.<.ctor>b__4(String path)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Web.WebPages.FileExistenceCache.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPathFromSpecificName(ControllerContext controllerContext, String name, String cacheKey, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClass6.<FindView>b__5(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+System.ArgumentException: The relative virtual path '~views/common.cshtml' is not allowed here.
+   at System.Web.VirtualPath.FailIfRelativePath()
+   at System.Web.Hosting.HostingEnvironment.MapPathActual(VirtualPath virtualPath, Boolean permitNull)
+   at System.Web.Hosting.HostingEnvironment.MapPathInternal(VirtualPath virtualPath)
+   at System.Web.Hosting.MapPathBasedVirtualPathProvider.CacheLookupOrInsert(String virtualPath, Boolean isFile)
+   at System.Web.Hosting.MapPathBasedVirtualPathProvider.FileExists(String virtualPath)
+   at System.Web.WebPages.FileExistenceCache.<.ctor>b__4(String path)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Web.WebPages.FileExistenceCache.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPathFromSpecificName(ControllerContext controllerContext, String name, String cacheKey, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClass6.<FindView>b__5(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ERROR 2015-06-25 16:39:17,434 [54   ] .Mvc.Controllers.AbpHandleErrorAttribute - System.ArgumentException: The relative virtual path '~views/common.cshtml' is not allowed here.
+   at System.Web.VirtualPath.FailIfRelativePath()
+   at System.Web.Hosting.HostingEnvironment.MapPathActual(VirtualPath virtualPath, Boolean permitNull)
+   at System.Web.Hosting.HostingEnvironment.MapPathInternal(VirtualPath virtualPath)
+   at System.Web.Hosting.MapPathBasedVirtualPathProvider.CacheLookupOrInsert(String virtualPath, Boolean isFile)
+   at System.Web.Hosting.MapPathBasedVirtualPathProvider.FileExists(String virtualPath)
+   at System.Web.WebPages.FileExistenceCache.<.ctor>b__4(String path)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Web.WebPages.FileExistenceCache.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPathFromSpecificName(ControllerContext controllerContext, String name, String cacheKey, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClass6.<FindView>b__5(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+System.ArgumentException: The relative virtual path '~views/common.cshtml' is not allowed here.
+   at System.Web.VirtualPath.FailIfRelativePath()
+   at System.Web.Hosting.HostingEnvironment.MapPathActual(VirtualPath virtualPath, Boolean permitNull)
+   at System.Web.Hosting.HostingEnvironment.MapPathInternal(VirtualPath virtualPath)
+   at System.Web.Hosting.MapPathBasedVirtualPathProvider.CacheLookupOrInsert(String virtualPath, Boolean isFile)
+   at System.Web.Hosting.MapPathBasedVirtualPathProvider.FileExists(String virtualPath)
+   at System.Web.WebPages.FileExistenceCache.<.ctor>b__4(String path)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at System.Web.WebPages.FileExistenceCache.FileExists(String virtualPath)
+   at System.Web.Mvc.BuildManagerViewEngine.FileExists(ControllerContext controllerContext, String virtualPath)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPathFromSpecificName(ControllerContext controllerContext, String name, String cacheKey, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.GetPath(ControllerContext controllerContext, String[] locations, String[] areaLocations, String locationsPropertyName, String name, String controllerName, String cacheKeyPrefix, Boolean useCache, String[]& searchedLocations)
+   at System.Web.Mvc.VirtualPathProviderViewEngine.FindView(ControllerContext controllerContext, String viewName, String masterName, Boolean useCache)
+   at System.Web.Mvc.ViewEngineCollection.<>c__DisplayClass6.<FindView>b__5(IViewEngine e)
+   at System.Web.Mvc.ViewEngineCollection.Find(Func`2 lookup, Boolean trackSearchedPaths)
+   at System.Web.Mvc.ViewEngineCollection.FindView(ControllerContext controllerContext, String viewName, String masterName)
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ERROR 2015-06-25 16:41:09,068 [77   ] .Mvc.Controllers.AbpHandleErrorAttribute - System.InvalidOperationException: The view '~/views/userManager/user.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/views/userManager/user.cshtml
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+System.InvalidOperationException: The view '~/views/userManager/user.cshtml' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/views/userManager/user.cshtml
+   at System.Web.Mvc.ViewResult.FindView(ControllerContext context)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2015-06-25 16:43:59,356 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-06-25 16:44:01,135 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-06-25 16:44:01,139 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:44:01,140 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:44:01,140 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:44:01,140 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:44:01,140 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:44:01,140 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:44:01,140 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:44:01,141 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:44:01,141 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:44:01,141 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:44:01,141 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 16:44:01,145 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-06-25 16:44:02,114 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2015-06-25 16:44:02,114 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-06-25 16:44:03,061 [1    ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-06-25 16:44:03,076 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-06-25 16:44:03,078 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-06-25 16:44:03,079 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-06-25 16:44:03,079 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-06-25 17:13:16,606 [78   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-06-25 17:13:18,213 [78   ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-06-25 17:13:18,216 [78   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 17:13:18,219 [78   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 17:13:18,220 [78   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 17:13:18,220 [78   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 17:13:18,220 [78   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 17:13:18,220 [78   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 17:13:18,220 [78   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 17:13:18,221 [78   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 17:13:18,221 [78   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 17:13:18,221 [78   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 17:13:18,221 [78   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-25 17:13:18,224 [78   ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-06-25 17:13:18,850 [78   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2015-06-25 17:13:18,850 [78   ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-06-25 17:13:19,670 [78   ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-06-25 17:13:19,698 [78   ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-06-25 17:13:19,705 [78   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-06-25 17:13:19,706 [78   ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-06-25 17:13:19,706 [78   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-06-29 13:43:46,454 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-06-29 13:43:47,396 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-06-29 13:43:47,399 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 13:43:47,401 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 13:43:47,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 13:43:47,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 13:43:47,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 13:43:47,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 13:43:47,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 13:43:47,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 13:43:47,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 13:43:47,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 13:43:47,402 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 13:43:47,405 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-06-29 13:43:47,906 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2015-06-29 13:43:47,906 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-06-29 13:43:48,669 [1    ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-06-29 13:43:49,516 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-06-29 13:43:49,521 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-06-29 13:43:49,522 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-06-29 13:43:49,522 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-06-29 15:05:23,971 [230  ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-06-29 15:05:25,633 [230  ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-06-29 15:05:25,636 [230  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 15:05:25,639 [230  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 15:05:25,639 [230  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.3.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 15:05:25,639 [230  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 15:05:25,640 [230  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 15:05:25,640 [230  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.3.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 15:05:25,640 [230  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 15:05:25,640 [230  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 15:05:25,640 [230  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 15:05:25,640 [230  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 15:05:25,640 [230  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-06-29 15:05:25,644 [230  ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-06-29 15:05:26,257 [230  ] Abp.AutoMapper.AbpAutoMapperModule       - Found 1 classes defines auto mapping attributes
+DEBUG 2015-06-29 15:05:26,257 [230  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-06-29 15:05:27,092 [230  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-06-29 15:05:27,173 [230  ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-06-29 15:05:27,178 [230  ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-06-29 15:05:27,179 [230  ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-06-29 15:05:27,179 [230  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
