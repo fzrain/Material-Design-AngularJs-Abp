@@ -1,8 +1,8 @@
 materialAdmin
 
-    .run(function($templateCache,$http){
-          $http.get('includes/templates.html', {cache:$templateCache});
-    })
+    //.run(function($templateCache,$http){
+    //      $http.get('includes/templates.html', {cache:$templateCache});
+    //})
 
     .config(function ($stateProvider, $urlRouterProvider){
         $urlRouterProvider.otherwise("/home");

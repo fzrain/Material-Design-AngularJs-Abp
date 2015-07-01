@@ -20,13 +20,12 @@ namespace Fzrain.Web
                         "~/Abp/Framework/scripts/libs/abp.spin.js",
                         "~/Abp/Framework/scripts/libs/angularjs/abp.ng.js"
                     )
-                );                 
-            //APPLICATION RESOURCES
-
-            //~/Bundles/App/Main/css
-           
-
+                );
             //~/Bundles/App/Main/js
+            bundles.Add(
+                new ScriptBundle("~/Bundles/Views/js")
+                    .IncludeDirectory("~/Views", "*.js", true)
+                );
          
         }
     }

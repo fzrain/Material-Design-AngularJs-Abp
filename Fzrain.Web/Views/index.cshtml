@@ -81,7 +81,7 @@
     <script src="~/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <!-- Angular -->
-    <script src="~/vendors/angular/angular.min.js"></script>
+    <script src="~/vendors/angular/angular.js"></script>
     <script src="~/vendors/angular/angular-route.min.js"></script>
     <script src="~/vendors/angular/angular-resource.min.js"></script>
     <script src="~/vendors/angular/angular-animate.min.js"></script>
@@ -135,4 +135,5 @@
     <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
     <script src="~/api/AbpServiceProxies/GetAll?type=angular"></script>
     <script src="~/AbpScripts/GetScripts" type="text/javascript"></script>
+    @Scripts.Render("~/Bundles/Views/js")
 </body>

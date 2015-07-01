@@ -1,32 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using Abp.Domain.Repositories;
 using Fzrain.Users.Dto;
 
 namespace Fzrain.Users
 {
-   public  class UserAppService :ApplicationService, IUserAppService
+    public class UserAppService : ApplicationService, IUserAppService
     {
-        private readonly IRepository<User> userRepository;
+        private readonly UserManager _userManager;
 
-        public UserAppService(IRepository<User> userRepository)
+        public UserAppService(UserManager userManager)
         {
-            this.userRepository = userRepository;
             
+            _userManager = userManager;
         }
 
-        public ListResultOutput<UserDto> GetAllUsers()
+        public PagedResultOutput<UserDto> GetUsers()
         {
-            return new ListResultOutput<UserDto>
-            {
-                Items =userRepository.GetAllList().MapTo<List<UserDto>>()
-            };
+            return new PagedResultOutput<UserDto>
+                   {
+                       Items = _userManager.Users.ToList().MapTo<List<UserDto>>()
+                   };
         }
     }
 }

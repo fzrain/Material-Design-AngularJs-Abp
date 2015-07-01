@@ -1,4 +1,6 @@
+using EntityFramework.DynamicFilters;
 using Fzrain.EntityFramework;
+using Fzrain.Migrations.SeedData;
 using Fzrain.Users;
 
 namespace Fzrain.Migrations
@@ -16,10 +18,10 @@ namespace Fzrain.Migrations
         
         }
 
-        protected override void Seed(Fzrain.EntityFramework.FzrainDbContext context)
-        {         
-            context.Users.AddOrUpdate(u => u.UserName, new User {UserName = "Admin",Id=1});
-            context.SaveChanges();
+        protected override void Seed(FzrainDbContext context)
+        {
+            context.DisableAllFilters();
+            new InitialDataBuilder(context).Build();       
             // This method will be called every time after migrating to the latest version.
             // You can add any seed data here...
         }

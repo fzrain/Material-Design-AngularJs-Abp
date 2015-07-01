@@ -1,4 +1,4 @@
-﻿<div class="container">
+﻿<div class="container" ng-controller="userController as vm">
     <div class="block-header">
         <h2>用户管理</h2>
 
@@ -34,123 +34,55 @@
     </div>
 
     <div class="card">
-        <div class="card-header">
-            <h2>Command Example <small>Ensure that the data attribute [data-identifier="true"] is set on one column header.</small></h2>
-        </div>
+        <div class="card-header"></div>
         <div class="table-responsive">
-            <table class="table table-striped table-vmiddle" data-bootgrid-command>
+            <table class="table" style="height:350px">
                 <thead>
                     <tr>
-                        <th data-column-id="id" data-type="numeric" data-identifier="true">ID</th>
-                        <th data-column-id="sender">Sender</th>
-                        <th data-column-id="received" data-order="desc">Received</th>
-                        <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th>
+                        <th data-column-id="id">Id</th>
+                        <th data-column-id="userName">用户名</th>
+                        <th data-column-id="name">姓名</th>
+                        <th data-column-id="emailAddress">邮箱</th>  
+                        <th data-column-id="command">操作</th>                     
                     </tr>
                 </thead>
-                <tbody>
+                <tbody ng-repeat="user in vm.users">
                     <tr>
-                        <td>10238</td>
-                        <td>eduardo@pingpong.com</td>
-                        <td>14.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10243</td>
-                        <td>eduardo@pingpong.com</td>
-                        <td>19.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10248</td>
-                        <td>eduardo@pingpong.com</td>
-                        <td>24.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10253</td>
-                        <td>eduardo@pingpong.com</td>
-                        <td>29.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10234</td>
-                        <td>lila@google.com</td>
-                        <td>10.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10239</td>
-                        <td>lila@google.com</td>
-                        <td>15.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10244</td>
-                        <td>lila@google.com</td>
-                        <td>20.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10249</td>
-                        <td>lila@google.com</td>
-                        <td>25.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10237</td>
-                        <td>robert@bingo.com</td>
-                        <td>13.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10242</td>
-                        <td>robert@bingo.com</td>
-                        <td>18.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10247</td>
-                        <td>robert@bingo.com</td>
-                        <td>23.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10252</td>
-                        <td>robert@bingo.com</td>
-                        <td>28.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10236</td>
-                        <td>simon@yahoo.com</td>
-                        <td>12.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10241</td>
-                        <td>simon@yahoo.com</td>
-                        <td>17.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10246</td>
-                        <td>simon@yahoo.com</td>
-                        <td>22.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10251</td>
-                        <td>simon@yahoo.com</td>
-                        <td>27.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10235</td>
-                        <td>tim@microsoft.com</td>
-                        <td>11.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10240</td>
-                        <td>tim@microsoft.com</td>
-                        <td>16.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10245</td>
-                        <td>tim@microsoft.com</td>
-                        <td>21.10.2013</td>
-                    </tr>
-                    <tr>
-                        <td>10250</td>
-                        <td>tim@microsoft.com</td>
-                        <td>26.10.2013</td>
-                    </tr>
+                        <td>{{user.id}}</td>
+                        <td>{{user.userName}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.emailAddress}}</td>
+                        <td>
+                            <div class="dropdown" data-animation="fadeIn,fadeOut,600">
+                                <button type="button" class="btn btn-primary" data-toggle="dropdown">操作 <i class="caret"></i></button>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="">修改</a></li>
+                                    <li><a href="">权限</a></li>
+                                    <li><a href="">删除</a></li>                                                        </ul>
+                            </div>
+                        </td>
+                    </tr>             
                 </tbody>
             </table>
-
+            <div id="undefined-footer" class="bootgrid-footer container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <ul class="pagination">
+                            <li><a href="" aria-label="Previous"><i class="md md-chevron-left"></i></a></li>                          
+                            <li class="active"><a href="">1 </a></li>
+                            <li><a href="">2</a></li>
+                            <li><a href="">3</a></li>
+                            <li><a href="">4</a></li>
+                            <li><a href="">5</a></li>
+                            <li><a href="" aria-label="Next"><i class="md md-chevron-right"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 infoBar">
+                        <div class="infos">1-10条数据 总共20条</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
