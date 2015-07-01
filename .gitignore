@@ -162,8 +162,8 @@ UpgradeLog*.XML
 UpgradeLog*.htm
 
 # SQL Server files
-*.mdf
-*.ldf
+# *.mdf
+# *.ldf
 
 # Business Intelligence projects
 *.rdl.data
@@ -178,3 +178,4 @@ sample/ModuleZeroSampleProject.Web/Logs/
 !sample/ModuleZeroSampleProject.Web/bower_components/angular-ui-router/release/
 
 node_modules/
+Logs/
