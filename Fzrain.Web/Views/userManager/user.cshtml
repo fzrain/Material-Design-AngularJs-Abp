@@ -3,16 +3,7 @@
         <h2>用户管理</h2>
 
         <ul class="actions">
-            <li>
-                <a href="">
-                    <i class="md md-trending-up"></i>
-                </a>
-            </li>
-            <li>
-                <a href="">
-                    <i class="md md-done-all"></i>
-                </a>
-            </li>
+           
             <li class="dropdown">
                 <a href="" data-toggle="dropdown">
                     <i class="md md-more-vert"></i>
@@ -20,13 +11,13 @@
 
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                        <a href="">Refresh</a>
+                        <a data-toggle="modal" href="" data-target="#modalUserEdit">新增用户</a>
                     </li>
                     <li>
-                        <a href="">Manage Widgets</a>
+                        <a href="">导出excel</a>
                     </li>
                     <li>
-                        <a href="">Widgets Settings</a>
+                        <a href="">刷新</a>
                     </li>
                 </ul>
             </li>
@@ -39,19 +30,16 @@
             <table class="table" style="height:350px">
                 <thead>
                     <tr>
+                        <th data-column-id="command">操作</th>  
                         <th data-column-id="id">Id</th>
                         <th data-column-id="userName">用户名</th>
                         <th data-column-id="name">姓名</th>
                         <th data-column-id="emailAddress">邮箱</th>  
-                        <th data-column-id="command">操作</th>                     
+                                          
                     </tr>
                 </thead>
-                <tbody ng-repeat="user in vm.users">
-                    <tr>
-                        <td>{{user.id}}</td>
-                        <td>{{user.userName}}</td>
-                        <td>{{user.name}}</td>
-                        <td>{{user.emailAddress}}</td>
+                <tbody>
+                    <tr ng-repeat="user in vm.users">
                         <td>
                             <div class="dropdown" data-animation="fadeIn,fadeOut,600">
                                 <button type="button" class="btn btn-primary" data-toggle="dropdown">操作 <i class="caret"></i></button>
@@ -59,9 +47,15 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="">修改</a></li>
                                     <li><a href="">权限</a></li>
-                                    <li><a href="">删除</a></li>                                                        </ul>
+                                    <li><a href="">删除</a></li>
+                                </ul>
                             </div>
                         </td>
+                        <td>{{user.id}}</td>
+                        <td>{{user.userName}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.emailAddress}}</td>
+                       
                     </tr>             
                 </tbody>
             </table>
@@ -82,6 +76,49 @@
                         <div class="infos">1-10条数据 总共20条</div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalUserEdit" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">新增用户</h4>
+            </div>
+
+            <div class="modal-body" data-ng-controller="userEditController as vm">
+                <ul class="tab-nav tn-justified" role="tablist" style="width:200px">
+                    <li role="presentation" class="active"><a href="" data-ng-click="vm.userTab()" aria-controls="user" role="tab" data-toggle="tab">用户信息</a></li>
+                    <li role="presentation"><a href="" data-ng-click="vm.roleTab()" aria-controls="role" role="tab" data-toggle="tab">角色信息</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade" data-ng-class="{'in active':vm.activeTab==='user'}">
+                        user
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" data-ng-class="{'in active':vm.activeTab==='role'}">
+                        <label class="checkbox checkbox-inline m-r-20">
+                            <input type="checkbox" value="option1">
+                            <i class="input-helper"></i>
+                            Admin
+                        </label>
+                        <label class="checkbox checkbox-inline m-r-20">
+                            <input type="checkbox" value="option2">
+                            <i class="input-helper"></i>
+                            User
+                        </label>
+                        <label class="checkbox checkbox-inline m-r-20">
+                            <input type="checkbox" value="option3">
+                            <i class="input-helper"></i>
+                            Other
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect"><i class="md md-save"></i>保存</button>
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="md md-cancel"></i>取消</button>
             </div>
         </div>
     </div>

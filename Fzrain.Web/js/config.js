@@ -1,3 +1,4 @@
+/// <reference path="E:\ÆäËû\MyFramework\Fzrain\Fzrain.Web\vendors/bower_components/fullcalendar/dist/lang/zh-cn.js" />
 materialAdmin
 
     //.run(function($templateCache,$http){
@@ -30,10 +31,12 @@ materialAdmin
                             {
                                 name: 'vendors',
                                 insertBefore: '#app-level-js',
-                                files: [
+                                files: [                                 
                                     'vendors/sparklines/jquery.sparkline.min.js',
                                     'vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js',
-                                    'vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js'
+                                    'vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js',
+                                    "vendors/bower_components/fullcalendar/dist/fullcalendar.min.js",
+                                    "vendors/bower_components/fullcalendar/dist/lang/zh-cn.js"
                                 ]
                             }
                         ])
@@ -48,7 +51,19 @@ materialAdmin
             //------------------------------
             .state('userManager', {
                 url: '/userManager',
-                templateUrl:abp.appPath+ 'views/common.cshtml'
+                templateUrl: abp.appPath + 'views/common.cshtml',
+                resolve: {
+                    loadPlugin: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load(
+                            {
+                                name: 'vendors',
+                                files: [                                  
+                                    'vendors/fileinput/fileinput.min.js'
+                                ]
+                            }
+                        );
+                    }
+                }
             })
             .state('userManager.user', {
                 url: '/userManager-user',
@@ -73,11 +88,11 @@ materialAdmin
                     }
                 }
             })
-
-            .state ('widgets.widget-templates', {
-                url: '/widget-templates',
-                templateUrl: 'views/widget-templates.html'
-            })
+             .state('userManager.auditLog', {
+                 url: '/userManager-auditLog',
+                 templateUrl: abp.appPath + 'views/userManager/auditLog.cshtml'
+             })
+           
 
 
             //------------------------------
@@ -86,7 +101,8 @@ materialAdmin
         
             .state ('tables', {
                 url: '/tables',
-                templateUrl: 'views/common.html'
+                templateUrl: 'views/common.html',
+
             })
 
             .state ('tables.tables', {

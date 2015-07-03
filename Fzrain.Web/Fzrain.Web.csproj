@@ -2215,7 +2215,9 @@
     <Content Include="vendors\socicon\socicon.min.css" />
     <Content Include="vendors\sparklines\jquery.sparkline.js" />
     <Content Include="vendors\sparklines\jquery.sparkline.min.js" />
+    <Content Include="Views\userManager\auditLog.js" />
     <Content Include="Views\userManager\user.js" />
+    <Content Include="Views\userManager\userEdit.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -2815,6 +2817,7 @@
     <Content Include="fonts\weather-icons\weather-icons.ttf" />
     <Content Include="fonts\weather-icons\weather-icons.woff" />
     <Content Include="Views\userManager\user.cshtml" />
+    <Content Include="Views\userManager\auditLog.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2823,6 +2826,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="vendors\bower_components\bower\Packager\" />
     <Folder Include="vendors\bower_components\nouislider\submodules\libLink\" />
     <Folder Include="vendors\bower_components\nouislider\submodules\wNumb\" />

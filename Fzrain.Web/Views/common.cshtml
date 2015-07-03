@@ -1,47 +1,113 @@
 ﻿<header id="header" data-ng-include src="'/views/includes/header.cshtml'" data-ng-controller="headerCtrl as hctrl"></header>
 
 <section id="main">
-    <aside id="sidebar" data-ng-include src="'/views/includes/sidebar-left.cshtml'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>
-    <div class="modal fade" id="modalDefault" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">我的信息</h4>
-                </div>
-             
-                <div class="modal-body">
-                    <div class="form-group fg-float">
-                        <div class="fg-line">
-                            <input type="text" class="form-control">
-                        </div>
-                        <label class="fg-label">姓名</label>
-                    </div>
-
-                    <div class="form-group fg-float">
-                        <div class="fg-line">
-                            <input type="text" class="form-control">
-                        </div>
-                        <label class="fg-label">邮箱</label>
-                    </div>
-
-                    <div class="form-group fg-float">
-                        <div class="fg-line">
-                            <input type="text" class="form-control">
-                        </div>
-                        <label class="fg-label">用户名</label>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-info waves-effect"><i class="md md-save"></i>保存</button>
-                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="md md-cancel"></i>取消</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <aside id="sidebar" data-ng-include src="'/views/includes/sidebar-left.cshtml'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>  
     <aside id="chat" data-ng-include src="'/views/includes/chat.cshtml'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.right === true }"></aside>
 
     <section id="content" class="page-view" data-ui-view></section>
 </section>
 
 <footer id="footer" data-ng-include src="'/views/includes/footer.cshtml'"></footer>
+
+<div class="modal fade" id="modalUserInfo" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">我的信息</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group fg-float">
+                    <div class="fg-line">
+                        <input type="text" class="form-control">
+                    </div>
+                    <label class="fg-label">姓名</label>
+                </div>
+                <div class="form-group fg-float">
+                    <div class="fg-line">
+                        <input type="text" class="form-control">
+                    </div>
+                    <label class="fg-label">邮箱</label>
+                </div>
+                <div class="form-group fg-float">
+                    <div class="fg-line">
+                        <input type="text" class="form-control">
+                    </div>
+                    <label class="fg-label">用户名</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect"><i class="md md-save"></i>保存</button>
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="md md-cancel"></i>取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalUserPhoto" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">我的头像</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="fileinput fileinput-new" data-provides="fileinput">
+                    <div class="fileinput-preview thumbnail" data-trigger="fileinput"></div>
+                    <div>
+                        <span class="btn btn-info btn-file">
+                            <span class="fileinput-new">选择图片</span>
+                            <span class="fileinput-exists">更改图片</span>
+                            <input type="file" name="...">
+                        </span>
+                        <a href="#" class="btn btn-danger fileinput-exists" data-dismiss="fileinput">删除</a>
+                    </div>
+                </div>
+
+                <br />
+                <br />
+                <p><em>图片预览仅支持服务器 IE10+, FF3.6+, Safari6.0+, Chrome6.0+ and Opera11.1+.在老版浏览器将显示文件名.</em></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect"><i class="md md-save"></i>保存</button>
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="md md-cancel"></i>取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalChangePassword" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">更改密码</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group fg-float">
+                    <div class="fg-line">
+                        <input type="text" class="form-control">
+                    </div>
+                    <label class="fg-label">旧密码</label>
+                </div>
+                <div class="form-group fg-float">
+                    <div class="fg-line">
+                        <input type="text" class="form-control">
+                    </div>
+                    <label class="fg-label">新密码</label>
+                </div>
+                <div class="form-group fg-float">
+                    <div class="fg-line">
+                        <input type="text" class="form-control">
+                    </div>
+                    <label class="fg-label">确认密码</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect"><i class="md md-save"></i>保存</button>
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="md md-cancel"></i>取消</button>
+            </div>
+        </div>
+    </div>
+</div>
 

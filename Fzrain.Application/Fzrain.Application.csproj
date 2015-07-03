@@ -95,6 +95,7 @@
   <ItemGroup>
     <Compile Include="AuditLogs\AuditLogAppService.cs" />
     <Compile Include="AuditLogs\Dto\AuditLogDto.cs" />
+    <Compile Include="AuditLogs\Dto\GetAuditLogInput.cs" />
     <Compile Include="AuditLogs\IAuditLogAppService.cs" />
     <Compile Include="FzrainApplicationModule.cs" />
     <Compile Include="FzrainAppServiceBase.cs" />

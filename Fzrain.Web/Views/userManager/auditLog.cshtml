@@ -1,0 +1,55 @@
+﻿<div class="container" ng-controller="auditController as vm">
+    <div class="block-header">
+        <h2>审核日志</h2>
+    </div>
+
+    <div class="card">
+        <div class="card-header"></div>
+        <div class="table-responsive">
+            <table class="table" style="height:350px">
+                <thead>
+                    <tr>
+                        <th data-column-id="serviceName">服务</th>
+                        <th data-column-id="methodName">方法</th>
+                        <th data-column-id="parameters">参数</th>
+                        <th data-column-id="executionTime">执行时间</th>
+                        <th data-column-id="executionDuration">执行时长</th>
+                        <th data-column-id="clientIpAddress">IP</th>
+                        <th data-column-id="clientName">客户端</th>
+                        <th data-column-id="browserInfo">浏览器</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="log in vm.auditLogs">
+                        <td>{{log.serviceName}}</td>
+                        <td>{{log.methodName}}</td>
+                        <td>{{log.parameters}}</td>
+                        <td>{{log.executionTime}}</td>
+                        <td>{{log.executionDuration}}</td>
+                        <td>{{log.clientIpAddress}}</td>
+                        <td>{{log.clientName}}</td>
+                        <td>{{log.browserInfo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div id="undefined-footer" class="bootgrid-footer container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <ul class="pagination">
+                            <li><a href="" aria-label="Previous"><i class="md md-chevron-left"></i></a></li>
+                            <li data-ng-class="{'active':vm.pageIndex==1}"><a href="">1 </a></li>
+                            <li data-ng-class="{'active':vm.pageIndex==2}"><a href="" data-ng-click="vm.loadData(2)">2</a></li>
+                            <li><a href="">3</a></li>
+                            <li><a href="">4</a></li>
+                            <li><a href="">5</a></li>
+                            <li><a href="" aria-label="Next"><i class="md md-chevron-right"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 infoBar">
+                        <div class="infos">{{(vm.pageIndex-1)*vm.pageSize+1}}-{{vm.pageSize*vm.pageIndex}}条数据 总共{{vm.total}}条</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

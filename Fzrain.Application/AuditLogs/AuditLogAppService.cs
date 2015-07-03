@@ -8,6 +8,7 @@ using Abp.Application.Services.Dto;
 using Abp.Auditing;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
+using Abp.Linq.Extensions;
 using Fzrain.AuditLogs.Dto;
 
 namespace Fzrain.AuditLogs
@@ -21,12 +22,15 @@ namespace Fzrain.AuditLogs
             this.auditRepository = auditRepository;
         }
 
-        public PagedResultOutput<AuditLogDto> GetAuditLogs()
+        public PagedResultOutput<AuditLogDto> GetAuditLogs(GetAuditLogInput input)
         {
+            input.MaxResultCount = 10;
+            var auditLogCount = auditRepository.Count();
+            var auditLogs = auditRepository.GetAll().OrderByDescending(a=>a.ExecutionTime).PageBy(input).ToList();
             return new PagedResultOutput<AuditLogDto>
             {
-                Items =auditRepository.GetAllList().MapTo<List<AuditLogDto>>(),
-                TotalCount = auditRepository.GetAll().Count()
+                Items = auditLogs.MapTo<List<AuditLogDto>>(),
+                TotalCount = auditLogCount
             };
         }
     }
