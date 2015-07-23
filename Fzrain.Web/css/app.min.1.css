@@ -2986,6 +2986,7 @@ th {
   line-height: 1.42857143;
   vertical-align: top;
   border-top: 1px solid #f0f0f0;
+  text-align:center
 }
 
 .table > thead > tr > th {
@@ -10111,7 +10112,7 @@ body #content {
   left: 0;
   width: 100%;
   height: 65px;
-  background: #4285F4;
+  background: #18B69E;
   -webkit-transition: all;
   -o-transition: all;
   transition: all;

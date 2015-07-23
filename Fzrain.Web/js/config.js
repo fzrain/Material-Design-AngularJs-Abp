@@ -5,22 +5,22 @@ materialAdmin
     //      $http.get('includes/templates.html', {cache:$templateCache});
     //})
 
-    .config(function ($stateProvider, $urlRouterProvider){
+    .config(function ($stateProvider, $urlRouterProvider) {
         $urlRouterProvider.otherwise("/home");
 
 
         $stateProvider
-        
+
             //------------------------------
             // HOME
             //------------------------------
-        
-            .state ('home', {
+
+            .state('home', {
                 url: '/home',
                 templateUrl: 'views/home.html',
                 resolve: {
-                    loadPlugin: function($ocLazyLoad) {
-                        return $ocLazyLoad.load ([
+                    loadPlugin: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([
                             {
                                 name: 'css',
                                 insertBefore: '#app-level',
@@ -31,7 +31,7 @@ materialAdmin
                             {
                                 name: 'vendors',
                                 insertBefore: '#app-level-js',
-                                files: [                                 
+                                files: [
                                     'vendors/sparklines/jquery.sparkline.min.js',
                                     'vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js',
                                     'vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js',
@@ -43,7 +43,7 @@ materialAdmin
                     }
                 }
             })
-        
+
 
 
             //------------------------------
@@ -57,7 +57,7 @@ materialAdmin
                         return $ocLazyLoad.load(
                             {
                                 name: 'vendors',
-                                files: [                                  
+                                files: [
                                     'vendors/fileinput/fileinput.min.js'
                                 ]
                             }
@@ -67,9 +67,41 @@ materialAdmin
             })
             .state('userManager.user', {
                 url: '/userManager-user',
-                templateUrl:abp.appPath+ 'views/userManager/user.cshtml',
+                templateUrl: abp.appPath + 'views/userManager/user.cshtml',
+
+            })
+            .state('userManager.role', {
+                  url: '/userManager-role',
+                  templateUrl: abp.appPath + 'views/userManager/role.cshtml',
+
+              })
+            .state('userManager.auditLog', {
+                 url: '/userManager-auditLog',
+                 templateUrl: abp.appPath + 'views/userManager/auditLog.cshtml'
+             })
+
+
+
+            //------------------------------
+            // TABLES
+            //------------------------------
+
+            .state('tables', {
+                url: '/tables',
+                templateUrl: 'views/common.html',
+
+            })
+
+            .state('tables.tables', {
+                url: '/tables',
+                templateUrl: 'views/tables.html'
+            })
+
+            .state('tables.data-tables', {
+                url: '/data-tables',
+                templateUrl: 'views/data-tables.html',
                 resolve: {
-                    loadPlugin: function($ocLazyLoad) {
+                    loadPlugin: function ($ocLazyLoad) {
                         return $ocLazyLoad.load([
                             {
                                 name: 'css',
@@ -88,67 +120,22 @@ materialAdmin
                     }
                 }
             })
-             .state('userManager.auditLog', {
-                 url: '/userManager-auditLog',
-                 templateUrl: abp.appPath + 'views/userManager/auditLog.cshtml'
-             })
-           
 
 
-            //------------------------------
-            // TABLES
-            //------------------------------
-        
-            .state ('tables', {
-                url: '/tables',
-                templateUrl: 'views/common.html',
-
-            })
-
-            .state ('tables.tables', {
-                url: '/tables',
-                templateUrl: 'views/tables.html'
-            })
-
-            .state ('tables.data-tables', {
-                url: '/data-tables',
-                templateUrl: 'views/data-tables.html',
-                resolve: {
-                    loadPlugin: function($ocLazyLoad) {
-                        return $ocLazyLoad.load ([
-                            {
-                                name: 'css',
-                                insertBefore: '#app-level',
-                                files: [
-                                    'vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid.min.css'
-                                ]
-                            },
-                            {
-                                name: 'vendors',
-                                files: [
-                                    'vendors/bower_components/jquery.bootgrid/dist/jquery.bootgrid-override.min.js'
-                                ]
-                            }
-                        ])
-                    }
-                }
-            })
-
-        
             //------------------------------
             // FORMS
             //------------------------------
-            .state ('form', {
+            .state('form', {
                 url: '/form',
                 templateUrl: 'views/common.html'
             })
 
-            .state ('form.basic-form-elements', {
+            .state('form.basic-form-elements', {
                 url: '/basic-form-elements',
                 templateUrl: 'views/form-elements.html',
                 resolve: {
-                    loadPlugin: function($ocLazyLoad) {
-                        return $ocLazyLoad.load ([
+                    loadPlugin: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([
                             {
                                 name: 'vendors',
                                 files: [
@@ -160,12 +147,12 @@ materialAdmin
                 }
             })
 
-            .state ('form.form-components', {
+            .state('form.form-components', {
                 url: '/form-components',
                 templateUrl: 'views/form-components.html',
                 resolve: {
-                    loadPlugin: function($ocLazyLoad) {
-                        return $ocLazyLoad.load ([
+                    loadPlugin: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([
                             {
                                 name: 'css',
                                 insertBefore: '#app-level',
@@ -196,68 +183,68 @@ materialAdmin
                     }
                 }
             })
-        
-            .state ('form.form-examples', {
+
+            .state('form.form-examples', {
                 url: '/form-examples',
                 templateUrl: 'views/form-examples.html'
             })
-        
-            .state ('form.form-validations', {
+
+            .state('form.form-validations', {
                 url: '/form-validations',
                 templateUrl: 'views/form-validations.html'
             })
-        
-            
+
+
             //------------------------------
             // USER INTERFACE
             //------------------------------
-        
-            .state ('user-interface', {
+
+            .state('user-interface', {
                 url: '/user-interface',
                 templateUrl: 'views/common.html'
             })
 
-            .state ('user-interface.colors', {
+            .state('user-interface.colors', {
                 url: '/colors',
                 templateUrl: 'views/colors.html'
             })
 
-            .state ('user-interface.animations', {
+            .state('user-interface.animations', {
                 url: '/animations',
                 templateUrl: 'views/animations.html'
             })
-        
-            .state ('user-interface.box-shadow', {
+
+            .state('user-interface.box-shadow', {
                 url: '/box-shadow',
                 templateUrl: 'views/box-shadow.html'
             })
-        
-            .state ('user-interface.buttons', {
+
+            .state('user-interface.buttons', {
                 url: '/buttons',
                 templateUrl: 'views/buttons.html'
             })
-        
-            .state ('user-interface.icons', {
+
+            .state('user-interface.icons', {
                 url: '/icons',
                 templateUrl: 'views/icons.html'
             })
-        
-            .state ('user-interface.alerts', {
+
+            .state('user-interface.alerts', {
                 url: '/alerts',
                 templateUrl: 'views/alerts.html'
             })
-        
-            .state ('user-interface.notifications-dialogs', {
+
+            .state('user-interface.notifications-dialogs', {
                 url: '/notifications-dialogs',
                 templateUrl: 'views/notification-dialog.html'
             })
-        
-            .state ('user-interface.media', {
+
+            .state('user-interface.media', {
                 url: '/media',
                 templateUrl: 'views/media.html',
                 resolve: {
-                    loadPlugin: function($ocLazyLoad) {
-                        return $ocLazyLoad.load ([
+                    loadPlugin: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([
                             {
                                 name: 'css',
                                 insertBefore: '#app-level',
@@ -277,38 +264,38 @@ materialAdmin
                     }
                 }
             })
-        
-            .state ('user-interface.components', {
+
+            .state('user-interface.components', {
                 url: '/components',
                 templateUrl: 'views/components.html'
             })
-        
-            .state ('user-interface.other-components', {
+
+            .state('user-interface.other-components', {
                 url: '/other-components',
                 templateUrl: 'views/other-components.html'
             })
-            
-        
+
+
             //------------------------------
             // CHARTS
             //------------------------------
-            
-            .state ('charts', {
+
+            .state('charts', {
                 url: '/charts',
                 templateUrl: 'views/common.html'
             })
 
-            .state ('charts.flot-charts', {
+            .state('charts.flot-charts', {
                 url: '/flot-charts',
                 templateUrl: 'views/flot-charts.html',
             })
 
-            .state ('charts.other-charts', {
+            .state('charts.other-charts', {
                 url: '/other-charts',
                 templateUrl: 'views/other-charts.html',
                 resolve: {
-                    loadPlugin: function($ocLazyLoad) {
-                        return $ocLazyLoad.load ([
+                    loadPlugin: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([
                             {
                                 name: 'vendors',
                                 files: [
@@ -320,18 +307,18 @@ materialAdmin
                     }
                 }
             })
-        
-        
+
+
             //------------------------------
             // CALENDAR
             //------------------------------
-            
-            .state ('calendar', {
+
+            .state('calendar', {
                 url: '/calendar',
                 templateUrl: 'views/calendar.html',
                 resolve: {
-                    loadPlugin: function($ocLazyLoad) {
-                        return $ocLazyLoad.load ([
+                    loadPlugin: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([
                             {
                                 name: 'css',
                                 insertBefore: '#app-level',
@@ -350,46 +337,46 @@ materialAdmin
                     }
                 }
             })
-        
-        
+
+
             //------------------------------
             // GENERIC CLASSES
             //------------------------------
-            
-            .state ('generic-classes', {
+
+            .state('generic-classes', {
                 url: '/generic-classes',
                 templateUrl: 'views/generic-classes.html'
             })
-        
-            
+
+
             //------------------------------
             // PAGES
             //------------------------------
-            
-            .state ('pages', {
+
+            .state('pages', {
                 url: '/pages',
                 templateUrl: 'views/common.html'
             })
-            
-        
+
+
             //Profile
-        
-            .state ('pages.profile', {
+
+            .state('pages.profile', {
                 url: '/profile',
                 templateUrl: 'views/profile.html'
             })
-        
-            .state ('pages.profile.profile-about', {
+
+            .state('pages.profile.profile-about', {
                 url: '/profile-about',
                 templateUrl: 'views/profile-about.html'
             })
-        
-            .state ('pages.profile.profile-timeline', {
+
+            .state('pages.profile.profile-timeline', {
                 url: '/profile-timeline',
                 templateUrl: 'views/profile-timeline.html',
                 resolve: {
-                    loadPlugin: function($ocLazyLoad) {
-                        return $ocLazyLoad.load ([
+                    loadPlugin: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([
                             {
                                 name: 'css',
                                 insertBefore: '#app-level',
@@ -408,12 +395,12 @@ materialAdmin
                 }
             })
 
-            .state ('pages.profile.profile-photos', {
+            .state('pages.profile.profile-photos', {
                 url: '/profile-photos',
                 templateUrl: 'views/profile-photos.html',
                 resolve: {
-                    loadPlugin: function($ocLazyLoad) {
-                        return $ocLazyLoad.load ([
+                    loadPlugin: function ($ocLazyLoad) {
+                        return $ocLazyLoad.load([
                             {
                                 name: 'css',
                                 insertBefore: '#app-level',
@@ -431,31 +418,31 @@ materialAdmin
                     }
                 }
             })
-        
-            .state ('pages.profile.profile-connections', {
+
+            .state('pages.profile.profile-connections', {
                 url: '/profile-connections',
                 templateUrl: 'views/profile-connections.html'
             })
-        
-        
+
+
             //-------------------------------
-        
-            .state ('pages.listview', {
+
+            .state('pages.listview', {
                 url: '/listview',
                 templateUrl: 'views/list-view.html'
             })
-        
-            .state ('pages.messages', {
+
+            .state('pages.messages', {
                 url: '/messages',
                 templateUrl: 'views/messages.html'
             })
-        
-            
-            
+
+
+
             //------------------------------
             // BREADCRUMB DEMO
             //------------------------------
-            .state ('breadcrumb-demo', {
+            .state('breadcrumb-demo', {
                 url: '/breadcrumb-demo',
                 templateUrl: 'views/breadcrumb-demo.html'
             })

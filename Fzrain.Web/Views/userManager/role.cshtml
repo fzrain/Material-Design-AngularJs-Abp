@@ -1,0 +1,124 @@
+﻿<div class="container" ng-controller="roleController as vm">
+    <div class="block-header">
+        <h2>角色管理</h2>
+
+        <ul class="actions">
+
+            <li class="dropdown">
+                <a href="" data-toggle="dropdown">
+                    <i class="md md-more-vert"></i>
+                </a>
+
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <li>
+                        <a data-toggle="modal" href="" data-target="#modalRoleEdit">新增角色</a> 
+                    <li>
+                        <a href="">导出excel</a>
+                    </li>
+                    <li>
+                        <a href="">刷新</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <div class="card-header"></div>
+        <div class="table-responsive">
+            <table class="table" style="height:350px">
+                <thead>
+                    <tr>
+                        <th>操作</th>
+                        <th>Id</th>
+                        <th>角色名</th>
+                        <th>默认角色</th>
+                        <th>系统角色</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="role in vm.roles">
+                        <td>
+                            <div class="dropdown" data-animation="fadeIn,fadeOut,600">
+                                <button type="button" class="btn btn-primary" data-toggle="dropdown">操作 <i class="caret"></i></button>
+
+                                <ul class="dropdown-menu">
+                                    <li><a href="">修改</a></li>
+                                    <li><a href="">权限</a></li>
+                                    <li><a href="">删除</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                        <td>{{role.id}}</td>
+                        <td>{{role.Name}}</td>
+                        <td>{{role.isStatic}}</td>
+                        <td>{{role.isDefault}}</td>
+
+                    </tr>
+                </tbody>
+            </table>
+            <div id="undefined-footer" class="bootgrid-footer container-fluid">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <ul class="pagination">
+                            <li><a href="" aria-label="Previous"><i class="md md-chevron-left"></i></a></li>
+                            <li class="active"><a href="">1 </a></li>
+                            <li><a href="">2</a></li>
+                            <li><a href="">3</a></li>
+                            <li><a href="">4</a></li>
+                            <li><a href="">5</a></li>
+                            <li><a href="" aria-label="Next"><i class="md md-chevron-right"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 infoBar">
+                        <div class="infos">1-10条数据 总共20条</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalRoleEdit" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">新增角色</h4>
+            </div>
+
+            <div class="modal-body" data-ng-controller="userEditController as vm">
+                <ul class="tab-nav tn-justified" role="tablist" style="width:200px">
+                    <li role="presentation" class="active"><a href="" data-ng-click="vm.userTab()" aria-controls="user" role="tab" data-toggle="tab">角色信息</a></li>
+                    <li role="presentation"><a href="" data-ng-click="vm.roleTab()" aria-controls="role" role="tab" data-toggle="tab">权限信息</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade" data-ng-class="{'in active':vm.activeTab==='user'}">
+                        user
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" data-ng-class="{'in active':vm.activeTab==='role'}">
+                        <label class="checkbox checkbox-inline m-r-20">
+                            <input type="checkbox" value="option1">
+                            <i class="input-helper"></i>
+                            Admin
+                        </label>
+                        <label class="checkbox checkbox-inline m-r-20">
+                            <input type="checkbox" value="option2">
+                            <i class="input-helper"></i>
+                            User
+                        </label>
+                        <label class="checkbox checkbox-inline m-r-20">
+                            <input type="checkbox" value="option3">
+                            <i class="input-helper"></i>
+                            Other
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect"><i class="md md-save"></i>保存</button>
+                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="md md-cancel"></i>取消</button>
+            </div>
+        </div>
+    </div>
+</div>

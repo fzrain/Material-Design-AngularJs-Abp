@@ -6,7 +6,7 @@
     <div class="card">
         <div class="card-header"></div>
         <div class="table-responsive">
-            <table class="table" style="height:350px">
+            <table class="table" style="height:350px;width:1500px;">
                 <thead>
                     <tr>
                         <th data-column-id="serviceName">服务</th>
@@ -36,13 +36,11 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <ul class="pagination">
-                            <li><a href="" aria-label="Previous"><i class="md md-chevron-left"></i></a></li>
-                            <li data-ng-class="{'active':vm.pageIndex==1}"><a href="">1 </a></li>
-                            <li data-ng-class="{'active':vm.pageIndex==2}"><a href="" data-ng-click="vm.loadData(2)">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">4</a></li>
-                            <li><a href="">5</a></li>
-                            <li><a href="" aria-label="Next"><i class="md md-chevron-right"></i></a></li>
+                            <li><a href="" data-ng-show="vm.pageIndex!=1" data-ng-click="vm.loadData(vm.pageIndex-1)" aria-label="Previous"><i class="md md-chevron-left"></i></a></li>
+                            <li data-ng-class="{'active':vm.pageIndex==page}" ng-repeat="page in vm.pages">
+                                <a href="" data-ng-click="vm.loadData(page)">{{page}}</a>
+                            </li>                         
+                            <li><a href="" data-ng-show="vm.showNextPager" aria-label="Next" data-ng-click="vm.loadData(vm.pageIndex+1)"><i class="md md-chevron-right"></i></a></li>
                         </ul>
                     </div>
                     <div class="col-sm-6 infoBar">

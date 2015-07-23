@@ -40,28 +40,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Abp, Version=0.6.3.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.0.6.3.1\lib\net451\Abp.dll</HintPath>
+    <Reference Include="Abp, Version=0.6.4.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.0.6.4.1\lib\net451\Abp.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Abp.AutoMapper, Version=0.6.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.AutoMapper.0.6.3.0\lib\net451\Abp.AutoMapper.dll</HintPath>
+    <Reference Include="Abp.AutoMapper, Version=0.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.AutoMapper.0.6.4.0\lib\net451\Abp.AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Abp.Web, Version=0.6.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.Web.0.6.3.0\lib\net451\Abp.Web.dll</HintPath>
+    <Reference Include="Abp.Web, Version=0.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Web.0.6.4.0\lib\net451\Abp.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Abp.Web.Api, Version=0.6.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.Web.Api.0.6.3.0\lib\net451\Abp.Web.Api.dll</HintPath>
+    <Reference Include="Abp.Web.Api, Version=0.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Web.Api.0.6.4.0\lib\net451\Abp.Web.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Abp.Web.Mvc, Version=0.6.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.Web.Mvc.0.6.3.0\lib\net451\Abp.Web.Mvc.dll</HintPath>
+    <Reference Include="Abp.Web.Mvc, Version=0.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Web.Mvc.0.6.4.0\lib\net451\Abp.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Abp.Zero, Version=0.6.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.Zero.0.6.4.0\lib\net451\Abp.Zero.dll</HintPath>
+    <Reference Include="Abp.Zero, Version=0.6.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Zero.0.6.5.0\lib\net451\Abp.Zero.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Antlr3.Runtime">
@@ -415,8 +415,10 @@
     <Content Include="fonts\roboto\Roboto-Thin-webfont.ttf" />
     <Content Include="fonts\roboto\Roboto-Thin-webfont.woff" />
     <Content Include="Views\common.cshtml" />
-    <Content Include="bower.json" />
     <Content Include="Views\home.html" />
+    <Content Include="Abp\Framework\styles\abp.less" />
+    <Content Include="Abp\Framework\styles\abp.css.map" />
+    <Content Include="bower.json" />
     <None Include="Views\includes\chat.cshtml" />
     <Content Include="Views\includes\header.cshtml" />
     <Content Include="Views\includes\sidebar-left.cshtml" />
@@ -440,8 +442,6 @@
     <Content Include="Localization\Fzrain\Fzrain.tr.xml" />
     <Content Include="Localization\Fzrain\Fzrain.xml" />
     <Content Include="log4net.config" />
-    <Content Include="Abp\Framework\styles\abp.less" />
-    <Content Include="Abp\Framework\styles\abp.css.map" />
     <Content Include="media\big_buck_bunny.jpg" />
     <Content Include="media\big_buck_bunny.mp4" />
     <Content Include="media\carousel\c-1.jpg" />
@@ -2216,6 +2216,7 @@
     <Content Include="vendors\sparklines\jquery.sparkline.js" />
     <Content Include="vendors\sparklines\jquery.sparkline.min.js" />
     <Content Include="Views\userManager\auditLog.js" />
+    <Content Include="Views\userManager\role.js" />
     <Content Include="Views\userManager\user.js" />
     <Content Include="Views\userManager\userEdit.js" />
     <Content Include="Web.config">
@@ -2818,6 +2819,7 @@
     <Content Include="fonts\weather-icons\weather-icons.woff" />
     <Content Include="Views\userManager\user.cshtml" />
     <Content Include="Views\userManager\auditLog.cshtml" />
+    <Content Include="Views\userManager\role.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
