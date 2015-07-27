@@ -4,7 +4,7 @@ using Abp.AutoMapper;
 namespace Fzrain.Users.Dto
 {
     [AutoMapFrom(typeof(User))]
-    public class UserDto : EntityDto<long>
+    public class UserDto : EntityRequestInput<long>
     {
         public string UserName { get; set; }
 
