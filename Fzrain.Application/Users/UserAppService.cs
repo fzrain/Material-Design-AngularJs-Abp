@@ -10,12 +10,12 @@ using Fzrain.Users.Dto;
 namespace Fzrain.Users
 {
     public class UserAppService : CrudAppService<User,UserDto,long>, IUserAppService
-    {   
-        public UserAppService(IRepository<User, long> userRepository)
+    {
+        private UserManager userManager;
+        public UserAppService(IRepository<User, long> userRepository, UserManager userManager)
             : base(userRepository)
         {
-         
+            this.userManager = userManager;
         }
-    
     }
 }

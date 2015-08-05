@@ -1,16 +1,20 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
+using System.Linq;
+using System.Reflection;
+using Abp.Domain.Entities;
 using Abp.EntityFramework;
-using Abp.Zero.EntityFramework;
 using Fzrain.Authorization.Roles;
+using Fzrain.Authorization.Users;
 using Fzrain.MultiTenancy;
-using Fzrain.Users;
 
 namespace Fzrain.EntityFramework
 {
-    public class FzrainDbContext : AbpZeroDbContext<Tenant,Role,User>
+    public class FzrainDbContext : AbpDbContext
     {
+       
         //TODO: Define an IDbSet for each Entity...
-
         //Example:
         //public virtual IDbSet<User> Users { get; set; }      
         /* NOTE: 
@@ -21,7 +25,7 @@ namespace Fzrain.EntityFramework
         public FzrainDbContext()
             : base("Default")
         {
-
+           
         }
 
         /* NOTE:
@@ -32,6 +36,23 @@ namespace Fzrain.EntityFramework
             : base(nameOrConnectionString)
         {
 
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {  
+            //动态加载配置信息
+            //System.Type configType = typeof(LanguageMap);   //any of your configuration classes here
+            //var typesToRegister = Assembly.GetAssembly(configType).GetTypes()
+            var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
+            .Where(type => !String.IsNullOrEmpty(type.Namespace))
+            .Where(type => type.BaseType != null && type.BaseType.IsGenericType && type.BaseType.GetGenericTypeDefinition() == typeof(EntityTypeConfiguration<>));
+            foreach (var type in typesToRegister)
+            {
+                dynamic configurationInstance = Activator.CreateInstance(type);
+                modelBuilder.Configurations.Add(configurationInstance);
+            }
+            //常规配置法
+            //modelBuilder.Configurations.Add(new LanguageMap());
+            base.OnModelCreating(modelBuilder);
         }
     }
 }

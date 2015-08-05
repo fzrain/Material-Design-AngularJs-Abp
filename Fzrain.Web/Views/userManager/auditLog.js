@@ -6,6 +6,7 @@
             vm.auditLogs = [];
             vm.pageSize = 10;
             vm.pageIndex = 1;
+            
             vm.loadData = function (pageIndex) {
                 vm.pageIndex = pageIndex;
                 vm.startPage = Math.floor((vm.pageIndex - 1) / 5) * 5 + 1;
@@ -17,6 +18,7 @@
                   }).success(function (data) {
                       vm.auditLogs = data.items;
                       vm.total = data.totalCount;
+                      vm.totalPage = Math.ceil(vm.total / 10);
                   })
               );
                

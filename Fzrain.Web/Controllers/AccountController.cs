@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using Abp.Authorization.Users;
 using Abp.UI;
 using Abp.Web.Mvc.Models;
+using Fzrain.Authorization.Users;
 using Fzrain.Users;
 using Fzrain.Web.Models.Account;
 using Microsoft.AspNet.Identity;
@@ -56,18 +57,18 @@ namespace Fzrain.Web.Controllers
 
             switch (loginResult.Result)
             {
-                case AbpLoginResultType.Success:
+                case LoginResultType.Success:
                     break;
-                case AbpLoginResultType.InvalidUserNameOrEmailAddress:
-                case AbpLoginResultType.InvalidPassword:
+                case LoginResultType.InvalidUserNameOrEmailAddress:
+                case LoginResultType.InvalidPassword:
                     throw new UserFriendlyException("Invalid user name or password!");
-                case AbpLoginResultType.InvalidTenancyName:
+                case LoginResultType.InvalidTenancyName:
                     throw new UserFriendlyException("No tenant with name: " + loginModel.TenancyName);
-                case AbpLoginResultType.TenantIsNotActive:
+                case LoginResultType.TenantIsNotActive:
                     throw new UserFriendlyException("Tenant is not active: " + loginModel.TenancyName);
-                case AbpLoginResultType.UserIsNotActive:
+                case LoginResultType.UserIsNotActive:
                     throw new UserFriendlyException("User is not active: " + loginModel.UsernameOrEmailAddress);
-                case AbpLoginResultType.UserEmailIsNotConfirmed:
+                case LoginResultType.UserEmailIsNotConfirmed:
                     throw new UserFriendlyException("Your email address is not confirmed!");
                 default: //Can not fall to default for now. But other result types can be added in the future and we may forget to handle it
                     throw new UserFriendlyException("Unknown problem with login: " + loginResult.Result);

@@ -1,9 +1,9 @@
 using System.Linq;
 using Abp.Authorization.Users;
 using Fzrain.Authorization.Roles;
+using Fzrain.Authorization.Users;
 using Fzrain.EntityFramework;
 using Fzrain.MultiTenancy;
-using Fzrain.Users;
 
 namespace Fzrain.Migrations.SeedData
 {
@@ -25,19 +25,19 @@ namespace Fzrain.Migrations.SeedData
         {
             //Admin role for tenancy owner
 
-            var adminRoleForTenancyOwner = _context.Roles.FirstOrDefault(r => r.TenantId == null && r.Name == "Admin");
+            var adminRoleForTenancyOwner = _context.Set<Role>().FirstOrDefault(r => r.TenantId == null && r.Name == "Admin");
             if (adminRoleForTenancyOwner == null)
             {
-                adminRoleForTenancyOwner = _context.Roles.Add(new Role {Name = "Admin", DisplayName = "Admin"});
+                adminRoleForTenancyOwner = _context.Set<Role>().Add(new Role { Name = "Admin", DisplayName = "Admin" });
                 _context.SaveChanges();
             }
 
             //Admin user for tenancy owner
 
-            var adminUserForTenancyOwner = _context.Users.FirstOrDefault(u => u.TenantId == null && u.UserName == "admin");
+            var adminUserForTenancyOwner = _context.Set<User>().FirstOrDefault(u => u.TenantId == null && u.UserName == "admin");
             if (adminUserForTenancyOwner == null)
             {
-                adminUserForTenancyOwner = _context.Users.Add(
+                adminUserForTenancyOwner = _context.Set<User>().Add(
                     new User
                     {
                         TenantId = null,
@@ -58,28 +58,28 @@ namespace Fzrain.Migrations.SeedData
 
             //Default tenant
 
-            var defaultTenant = _context.Tenants.FirstOrDefault(t => t.TenancyName == "Default");
+            var defaultTenant = _context.Set<Tenant>().FirstOrDefault(t => t.TenancyName == "Default");
             if (defaultTenant == null)
             {
-                defaultTenant = _context.Tenants.Add(new Tenant {TenancyName = "Default", Name = "Default"});
+                defaultTenant = _context.Set<Tenant>().Add(new Tenant { TenancyName = "Default", Name = "Default" });
                 _context.SaveChanges();
             }
 
             //Admin role for 'Default' tenant
 
-            var adminRoleForDefaultTenant = _context.Roles.FirstOrDefault(r => r.TenantId == defaultTenant.Id && r.Name == "Admin");
+            var adminRoleForDefaultTenant = _context.Set<Role>().FirstOrDefault(r => r.TenantId == defaultTenant.Id && r.Name == "Admin");
             if (adminRoleForDefaultTenant == null)
             {
-                adminRoleForDefaultTenant = _context.Roles.Add(new Role { TenantId = defaultTenant.Id, Name = "Admin", DisplayName = "Admin" });
+                adminRoleForDefaultTenant = _context.Set<Role>().Add(new Role { TenantId = defaultTenant.Id, Name = "Admin", DisplayName = "Admin" });
                 _context.SaveChanges();
             }
 
             //Admin for 'Default' tenant
 
-            var adminUserForDefaultTenant = _context.Users.FirstOrDefault(u => u.TenantId == defaultTenant.Id && u.UserName == "admin");
+            var adminUserForDefaultTenant = _context.Set<User>().FirstOrDefault(u => u.TenantId == defaultTenant.Id && u.UserName == "admin");
             if (adminUserForDefaultTenant == null)
             {
-                adminUserForDefaultTenant = _context.Users.Add(
+                adminUserForDefaultTenant = _context.Set<User>().Add(
                     new User
                     {
                         TenantId = defaultTenant.Id,
