@@ -1,11 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Abp.MultiTenancy;
-using Fzrain.Authorization;
 using Fzrain.Authorization.Permissions;
-using Fzrain.Authorization.Users;
 
-namespace Abp.Authorization.Users
+namespace Fzrain.Authorization.Users
 {
     /// <summary>
     /// Used to perform permission database operations for a user.

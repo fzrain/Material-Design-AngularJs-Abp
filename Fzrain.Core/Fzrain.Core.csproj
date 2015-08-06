@@ -91,8 +91,10 @@
     <Compile Include="Authorization\Roles\IRolePermissionStore.cs" />
     <Compile Include="Authorization\Roles\RolePermissionSetting.cs" />
     <Compile Include="Authorization\Roles\StaticRoleDefinition.cs" />
+    <Compile Include="Authorization\Users\IUserManagementConfig.cs" />
     <Compile Include="Authorization\Users\LoginResultType.cs" />
     <Compile Include="Authorization\Users\User.cs" />
+    <Compile Include="Authorization\Users\UserManagementConfig.cs" />
     <Compile Include="Authorization\Users\UserManager.cs" />
     <Compile Include="Authorization\Users\UserManagerExtensions.cs" />
     <Compile Include="Authorization\Users\UserStore.cs" />
@@ -100,7 +102,6 @@
     <Compile Include="Authorization\Users\IExternalAuthenticationSource.cs" />
     <Compile Include="Authorization\Users\IUserPermissionStore.cs" />
     <Compile Include="Authorization\Users\UserPermissionSetting.cs" />
-    <Compile Include="Authorization\Users\UserRole.cs" />
     <Compile Include="Configuration\Setting.cs" />
     <Compile Include="FzrainConsts.cs" />
     <Compile Include="FzrainCoreModule.cs" />

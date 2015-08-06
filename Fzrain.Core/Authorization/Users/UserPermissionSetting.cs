@@ -12,6 +12,6 @@ namespace Fzrain.Authorization.Users
         /// User id.
         /// </summary>
         public virtual long UserId { get; set; }
-        Permission
+    
     }
 }

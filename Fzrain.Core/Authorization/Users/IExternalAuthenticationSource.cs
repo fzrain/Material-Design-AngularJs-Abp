@@ -1,19 +1,23 @@
 using System.Threading.Tasks;
-using Abp.Authorization.Users;
 using Fzrain.MultiTenancy;
 
 namespace Fzrain.Authorization.Users
 {
     /// <summary>
-    /// Defines an authorization source to be used by <see cref="AbpUserManager{TTenant,TRole,TUser}.LoginAsync"/> method.
+    /// Defines an authorization source to be used by <see>
+    ///         <cref>AbpUserManager{TTenant,TRole,TUser}.LoginAsync</cref>
+    ///     </see>
+    ///     method.
     /// </summary>
     public interface IExternalAuthenticationSource
        
     {
         /// <summary>
         /// Unique name of the authentication source.
-        /// This source name is set to <see cref="AbpUser{TTenant,TUser}.AuthenticationSource"/>
-        /// if the user authenticated by this authentication source
+        /// This source name is set to <see>
+        ///         <cref>AbpUser{TTenant,TUser}.AuthenticationSource</cref>
+        ///     </see>
+        ///     if the user authenticated by this authentication source
         /// </summary>
         string Name { get; }
 

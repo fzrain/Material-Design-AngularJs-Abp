@@ -4,7 +4,7 @@ namespace Fzrain.Authorization.Roles
 {
     internal class RoleManagementConfig : IRoleManagementConfig
     {
-        public List<StaticRoleDefinition> StaticRoles { get; private set; }
+        public List<StaticRoleDefinition> StaticRoles { get; }
 
         public RoleManagementConfig()
         {

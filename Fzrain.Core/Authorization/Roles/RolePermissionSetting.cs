@@ -1,5 +1,4 @@
-﻿using Abp.Authorization;
-using Fzrain.Authorization.Permissions;
+﻿using Fzrain.Authorization.Permissions;
 
 namespace Fzrain.Authorization.Roles
 {

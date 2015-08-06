@@ -6,7 +6,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Abp;
 using Abp.Authorization;
-using Abp.Authorization.Users;
 using Abp.Configuration;
 using Abp.Configuration.Startup;
 using Abp.Dependency;
@@ -40,7 +39,7 @@ namespace Fzrain.Authorization.Users
                     throw new AbpException("Store is not IUserPermissionStore");
                 }
 
-                return Store as IUserPermissionStore;
+                return (IUserPermissionStore) Store;
             }
         }
 
@@ -313,12 +312,12 @@ namespace Fzrain.Authorization.Users
         {
             if (userNameOrEmailAddress.IsNullOrEmpty())
             {
-                throw new ArgumentNullException("userNameOrEmailAddress");
+                throw new ArgumentNullException(nameof(userNameOrEmailAddress));
             }
 
             if (plainPassword.IsNullOrEmpty())
             {
-                throw new ArgumentNullException("plainPassword");
+                throw new ArgumentNullException(nameof(plainPassword));
             }
 
             //Get and check tenant
@@ -409,10 +408,10 @@ namespace Fzrain.Authorization.Users
                             user.AuthenticationSource = source.Object.Name;
                             user.Password = new PasswordHasher().HashPassword(Guid.NewGuid().ToString("N").Left(16)); //Setting a random password since it will not be used
 
-                            user.Roles = new List<UserRole>();
+                            user.Roles = new List<Role>();
                             foreach (var defaultRole in RoleManager.Roles.Where(r => r.TenantId == tenantId && r.IsDefault).ToList())
                             {
-                                user.Roles.Add(new UserRole { RoleId = defaultRole.Id });
+                                user.Roles.Add(defaultRole);
                             }
 
                             await Store.CreateAsync(user);
@@ -526,7 +525,7 @@ namespace Fzrain.Authorization.Users
             //Remove from removed roles
             foreach (var userRole in user.Roles.ToList())
             {
-                var role = await RoleManager.FindByIdAsync(userRole.RoleId);
+                var role = await RoleManager.FindByIdAsync(userRole.Id);
                 if (roleNames.All(roleName => role.Name != roleName))
                 {
                     var result = await RemoveFromRoleAsync(user.Id, role.Name);
@@ -541,7 +540,7 @@ namespace Fzrain.Authorization.Users
             foreach (var roleName in roleNames)
             {
                 var role = await RoleManager.GetRoleByNameAsync(roleName);
-                if (user.Roles.All(ur => ur.RoleId != role.Id))
+                if (user.Roles.All(ur => ur.Id != role.Id))
                 {
                     var result = await AddToRoleAsync(user.Id, roleName);
                     if (!result.Succeeded)

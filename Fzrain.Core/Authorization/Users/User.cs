@@ -1,9 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Abp.Authorization.Users;
-using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using Abp.Extensions;
 using Fzrain.Authorization.Roles;
@@ -23,10 +20,8 @@ namespace Fzrain.Authorization.Users
         /// admin can not be deleted and UserName of the admin can not be changed.
         /// </summary>
         public const string AdminUserName = "admin";
-        
-        /// <summary>
-        /// Maximum length of the <see cref="Name"/> property.
-        /// </summary>
+       
+   
         public const int MaxNameLength = 32;
 
      

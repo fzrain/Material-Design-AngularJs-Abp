@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Abp.Authorization;
-using Abp.Authorization.Users;
 using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
@@ -224,33 +223,22 @@ namespace Fzrain.Authorization.Users
         public virtual async Task AddToRoleAsync(User user, string roleName)
         {
             var role = await _roleRepository.SingleAsync(r => r.Name == roleName);
-            await _userRoleRepository.InsertAsync(
-                new UserRole
-                {
-                    UserId = user.Id,
-                    RoleId = role.Id
-                });
+            user.Roles.Add(role);
+            await _userRepository.UpdateAsync(user);        
         }
 
         public virtual async Task RemoveFromRoleAsync(User user, string roleName)
         {
             var role = await _roleRepository.SingleAsync(r => r.Name == roleName);
-            var userRole = await _userRoleRepository.FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.RoleId == role.Id);
-            if (userRole == null)
-            {
-                return;
-            }
-
-            await _userRoleRepository.DeleteAsync(userRole);
+            user.Roles.Remove(role);
+            await _userRepository.UpdateAsync(user);
+          
         }
 
         public virtual Task<IList<string>> GetRolesAsync(User user)
         {
             //TODO: This is not implemented as async.
-            var roleNames = _userRoleRepository.Query(userRoles => (from userRole in userRoles
-                join role in _roleRepository.GetAll() on userRole.RoleId equals role.Id
-                where userRole.UserId == user.Id
-                select role.Name).ToList());
+            var roleNames = user.Roles.Select(r => r.Name).ToList();
 
             return Task.FromResult<IList<string>>(roleNames);
         }
@@ -258,13 +246,10 @@ namespace Fzrain.Authorization.Users
         public virtual async Task<bool> IsInRoleAsync(User user, string roleName)
         {
             var role = await _roleRepository.SingleAsync(r => r.Name == roleName);
-            return await _userRoleRepository.FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.RoleId == role.Id) != null;
+            return user.Roles.Contains(role);
         }
 
-        public virtual IQueryable<User> Users
-        {
-            get { return _userRepository.GetAll(); }
-        }
+        public virtual IQueryable<User> Users => _userRepository.GetAll();
 
         public virtual async Task AddPermissionAsync(User user, PermissionGrantInfo permissionGrant)
         {

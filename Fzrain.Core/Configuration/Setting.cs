@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Abp.Domain.Entities.Auditing;
 
 namespace Fzrain.Configuration
@@ -14,17 +9,7 @@ namespace Fzrain.Configuration
     /// </summary>
     [Table("Settings")]
     public class Setting : AuditedEntity<long>
-    {
-        /// <summary>
-        /// Maximum length of the <see cref="Name"/> property.
-        /// </summary>
-        public const int MaxNameLength = 256;
-
-        /// <summary>
-        /// Maximum length of the <see cref="Value"/> property.
-        /// </summary>
-        public const int MaxValueLength = 2000;
-
+    {       
         /// <summary>
         /// TenantId for this setting.
         /// TenantId is null if this setting is not Tenant level.
@@ -41,21 +26,13 @@ namespace Fzrain.Configuration
         /// Unique name of the setting.
         /// </summary>
         [Required]
-        [MaxLength(MaxNameLength)]
+        [MaxLength(256)]
         public virtual string Name { get; set; }
 
         /// <summary>
         /// Value of the setting.
         /// </summary>
-        [MaxLength(MaxValueLength)]
+        [MaxLength(2000)]
         public virtual string Value { get; set; }
-
-        /// <summary>
-        /// Creates a new <see cref="Setting"/> object.
-        /// </summary>
-        public Setting()
-        {
-
-        }    
     }
 }

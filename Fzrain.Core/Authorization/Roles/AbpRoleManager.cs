@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Abp;
 using Abp.Authorization;
 using Abp.Dependency;
-using Abp.Domain.Uow;
 using Abp.Localization;
 using Abp.MultiTenancy;
 using Abp.Runtime.Session;
@@ -24,7 +23,7 @@ namespace Fzrain.Authorization.Roles
 
         public IAbpSession AbpSession { get; set; }
         
-        public IRoleManagementConfig RoleManagementConfig { get; private set; }
+        public IRoleManagementConfig RoleManagementConfig { get; }
 
         private IRolePermissionStore RolePermissionStore
         {
@@ -35,14 +34,13 @@ namespace Fzrain.Authorization.Roles
                     throw new AbpException("Store is not IRolePermissionStore");
                 }
 
-                return Store as IRolePermissionStore;
+                return (IRolePermissionStore) Store;
             }
         }
 
-        protected RoleStore AbpStore { get; private set; }
+        protected RoleStore AbpStore { get; }
 
         private readonly IPermissionManager _permissionManager;
-        private readonly IUnitOfWorkManager _unitOfWorkManager;
 
         /// <summary>
         /// Constructor.
@@ -50,13 +48,11 @@ namespace Fzrain.Authorization.Roles
         protected RoleManager(
             RoleStore store, 
             IPermissionManager permissionManager, 
-            IRoleManagementConfig roleManagementConfig,
-            IUnitOfWorkManager unitOfWorkManager)
+            IRoleManagementConfig roleManagementConfig)
             : base(store)
         {
             RoleManagementConfig = roleManagementConfig;
             _permissionManager = permissionManager;
-            _unitOfWorkManager = unitOfWorkManager;
             AbpStore = store;
             AbpSession = NullAbpSession.Instance;
             LocalizationManager = NullLocalizationManager.Instance;

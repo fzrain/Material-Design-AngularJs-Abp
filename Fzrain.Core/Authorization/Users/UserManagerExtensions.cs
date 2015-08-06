@@ -1,12 +1,10 @@
 using System;
-using Abp.Authorization.Users;
-using Abp.MultiTenancy;
 using Abp.Threading;
 
 namespace Fzrain.Authorization.Users
 {
     /// <summary>
-    /// Extension methods for <see cref="AbpUserManager{TTenant,TRole,TUser}"/>.
+    /// Extension methods for <see cref="UserManager"/>.
     /// </summary>
     public static class UserManagerExtensions
     {
@@ -21,18 +19,18 @@ namespace Fzrain.Authorization.Users
         {
             if (manager == null)
             {
-                throw new ArgumentNullException("manager");
+                throw new ArgumentNullException(nameof(manager));
             }
 
             return AsyncHelper.RunSync(() => manager.IsGrantedAsync(userId, permissionName));
         }
 
-        public static UserManager.LoginResult Login<TTenant, TRole, TUser>(UserManager manager, string userNameOrEmailAddress, string plainPassword, string tenancyName = null)
+        public static UserManager.LoginResult Login(UserManager manager, string userNameOrEmailAddress, string plainPassword, string tenancyName = null)
          
         {
             if (manager == null)
             {
-                throw new ArgumentNullException("manager");
+                throw new ArgumentNullException(nameof(manager));
             }
 
             return AsyncHelper.RunSync(() => manager.LoginAsync(userNameOrEmailAddress, plainPassword, tenancyName));

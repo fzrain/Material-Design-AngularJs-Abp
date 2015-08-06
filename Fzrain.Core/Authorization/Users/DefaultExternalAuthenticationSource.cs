@@ -1,30 +1,29 @@
 using System.Threading.Tasks;
-using Abp.MultiTenancy;
-using Fzrain.Authorization.Users;
+using Fzrain.MultiTenancy;
 
-namespace Abp.Authorization.Users
+namespace Fzrain.Authorization.Users
 {
     /// <summary>
-    /// This is a helper base class to easily update <see cref="IExternalAuthenticationSource{TTenant,TUser}"/>.
+    /// This is a helper base class to easily update <see>
+    ///         <cref>IExternalAuthenticationSource{TTenant,TUser}</cref>
+    ///     </see>
+    ///     .
     /// Implements some methods as default but you can override all methods.
     /// </summary>
-    /// <typeparam name="TTenant">Tenant type</typeparam>
-    /// <typeparam name="TUser">User type</typeparam>
-    public abstract class DefaultExternalAuthenticationSource<TTenant, TUser> : IExternalAuthenticationSource<TTenant, TUser>
-        where TTenant : AbpTenant<TTenant, TUser>
-        where TUser : AbpUser<TTenant, TUser>, new()
+    public abstract class DefaultExternalAuthenticationSource : IExternalAuthenticationSource
+     
     {
         /// <inheritdoc/>
         public abstract string Name { get; }
 
         /// <inheritdoc/>
-        public abstract Task<bool> TryAuthenticateAsync(string userNameOrEmailAddress, string plainPassword, TTenant tenant);
+        public abstract Task<bool> TryAuthenticateAsync(string userNameOrEmailAddress, string plainPassword, Tenant tenant);
 
         /// <inheritdoc/>
-        public virtual Task<TUser> CreateUserAsync(string userNameOrEmailAddress, TTenant tenant)
+        public virtual Task<User> CreateUserAsync(string userNameOrEmailAddress, Tenant tenant)
         {
             return Task.FromResult(
-                new TUser
+                new User
                 {
                     UserName = userNameOrEmailAddress,
                     Name = userNameOrEmailAddress,
@@ -36,7 +35,7 @@ namespace Abp.Authorization.Users
         }
 
         /// <inheritdoc/>
-        public virtual Task UpdateUserAsync(TUser user, TTenant tenant)
+        public virtual Task UpdateUserAsync(User user, Tenant tenant)
         {
             return Task.FromResult(0);
         }

@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Abp.Authorization.Users;
 using Abp.UI;
 using Abp.Web.Mvc.Models;
 using Fzrain.Authorization.Users;

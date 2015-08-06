@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Abp.Authorization;
-using Abp.Authorization.Users;
 using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Fzrain.Authorization.Permissions;
@@ -37,10 +35,7 @@ namespace Fzrain.Authorization.Roles
             _rolePermissionSettingRepository = rolePermissionSettingRepository;
         }
 
-        public virtual IQueryable<Role> Roles
-        {
-            get { return _roleRepository.GetAll(); }
-        }
+        public virtual IQueryable<Role> Roles => _roleRepository.GetAll();
 
         public virtual async Task CreateAsync(Role role)
         {
