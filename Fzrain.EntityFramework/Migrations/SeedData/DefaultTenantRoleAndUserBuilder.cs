@@ -45,14 +45,13 @@ namespace Fzrain.Migrations.SeedData
                         Surname = "Administrator",
                         EmailAddress = "admin@aspnetboilerplate.com",
                         IsEmailConfirmed = true,
-                        Password = "AM4OLBpptxBYmM79lGOX9egzZk3vIQU3d/gFCJzaBjAPXzYIK3tQ2N7X4fcrHtElTw==" //123qwe
+                        Password = "AM4OLBpptxBYmM79lGOX9egzZk3vIQU3d/gFCJzaBjAPXzYIK3tQ2N7X4fcrHtElTw==", //123qwe
+                      
                     });
-
+                adminUserForTenancyOwner.Roles.Add(adminRoleForTenancyOwner);
                 _context.SaveChanges();
 
-                _context.UserRoles.Add(new UserRole(adminUserForTenancyOwner.Id, adminRoleForTenancyOwner.Id));
-
-                _context.SaveChanges();
+              
             }
 
             //Default tenant
@@ -89,9 +88,7 @@ namespace Fzrain.Migrations.SeedData
                         IsEmailConfirmed = true,
                         Password = "AM4OLBpptxBYmM79lGOX9egzZk3vIQU3d/gFCJzaBjAPXzYIK3tQ2N7X4fcrHtElTw==" //123qwe
                     });
-                _context.SaveChanges();
-
-                _context.UserRoles.Add(new UserRole(adminUserForDefaultTenant.Id, adminRoleForDefaultTenant.Id));
+                adminUserForDefaultTenant.Roles.Add(adminRoleForDefaultTenant);               
                 _context.SaveChanges();
             }
         }

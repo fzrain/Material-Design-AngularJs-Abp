@@ -2,7 +2,7 @@
 
 namespace Fzrain.Authorization.Users
 {
-    public class UserManagementConfig : Fzrain.Authorization.Users.IUserManagementConfig
+    public class UserManagementConfig : IUserManagementConfig
     {
         public ITypeList<object> ExternalAuthenticationSources { get; set; }
 

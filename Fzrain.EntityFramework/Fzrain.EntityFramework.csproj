@@ -96,10 +96,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\FzrainDbContext.cs" />
+    <Compile Include="EntityFramework\Mapping\AuditLogMap.cs" />
     <Compile Include="EntityFramework\Mapping\PermissionInfoMap.cs" />
     <Compile Include="EntityFramework\Mapping\PermissionSettingMap.cs" />
+    <Compile Include="EntityFramework\Mapping\RoleMap.cs" />
+    <Compile Include="EntityFramework\Mapping\SettingMap.cs" />
+    <Compile Include="EntityFramework\Mapping\TenantMap.cs" />
+    <Compile Include="EntityFramework\Mapping\UserLoginMap.cs" />
     <Compile Include="EntityFramework\Mapping\UserMap.cs" />
     <Compile Include="EntityFramework\Repositories\FzrainRepositoryBase.cs" />
+    <Compile Include="Migrations\201508070946342_InitialCreate.cs" />
+    <Compile Include="Migrations\201508070946342_InitialCreate.Designer.cs">
+      <DependentUpon>201508070946342_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="FzrainDataModule.cs" />
     <Compile Include="Migrations\SeedData\DefaultTenantRoleAndUserBuilder.cs" />
@@ -118,7 +127,11 @@
       <Name>Fzrain.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201508070946342_InitialCreate.resx">
+      <DependentUpon>201508070946342_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

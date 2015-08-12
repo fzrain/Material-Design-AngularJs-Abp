@@ -5,7 +5,6 @@ using Abp;
 using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Abp.Localization;
-using Abp.MultiTenancy;
 using Microsoft.AspNet.Identity;
 
 namespace Fzrain.MultiTenancy

@@ -79,21 +79,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auditing\AuditingStore.cs" />
+    <Compile Include="Auditing\AuditLog.cs" />
     <Compile Include="Authorization\Permissions\PermissionChecker.cs" />
     <Compile Include="Authorization\Permissions\PermissionGrantInfo.cs" />
     <Compile Include="Authorization\Permissions\PermissionSetting.cs" />
     <Compile Include="Authorization\Permissions\PermissionInfo.cs" />
     <Compile Include="Authorization\Roles\IRoleManagementConfig.cs" />
     <Compile Include="Authorization\Roles\Role.cs" />
-    <Compile Include="Authorization\Roles\AbpRoleManager.cs" />
+    <Compile Include="Authorization\Roles\RoleManager.cs" />
     <Compile Include="Authorization\Roles\RoleManagementConfig.cs" />
     <Compile Include="Authorization\Roles\RoleStore.cs" />
     <Compile Include="Authorization\Roles\IRolePermissionStore.cs" />
-    <Compile Include="Authorization\Roles\RolePermissionSetting.cs" />
     <Compile Include="Authorization\Roles\StaticRoleDefinition.cs" />
     <Compile Include="Authorization\Users\IUserManagementConfig.cs" />
     <Compile Include="Authorization\Users\LoginResultType.cs" />
     <Compile Include="Authorization\Users\User.cs" />
+    <Compile Include="Authorization\Users\UserLogin.cs" />
     <Compile Include="Authorization\Users\UserManagementConfig.cs" />
     <Compile Include="Authorization\Users\UserManager.cs" />
     <Compile Include="Authorization\Users\UserManagerExtensions.cs" />
@@ -101,13 +103,16 @@
     <Compile Include="Authorization\Users\DefaultExternalAuthenticationSource.cs" />
     <Compile Include="Authorization\Users\IExternalAuthenticationSource.cs" />
     <Compile Include="Authorization\Users\IUserPermissionStore.cs" />
-    <Compile Include="Authorization\Users\UserPermissionSetting.cs" />
     <Compile Include="Configuration\Setting.cs" />
+    <Compile Include="Configuration\SettingExtensions.cs" />
+    <Compile Include="Configuration\SettingNames.cs" />
+    <Compile Include="Configuration\SettingStore.cs" />
     <Compile Include="FzrainConsts.cs" />
     <Compile Include="FzrainCoreModule.cs" />
     <Compile Include="MultiTenancy\Tenant.cs" />
     <Compile Include="MultiTenancy\TenantManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runtime\Session\AbpSession.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

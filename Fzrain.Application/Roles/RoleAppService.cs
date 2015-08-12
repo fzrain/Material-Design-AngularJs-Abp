@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
@@ -22,7 +19,7 @@ namespace Fzrain.Roles
 
        public PagedResultOutput<RoleDto> GetRoles()
        {
-             return new PagedResultOutput<RoleDto >
+             return new PagedResultOutput<RoleDto>
                    {
                        Items = roleManager.Roles.ToList().MapTo<List<RoleDto>>()
                    };

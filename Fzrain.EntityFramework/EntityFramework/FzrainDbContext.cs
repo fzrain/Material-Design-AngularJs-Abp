@@ -3,10 +3,12 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Reflection;
-using Abp.Domain.Entities;
 using Abp.EntityFramework;
+using Fzrain.Auditing;
+using Fzrain.Authorization.Permissions;
 using Fzrain.Authorization.Roles;
 using Fzrain.Authorization.Users;
+using Fzrain.Configuration;
 using Fzrain.MultiTenancy;
 
 namespace Fzrain.EntityFramework
@@ -16,7 +18,15 @@ namespace Fzrain.EntityFramework
        
         //TODO: Define an IDbSet for each Entity...
         //Example:
-        //public virtual IDbSet<User> Users { get; set; }      
+        public virtual IDbSet<User> Users { get; set; }
+        public virtual IDbSet<Tenant> Tenants { get; set; }
+        public virtual IDbSet<Role> Roles { get; set; }
+        public virtual IDbSet<UserLogin> UserLogins { get; set; }
+        public virtual IDbSet<PermissionSetting> Permissions { get; set; }
+        public virtual IDbSet<Setting> Settings { get; set; }
+        public virtual IDbSet<AuditLog> AuditLogs { get; set; }
+
+
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
          *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not
@@ -43,7 +53,7 @@ namespace Fzrain.EntityFramework
             //System.Type configType = typeof(LanguageMap);   //any of your configuration classes here
             //var typesToRegister = Assembly.GetAssembly(configType).GetTypes()
             var typesToRegister = Assembly.GetExecutingAssembly().GetTypes()
-            .Where(type => !String.IsNullOrEmpty(type.Namespace))
+            .Where(type => !string.IsNullOrEmpty(type.Namespace))
             .Where(type => type.BaseType != null && type.BaseType.IsGenericType && type.BaseType.GetGenericTypeDefinition() == typeof(EntityTypeConfiguration<>));
             foreach (var type in typesToRegister)
             {

@@ -16,7 +16,7 @@ namespace Fzrain.Authorization.Roles
     /// Extends <see cref="RoleManager{TRole,TKey}"/> of ASP.NET Identity Framework.
     /// Applications should derive this class with appropriate generic arguments.
     /// </summary>
-    public abstract class RoleManager: RoleManager<Role, int>, ITransientDependency
+    public  class RoleManager: RoleManager<Role, int>, ITransientDependency
       
     {
         public ILocalizationManager LocalizationManager { get; set; }
@@ -45,7 +45,7 @@ namespace Fzrain.Authorization.Roles
         /// <summary>
         /// Constructor.
         /// </summary>
-        protected RoleManager(
+        public  RoleManager(
             RoleStore store, 
             IPermissionManager permissionManager, 
             IRoleManagementConfig roleManagementConfig)

@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Abp.Authorization;
 using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
-using Abp.Runtime.Session;
 using Fzrain.Authorization.Permissions;
 using Fzrain.Authorization.Roles;
-using Fzrain.MultiTenancy;
 using Microsoft.AspNet.Identity;
 
 namespace Fzrain.Authorization.Users
@@ -16,7 +13,7 @@ namespace Fzrain.Authorization.Users
     /// <summary>
     /// Implements 'User Store' of ASP.NET Identity Framework.
     /// </summary>
-    public abstract class UserStore :
+    public  class UserStore :
         IUserPasswordStore<User, long>,
         IUserEmailStore<User, long>,
         IUserLoginStore<User, long>,
@@ -28,31 +25,25 @@ namespace Fzrain.Authorization.Users
     {
         private readonly IRepository<User, long> _userRepository;
         private readonly IRepository<UserLogin, long> _userLoginRepository;
-        private readonly IRepository<UserRole, long> _userRoleRepository;
         private readonly IRepository<Role> _roleRepository;
-        private readonly IRepository<UserPermissionSetting, long> _userPermissionSettingRepository;
-        private readonly IAbpSession _session;
+        private readonly IRepository<PermissionSetting, long> _permissionSettingRepository;
         private readonly IUnitOfWorkManager _unitOfWorkManager;
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        protected UserStore(
-            IRepository<User, long> userRepository,
-            IRepository<UserLogin, long> userLoginRepository,
-            IRepository<UserRole, long> userRoleRepository,
+        public UserStore(
+            IRepository<User,long> userRepository,
+            IRepository<UserLogin,long> userLoginRepository,
             IRepository<Role> roleRepository,
-            IRepository<UserPermissionSetting, long> userPermissionSettingRepository,
-            IAbpSession session,
+            IRepository<PermissionSetting,long> permissionSettingRepository,
             IUnitOfWorkManager unitOfWorkManager)
         {
             _userRepository = userRepository;
             _userLoginRepository = userLoginRepository;
-            _userRoleRepository = userRoleRepository;
             _roleRepository = roleRepository;
-            _session = session;
             _unitOfWorkManager = unitOfWorkManager;
-            _userPermissionSettingRepository = userPermissionSettingRepository;
+            _permissionSettingRepository = permissionSettingRepository;
         }
 
         public virtual async Task CreateAsync(User user)
@@ -258,8 +249,8 @@ namespace Fzrain.Authorization.Users
                 return;
             }
 
-            await _userPermissionSettingRepository.InsertAsync(
-                new UserPermissionSetting
+            await _permissionSettingRepository.InsertAsync(
+                new PermissionSetting
                 {
                     UserId = user.Id,
                     Name = permissionGrant.Name,
@@ -269,7 +260,7 @@ namespace Fzrain.Authorization.Users
 
         public virtual async Task RemovePermissionAsync(User user, PermissionGrantInfo permissionGrant)
         {
-            await _userPermissionSettingRepository.DeleteAsync(
+            await _permissionSettingRepository.DeleteAsync(
                 permissionSetting => permissionSetting.UserId == user.Id &&
                                      permissionSetting.Name == permissionGrant.Name &&
                                      permissionSetting.IsGranted == permissionGrant.IsGranted
@@ -278,14 +269,14 @@ namespace Fzrain.Authorization.Users
 
         public virtual async Task<IList<PermissionGrantInfo>> GetPermissionsAsync(User user)
         {
-            return (await _userPermissionSettingRepository.GetAllListAsync(p => p.UserId == user.Id))
+            return (await _permissionSettingRepository.GetAllListAsync(p => p.UserId == user.Id))
                 .Select(p => new PermissionGrantInfo(p.Name, p.IsGranted))
                 .ToList();
         }
 
         public virtual async Task<bool> HasPermissionAsync(User user, PermissionGrantInfo permissionGrant)
         {
-            return await _userPermissionSettingRepository.FirstOrDefaultAsync(
+            return await _permissionSettingRepository.FirstOrDefaultAsync(
                 p => p.UserId == user.Id &&
                      p.Name == permissionGrant.Name &&
                      p.IsGranted == permissionGrant.IsGranted
@@ -294,7 +285,7 @@ namespace Fzrain.Authorization.Users
 
         public virtual async Task RemoveAllPermissionSettingsAsync(User user)
         {
-            await _userPermissionSettingRepository.DeleteAsync(s => s.UserId == user.Id);
+            await _permissionSettingRepository.DeleteAsync(s => s.UserId == user.Id);
         }
 
         public virtual void Dispose()

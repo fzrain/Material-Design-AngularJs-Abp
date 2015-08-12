@@ -35,6 +35,13 @@
                   }
                   
             }
+
+            vm.getAuditDetail= function(id) {
+                auditService.getDetail({ id: id }).success(function(data) {
+                    vm.detailLog = data;
+                });
+            }
+
             vm.loadData(1);
            
         

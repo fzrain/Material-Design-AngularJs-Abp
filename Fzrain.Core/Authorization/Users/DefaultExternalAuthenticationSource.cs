@@ -11,15 +11,11 @@ namespace Fzrain.Authorization.Users
     /// Implements some methods as default but you can override all methods.
     /// </summary>
     public abstract class DefaultExternalAuthenticationSource : IExternalAuthenticationSource
-     
+
     {
-        /// <inheritdoc/>
+
         public abstract string Name { get; }
-
-        /// <inheritdoc/>
         public abstract Task<bool> TryAuthenticateAsync(string userNameOrEmailAddress, string plainPassword, Tenant tenant);
-
-        /// <inheritdoc/>
         public virtual Task<User> CreateUserAsync(string userNameOrEmailAddress, Tenant tenant)
         {
             return Task.FromResult(
@@ -34,7 +30,6 @@ namespace Fzrain.Authorization.Users
                 });
         }
 
-        /// <inheritdoc/>
         public virtual Task UpdateUserAsync(User user, Tenant tenant)
         {
             return Task.FromResult(0);

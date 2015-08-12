@@ -13,12 +13,12 @@ using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
 using Abp.Extensions;
 using Abp.Localization;
-using Abp.MultiTenancy;
 using Abp.Runtime.Security;
 using Abp.Runtime.Session;
 using Abp.Timing;
 using Fzrain.Authorization.Permissions;
 using Fzrain.Authorization.Roles;
+using Fzrain.Configuration;
 using Fzrain.MultiTenancy;
 using Microsoft.AspNet.Identity;
 
@@ -27,7 +27,7 @@ namespace Fzrain.Authorization.Users
     /// <summary>
     /// Extends <see cref="UserManager{TUser,TKey}"/> of ASP.NET Identity Framework.
     /// </summary>
-    public abstract class UserManager : UserManager<User, long>, ITransientDependency
+    public  class UserManager : UserManager<User, long>, ITransientDependency
       
     {
         private IUserPermissionStore UserPermissionStore
@@ -47,11 +47,11 @@ namespace Fzrain.Authorization.Users
 
         public IAbpSession AbpSession { get; set; }
 
-        protected RoleManager RoleManager { get; private set; }
+        protected RoleManager RoleManager { get; set; }
 
-        protected ISettingManager SettingManager { get; private set; }
+        protected ISettingManager SettingManager { get; set; }
 
-        protected UserStore AbpStore { get; private set; }
+        protected UserStore AbpStore { get; set; }
 
         private readonly IPermissionManager _permissionManager;
         private readonly IUnitOfWorkManager _unitOfWorkManager;
@@ -61,7 +61,7 @@ namespace Fzrain.Authorization.Users
         private readonly IMultiTenancyConfig _multiTenancyConfig;
 
         //TODO: Non-generic parameters may be converted to property-injection
-        protected UserManager(
+        public  UserManager(
             UserStore userStore,
             RoleManager roleManager,
             IRepository<Tenant> tenantRepository,
@@ -297,7 +297,7 @@ namespace Fzrain.Authorization.Users
 
             using (_unitOfWorkManager.Current.DisableFilter(AbpDataFilters.MayHaveTenant))
             {
-                var user = await AbpStore.FindAsync(tenant == null ? (int?)null : tenant.Id, login);
+                var user = await AbpStore.FindAsync(tenant?.Id, login);
                 if (user == null)
                 {
                     return new LoginResult(LoginResultType.UnknownExternalLogin);
@@ -344,7 +344,7 @@ namespace Fzrain.Authorization.Users
             {
                 var loggedInFromExternalSource = await TryLoginFromExternalAuthenticationSources(userNameOrEmailAddress, plainPassword, tenant);
 
-                var user = await AbpStore.FindByNameOrEmailAsync(tenant == null ? (int?)null : tenant.Id, userNameOrEmailAddress);
+                var user = await AbpStore.FindByNameOrEmailAsync(tenant?.Id, userNameOrEmailAddress);
                 if (user == null)
                 {
                     return new LoginResult(LoginResultType.InvalidUserNameOrEmailAddress);
@@ -370,7 +370,7 @@ namespace Fzrain.Authorization.Users
                 return new LoginResult(LoginResultType.UserIsNotActive);
             }
 
-            if (await IsEmailConfirmationRequiredForLoginAsync(user.TenantId) && !user.IsEmailConfirmed)
+            if (!user.IsEmailConfirmed)
             {
                 return new LoginResult(LoginResultType.UserEmailIsNotConfirmed);
             }
@@ -397,7 +397,7 @@ namespace Fzrain.Authorization.Users
                 {
                     if (await source.Object.TryAuthenticateAsync(userNameOrEmailAddress, plainPassword, tenant))
                     {
-                        var tenantId = tenant == null ? (int?) null : tenant.Id;
+                        var tenantId = tenant?.Id;
 
                         var user = await AbpStore.FindByNameOrEmailAsync(tenantId, userNameOrEmailAddress);
                         if (user == null)
@@ -557,10 +557,10 @@ namespace Fzrain.Authorization.Users
         {
             if (tenantId.HasValue)
             {
-                return await SettingManager.GetSettingValueForTenantAsync<bool>(AbpZeroSettingNames.UserManagement.IsEmailConfirmationRequiredForLogin, tenantId.Value);
+                return await SettingManager.GetSettingValueForTenantAsync<bool>(SettingNames.IsEmailConfirmationRequiredForLogin , tenantId.Value);
             }
 
-            return await SettingManager.GetSettingValueForApplicationAsync<bool>(AbpZeroSettingNames.UserManagement.IsEmailConfirmationRequiredForLogin);
+            return await SettingManager.GetSettingValueForApplicationAsync<bool>(SettingNames.IsEmailConfirmationRequiredForLogin);
         }
 
         private async Task<Tenant> GetDefaultTenantAsync()

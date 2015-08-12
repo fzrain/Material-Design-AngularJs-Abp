@@ -1,15 +1,10 @@
+using System.Data.Entity.Migrations;
 using EntityFramework.DynamicFilters;
 using Fzrain.EntityFramework;
 using Fzrain.Migrations.SeedData;
-using Fzrain.Users;
 
 namespace Fzrain.Migrations
 {
-    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Migrations;
-    using System.Linq;
-
     internal sealed class Configuration : DbMigrationsConfiguration<FzrainDbContext>
     {
         public Configuration()

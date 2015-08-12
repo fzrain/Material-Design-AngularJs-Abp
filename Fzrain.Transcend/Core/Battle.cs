@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using Abp.Domain.Entities;
 
 namespace Fzrain.Transcend.Core
 {
-  public   class Battle:Entity<long>
+  public   class Battle:Entity
     {
         public int BattleType { get; set; }
-        public int GameId { get; set; }
+        public long GameId { get; set; }
         public DateTime StartTime { get; set; }
         public int Duration { get; set; }
         public int IsWin { get; set; }

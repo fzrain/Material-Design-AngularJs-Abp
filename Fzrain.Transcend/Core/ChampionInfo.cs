@@ -1,9 +1,8 @@
-﻿using System.ComponentModel;
-using Abp.Domain.Entities;
+﻿using Abp.Domain.Entities;
 
 namespace Fzrain.Transcend.Core
 {
-    public class ChampionInfo : Entity<long>
+    public class ChampionInfo : Entity
     {
         public int ChampionId { get; set; }
         public string EnglishName { get; set; }

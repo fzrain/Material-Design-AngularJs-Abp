@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
-using Abp.Auditing;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
+using Fzrain.Auditing;
 using Fzrain.AuditLogs.Dto;
 
 namespace Fzrain.AuditLogs
@@ -32,6 +29,11 @@ namespace Fzrain.AuditLogs
                 Items = auditLogs.MapTo<List<AuditLogDto>>(),
                 TotalCount = auditLogCount
             };
+        }
+
+        public AuditLogDto GetDetail(IdInput<long> input)
+        {
+            return auditRepository.Get(input.Id).MapTo<AuditLogDto>();
         }
     }
 }

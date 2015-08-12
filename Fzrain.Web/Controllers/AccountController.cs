@@ -4,7 +4,6 @@ using System.Web.Mvc;
 using Abp.UI;
 using Abp.Web.Mvc.Models;
 using Fzrain.Authorization.Users;
-using Fzrain.Users;
 using Fzrain.Web.Models.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
@@ -15,13 +14,7 @@ namespace Fzrain.Web.Controllers
     {
         private readonly UserManager _userManager;
 
-        private IAuthenticationManager AuthenticationManager
-        {
-            get
-            {
-                return HttpContext.GetOwinContext().Authentication;
-            }
-        }
+        private IAuthenticationManager AuthenticationManager => HttpContext.GetOwinContext().Authentication;
 
         public AccountController(UserManager userManager)
         {

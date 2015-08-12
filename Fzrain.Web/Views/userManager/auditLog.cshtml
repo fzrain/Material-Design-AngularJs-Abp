@@ -6,30 +6,34 @@
     <div class="card">
         <div class="card-header"></div>
         <div class="table-responsive">
-            <table class="table" style="height:350px;width:1500px;">
+            <table class="table" style="height: 350px;">
                 <thead>
-                    <tr>
-                        <th data-column-id="serviceName">服务</th>
-                        <th data-column-id="methodName">方法</th>
-                        <th data-column-id="parameters">参数</th>
-                        <th data-column-id="executionTime">执行时间</th>
-                        <th data-column-id="executionDuration">执行时长</th>
-                        <th data-column-id="clientIpAddress">IP</th>
-                        <th data-column-id="clientName">客户端</th>
-                        <th data-column-id="browserInfo">浏览器</th>
-                    </tr>
+                <tr>
+                    <th>查看详情</th>
+                    <th data-column-id="serviceName">服务</th>
+                    <th data-column-id="methodName">方法</th>
+                    @*<th data-column-id="parameters">参数</th>
+                    <th data-column-id="executionTime">执行时间</th>
+                    <th data-column-id="executionDuration">执行时长</th>*@
+                    <th data-column-id="clientIpAddress">IP</th>
+                    <th data-column-id="clientName">客户端</th>
+                    <th data-column-id="browserInfo" width="300px">浏览器</th>
+                </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="log in vm.auditLogs">
-                        <td>{{log.serviceName}}</td>
-                        <td>{{log.methodName}}</td>
-                        <td>{{log.parameters}}</td>
-                        <td>{{log.executionTime}}</td>
-                        <td>{{log.executionDuration}}</td>
-                        <td>{{log.clientIpAddress}}</td>
-                        <td>{{log.clientName}}</td>
-                        <td>{{log.browserInfo}}</td>
-                    </tr>
+                <tr ng-repeat="log in vm.auditLogs">
+                    <td>
+                        <button data-toggle="modal" data-target="#modalAdultDetail" data-ng-click="vm.getAuditDetail(log.id)" class="btn btn-info waves-effect"><i class="md md-search" ></i></button>
+                    </td>
+                    <td>{{log.serviceName}}</td>
+                    <td>{{log.methodName}}</td>
+                    @*<td>{{log.parameters}}</td>
+                    <td>{{log.executionTime}}</td>
+                    <td>{{log.executionDuration}}</td>*@
+                    <td>{{log.clientIpAddress}}</td>
+                    <td>{{log.clientName}}</td>
+                    <td>{{log.browserInfo}}</td>
+                </tr>
                 </tbody>
             </table>
             <div id="undefined-footer" class="bootgrid-footer container-fluid">
@@ -40,7 +44,7 @@
                             <li><a href="" data-ng-show="vm.pageIndex!=1" data-ng-click="vm.loadData(vm.pageIndex-1)" aria-label="Previous"><i class="md md-chevron-left"></i></a></li>
                             <li data-ng-class="{'active':vm.pageIndex==page}" ng-repeat="page in vm.pages">
                                 <a href="" data-ng-click="vm.loadData(page)">{{page}}</a>
-                            </li>                         
+                            </li>
                             <li><a href="" data-ng-show="vm.showNextPager" aria-label="Next" data-ng-click="vm.loadData(vm.pageIndex+1)"><i class="md md-chevron-right"></i></a></li>
                             <li data-ng-show="vm.showNextPager" aria-disabled="true"><a href="" data-ng-click="vm.loadData(vm.totalPage)"><i class="md md-more-horiz"></i></a></li>
                         </ul>
@@ -48,6 +52,126 @@
                     <div class="col-sm-6 infoBar">
                         <div class="infos">{{(vm.pageIndex-1)*vm.pageSize+1}}-{{vm.pageSize*vm.pageIndex}}条数据 总共{{vm.total}}条</div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalAdultDetail" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">审计日志详情</h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="form-body">
+                        <h3 class="form-section">用户信息</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">用户名:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static ng-binding">
+                                            {{vm.detailLog.userId}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">IP地址:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static ng-binding">
+                                            45.33.44.240
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">客户端:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static ng-binding">
+
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">浏览器:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static ng-binding">
+                                            Chrome / 44.0 / WinNT
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="form-section">操作信息</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">服务:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static ng-binding">
+                                            TenantDashboardAppService
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">操作:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static ng-binding">
+                                            GetMemberActivity
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">时间:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static ng-binding">
+                                            5小時前 (2015-08-12 12:49:30)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">持续时间:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static ng-binding">
+                                            9 ms
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3">参数:</label>
+                                    <div class="col-sm-9">
+                                        <pre lang="js" class="ng-binding">{}</pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3 class="form-section">错误状态</h3>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <div class="col-sm-12">
+                                        <!-- ngIf: !vm.auditLog.exception --><p class="form-control-static ng-scope" ng-if="!vm.auditLog.exception">
+                                            <i class="fa fa-check-circle font-green"></i> 成功
+                                        </p><!-- end ngIf: !vm.auditLog.exception -->
+                                        <!-- ngIf: vm.auditLog.exception -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="modal-footer">                    
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="md md-cancel"></i>关闭</button>
                 </div>
             </div>
         </div>

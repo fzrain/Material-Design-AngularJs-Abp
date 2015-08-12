@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using Abp.Dependency;
 using Abp.Domain.Repositories;
 using Fzrain.Authorization.Permissions;
-using Fzrain.Authorization.Users;
 using Microsoft.AspNet.Identity;
 
 namespace Fzrain.Authorization.Roles
@@ -12,27 +11,24 @@ namespace Fzrain.Authorization.Roles
     /// <summary>
     /// Implements 'Role Store' of ASP.NET Identity Framework.
     /// </summary>
-    public abstract class RoleStore :
+    public class RoleStore :
         IQueryableRoleStore<Role, int>,
         IRolePermissionStore,
         ITransientDependency
     
     {
         private readonly IRepository<Role> _roleRepository;
-        private readonly IRepository<UserRole, long> _userRoleRepository;
-        private readonly IRepository<RolePermissionSetting, long> _rolePermissionSettingRepository;
+        private readonly IRepository<PermissionSetting, long> _permissionSettingRepository;
 
         /// <summary>
         /// Constructor.
         /// </summary>
-        protected RoleStore(
+        public  RoleStore(
             IRepository<Role> roleRepository, 
-            IRepository<UserRole, long> userRoleRepository,
-            IRepository<RolePermissionSetting, long> rolePermissionSettingRepository)
+            IRepository<PermissionSetting, long> permissionSettingRepository)
         {
             _roleRepository = roleRepository;
-            _userRoleRepository = userRoleRepository;
-            _rolePermissionSettingRepository = rolePermissionSettingRepository;
+            _permissionSettingRepository = permissionSettingRepository;
         }
 
         public virtual IQueryable<Role> Roles => _roleRepository.GetAll();
@@ -48,8 +44,7 @@ namespace Fzrain.Authorization.Roles
         }
 
         public virtual async Task DeleteAsync(Role role)
-        {
-            await _userRoleRepository.DeleteAsync(ur => ur.RoleId == role.Id);
+        {         
             await _roleRepository.DeleteAsync(role);
         }
 
@@ -80,8 +75,8 @@ namespace Fzrain.Authorization.Roles
                 return;
             }
 
-            await _rolePermissionSettingRepository.InsertAsync(
-                new RolePermissionSetting
+            await _permissionSettingRepository.InsertAsync(
+                new PermissionSetting
                 {
                     RoleId = role.Id,
                     Name = permissionGrant.Name,
@@ -92,7 +87,7 @@ namespace Fzrain.Authorization.Roles
         /// <inheritdoc/>
         public virtual async Task RemovePermissionAsync(Role role, PermissionGrantInfo permissionGrant)
         {
-            await _rolePermissionSettingRepository.DeleteAsync(
+            await _permissionSettingRepository.DeleteAsync(
                 permissionSetting => permissionSetting.RoleId == role.Id &&
                                      permissionSetting.Name == permissionGrant.Name &&
                                      permissionSetting.IsGranted == permissionGrant.IsGranted
@@ -102,7 +97,7 @@ namespace Fzrain.Authorization.Roles
         /// <inheritdoc/>
         public virtual async Task<IList<PermissionGrantInfo>> GetPermissionsAsync(Role role)
         {
-            return (await _rolePermissionSettingRepository.GetAllListAsync(p => p.RoleId == role.Id))
+            return (await _permissionSettingRepository.GetAllListAsync(p => p.RoleId == role.Id))
                 .Select(p => new PermissionGrantInfo(p.Name, p.IsGranted))
                 .ToList();
         }
@@ -110,7 +105,7 @@ namespace Fzrain.Authorization.Roles
         /// <inheritdoc/>
         public virtual async Task<bool> HasPermissionAsync(Role role, PermissionGrantInfo permissionGrant)
         {
-            return await _rolePermissionSettingRepository.FirstOrDefaultAsync(
+            return await _permissionSettingRepository.FirstOrDefaultAsync(
                 p => p.RoleId == role.Id &&
                      p.Name == permissionGrant.Name &&
                      p.IsGranted == permissionGrant.IsGranted
@@ -120,7 +115,7 @@ namespace Fzrain.Authorization.Roles
         /// <inheritdoc/>
         public virtual async Task RemoveAllPermissionSettingsAsync(Role role)
         {
-            await _rolePermissionSettingRepository.DeleteAsync(s => s.RoleId == role.Id);
+            await _permissionSettingRepository.DeleteAsync(s => s.RoleId == role.Id);
         }
 
         public virtual void Dispose()

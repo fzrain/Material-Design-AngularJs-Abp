@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Abp.Application.Services.Dto;
-using Abp.Auditing;
 using Abp.AutoMapper;
+using Fzrain.Auditing;
 
 namespace Fzrain.AuditLogs.Dto
 {
     [AutoMapFrom(typeof(AuditLog))]
-   public  class AuditLogDto:IOutputDto
+   public  class AuditLogDto: EntityDto<long>
     {  
         public virtual int? TenantId { get; set; }
         public virtual long? UserId { get; set; }       

@@ -4,10 +4,10 @@ using Abp.EntityFramework.Repositories;
 
 namespace Fzrain.EntityFramework.Repositories
 {
-    public abstract class FzrainRepositoryBase<TEntity, TPrimaryKey> : EfRepositoryBase<FzrainDbContext, TEntity, TPrimaryKey>
+    public  class FzrainRepositoryBase<TEntity, TPrimaryKey> : EfRepositoryBase<FzrainDbContext, TEntity, TPrimaryKey>
         where TEntity : class, IEntity<TPrimaryKey>
     {
-        protected FzrainRepositoryBase(IDbContextProvider<FzrainDbContext> dbContextProvider)
+        public  FzrainRepositoryBase(IDbContextProvider<FzrainDbContext> dbContextProvider)
             : base(dbContextProvider)
         {
 
@@ -16,10 +16,10 @@ namespace Fzrain.EntityFramework.Repositories
         //add common methods for all repositories
     }
 
-    public abstract class FzrainRepositoryBase<TEntity> : FzrainRepositoryBase<TEntity, int>
+    public  class FzrainRepositoryBase<TEntity> : FzrainRepositoryBase<TEntity, int>
         where TEntity : class, IEntity<int>
     {
-        protected FzrainRepositoryBase(IDbContextProvider<FzrainDbContext> dbContextProvider)
+        public FzrainRepositoryBase(IDbContextProvider<FzrainDbContext> dbContextProvider)
             : base(dbContextProvider)
         {
 

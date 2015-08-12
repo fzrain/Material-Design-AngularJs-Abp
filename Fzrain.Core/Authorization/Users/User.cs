@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using Abp.Extensions;
+using Fzrain.Authorization.Permissions;
 using Fzrain.Authorization.Roles;
 using Fzrain.Configuration;
 using Fzrain.MultiTenancy;
@@ -13,32 +14,10 @@ namespace Fzrain.Authorization.Users
     /// <summary>
     /// Represents a user.
     /// </summary>
-    public class User : FullAuditedEntity<long, User>, IUser<long>     
+    public class User : FullAuditedEntity<long, User>, IUser<long>,IMayHaveTenant, IPassivable
     {
-        /// <summary>
-        /// UserName of the admin.
-        /// admin can not be deleted and UserName of the admin can not be changed.
-        /// </summary>
+
         public const string AdminUserName = "admin";
-       
-   
-        public const int MaxNameLength = 32;
-
-     
-     
-     
-        /// <summary>
-        /// Maximum length of the <see cref="Password"/> without hashed.
-        /// </summary>
-        public const int MaxPlainPasswordLength = 32;
-
-
-    
-        /// <summary>
-        /// Maximum length of the <see cref="AuthenticationSource"/> property.
-        /// </summary>
-        public const int MaxAuthenticationSourceLength = 64;
-
         /// <summary>
         /// Tenant of this user.
         /// </summary>     
@@ -53,8 +32,7 @@ namespace Fzrain.Authorization.Users
         /// Authorization source name.
         /// It's set to external authentication source name if created by an external source.
         /// Default: null.
-        /// </summary>
-        [MaxLength(MaxAuthenticationSourceLength)]
+        /// </summary>       
         public virtual string AuthenticationSource { get; set; }
 
         /// <summary>
@@ -114,22 +92,11 @@ namespace Fzrain.Authorization.Users
         /// </summary>
         public virtual bool IsActive { get; set; }
 
-        /// <summary>
-        /// Role definitions for this user.
-        /// </summary>
-        public virtual ICollection<Role> Roles { get; set; }
-
-        /// <summary>
-        /// Permission definitions for this user.
-        /// </summary>
-        public virtual ICollection<UserPermissionSetting> Permissions { get; set; }
-
-        /// <summary>
-        /// Settings for this user.
-        /// </summary>
-        public virtual ICollection<Setting> Settings { get; set; }
-
-     
+        public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
+        public virtual ICollection<PermissionSetting> Permissions { get; set; } = new List<PermissionSetting>();
+        public virtual ICollection<UserLogin> Logins { get; set; } = new List<UserLogin>();
+        public virtual ICollection<Setting> Settings { get; set; } = new List<Setting>();
+    
         public virtual void SetNewPasswordResetCode()
         {
             PasswordResetCode = Guid.NewGuid().ToString("N").Truncate(128);

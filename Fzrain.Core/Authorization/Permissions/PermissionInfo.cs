@@ -12,6 +12,6 @@ namespace Fzrain.Authorization.Permissions
         public bool IsGrantedByDefault { get; set; }
         public string  Name { get; set; }
         public PermissionInfo ParentPermission { get; set; }
-        public ICollection<PermissionInfo> ChildrenPermissions { get; set; }
+        public ICollection<PermissionInfo> ChildrenPermissions { get; set; } = new List<PermissionInfo>();
     }
 }
