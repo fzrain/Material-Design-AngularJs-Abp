@@ -25,7 +25,7 @@ materialAdmin
                                 name: 'css',
                                 insertBefore: '#app-level',
                                 files: [
-                                    'vendors/bower_components/fullcalendar/dist/fullcalendar.min.css'
+                                    'bower_components/fullcalendar/dist/fullcalendar.min.css'
                                 ]
                             },
                             {
@@ -33,10 +33,10 @@ materialAdmin
                                 insertBefore: '#app-level-js',
                                 files: [
                                     'vendors/sparklines/jquery.sparkline.min.js',
-                                    'vendors/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js',
-                                    'vendors/bower_components/simpleWeather/jquery.simpleWeather.min.js',
-                                    "vendors/bower_components/fullcalendar/dist/fullcalendar.min.js",
-                                    "vendors/bower_components/fullcalendar/dist/lang/zh-cn.js"
+                                    'bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js',
+                                    'bower_components/simpleWeather/jquery.simpleWeather.min.js',
+                                    "bower_components/fullcalendar/dist/fullcalendar.min.js",
+                                    "bower_components/fullcalendar/dist/lang/zh-cn.js"
                                 ]
                             }
                         ])
@@ -58,7 +58,7 @@ materialAdmin
                             {
                                 name: 'vendors',
                                 files: [
-                                    'vendors/fileinput/fileinput.min.js'
+                                    '/bower_components/jasny-bootstrap/js/fileinput.js'
                                 ]
                             }
                         );

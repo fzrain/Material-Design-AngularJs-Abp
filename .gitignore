@@ -162,8 +162,8 @@ UpgradeLog*.XML
 UpgradeLog*.htm
 
 # SQL Server files
-# *.mdf
-# *.ldf
+*.mdf
+*.ldf
 
 # Business Intelligence projects
 *.rdl.data
@@ -176,6 +176,6 @@ nupkg/push_abp_zero.bat
 nupkg/*.nupkg
 sample/ModuleZeroSampleProject.Web/Logs/
 !sample/ModuleZeroSampleProject.Web/bower_components/angular-ui-router/release/
-
+bower_components/
 node_modules/
 Logs/

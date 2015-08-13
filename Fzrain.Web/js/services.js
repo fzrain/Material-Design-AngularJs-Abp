@@ -111,7 +111,7 @@ materialAdmin
     .service('growlService', function(){
         var gs = {};
         gs.growl = function(message, type) {
-            $.growl({
+            $.notify({
                 message: message
             },{
                 type: type,

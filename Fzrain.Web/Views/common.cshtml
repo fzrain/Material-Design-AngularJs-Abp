@@ -2,7 +2,7 @@
 
 <section id="main">
     <aside id="sidebar" data-ng-include src="'/views/includes/sidebar-left.cshtml'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.left === true }"></aside>  
-    <aside id="chat" data-ng-include src="'/views/includes/chat.cshtml'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.right === true }"></aside>
+    @*<aside id="chat" data-ng-include src="'/views/includes/chat.cshtml'" data-ng-class="{ 'toggled': mactrl.sidebarToggle.right === true }"></aside>*@
 
     <section id="content" class="page-view" data-ui-view></section>
 </section>
