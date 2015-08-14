@@ -345,7 +345,7 @@
     <Content Include="img\icons\weather\9.png" />
     <Content Include="img\notifications.png" />
     <Content Include="img\profile-menu.png" />
-    <Content Include="img\profile-pics\1.jpg" />
+    <Content Include="img\profile-pics\1.png" />
     <Content Include="img\profile-pics\2.jpg" />
     <Content Include="img\profile-pics\3.jpg" />
     <Content Include="img\profile-pics\4.jpg" />
@@ -354,6 +354,7 @@
     <Content Include="img\profile-pics\7.jpg" />
     <Content Include="img\profile-pics\8.jpg" />
     <Content Include="img\profile-pics\9.jpg" />
+    <Content Include="img\profile-pics\default-profile-picture.png" />
     <Content Include="img\profile-pics\profile-pic-2.jpg" />
     <Content Include="img\profile-pics\profile-pic.jpg" />
     <Content Include="img\select%402x.png" />
@@ -389,6 +390,7 @@
     <Content Include="img\widgets\mate7.jpg" />
     <Content Include="img\widgets\note4.jpg" />
     <Content Include="img\widgets\preview.jpg" />
+    <Content Include="js\jquery.bootgrid-override.min.js" />
     <Content Include="js\templates.js" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="fonts\roboto\Roboto-Bold-webfont.eot" />

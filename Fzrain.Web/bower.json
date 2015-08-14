@@ -19,7 +19,7 @@
     "farbtastic": "2.0.0-alpha.1",
     "flot": "0.8.3",
     "flot.curvedlines": "1.1.1",
-    "flot.orderbars": "*" ,
+    "flot.orderbars": "*",
     "flot.tooltip": "0.8.5",
     "font-awesome": "4.4.0",
     "fullcalendar": "2.3.2",
@@ -43,7 +43,11 @@
     "simpleWeather": "3.0.2",
     "summernote": "0.6.10",
     "sweetalert": "1.0.1",
-    "waves": "0.7.2"
+    "waves": "0.7.2",
+    "jtable": "2.4.0",
+    "jstree-bootstrap-theme": "1.0.1"
+  },
+  "resolutions": {
+    "bootstrap": ">= 3.0.1"
   }
- 
 }

@@ -6,7 +6,7 @@
             vm.users = [];
             abp.ui.setBusy(
                 null,
-                userService.getAll({skipCount:0}).success(function (data) {
+                userService.getUsers().success(function (data) {
                     vm.users = data.items;
                 })
             );
