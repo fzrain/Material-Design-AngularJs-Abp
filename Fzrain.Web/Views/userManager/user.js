@@ -4,12 +4,12 @@
         function (userService) {
             var vm = this;
             vm.users = [];
-            abp.ui.setBusy(
-                null,
-                userService.getUsers().success(function (data) {
-                    vm.users = data.items;
-                })
-            );
+            //abp.ui.setBusy(
+            //    null,
+            //    userService.getUsers().success(function (data) {
+            //        vm.users = data.items;
+            //    })
+            //);
         }
     ]);
 })();

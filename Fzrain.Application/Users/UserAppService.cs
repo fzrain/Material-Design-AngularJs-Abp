@@ -5,6 +5,7 @@ using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Fzrain.Authorization.Users;
+using Fzrain.Common.Application.Dtos;
 using Fzrain.Common.Application.Services;
 using Fzrain.Users.Dto;
 
@@ -18,12 +19,13 @@ namespace Fzrain.Users
             this.userManager = userManager;
         }
 
-        public PagedResultOutput<UserDto> GetUsers()
+        public DefaultPagedResultOutput<UserDto> GetUsers(UserSelectedInput input)
         {
-            return new PagedResultOutput<UserDto>
+            return new DefaultPagedResultOutput<UserDto>
             {
                 TotalCount =userManager.Users.Count(),
-                Items =userManager.Users.ToList().MapTo<List<UserDto>>()
+                Items =userManager.Users.ToList().MapTo<List<UserDto>>(),
+                PageIndex= input.SkipCount/input.MaxResultCount+1,
             };
         }
     }

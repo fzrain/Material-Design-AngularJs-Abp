@@ -90,6 +90,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application\Dtos\DefaultPagedResultOutput.cs" />
     <Compile Include="Application\Dtos\DefaultPagedResultRequest.cs" />
     <Compile Include="Application\Services\CrudAppService.cs" />
     <Compile Include="Application\Services\ICrudAppService.cs" />

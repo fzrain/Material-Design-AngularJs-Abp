@@ -8,8 +8,8 @@
     <title>Material Admin</title>
 
     <!-- Vendor CSS -->
-    <link href="~/vendors/bower_components/animate.css/animate.min.css" rel="stylesheet">
-    <link href="~/vendors/bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="~/bower_components/animate.css/animate.min.css" rel="stylesheet">
+    <link href="~/bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet">
     <!-- CSS -->
     <link href="~/css/app.min.1.css" rel="stylesheet">
     <link href="~/css/app.min.2.css" rel="stylesheet">
@@ -22,33 +22,33 @@
     <!-- Login -->
     <div class="lc-block toggled" id="l-login" data-ng-if="lctrl.login === 1">
         <div id="LoginArea" class="row">
-        <div class="input-group m-b-20">
-            <span class="input-group-addon"><i class="md md-person"></i></span>
-            <div class="fg-line">
-                <input type="text" id="EmailAddressInput" class="form-control" placeholder="用户名">
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="md md-person"></i></span>
+                <div class="fg-line">
+                    <input type="text" id="EmailAddressInput" class="form-control" placeholder="用户名">
+                </div>
             </div>
-        </div>
-        <div class="input-group m-b-20">
-            <span class="input-group-addon"><i class="md md-accessibility"></i></span>
-            <div class="fg-line">
-                <input type="password" id="PasswordInput" class="form-control" placeholder="密码">
+            <div class="input-group m-b-20">
+                <span class="input-group-addon"><i class="md md-accessibility"></i></span>
+                <div class="fg-line">
+                    <input type="password" id="PasswordInput" class="form-control" placeholder="密码">
+                </div>
             </div>
+            <div class="clearfix"></div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" id="RememberMeInput">
+                    <i class="input-helper"></i>
+                    记住我
+                </label>
+            </div>
+            <a href="" id="LoginButton" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>
+            <ul class="login-navigation">
+                <li data-block="#l-register" class="bgm-red" data-ng-click="lctrl.login = 0; lctrl.register = 1">注册新用户</li>
+                <li data-block="#l-forget-password" class="bgm-orange" data-ng-click="lctrl.login = 0; lctrl.forgot = 1">忘记密码?</li>
+            </ul>
         </div>
-        <div class="clearfix"></div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" id="RememberMeInput">
-                <i class="input-helper"></i>
-                记住我
-            </label>
-        </div>
-        <a href="" id="LoginButton" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>
-        <ul class="login-navigation">
-            <li data-block="#l-register" class="bgm-red" data-ng-click="lctrl.login = 0; lctrl.register = 1">注册新用户</li>
-            <li data-block="#l-forget-password" class="bgm-orange" data-ng-click="lctrl.login = 0; lctrl.forgot = 1">忘记密码?</li>
-        </ul>
-        </div>
-     </div> 
+    </div>
     <!-- Register -->
     <div class="lc-block" id="l-register" data-ng-if="lctrl.register === 1">
         <div class="input-group m-b-20">
@@ -139,33 +139,32 @@
         </div>
     <![endif]-->
     <!-- Core -->
-    <script src="~/vendors/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="~/vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="~/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- Angular -->
-    <script src="~/vendors/angular/angular.min.js"></script>
-    <script src="~/vendors/angular/angular-route.min.js"></script>
-    <script src="~/vendors/angular/angular-resource.min.js"></script>
-    <script src="~/vendors/angular/angular-animate.min.js"></script>
-
+    <script src="~/bower_components/angular/angular.min.js"></script>
+    <script src="~/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="~/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="~/bower_components/angular-animate/angular-animate.min.js"></script>
     <!-- Angular Modules -->
-    <script src="~/vendors/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="~/vendors/bower_components/angular-loading-bar/src/loading-bar.js"></script>
-    <script src="~/vendors/bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <script src="~/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="~/bower_components/angular-loading-bar/src/loading-bar.js"></script>
+    <script src="~/bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
 
     <!-- Common Vendors -->
-    <script src="~/vendors/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-    <script src="~/vendors/bower_components/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="~/vendors/bower_components/Waves/dist/waves.min.js"></script>
-    <script src="~/vendors/bootstrap-growl/bootstrap-growl.min.js"></script>
+    <script src="~/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="~/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/bower_components/Waves/dist/waves.min.js"></script>
+    <script src="~/bower_components/remarkable-bootstrap-notify/bootstrap-notify.min.js"></script>
     <!-- Using below vendors in order to avoid misloading on resolve -->
-    <script src="~/vendors/bower_components/flot/jquery.flot.js"></script>
-    <script src="~/vendors/bower_components/flot.curvedlines/curvedLines.js"></script>
-    <script src="~/vendors/bower_components/flot/jquery.flot.resize.js"></script>
-    <script src="~/vendors/bower_components/moment/min/moment.min.js"></script>
-    <script src="~/vendors/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-    <script src="~/vendors/bower_components/flot-orderBars/js/jquery.flot.orderBars.js"></script>,
-    <script src="~/vendors/bower_components/flot/jquery.flot.pie.js"></script>,
-    <script src="~/vendors/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="~/bower_components/flot/jquery.flot.js"></script>
+    <script src="~/bower_components/flot.curvedlines/curvedLines.js"></script>
+    <script src="~/bower_components/flot/jquery.flot.resize.js"></script>
+    <script src="~/bower_components/moment/min/moment.min.js"></script>
+    <script src="~/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+    <script src="~/bower_components/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="~/bower_components/flot/jquery.flot.pie.js"></script>,
+    <script src="~/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     @Scripts.Render("~/Bundles/App/abp/js")
     <!-- App level -->
     <script src="~/js/app.js"></script>

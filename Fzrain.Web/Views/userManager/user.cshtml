@@ -23,65 +23,23 @@
             </li>
         </ul>
     </div>
-
     <div class="card">
         <div class="card-header"></div>
         <div class="table-responsive">
-            <table class="table table-striped" style="height:350px" data-toggle="bootgrid" data-ajax="true" data-url="api/services/app/user/GetUsers">
+            <table class="table table-condensed table-hover table-striped" data-toggle="bootgrid" id="grid-data">
                 <thead>
-                    <tr>
-                        @*<th>操作</th>*@
-                        <th data-column-id="id">Id</th>
-                        <th data-column-id="userName">用户名</th>
-                        <th data-column-id="name">姓名</th>
-                        <th data-column-id="emailAddress">邮箱</th>
-                    </tr>
+                <tr>
+                    @*<th>操作</th>*@
+                    <th data-column-id="id">Id</th>
+                    <th data-column-id="userName">用户名</th>
+                    <th data-column-id="name">姓名</th>
+                    <th data-column-id="emailAddress">邮箱</th>
+                </tr>
                 </thead>
-                @*<tbody>
-                    <tr ng-repeat="user in vm.users">
-                        <td>
-                            <div class="dropdown" data-animation="fadeIn,fadeOut,600">
-                                <button type="button" class="btn btn-primary" data-toggle="dropdown">
-                                    <i class="fa fa-cog"></i>操作<i class="caret"></i>
-                                </button>
-
-                                <ul class="dropdown-menu">
-                                    <li><a href="">修改</a></li>
-                                    <li><a href="">权限</a></li>
-                                    <li><a href="">删除</a></li>
-                                </ul>
-                            </div>
-                        </td>
-                        <td>{{user.id}}</td>
-                        <td>{{user.userName}}</td>
-                        <td>{{user.name}}</td>
-                        <td>{{user.emailAddress}}</td>
-
-                    </tr>
-                </tbody>*@
             </table>
-            @*<div id="undefined-footer" class="bootgrid-footer container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <ul class="pagination">
-                            <li><a href="" aria-label="Previous"><i class="md md-chevron-left"></i></a></li>
-                            <li class="active"><a href="">1 </a></li>
-                            <li><a href="">2</a></li>
-                            <li><a href="">3</a></li>
-                            <li><a href="">4</a></li>
-                            <li><a href="">5</a></li>
-                            <li><a href="" aria-label="Next"><i class="md md-chevron-right"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 infoBar">
-                        <div class="infos">1-10条数据 总共20条</div>
-                    </div>
-                </div>
-            </div>*@
         </div>
     </div>
 </div>
-
 <div class="modal fade" id="modalUserEdit" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -90,7 +48,7 @@
             </div>
 
             <div class="modal-body" data-ng-controller="userEditController as vm">
-                <ul class="tab-nav tn-justified" role="tablist" style="width:200px">
+                <ul class="tab-nav tn-justified" role="tablist" style="width: 200px">
                     <li role="presentation" class="active"><a href="" data-ng-click="vm.userTab()" aria-controls="user" role="tab" data-toggle="tab">用户信息</a></li>
                     <li role="presentation"><a href="" data-ng-click="vm.roleTab()" aria-controls="role" role="tab" data-toggle="tab">角色信息</a></li>
                 </ul>
@@ -136,19 +94,19 @@
                                 使用随机密码
                             </label>
                         </div>
-                        <div class="form-group fg-float m-t-30 " ng-if="!vm.setRandomPassword" >
+                        <div class="form-group fg-float m-t-30 " ng-if="!vm.setRandomPassword">
                             <div class="fg-line">
                                 <input type="text" class="form-control" ng-model="vm.user.password">
                             </div>
                             <label class="fg-label">密码</label>
                         </div>
-                      
+
                         <div class="form-group fg-float" ng-if="!vm.setRandomPassword">
                             <div class="fg-line">
                                 <input type="text" class="form-control" ng-model="vm.user.passwordRepeat">
                             </div>
                             <label class="fg-label">密码 (确认)</label>
-                        </div>                      
+                        </div>
                         <div>
                             <label class="checkbox checkbox-inline m-t-15">
                                 <input type="checkbox" ng-model="vm.user.shouldChangePasswordOnNextLogin">
@@ -199,3 +157,9 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $("#grid-data").bootgrid({
+        ajax: true,
+        url: "/api/services/app/user/GetUsers",
+    });
+</script>
