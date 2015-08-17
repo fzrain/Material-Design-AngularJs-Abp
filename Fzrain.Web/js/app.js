@@ -1,2 +1,9 @@
-var materialAdmin = angular.module('materialAdmin', ['ngResource', 'ui.router', 'angular-loading-bar', 'oc.lazyLoad', 'abp'])
+var materialAdmin = angular.module('materialAdmin', [ 'ngAnimate',
+    'ngResource',
+    'ui.router',
+    'ui.bootstrap',
+    'angular-loading-bar',
+    'oc.lazyLoad',
+    'nouislider',
+    'ngTable','abp'])
  

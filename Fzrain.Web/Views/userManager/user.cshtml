@@ -26,10 +26,10 @@
     <div class="card">
         <div class="card-header"></div>
         <div class="table-responsive">
-            <table class="table table-condensed table-hover table-striped" data-toggle="bootgrid" id="grid-data">
+            <table class="table table-condensed table-hover table-striped" height="350" data-toggle="bootgrid" id="grid-data">
                 <thead>
                 <tr>
-                    @*<th>操作</th>*@
+                    <th data-column-id="commands" data-formatter="commands">操作</th>
                     <th data-column-id="id">Id</th>
                     <th data-column-id="userName">用户名</th>
                     <th data-column-id="name">姓名</th>
@@ -161,5 +161,14 @@
     $("#grid-data").bootgrid({
         ajax: true,
         url: "/api/services/app/user/GetUsers",
+        formatters: {
+            "commands": function (column, row) {
+                return "<div class=\"dropdown\" onclick=\"$(this).addClass('open');$(this).find('ul').removeClass('fadeOut');\"  data-animation=\"fadeIn,fadeOut,600\"><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"dropdown\"><i class=\"fa fa-cog\"></i> 操作 <i class=\"caret\"></i></button>\<ul class=\"dropdown-menu fadeIn animated fadeOut\">\<li><a href=\"\">修改</a></li><li><a href=\"\">权限</a></li><li><a href=\"\">删除</a></li></ul></div>";
+            }
+        }
     });
+    $("body").bind("click", function () {
+        $(".dropdown").find('ul').addClass("fadeOut");
+        $(".dropdown").removeClass("open");
+    });  
 </script>

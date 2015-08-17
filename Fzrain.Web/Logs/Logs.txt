@@ -5585,3 +5585,203 @@ System.Data.Entity.Core.EntityException: 基础提供程序在 Open 上失败。 ---> Syste
    在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
    在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
    在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+DEBUG 2015-08-17 09:42:37,231 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-08-17 09:42:38,804 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-08-17 09:42:38,807 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 09:42:38,809 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 09:42:38,809 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 09:42:38,810 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 09:42:38,810 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 09:42:38,810 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 09:42:38,810 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 09:42:38,810 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 09:42:38,810 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 09:42:38,810 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 09:42:38,810 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 09:42:38,814 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-08-17 09:42:40,016 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 3 classes defines auto mapping attributes
+DEBUG 2015-08-17 09:42:40,016 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-08-17 09:42:40,269 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Roles.Dto.RoleDto
+DEBUG 2015-08-17 09:42:40,279 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.AuditLogs.Dto.AuditLogDto
+DEBUG 2015-08-17 09:42:41,565 [1    ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-08-17 09:42:41,567 [1    ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2015-08-17 09:42:41,570 [1    ] Default                                  - Dynamic web api controller is created for type 'Fzrain.AuditLogs.IAuditLogAppService' with service name 'app/auditLog'.
+DEBUG 2015-08-17 09:42:42,601 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-08-17 09:42:42,607 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-08-17 09:42:42,639 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-08-17 09:42:42,639 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-08-17 10:40:33,138 [91   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-08-17 10:40:36,119 [91   ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-08-17 10:40:36,123 [91   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 10:40:36,125 [91   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 10:40:36,126 [91   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 10:40:36,126 [91   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 10:40:36,126 [91   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 10:40:36,126 [91   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 10:40:36,126 [91   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 10:40:36,127 [91   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 10:40:36,127 [91   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 10:40:36,127 [91   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 10:40:36,127 [91   ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 10:40:36,132 [91   ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-08-17 10:40:37,191 [91   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 3 classes defines auto mapping attributes
+DEBUG 2015-08-17 10:40:37,191 [91   ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-08-17 10:40:37,265 [91   ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Roles.Dto.RoleDto
+DEBUG 2015-08-17 10:40:37,275 [91   ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.AuditLogs.Dto.AuditLogDto
+DEBUG 2015-08-17 10:40:38,720 [91   ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-08-17 10:40:38,722 [91   ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2015-08-17 10:40:38,724 [91   ] Default                                  - Dynamic web api controller is created for type 'Fzrain.AuditLogs.IAuditLogAppService' with service name 'app/auditLog'.
+DEBUG 2015-08-17 10:40:38,802 [91   ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-08-17 10:40:38,808 [91   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-08-17 10:40:38,809 [91   ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-08-17 10:40:38,809 [91   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-08-17 11:05:27,085 [114  ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-08-17 11:05:29,215 [114  ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-08-17 11:05:29,219 [114  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:05:29,221 [114  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:05:29,222 [114  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:05:29,222 [114  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:05:29,222 [114  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:05:29,222 [114  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:05:29,222 [114  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:05:29,222 [114  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:05:29,222 [114  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:05:29,223 [114  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:05:29,223 [114  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:05:29,239 [114  ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-08-17 11:05:30,374 [114  ] Abp.AutoMapper.AbpAutoMapperModule       - Found 3 classes defines auto mapping attributes
+DEBUG 2015-08-17 11:05:30,374 [114  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-08-17 11:05:30,480 [114  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Roles.Dto.RoleDto
+DEBUG 2015-08-17 11:05:30,490 [114  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.AuditLogs.Dto.AuditLogDto
+DEBUG 2015-08-17 11:05:31,786 [114  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-08-17 11:05:31,790 [114  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2015-08-17 11:05:31,793 [114  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.AuditLogs.IAuditLogAppService' with service name 'app/auditLog'.
+DEBUG 2015-08-17 11:05:31,987 [114  ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-08-17 11:05:31,992 [114  ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-08-17 11:05:31,994 [114  ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-08-17 11:05:32,008 [114  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-08-17 11:20:22,350 [101  ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-08-17 11:20:24,046 [101  ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-08-17 11:20:24,050 [101  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:20:24,052 [101  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:20:24,052 [101  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:20:24,052 [101  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:20:24,052 [101  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:20:24,052 [101  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:20:24,052 [101  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:20:24,052 [101  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:20:24,053 [101  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:20:24,053 [101  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:20:24,053 [101  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 11:20:24,058 [101  ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-08-17 11:20:25,348 [101  ] Abp.AutoMapper.AbpAutoMapperModule       - Found 3 classes defines auto mapping attributes
+DEBUG 2015-08-17 11:20:25,348 [101  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-08-17 11:20:25,453 [101  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Roles.Dto.RoleDto
+DEBUG 2015-08-17 11:20:25,465 [101  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.AuditLogs.Dto.AuditLogDto
+DEBUG 2015-08-17 11:20:26,788 [101  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-08-17 11:20:26,789 [101  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2015-08-17 11:20:26,792 [101  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.AuditLogs.IAuditLogAppService' with service name 'app/auditLog'.
+DEBUG 2015-08-17 11:20:27,071 [101  ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-08-17 11:20:27,076 [101  ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-08-17 11:20:27,078 [101  ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-08-17 11:20:27,079 [101  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-08-17 14:20:06,263 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-08-17 14:20:09,152 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-08-17 14:20:09,157 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 14:20:09,159 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 14:20:09,159 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 14:20:09,159 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 14:20:09,159 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 14:20:09,160 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 14:20:09,160 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 14:20:09,160 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 14:20:09,160 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 14:20:09,160 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 14:20:09,160 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 14:20:09,164 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-08-17 14:20:10,361 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 3 classes defines auto mapping attributes
+DEBUG 2015-08-17 14:20:10,361 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-08-17 14:20:10,572 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Roles.Dto.RoleDto
+DEBUG 2015-08-17 14:20:10,583 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.AuditLogs.Dto.AuditLogDto
+DEBUG 2015-08-17 14:20:12,060 [1    ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-08-17 14:20:12,063 [1    ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2015-08-17 14:20:12,065 [1    ] Default                                  - Dynamic web api controller is created for type 'Fzrain.AuditLogs.IAuditLogAppService' with service name 'app/auditLog'.
+DEBUG 2015-08-17 14:20:12,546 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-08-17 14:20:12,551 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-08-17 14:20:12,643 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-08-17 14:20:12,643 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-08-17 17:25:52,708 [225  ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-08-17 17:25:59,523 [225  ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-08-17 17:25:59,526 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:25:59,529 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:25:59,529 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:25:59,529 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:25:59,530 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:25:59,530 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:25:59,530 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:25:59,530 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:25:59,530 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:25:59,531 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:25:59,531 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:25:59,534 [225  ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-08-17 17:26:00,707 [225  ] Abp.AutoMapper.AbpAutoMapperModule       - Found 3 classes defines auto mapping attributes
+DEBUG 2015-08-17 17:26:00,707 [225  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-08-17 17:26:00,793 [225  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Roles.Dto.RoleDto
+DEBUG 2015-08-17 17:26:00,801 [225  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.AuditLogs.Dto.AuditLogDto
+DEBUG 2015-08-17 17:26:02,164 [225  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-08-17 17:26:02,166 [225  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2015-08-17 17:26:02,168 [225  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.AuditLogs.IAuditLogAppService' with service name 'app/auditLog'.
+DEBUG 2015-08-17 17:26:02,212 [225  ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-08-17 17:26:02,238 [225  ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-08-17 17:26:02,261 [225  ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-08-17 17:26:02,262 [225  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-08-17 17:31:41,400 [206  ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-08-17 17:31:44,560 [206  ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-08-17 17:31:44,564 [206  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:31:44,565 [206  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:31:44,565 [206  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:31:44,565 [206  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:31:44,566 [206  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:31:44,566 [206  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:31:44,566 [206  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:31:44,567 [206  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:31:44,567 [206  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:31:44,567 [206  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:31:44,567 [206  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:31:44,571 [206  ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-08-17 17:31:45,838 [206  ] Abp.AutoMapper.AbpAutoMapperModule       - Found 3 classes defines auto mapping attributes
+DEBUG 2015-08-17 17:31:45,838 [206  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-08-17 17:31:45,932 [206  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Roles.Dto.RoleDto
+DEBUG 2015-08-17 17:31:45,944 [206  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.AuditLogs.Dto.AuditLogDto
+DEBUG 2015-08-17 17:31:47,494 [206  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-08-17 17:31:47,498 [206  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2015-08-17 17:31:47,501 [206  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.AuditLogs.IAuditLogAppService' with service name 'app/auditLog'.
+DEBUG 2015-08-17 17:31:47,523 [206  ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-08-17 17:31:47,524 [206  ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-08-17 17:31:47,525 [206  ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-08-17 17:31:47,526 [206  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-08-17 17:38:43,594 [225  ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-08-17 17:38:45,001 [225  ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-08-17 17:38:45,005 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:38:45,009 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:38:45,010 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.6.4.1, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:38:45,010 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:38:45,010 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:38:45,010 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.6.4.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:38:45,010 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainApplicationModule, Fzrain.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:38:45,011 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainCoreModule, Fzrain.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:38:45,011 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainDataModule, Fzrain.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:38:45,011 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.Web.FzrainWebModule, Fzrain.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:38:45,011 [225  ] Abp.Modules.AbpModuleManager             - Loaded module: Fzrain.FzrainWebApiModule, Fzrain.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-08-17 17:38:45,016 [225  ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-08-17 17:38:46,091 [225  ] Abp.AutoMapper.AbpAutoMapperModule       - Found 3 classes defines auto mapping attributes
+DEBUG 2015-08-17 17:38:46,091 [225  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Users.Dto.UserDto
+DEBUG 2015-08-17 17:38:46,194 [225  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.Roles.Dto.RoleDto
+DEBUG 2015-08-17 17:38:46,208 [225  ] Abp.AutoMapper.AbpAutoMapperModule       - Fzrain.AuditLogs.Dto.AuditLogDto
+DEBUG 2015-08-17 17:38:47,680 [225  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Users.IUserAppService' with service name 'app/user'.
+DEBUG 2015-08-17 17:38:47,683 [225  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.Roles.IRoleAppService' with service name 'app/role'.
+DEBUG 2015-08-17 17:38:47,685 [225  ] Default                                  - Dynamic web api controller is created for type 'Fzrain.AuditLogs.IAuditLogAppService' with service name 'app/auditLog'.
+DEBUG 2015-08-17 17:38:47,835 [225  ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-08-17 17:38:47,840 [225  ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-08-17 17:38:47,841 [225  ] Abp.Localization.LocalizationManager     - Initialized localization source: Fzrain
+DEBUG 2015-08-17 17:38:47,841 [225  ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb

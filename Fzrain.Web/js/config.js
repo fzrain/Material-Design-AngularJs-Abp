@@ -54,40 +54,22 @@ materialAdmin
                 templateUrl: abp.appPath + 'views/common.cshtml',
                 resolve: {
                     loadPlugin: function ($ocLazyLoad) {
-                        return $ocLazyLoad.load(
-                            {
-                                name: 'vendors',
-                                files: [
-                                    '/bower_components/jasny-bootstrap/js/fileinput.js'
-                                ]
-                            }
-                        );
+                        return $ocLazyLoad.load([                      
+                          {
+                              name: 'vendors',
+                              files: [
+                                
+                                   '/bower_components/jasny-bootstrap/js/fileinput.js'
+                              ]
+                          }
+                        ]);
+                     
                     }
                 }
             })
             .state('userManager.user', {
                 url: '/userManager-user',
                 templateUrl: abp.appPath + 'views/userManager/user.cshtml',
-                resolve: {
-                    loadPlugin: function ($ocLazyLoad) {
-                        return $ocLazyLoad.load([
-                            {
-                                name: 'css',
-                                insertBefore: '#app-level',
-                                files: [
-                                    'bower_components/jquery.bootgrid/dist/jquery.bootgrid.min.css'
-                                ]
-                            },
-                            {
-                                name: 'vendors',
-                                files: [
-                                    'js/jquery.bootgrid-override.min.js'
-                                ]
-                            }
-                        ]);
-                    }
-                }
-
             })
             .state('userManager.role', {
                   url: '/userManager-role',

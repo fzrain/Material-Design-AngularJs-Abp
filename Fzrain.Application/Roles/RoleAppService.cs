@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Fzrain.Authorization.Roles;
 using Fzrain.Roles.Dto;
+using Microsoft.AspNet.Identity;
 
 namespace Fzrain.Roles
 {
@@ -25,5 +27,10 @@ namespace Fzrain.Roles
                    };
           
        }
-    }
+
+       public Task<IdentityResult> AddRole(RoleDto role)
+       {
+         return  roleManager.CreateAsync(role.MapTo<Role>());     
+       }
+   }
 }

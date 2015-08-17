@@ -391,7 +391,9 @@
     <Content Include="img\widgets\note4.jpg" />
     <Content Include="img\widgets\preview.jpg" />
     <Content Include="js\jquery.bootgrid-override.min.js" />
+    <Content Include="js\table.js" />
     <Content Include="js\templates.js" />
+    <Content Include="js\ui-bootstrap.js" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="fonts\roboto\Roboto-Bold-webfont.eot" />
     <Content Include="fonts\roboto\Roboto-Bold-webfont.ttf" />

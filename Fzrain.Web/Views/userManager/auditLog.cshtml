@@ -6,48 +6,18 @@
     <div class="card">
         <div class="card-header"></div>
         <div class="table-responsive">
-            <table class="table" style="height: 350px;">
-                <thead>
-                    <tr>
-                        <th>查看详情</th>
-                        <th data-column-id="serviceName">服务</th>
-                        <th data-column-id="methodName">方法</th>                     
-                        <th data-column-id="clientIpAddress">IP</th>
-                        <th data-column-id="clientName">客户端</th>
-                        <th data-column-id="browserInfo" width="300px">浏览器</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="log in vm.auditLogs">
-                        <td>
-                            <button data-toggle="modal" data-target="#modalAdultDetail" data-ng-click="vm.getAuditDetail(log.id)" class="btn btn-info waves-effect"><i class="md md-search"></i></button>
-                        </td>
-                        <td>{{log.serviceName}}</td>
-                        <td>{{log.methodName}}</td>                    
-                        <td>{{log.clientIpAddress}}</td>
-                        <td>{{log.clientName}}</td>
-                        <td>{{log.browserInfo}}</td>
-                    </tr>
-                </tbody>
+            <table ng-table="vm.tableBasic" class="table table-striped table-vmiddle">
+                <tr ng-repeat="log in $data">                 
+                    <td data-title="'查看详情'">
+                        <button data-toggle="modal" data-target="#modalAdultDetail" data-ng-click="vm.getAuditDetail(log.id)" class="btn btn-info waves-effect"><i class="md md-search"></i></button>
+                    </td>
+                    <td data-title="'服务名称'">{{log.serviceName}}</td>
+                    <td data-title="'方法名称'">{{log.methodName}}</td>
+                    <td data-title="'Ip'">{{log.clientIpAddress}}</td>
+                    <td data-title="'客户端'">{{log.clientName}}</td>
+                    <td data-title="'浏览器'">{{log.browserInfo}}</td>
+                </tr>
             </table>
-            <div id="undefined-footer" class="bootgrid-footer container-fluid">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <ul class="pagination">
-                            <li data-ng-show="vm.pageIndex!=1" aria-disabled="true"><a href="" data-ng-click="vm.loadData(1)"><i class="md md-more-horiz"></i></a></li>
-                            <li><a href="" data-ng-show="vm.pageIndex!=1" data-ng-click="vm.loadData(vm.pageIndex-1)" aria-label="Previous"><i class="md md-chevron-left"></i></a></li>
-                            <li data-ng-class="{'active':vm.pageIndex==page}" ng-repeat="page in vm.pages">
-                                <a href="" data-ng-click="vm.loadData(page)">{{page}}</a>
-                            </li>
-                            <li><a href="" data-ng-show="vm.showNextPager" aria-label="Next" data-ng-click="vm.loadData(vm.pageIndex+1)"><i class="md md-chevron-right"></i></a></li>
-                            <li data-ng-show="vm.showNextPager" aria-disabled="true"><a href="" data-ng-click="vm.loadData(vm.totalPage)"><i class="md md-more-horiz"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 infoBar">
-                        <div class="infos">{{(vm.pageIndex-1)*vm.pageSize+1}}-{{vm.pageSize*vm.pageIndex}}条数据 总共{{vm.total}}条</div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -155,10 +125,10 @@
                                 <div class="form-group">
                                     <div class="col-sm-12">
                                         <p class="form-control-static ng-scope" ng-if="!vm.detailLog.exception">
-                                            <i class="fa fa-check-circle" style="color:green;"></i> 成功
+                                            <i class="fa fa-check-circle" style="color: green;"></i> 成功
                                         </p>
                                         <p class="form-control-static ng-scope" ng-if="vm.detailLog.exception">
-                                            <i class="fa fa-exclamation-circle" style="color:red;"></i> 失败
+                                            <i class="fa fa-exclamation-circle" style="color: red;"></i> 失败
                                             <br/>
                                             {{vm.detailLog.exception}}
                                         </p>
