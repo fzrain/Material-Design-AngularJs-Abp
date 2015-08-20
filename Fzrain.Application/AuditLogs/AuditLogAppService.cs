@@ -20,15 +20,14 @@ namespace Fzrain.AuditLogs
             this.auditRepository = auditRepository;
         }
 
-        public DefaultPagedResultOutput<AuditLogDto> GetAuditLogs(GetAuditLogInput input)
+        public PagedResultOutput<AuditLogDto> GetAuditLogs(GetAuditLogInput input)
         {
             var auditLogCount = auditRepository.Count();
             var auditLogs = auditRepository.GetAll().OrderByDescending(a=>a.ExecutionTime).PageBy(input).ToList();
-            return new DefaultPagedResultOutput<AuditLogDto>
+            return new PagedResultOutput<AuditLogDto>
             {
                 Items = auditLogs.MapTo<List<AuditLogDto>>(),
                 TotalCount = auditLogCount,
-                PageIndex =input.SkipCount / input.MaxResultCount + 1
             };
         }
 

@@ -7,7 +7,7 @@ namespace Fzrain.AuditLogs
 {
    public  interface IAuditLogAppService : IApplicationService
     {
-        DefaultPagedResultOutput<AuditLogDto> GetAuditLogs(GetAuditLogInput input);
+        PagedResultOutput<AuditLogDto> GetAuditLogs(GetAuditLogInput input);
        AuditLogDto GetDetail(IdInput<long> input);
     }
 }

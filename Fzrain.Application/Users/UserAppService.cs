@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
@@ -19,14 +20,20 @@ namespace Fzrain.Users
             this.userManager = userManager;
         }
 
-        public DefaultPagedResultOutput<UserDto> GetUsers(UserSelectedInput input)
+        public PagedResultOutput<UserDto> GetUsers(UserSelectedInput input)
         {
-            return new DefaultPagedResultOutput<UserDto>
+            return new PagedResultOutput<UserDto>
             {
                 TotalCount =userManager.Users.Count(),
                 Items =userManager.Users.ToList().MapTo<List<UserDto>>(),
-                PageIndex= input.SkipCount/input.MaxResultCount+1,
+               
             };
+        }
+
+        public async  Task<UserDto> GetDetail(IdInput<long> input)
+        {
+            var user = await userManager.GetUserByIdAsync(input.Id);
+            return user.MapTo<UserDto>();
         }
     }
 }

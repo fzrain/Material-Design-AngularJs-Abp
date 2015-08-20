@@ -1,4 +1,5 @@
-﻿using Abp.Application.Services;
+﻿using System.Threading.Tasks;
+using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Fzrain.Common.Application.Dtos;
 using Fzrain.Common.Application.Services;
@@ -8,6 +9,7 @@ namespace Fzrain.Users
 {
     public interface IUserAppService : IApplicationService
     {
-        DefaultPagedResultOutput<UserDto> GetUsers(UserSelectedInput input);       
+        PagedResultOutput<UserDto> GetUsers(UserSelectedInput input);
+        Task<UserDto> GetDetail(IdInput<long> input);
     }
 }

@@ -26,149 +26,142 @@
     <div class="card">
         <div class="card-header"></div>
         <div class="table-responsive">
-            <table class="table table-condensed table-hover table-striped" height="350" data-toggle="bootgrid" id="grid-data">
-                <thead>
-                <tr>
-                    <th data-column-id="commands" data-formatter="commands">操作</th>
-                    <th data-column-id="id">Id</th>
-                    <th data-column-id="userName">用户名</th>
-                    <th data-column-id="name">姓名</th>
-                    <th data-column-id="emailAddress">邮箱</th>
+            <table ng-table="vm.tableBasic" class="table table-striped table-vmiddle">
+                <tr ng-repeat="user in vm.users">
+                    <td data-title="'操作'">
+                        <div class="dropdown" data-animation="fadeIn,fadeOut,600">
+                            <button type="button" class="btn btn-primary" data-toggle="dropdown">
+                                <i class="fa fa-cog"></i> 操作 <i class="caret"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li data-toggle="modal" data-target="#modalUserEdit" data-ng-click="vm.getUserDetail(user.id)"><a href="">修改</a></li>
+                                <li><a href="">权限</a></li>
+                                <li><a href="">删除</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                    <td data-title="'用户名'">{{user.userName}}</td>
+                    <td data-title="'邮箱'">{{user.emailAddress}}</td>
+
                 </tr>
-                </thead>
             </table>
         </div>
     </div>
-</div>
-<div class="modal fade" id="modalUserEdit" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">新增用户</h4>
-            </div>
+    <div class="modal fade" id="modalUserEdit" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">新增用户</h4>
+                </div>
 
-            <div class="modal-body" data-ng-controller="userEditController as vm">
-                <ul class="tab-nav tn-justified" role="tablist" style="width: 200px">
-                    <li role="presentation" class="active"><a href="" data-ng-click="vm.userTab()" aria-controls="user" role="tab" data-toggle="tab">用户信息</a></li>
-                    <li role="presentation"><a href="" data-ng-click="vm.roleTab()" aria-controls="role" role="tab" data-toggle="tab">角色信息</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div role="tabpanel" class="tab-pane fade" data-ng-class="{'in active':vm.activeTab==='user'}">
-                        <div class="row ng-scope">
-                            <div class="col-sm-4 text-center">
-                                <!-- ngIf: vm.profilePictureId -->
-                                <!-- ngIf: !vm.profilePictureId --><img ng-if="!vm.profilePictureId" src="~/img/profile-pics/1.png" width="128" height="128" class="img-thumbnail img-rounded"><!-- end ngIf: !vm.profilePictureId -->
-                            </div>
-                            <div class="col-sm-8">
-                                <div class="form-group fg-float">
-                                    <div class="fg-line">
-                                        <input type="text" class="form-control" ng-model="vm.user.name">
-                                    </div>
-                                    <label class="fg-label">名字</label>
+                <div class="modal-body">
+                    <ul class="tab-nav tn-justified" role="tablist" style="width: 200px">
+                        <li role="presentation" class="active"><a href="" data-ng-click="vm.userTab()" aria-controls="user" role="tab" data-toggle="tab">用户信息</a></li>
+                        <li role="presentation"><a href="" data-ng-click="vm.roleTab()" aria-controls="role" role="tab" data-toggle="tab">角色信息</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane fade" data-ng-class="{'in active':vm.activeTab==='user'}">
+                            <div class="row ng-scope">
+                                <div class="col-sm-4 text-center">
+                                    <img ng-if="!vm.profilePictureId" src="~/img/profile-pics/1.png" width="128" height="128" class="img-thumbnail img-rounded">
                                 </div>
-                                <div class="form-group fg-float">
-                                    <div class="fg-line">
-                                        <input type="text" class="form-control" ng-model="vm.user.surname">
+                                <div class="col-sm-8">
+                                    <div class="form-group fg-float">
+                                        <div class="fg-line" data-ng-class="{'fg-toggled':vm.user.name}">
+                                            <input type="text" class="form-control" ng-model="vm.user.name">
+                                        </div>
+                                        <label class="fg-label">名字</label>
                                     </div>
-                                    <label class="fg-label">姓氏</label>
+                                    <div class="form-group fg-float">
+                                        <div class="fg-line">
+                                            <input type="text" class="form-control" ng-model="vm.user.surname">
+                                        </div>
+                                        <label class="fg-label">姓氏</label>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="form-group fg-float m-t-20 ">
-                            <div class="fg-line">
-                                <input type="email" class="form-control" ng-model="vm.user.emailAddress">
+                            <div class="form-group fg-float m-t-20 ">
+                                <div class="fg-line">
+                                    <input type="email" class="form-control" ng-model="vm.user.emailAddress">
+                                </div>
+                                <label class="fg-label">邮箱地址</label>
                             </div>
-                            <label class="fg-label">邮箱地址</label>
-                        </div>
-                        <div class="form-group fg-float">
-                            <div class="fg-line">
-                                <input type="text" class="form-control" data-ng-disabled="!vm.canChangeUserName" ng-model="vm.user.userName">
+                            <div class="form-group fg-float">
+                                <div class="fg-line">
+                                    <input type="text" class="form-control" data-ng-disabled="!vm.canChangeUserName" ng-model="vm.user.userName">
+                                </div>
+                                <label class="fg-label">用户名</label>
+                                <span class="help-block ng-hide" ng-show="!vm.canChangeUserName">管理用户，不能修改用户名.</span>
                             </div>
-                            <label class="fg-label">用户名</label>
-                            <span class="help-block ng-hide" ng-show="!vm.canChangeUserName">管理用户，不能修改用户名.</span>
-                        </div>
-                        <div>
-                            <label class="checkbox checkbox-inline m-t-15">
-                                <input type="checkbox" ng-model="vm.setRandomPassword">
-                                <i class="input-helper"></i>
-                                使用随机密码
-                            </label>
-                        </div>
-                        <div class="form-group fg-float m-t-30 " ng-if="!vm.setRandomPassword">
-                            <div class="fg-line">
-                                <input type="text" class="form-control" ng-model="vm.user.password">
+                            <div>
+                                <label class="checkbox checkbox-inline m-t-15">
+                                    <input type="checkbox" ng-model="vm.setRandomPassword">
+                                    <i class="input-helper"></i>
+                                    使用随机密码
+                                </label>
                             </div>
-                            <label class="fg-label">密码</label>
-                        </div>
+                            <div class="form-group fg-float m-t-30 " ng-if="!vm.setRandomPassword">
+                                <div class="fg-line">
+                                    <input type="text" class="form-control" ng-model="vm.user.password">
+                                </div>
+                                <label class="fg-label">密码</label>
+                            </div>
 
-                        <div class="form-group fg-float" ng-if="!vm.setRandomPassword">
-                            <div class="fg-line">
-                                <input type="text" class="form-control" ng-model="vm.user.passwordRepeat">
+                            <div class="form-group fg-float" ng-if="!vm.setRandomPassword">
+                                <div class="fg-line">
+                                    <input type="text" class="form-control" ng-model="vm.user.passwordRepeat">
+                                </div>
+                                <label class="fg-label">密码 (确认)</label>
                             </div>
-                            <label class="fg-label">密码 (确认)</label>
-                        </div>
-                        <div>
-                            <label class="checkbox checkbox-inline m-t-15">
-                                <input type="checkbox" ng-model="vm.user.shouldChangePasswordOnNextLogin">
-                                <i class="input-helper"></i>
-                                下次登录需要修改密码
-                            </label>
-                        </div>
-                        <div>
-                            <label class="checkbox checkbox-inline m-t-15">
-                                <input type="checkbox" ng-model="vm.sendActivationEmail">
-                                <i class="input-helper"></i>
-                                发送激活邮件
-                            </label>
+                            <div>
+                                <label class="checkbox checkbox-inline m-t-15">
+                                    <input type="checkbox" ng-model="vm.user.shouldChangePasswordOnNextLogin">
+                                    <i class="input-helper"></i>
+                                    下次登录需要修改密码
+                                </label>
+                            </div>
+                            <div>
+                                <label class="checkbox checkbox-inline m-t-15">
+                                    <input type="checkbox" ng-model="vm.sendActivationEmail">
+                                    <i class="input-helper"></i>
+                                    发送激活邮件
+                                </label>
+
+                            </div>
+                            <div>
+                                <label class="checkbox checkbox-inline m-t-15">
+                                    <input type="checkbox" ng-model="vm.user.isActive">
+                                    <i class="input-helper"></i>
+                                    激活
+                                </label>
+                            </div>
 
                         </div>
-                        <div>
-                            <label class="checkbox checkbox-inline m-t-15">
-                                <input type="checkbox" ng-model="vm.user.isActive">
+                        <div role="tabpanel" class="tab-pane fade" data-ng-class="{'in active':vm.activeTab==='role'}">
+                            <label class="checkbox checkbox-inline m-r-20">
+                                <input type="checkbox" value="option1">
                                 <i class="input-helper"></i>
-                                激活
+                                Admin
+                            </label>
+                            <label class="checkbox checkbox-inline m-r-20">
+                                <input type="checkbox" value="option2">
+                                <i class="input-helper"></i>
+                                User
+                            </label>
+                            <label class="checkbox checkbox-inline m-r-20">
+                                <input type="checkbox" value="option3">
+                                <i class="input-helper"></i>
+                                Other
                             </label>
                         </div>
-
-                    </div>
-                    <div role="tabpanel" class="tab-pane fade" data-ng-class="{'in active':vm.activeTab==='role'}">
-                        <label class="checkbox checkbox-inline m-r-20">
-                            <input type="checkbox" value="option1">
-                            <i class="input-helper"></i>
-                            Admin
-                        </label>
-                        <label class="checkbox checkbox-inline m-r-20">
-                            <input type="checkbox" value="option2">
-                            <i class="input-helper"></i>
-                            User
-                        </label>
-                        <label class="checkbox checkbox-inline m-r-20">
-                            <input type="checkbox" value="option3">
-                            <i class="input-helper"></i>
-                            Other
-                        </label>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-info waves-effect"><i class="md md-save"></i>保存</button>
-                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="md md-cancel"></i>取消</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info waves-effect"><i class="md md-save"></i>保存</button>
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="md md-cancel"></i>取消</button>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript">
-    $("#grid-data").bootgrid({
-        ajax: true,
-        url: "/api/services/app/user/GetUsers",
-        formatters: {
-            "commands": function (column, row) {
-                return "<div class=\"dropdown\" onclick=\"$(this).addClass('open');$(this).find('ul').removeClass('fadeOut');\"  data-animation=\"fadeIn,fadeOut,600\"><button type=\"button\" class=\"btn btn-primary\" data-toggle=\"dropdown\"><i class=\"fa fa-cog\"></i> 操作 <i class=\"caret\"></i></button>\<ul class=\"dropdown-menu fadeIn animated fadeOut\">\<li><a href=\"\">修改</a></li><li><a href=\"\">权限</a></li><li><a href=\"\">删除</a></li></ul></div>";
-            }
-        }
-    });
-    $("body").bind("click", function () {
-        $(".dropdown").find('ul').addClass("fadeOut");
-        $(".dropdown").removeClass("open");
-    });  
-</script>
+

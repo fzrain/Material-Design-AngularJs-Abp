@@ -390,7 +390,6 @@
     <Content Include="img\widgets\mate7.jpg" />
     <Content Include="img\widgets\note4.jpg" />
     <Content Include="img\widgets\preview.jpg" />
-    <Content Include="js\jquery.bootgrid-override.min.js" />
     <Content Include="js\table.js" />
     <Content Include="js\templates.js" />
     <Content Include="js\ui-bootstrap.js" />
@@ -500,7 +499,6 @@
     <Content Include="Views\userManager\auditLog.js" />
     <Content Include="Views\userManager\role.js" />
     <Content Include="Views\userManager\user.js" />
-    <Content Include="Views\userManager\userEdit.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

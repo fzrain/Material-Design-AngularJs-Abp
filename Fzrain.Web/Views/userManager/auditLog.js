@@ -1,7 +1,7 @@
 ﻿(function () {
     angular.module('materialAdmin').controller('auditController', [
-       'ngTableParams', 'abp.services.app.auditLog','param',
-        function (ngTableParams,auditService) {          
+       'ngTableParams', 'abp.services.app.auditLog',
+        function (ngTableParams, auditService) {
             var vm = this;
             vm.auditLogs = [];
             vm.pageSize = 10;
@@ -18,11 +18,9 @@
                         count: vm.pageSize // count per page
                     }, {
                         total: vm.total, // length of data
-                        getData: function () {
+                        getData: function() {
                             return vm.auditLogs;
-
-                        }
-
+                        }                    
                     });
                 });
             }
@@ -31,10 +29,7 @@
                     vm.detailLog = data;
                 });
             }
-            vm.loadData(1);
-         
-        
-          
+            vm.loadData(1);         
         }
     ]);
 })();
