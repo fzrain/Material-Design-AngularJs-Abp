@@ -1,9 +1,8 @@
 ﻿(function () {
-    angular.module('materialAdmin').controller('userController', [
+    materialAdmin.controller('userController', [
         'abp.services.app.user','ngTableParams',
         function (userService, ngTableParams) {
             var vm = this;
-            vm.users = [];
             vm.activeTab = "user";
             vm.roleTab = function () {
                 vm.activeTab = "role";
@@ -11,28 +10,29 @@
             vm.userTab = function () {
                 vm.activeTab = "user";
             }
-            vm.loadData = function (pageIndex) {
-                userService.getUsers({
-                    skipCount: (pageIndex - 1) * vm.pageSize
-                }).success(function (data) {
-                    vm.users = data.items;
-                    vm.tableBasic = new ngTableParams({
-                        page: vm.pageIndex, // show first page
-                        count: vm.pageSize // count per page
-                    }, {
-                        total: data.totalCount, // length of data
-                        getData: function () {
-                            return vm.users;
-                        }
+            vm.tableBasic = new ngTableParams({
+                page: 1,
+                count: 10
+            }, {
+                total: 0,
+                getData: function ($defer, params) {
+                    userService.getUsers({
+                        skipCount: (params.page() - 1) * params.count(), maxResultCount: params.count()
+                    }).success(function (data) {
+                        params.total(data.totalCount);
+                        $defer.resolve(data.items);
                     });
-                });
+
+                }
+            });
+            vm.add = function () {
+                vm.user = null;
             }
             vm.getUserDetail = function (id) {
                 userService.getDetail({ id: id }).success(function (data) {
                     vm.user = data;
                 });
-            }
-            vm.loadData(1);
+            }        
         }
     ]);
 })();

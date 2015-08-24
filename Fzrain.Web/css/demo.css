@@ -126,7 +126,7 @@
 
 
 
-.icons-demo .card-body .md, .card-body .socicon {
+.icons-demo .card-body .zmdi, .card-body .socicon {
     font-size: 23px;
     vertical-align: middle;
     color: #333;
@@ -145,6 +145,7 @@
 
 .icons-demo .card-body .col-sm-4 p:hover {
     background: #eee;
+    cursor: pointer;
 }
 
 .notifications .btn {
@@ -152,3 +153,9 @@
     margin-bottom: 20px;
 }
 
+.datepicker-demo .dd-block {
+    display: inline-block;
+    margin-bottom: 20px;
+    margin-right: 25px;
+    vertical-align: top;
+}

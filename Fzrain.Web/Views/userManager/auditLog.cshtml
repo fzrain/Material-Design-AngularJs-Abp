@@ -5,22 +5,23 @@
 
     <div class="card">
         <div class="card-header"></div>
-        <div class="table-responsive">
-            <table ng-table="vm.tableBasic" class="table table-striped table-vmiddle">
-                <tr ng-repeat="log in vm.auditLogs">                 
-                    <td data-title="'查看详情'">
-                        <button data-toggle="modal" data-target="#modalAdultDetail" data-ng-click="vm.getAuditDetail(log.id)" class="btn btn-info waves-effect"><i class="md md-search"></i></button>
-                    </td>
-                    <td data-title="'服务名称'">{{log.serviceName}}</td>
-                    <td data-title="'方法名称'">{{log.methodName}}</td>
-                    <td data-title="'Ip'">{{log.clientIpAddress}}</td>
-                    <td data-title="'客户端'">{{log.clientName}}</td>
-                    <td data-title="'浏览器'">{{log.browserInfo}}</td>
-                </tr>
-            </table>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table ng-table="vm.tableBasic" class="table table-striped table-vmiddle">
+                    <tr ng-repeat="log in $data">
+                        <td data-title="'查看详情'">
+                            <button data-toggle="modal" data-target="#modalAdultDetail" data-ng-click="vm.getAuditDetail(log.id)" class="btn btn-info waves-effect"><i class="zmdi zmdi-search"></i></button>
+                        </td>
+                        <td data-title="'服务名称'">{{log.serviceName}}</td>
+                        <td data-title="'方法名称'">{{log.methodName}}</td>
+                        <td data-title="'Ip'">{{log.clientIpAddress}}</td>
+                        <td data-title="'客户端'">{{log.clientName}}</td>
+                        <td data-title="'浏览器'">{{log.browserInfo}}</td>
+                    </tr>
+                </table>
+            </div>
         </div>
-    </div>
-
+       </div>
     <div class="modal fade" id="modalAdultDetail" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -140,7 +141,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="md md-cancel"></i>关闭</button>
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="zmdi zmdi-close-circle"></i>关闭</button>
                 </div>
             </div>
         </div>

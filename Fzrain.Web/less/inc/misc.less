@@ -27,7 +27,7 @@
             margin-top: 8px;
             margin-bottom: 20px;
             color: #9E9E9E;
-            line-height: 140%;
+            line-height: 140%; 
         }
     }
     
@@ -35,7 +35,14 @@
         position: absolute; 
         right: 10px;
         top: -5px;
-        z-index: 3;
+        z-index: 5;
+    }
+}
+
+.block-header-alt {
+    h1, h2, h3, h4, h5 {
+        color: #575757;
+        font-weight: 100;
     }
 }
 
@@ -57,7 +64,7 @@
     & > a {
         width: 30px;
         height: 30px;
-        line-height: 29px;
+        line-height: 35px;
         display: inline-block; 
         text-align: center;
 
@@ -159,21 +166,14 @@
 }
 
 /*
- * Social Icons
- */
-.socicon {
-    font-family: 'socicon' !important;
-}
-
-/*
  * Load More
  */
 .load-more {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 30px; 
     
     a {
-        padding: 5px 10px 3px;
+        padding: 5px 10px 4px;
         display: inline-block;
         background-color: @m-red;
         color: #FFF;
@@ -184,11 +184,31 @@
             font-size: 20px;
             vertical-align: middle;
             position: relative;
-            margin-top: -2px;
+            margin-right: 5px;
         }
         
         &:hover {
             background-color: darken(@m-red, 10%);
         }
     }
+}
+
+/*
+ * Link titles
+ */
+.a-title {
+    color: #333;
+    font-weight: 500;
+    
+    &:hover {
+        color: #333;
+        text-decoration: underline;
+    }
+}
+
+/*
+ * Container
+ */
+.container-alt {
+    max-width: 1170px;
 }

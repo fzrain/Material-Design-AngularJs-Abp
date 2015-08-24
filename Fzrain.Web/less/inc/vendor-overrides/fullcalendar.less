@@ -6,7 +6,7 @@
 
 #fc-actions {
 	position: absolute;
-	top: 24px;
+	bottom: 10px;
 	right: 12px;
 }
 
@@ -15,97 +15,165 @@
 	box-shadow: 0 1px 1px rgba(0,0,0,.15);
 	margin-bottom: 30px;
 
-	td {
+	td, th {
 		border-color: @table-border-color;
-		text-align: center !important;
 	}
 
 	th {
-	    background: darken(@m-red, 5%);
-	    color: rgba(255, 255, 255, 0.9);
 	    font-weight: 400;
-	    padding: 6px 0;
+
 	}
 
-	table tr {
+    table tr {
 		& > td:first-child {
 			border-left-width: 0;
 		}
 	}
+}
 
-	.ui-widget-header {
-		border-width: 0;
-	}
+#calendar-widget {
+    .fc-toolbar {
+        background: @m-teal;
+    }
+
+    .fc-day-header {
+        color: #fff;
+        background: darken(@m-teal, 5%);
+        padding: 5px 0;
+        border-width: 0;
+    }
+
+    .fc-day-number {
+        text-align: center;
+        color: #ADADAD;
+        padding: 5px 0;
+    }
+
+    .fc-day-grid-event {
+        margin: 1px 3px 1px;
+    }
+
+
+    .ui-widget-header th,
+    .ui-widget-header {
+        border-width: 0;
+    }
+}
+
+#calendar {
+    .fc-toolbar {
+        height: 300px;
+        .bg-cover('../img/cal-header.jpg');
+        background-position: inherit;
+
+        &:before {
+            content: "";
+            height: 50px;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.36);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .fc-center {
+            margin-top: 238px;
+            position: relative;
+        }
+
+        @media screen and (max-width: @screen-sm-max) {
+            height: 200px;
+
+            .fc-center {
+                margin-top: 138px;
+            }
+        }
+    }
+
+    .fc-day-header {
+        color: #ADADAD;
+        text-align: left;
+        font-size: 14px;
+        border-bottom-width: 0;
+        border-right-color: #eee;
+        padding: 10px 12px;
+    }
+
+    .fc-day-number {
+        @media screen and (min-width: @screen-sm-max) {
+            font-size: 25px;
+            letter-spacing: -2px;
+        }
+
+        padding-left: 10px !important;
+        color: #CCC;
+        text-align: left !important;
+
+    }
+
+
+    .fc-day-grid-event {
+        margin: 1px 9px 0;
+    }
+}
+
+.fc-today {
+    color: @m-amber;
 }
 
 .fc-toolbar {
-    background-color: @m-red;
     margin-bottom: 0;
     padding: 20px 7px 19px;
     position: relative;
-    
+
     h2 {
-		color: rgba(255, 255, 255, 0.9);
 		margin-top: 7px;
 		font-size: 20px;
-		font-weight: 300;
+		font-weight: 400;
 		text-transform: uppercase;
+        color: #fff;
     }
-    
+
     .ui-button  {
 		border: 0;
-		background: 0 0;
-		padding: 0;
-		outline: none !important;
-		text-align: center;
-		
+        background: 0 0;
+        padding: 0;
+        outline: none !important;
+        text-align: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-top: 2px;
+        color: #fff;
+
+        &:hover {
+		    background: #fff;
+            color: @m-teal;
+		}
+
 		& > span {
 		    position: relative;
-		    font-family: 'Material Design Iconic Font';
+		    font-family: @font-icon-md;
 		    font-size: 20px;
-		    color: #FFF;
 		    line-height: 100%;
 		    width: 30px;
-		    padding-top: 5px;
 		    display: block;
 		    margin-top: 2px;
-		    
+
+
 		    &:before {
 				position: relative;
 				z-index: 1;
 		    }
-		    
+
 		    &.ui-icon-circle-triangle-w:before {
-				content: "\f297";
+				content: "\f2fa";
 		    }
-		    
+
 		    &.ui-icon-circle-triangle-e:before {
-				content: "\f298"; 
+				content: "\f2fb";
 		    }
-		    
-		    &:after {
-				content: "";
-				width: 0;
-				position: absolute;
-				top: 50%;
-				height: 0;
-				border-radius: 50%;
-				left: 50%;
-				z-index: 0;
-				.transition(all);
-				.transition-duration(200ms);
-				.backface-visibility(hidden);
-		    }
-		}
-	
-		&:hover {
-		    & > span:after {
-			width: 31px;
-			height: 31px;
-			left: 0;
-			top: 0;
-			background: rgba(0,0,0,0.2);
-		    }
+
 		}
     }
 }
@@ -114,13 +182,12 @@
     font-size: 11px;
     border-radius: 0;
     border: 0;
-    border-radius: 2px;
-    
+
     .fc-title {
-		padding: 2px 0;
+		padding: 2px 8px;
 		display: block;
     }
-    
+
     .fc-time {
 		float: left;
 		background: rgba(0, 0, 0, 0.2);
@@ -132,11 +199,6 @@
 .fc-view, .fc-view > table {
     border: 0;
     overflow: hidden;
-    /*
-    @media @min-992 {
-	    width: ~"calc(100% + 1px)";
-    }
-    */
 }
 
 .fc-view > table > tbody > tr > .ui-widget-content {
@@ -149,34 +211,48 @@ div.fc-row {
 }
 
 
+.fc-today {
+    color: @m-amber !important;
+}
+
 /* Even Tag Color */
 .event-tag {
     margin-top: 5px;
-    
+
     & > span {
-	border-radius: 50%;
-	width: 30px;
-	height: 30px;
-    margin-right: 3px;
-	position: relative;
-	display: inline-block; 
-	cursor: pointer;
-	
-	&:hover {
-	    .opacity(0.8);
-	}
-	
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        margin-right: 3px;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+
+        &:hover {
+            .opacity(0.8);
+        }
+
 	&.selected {
 	    &:before {
-		font-family: 'Material Design Iconic Font';
-		content: "\f299";
-		position: absolute;
-		text-align: center;
-		top: 3px;
-		width: 100%;
-		font-size: 17px;
-		color: #FFF;
-	    }
-	}
+            font-family: @font-icon-md;
+            content: "\f26b";
+            position: absolute;
+            text-align: center;
+            top: 3px;
+            width: 100%;
+            font-size: 17px;
+            color: #FFF;
+            }
+        }
     }
+}
+
+hr.fc-divider {
+    border-width: 1px;
+    border-color: #eee;
+}
+
+.fc-day-grid-container.fc-scroller {
+    height: auto !important;
+    overflow: hidden !important;
 }

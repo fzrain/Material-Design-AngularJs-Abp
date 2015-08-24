@@ -6,12 +6,12 @@
 
             <li class="dropdown">
                 <a href="" data-toggle="dropdown">
-                    <i class="md md-more-vert"></i>
+                    <i class="zmdi zmdi-more-vert"></i>
                 </a>
 
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                        <a data-toggle="modal" href="" data-target="#modalUserEdit">新增用户</a>
+                        <a data-toggle="modal" href="" data-ng-click="vm.add()" data-target="#modalUserEdit">新增用户</a>
                     </li>
                     <li>
                         <a href="">导出excel</a>
@@ -27,7 +27,7 @@
         <div class="card-header"></div>
         <div class="table-responsive">
             <table ng-table="vm.tableBasic" class="table table-striped table-vmiddle">
-                <tr ng-repeat="user in vm.users">
+                <tr ng-repeat="user in $data">
                     <td data-title="'操作'">
                         <div class="dropdown" data-animation="fadeIn,fadeOut,600">
                             <button type="button" class="btn btn-primary" data-toggle="dropdown">
@@ -42,7 +42,8 @@
                     </td>
                     <td data-title="'用户名'">{{user.userName}}</td>
                     <td data-title="'邮箱'">{{user.emailAddress}}</td>
-
+                    <td data-title="'姓氏'">{{user.surname}}</td>
+                    <td data-title="'名字'">{{user.name}}</td>    
                 </tr>
             </table>
         </div>
@@ -73,7 +74,7 @@
                                         <label class="fg-label">名字</label>
                                     </div>
                                     <div class="form-group fg-float">
-                                        <div class="fg-line">
+                                        <div class="fg-line" data-ng-class="{'fg-toggled':vm.user.surname}">
                                             <input type="text" class="form-control" ng-model="vm.user.surname">
                                         </div>
                                         <label class="fg-label">姓氏</label>
@@ -81,13 +82,13 @@
                                 </div>
                             </div>
                             <div class="form-group fg-float m-t-20 ">
-                                <div class="fg-line">
+                                <div class="fg-line" data-ng-class="{'fg-toggled':vm.user.emailAddress}">
                                     <input type="email" class="form-control" ng-model="vm.user.emailAddress">
                                 </div>
                                 <label class="fg-label">邮箱地址</label>
                             </div>
                             <div class="form-group fg-float">
-                                <div class="fg-line">
+                                <div class="fg-line" data-ng-class="{'fg-toggled':vm.user.userName}">
                                     <input type="text" class="form-control" data-ng-disabled="!vm.canChangeUserName" ng-model="vm.user.userName">
                                 </div>
                                 <label class="fg-label">用户名</label>
@@ -157,8 +158,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-info waves-effect"><i class="md md-save"></i>保存</button>
-                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="md md-cancel"></i>取消</button>
+                    <button type="button" class="btn btn-info waves-effect"><i class="zmdi zmdi-save"></i>保存</button>
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="zmdi zmdi-close-circle"></i>取消</button>
                 </div>
             </div>
         </div>

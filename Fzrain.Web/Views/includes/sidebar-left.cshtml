@@ -6,30 +6,30 @@
             </div>
             <div class="profile-info">
                 用户名
-                <i class="md md-arrow-drop-down"></i>
+                <i class="zmdi zmdi-caret-down"></i>
             </div>
         </a>
         <ul class="main-menu">
             <li>
-                <a data-toggle="modal" href="" data-target="#modalUserInfo"><i class="md md-person"></i>我</a>           
+                <a data-toggle="modal" href="" data-target="#modalUserInfo"><i class="zmdi zmdi-account"></i>我</a>           
             </li>
             <li>
-                <a data-toggle="modal" href="" data-target="#modalUserPhoto"><i class="md md-settings-input-antenna"></i> 修改头像</a>
+                <a data-toggle="modal" href="" data-target="#modalUserPhoto"><i class="zmdi zmdi-input-antenna"></i> 修改头像</a>
             </li>
             <li>
-                <a data-toggle="modal" href="" data-target="#modalChangePassword"><i class="md md-settings"></i> 修改密码</a>
+                <a data-toggle="modal" href="" data-target="#modalChangePassword"><i class="zmdi zmdi-settings"></i> 修改密码</a>
             </li>
             <li>
-                <a href="/Account/LogOut"><i class="md md-history"></i> 注销</a>
+                <a href="/Account/LogOut"><i class="zmdi zmdi-time-restore"></i> 注销</a>
             </li>
         </ul>
     </div>
     <ul class="main-menu">
         <li data-ui-sref-active="active">
-            <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="md md-home"></i> 首页</a>
+            <a data-ui-sref="home" data-ng-click="mactrl.sidebarStat($event)"><i class="zmdi zmdi-home"></i> 首页</a>
         </li>      
         <li class="sub-menu" data-ng-class="{ 'active toggled': mactrl.$state.includes('userManager') }">
-            <a href="" toggle-submenu><i class="md md-now-widgets"></i> 后台</a>
+            <a href="" toggle-submenu><i class="zmdi zmdi-assignment zmdi-hc-fw"></i> 后台管理</a>
             <ul>
                 <li><a data-ui-sref-active="active" data-ui-sref="userManager.user" data-ng-click="mactrl.sidebarStat($event)">用户管理</a></li>
                 <li><a data-ui-sref-active="active" data-ui-sref="userManager.role" data-ng-click="mactrl.sidebarStat($event)">角色管理</a></li>

@@ -5,6 +5,7 @@ using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
+using Abp.Linq.Extensions;
 using Fzrain.Authorization.Users;
 using Fzrain.Common.Application.Dtos;
 using Fzrain.Common.Application.Services;
@@ -25,8 +26,8 @@ namespace Fzrain.Users
             return new PagedResultOutput<UserDto>
             {
                 TotalCount =userManager.Users.Count(),
-                Items =userManager.Users.ToList().MapTo<List<UserDto>>(),
-               
+                Items =userManager.Users.OrderByDescending(u=>u.CreationTime).PageBy(input).ToList().MapTo<List<UserDto>>()
+
             };
         }
 

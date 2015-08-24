@@ -71,6 +71,15 @@
     background-position: center;
 }
 
+.bg-cover-inline() {
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-position: center;
+}
+
 /*
  * Tab Focus
  */
@@ -83,7 +92,7 @@
  */
 .hover-pop(@background: ~"rgba(0,0,0,0.5)", @radius: 0, @duration: 250ms, @zindex: 0) {
     position: relative;
-    
+
     &:before {
         left: 0;
         top: 0;
@@ -95,12 +104,12 @@
         .transition(all);
         .transition-duration(@duration);
         .backface-visibility(hidden);
-        background-color: @background; 
+        background-color: @background;
         z-index: @zindex;
         border-radius: @radius;
         .opacity(0);
     }
-    
+
     &:hover {
         &:before {
             .scale3d(1,1,1);
@@ -117,32 +126,31 @@
     background-color: @background;
     border-color: @border;
 
-    &:hover,
     &:focus,
-    &.focus,
-    &:active,
-    .open > .dropdown-toggle& {
+    &.focus {
         color: @color;
         background-color: @background;
         border-color: transparent;
     }
+
     &:active,
     &.active,
-    .open > .dropdown-toggle& {
+    .open > .dropdown-toggle {
         background-image: none;
+        background-color: darken(@background, 15%);
     }
+
     &.disabled,
     &[disabled],
-    fieldset[disabled] & {
-    &,
+    fieldset[disabled],
     &:hover,
     &:focus,
     &.focus,
     &:active {
         background-color: @background;
-            border-color: @border;
-        }
+        border-color: @border;
     }
+
 
     .badge {
         color: @background;
@@ -152,7 +160,7 @@
 
 /*
  * Scale 3d
- */ 
+ */
 .scale3d(...) {
   @process: ~`(function(e){return e=e||"1, 1, 1"})((function(){var e="@{arguments}";return e=e.replace(/^\[|\]$/g,"")})())`;
   -webkit-transform: scale3d(@process);

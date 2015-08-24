@@ -224,8 +224,7 @@
     <Content Include="Abp\Framework\styles\abp.css" />
     <Content Include="Abp\Framework\styles\abp.min.css" />
     <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
-    <Content Include="css\app.min.1.css" />
-    <Content Include="css\app.min.2.css" />
+    <Content Include="css\app.css" />
     <Content Include="css\demo.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -259,6 +258,8 @@
     <Content Include="img\contacts\7.jpg" />
     <Content Include="img\contacts\8.jpg" />
     <Content Include="img\contacts\9.jpg" />
+    <Content Include="img\demo\invoice-logo.png" />
+    <Content Include="img\demo\map.png" />
     <Content Include="img\headers\1.png" />
     <Content Include="img\headers\10.png" />
     <Content Include="img\headers\11.png" />
@@ -345,6 +346,7 @@
     <Content Include="img\icons\weather\9.png" />
     <Content Include="img\notifications.png" />
     <Content Include="img\profile-menu.png" />
+    <Content Include="img\profile-pics\1.jpg" />
     <Content Include="img\profile-pics\1.png" />
     <Content Include="img\profile-pics\2.jpg" />
     <Content Include="img\profile-pics\3.jpg" />
@@ -390,7 +392,6 @@
     <Content Include="img\widgets\mate7.jpg" />
     <Content Include="img\widgets\note4.jpg" />
     <Content Include="img\widgets\preview.jpg" />
-    <Content Include="js\table.js" />
     <Content Include="js\templates.js" />
     <Content Include="js\ui-bootstrap.js" />
     <Content Include="Views\Account\Login.cshtml" />
@@ -414,7 +415,6 @@
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
     <Content Include="bower.json" />
-    <None Include="Views\includes\chat.cshtml" />
     <Content Include="Views\includes\header.cshtml" />
     <Content Include="Views\includes\sidebar-left.cshtml" />
     <Content Include="Views\includes\profile-menu.cshtml" />

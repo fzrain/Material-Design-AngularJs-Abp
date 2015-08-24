@@ -22,10 +22,12 @@
             }
         } 
     }
-}
-
-body.sw-toggled {
-    #footer {
-        padding-left: @sidebar-left-width;
-    }
 } 
+
+@media (min-width: @screen-md-max) {
+    body.sw-toggled {
+        #footer {
+            padding-left: @sidebar-left-width; 
+        }
+    } 
+}

@@ -135,8 +135,19 @@ materialAdmin
     })
 
 
-
-
-
+    // =========================================================================
+    // PRINT
+    // =========================================================================
+    
+    .directive('print', function(){
+        return {
+            restrict: 'A',
+            link: function(scope, element){
+                element.click(function(){
+                    window.print();
+                })   
+            }
+        }
+    })
 
    

@@ -1,35 +1,29 @@
 ﻿(function () {
-    angular.module('materialAdmin').controller('auditController', [
+    materialAdmin.controller('auditController', [
        'ngTableParams', 'abp.services.app.auditLog',
         function (ngTableParams, auditService) {
-            var vm = this;
-            vm.auditLogs = [];
-            vm.pageSize = 10;
-            vm.pageIndex = 1;
-           
-            vm.loadData = function (pageIndex) {
-                auditService.getAuditLogs({
-                    skipCount: (pageIndex - 1) * vm.pageSize
-                }).success(function(data) {
-                    vm.auditLogs = data.items;
-                    vm.total = data.totalCount;
-                    vm.tableBasic = new ngTableParams({
-                        page: vm.pageIndex, // show first page
-                        count: vm.pageSize // count per page
-                    }, {
-                        total: vm.total, // length of data
-                        getData: function() {
-                            return vm.auditLogs;
-                        }                    
+            var vm = this;         
+            vm.tableBasic = new ngTableParams({
+                page: 1,
+                count: 10
+            }, {
+                total:0,
+                getData: function ($defer, params) {
+                    auditService.getAuditLogs({
+                        skipCount: (params.page() - 1) * params.count(), maxResultCount:params.count()
+                    }).success(function (data) {                       
+                        params.total(data.totalCount);
+                        $defer.resolve(data.items);
                     });
-                });
-            }
+                   
+                }
+            });          
             vm.getAuditDetail= function(id) {
                 auditService.getDetail({ id: id }).success(function(data) {
                     vm.detailLog = data;
                 });
             }
-            vm.loadData(1);         
+            
         }
     ]);
 })();

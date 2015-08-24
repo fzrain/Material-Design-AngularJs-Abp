@@ -1,8 +1,28 @@
+#lg-slider {
+    &:after {
+        content: "";
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+        height: 50px;
+        width: 50px;
+        border-radius: 100%;
+        border: 2px solid @m-blue;
+        -webkit-animation: ball-scale-ripple 1s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
+        animation: ball-scale-ripple 1s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
+        position: absolute;
+        left: 50%;
+        margin-left: -25px;
+        top: 50%;
+        margin-top: -25px;
+        z-index: -1; 
+    }
+}
+
 #lg-outer {
     background: rgba(255,255,255,0.95);
     
     .object {
-        .z-depth(2);
+        .z-depth(1);
         border-radius: 2px;
     }
 }
@@ -17,7 +37,6 @@
     left: 0;
     margin-left: 0 !important;
     height: 40px;
-    border-bottom: 1px solid #eee;
     text-align: center;
     
     & > a {
@@ -45,6 +64,7 @@
         background: @m-red;
         .transition(all);
         .transition-duration(300ms);
+        .z-depth(1);
         
         &:after {
             text-align: center;
@@ -94,24 +114,6 @@
 
 .lg-slide {
     background: none !important;
-    
-    &:after {
-        content: "";
-        -webkit-animation-fill-mode: both;
-        animation-fill-mode: both;
-        height: 50px;
-        width: 50px;
-        border-radius: 100%;
-        border: 2px solid @m-blue;
-        -webkit-animation: ball-scale-ripple 1s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
-        animation: ball-scale-ripple 1s 0s infinite cubic-bezier(0.21, 0.53, 0.56, 0.8);
-        position: absolute;
-        left: 50%;
-        margin-left: -25px;
-        top: 50%;
-        margin-top: -25px;
-        z-index: -1;
-    }
     
     em {
         font-style: normal;

@@ -34,7 +34,7 @@
             background-size: 100%;
             
             .profile-pic {
-                padding: 12px;
+                padding: 12px; 
                 
                 & > img {
                     width: 47px;
@@ -56,7 +56,7 @@
                     font-size: 19px;
                     line-height: 100%;
                     position: absolute;
-                    right: 5px;
+                    right: 15px;
                     top: 7px;
                     .transition(all);
                     .transition-duration(300ms);
@@ -106,7 +106,7 @@
                     top: 0;
                     width: 25px;
                     text-align: center;
-                    padding: 9px 0;
+                    padding: 13px 0;
                 }
             }
             
@@ -114,10 +114,10 @@
                 & > a {
                     &:before, &:after {
                         position: absolute;
-                        right: 10px;
+                        right: 15px;
                         top: 12px;
                         color: #575757;
-                        font-family: 'Material Design Iconic Font';
+                        font-family: @font-icon-md;
                         font-size: 17px;
                         .transition(all);
                         .transition-duration(250ms);
@@ -125,19 +125,32 @@
                     }
                     
                     &:before {
-                        content: "\f0fb";
+                        content: "\f278";
                         .scale(1);
                     }
                     
                     &:after {
-                        content: "\f111";
+                        content: "\f273";
                         .scale(0);
+                    }
+                }
+                
+                &.toggled {
+                    & > a {
+                        &:before {
+                            content: "\f278";
+                            .scale(0);
+                        }
+
+                        &:after {
+                            content: "\f273";
+                            .scale(1);
+                        }
                     }
                 }
                 
                 & > ul {
                     list-style: none;
-                    background: #f7f7f7;
                     display: none;
                     padding: 0;
                     
@@ -155,24 +168,10 @@
                         
                         &:first-child > a {
                             padding-top: 14px;
-                        }
+                        } 
                         
                         &:last-child > a {
                             padding-bottom: 16px;
-                        }
-                    }
-                }
-                
-                &.toggled {
-                    & > a {
-                        &:before {
-                            content: "\f0fb";
-                            .scale-rotate(0, -90deg);
-                        }
-                        
-                        &:after {
-                            content: "\f111";
-                            .scale(1);
                         }
                     }
                 }
@@ -228,10 +227,22 @@ body {
             display: block;
         }
     }
-    
+     
     body:not(.sw-toggled) {
          #sidebar:not(.toggled) {
-            display: none;
+            display: none; 
         }
     }
 }
+
+/*
+ * Nicescroll fix for sidebar when hidden 
+ */
+#sidebar:hover {
+    .nicescroll-rails-vr {
+        display: block !important;
+        .opacity(1) !important;
+    }
+}
+
+

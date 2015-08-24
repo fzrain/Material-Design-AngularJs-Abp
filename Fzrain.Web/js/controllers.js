@@ -1,11 +1,11 @@
-materialAdmin
+﻿materialAdmin
     // =========================================================================
     // Base controller for common functions
     // =========================================================================
 
-    .controller('materialadminCtrl', function($timeout, $state, growlService){
+    .controller('materialadminCtrl', function ($timeout, $state, notifyService) {
         //Welcome Message
-        growlService.growl('Welcome back Mallinda!', 'inverse')
+        notifyService.notify('欢迎回来!', 'inverse');
         
         
         // Detact Mobile Browser

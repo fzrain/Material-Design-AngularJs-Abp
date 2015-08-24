@@ -85,7 +85,7 @@
             color: #fff;
             background: rgba(0, 0, 0, 0.38);
             text-align: center;
-            padding: 10px 10px 7px; 
+            padding: 10px 10px 11px; 
             .transition(opacity);
             .transition-duration(250ms);
             
@@ -208,26 +208,37 @@
             }
         }
     }
-    
-    .pmo-contact {
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            
-            li {
-                position: relative;
-                padding: 8px 0 8px 35px;
-                
-                i {
-                    font-size: 18px;
-                    vertical-align: top;
-                    line-height: 100%;
-                    position: absolute;
-                    left: 0;
-                }
+}
+
+.pmo-contact {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            position: relative;
+            padding: 8px 0 8px 35px;
+
+            i {
+                font-size: 18px;
+                vertical-align: top;
+                line-height: 100%;
+                position: absolute;
+                left: 0;
+                width: 18px; 
+                text-align: center;
             }
         }
+    }
+}
+
+.pmo-map {
+    margin: 20px -20px -18px;
+    display: block;
+    
+    img {
+        width: 100%;
     }
 }
 
@@ -310,7 +321,7 @@
         top: 0;
         border: 3px solid #FFF;
         text-align: center;
-        font-size: 20px;
+        font-size: 16px;
         line-height: 34px;
         color: #FFF;
         font-family: @font-icon-md;
@@ -330,7 +341,7 @@
     
     &[data-tv-type="text"] {
         &:before {
-            content: "\f11b";
+            content: "\f24f";
             background: @m-cyan;
             box-shadow: 0 0 0 1px @m-cyan;
         }
@@ -342,7 +353,7 @@
     
     &[data-tv-type="image"] {
         &:before {
-            content: "\f224";
+            content: "\f17f";
             background: @m-green;
             box-shadow: 0 0 0 1px @m-green;
         }
@@ -354,7 +365,7 @@
     
     &[data-tv-type="video"] {
         &:before {
-            content: "\f0cc";
+            content: "\f3a9";
             background: @m-amber;
             box-shadow: 0 0 0 1px @m-amber;
         }
@@ -494,7 +505,7 @@
     }
     
     .pms-inner {
-        margin: -3px 0 0;
+        margin: -2px 0 0;
         position: relative;
         top: -2px;
         overflow: hidden;
@@ -506,7 +517,8 @@
             line-height: 100%;
             position: absolute;
             left: 9px;
-            top: 7px;
+            top: 8px;
+            color: #333;
         }
         
         input[type="text"] {

@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
+using Abp.Linq.Extensions;
 using Fzrain.Authorization.Roles;
 using Fzrain.Roles.Dto;
 using Microsoft.AspNet.Identity;
@@ -19,18 +20,24 @@ namespace Fzrain.Roles
            this.roleManager = roleManager;
        }
 
-       public PagedResultOutput<RoleDto> GetRoles()
+       public PagedResultOutput<RoleDto> GetRoles(GetRolesInput input)
        {
              return new PagedResultOutput<RoleDto>
                    {
-                       Items = roleManager.Roles.ToList().MapTo<List<RoleDto>>()
+                       Items = roleManager.Roles.OrderByDescending(r=>r.CreationTime).PageBy(input).ToList().MapTo<List<RoleDto>>(),
+                       TotalCount =roleManager.Roles.Count()
                    };
           
        }
 
        public Task<IdentityResult> AddRole(RoleDto role)
        {
-         return  roleManager.CreateAsync(role.MapTo<Role>());     
+         return  roleManager.CreateAsync(new Role
+         {
+             IsDefault=role.IsDefault,
+             Name =role.Name,
+             DisplayName =role.Name
+         });     
        }
    }
-}
+}   

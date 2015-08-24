@@ -12,14 +12,16 @@
             padding: 0;
             width: 40px;
             height: 40px;
-            line-height: 38px;
+            line-height: 39px;
             text-align: center;
             font-size: 14px;
             z-index: 1;
             position: relative;
+            border: 0;
             
-            & > .md {
+            & > .zmdi {
                 font-size: 22px;
+                line-height: 40px;
             }
             
             .hover-pop(rgba(0,0,0,0.1), 50%, 250ms, 0);
@@ -30,7 +32,7 @@
         }  
     }
 } 
-
+ 
 /*
  * Listview Pagination
  */
@@ -41,4 +43,12 @@
     border-top: 1px solid #F0F0F0;
     margin-top: 0;
     margin-bottom: 0;
+}
+
+/*
+ * Pager
+ */
+.pager li > a, .pager li > span {
+    padding: 5px 10px 6px;
+    color: @pagination-color;
 }

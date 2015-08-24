@@ -105,27 +105,27 @@ materialAdmin
 
 
     //==============================================
-    // BOOTSTRAP GROWL
+    // BOOTSTRAP notify
     //==============================================
 
-    .service('growlService', function(){
-        var gs = {};
-        gs.growl = function(message, type) {
+    .service('notifyService', function () {
+        var ns = {};
+        ns.notify = function (message, type) {
             $.notify({
                 message: message
             },{
                 type: type,
-                allow_dismiss: false,
+                allow_dismiss: true,
                 label: 'Cancel',
-                className: 'btn-xs btn-inverse',
+                className: 'btn-xs',
                 placement: {
                     from: 'top',
                     align: 'right'
                 },
                 delay: 2500,
                 animate: {
-                        enter: 'animated bounceIn',
-                        exit: 'animated bounceOut'
+                    enter: 'animated fadeInDown',
+                    exit: 'animated fadeOutDown'
                 },
                 offset: {
                     x: 20,
@@ -134,5 +134,5 @@ materialAdmin
             });
         }
         
-        return gs;
+        return ns;
     })

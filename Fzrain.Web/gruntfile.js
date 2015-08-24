@@ -33,6 +33,18 @@ module.exports = function(grunt) {
                 }
             },
         },
+        ngtemplates: {
+          materialAdmin: {
+            src: 'includes/**.html',
+            dest: 'js/templates.js',
+            options: {
+              htmlmin: { 
+                  collapseWhitespace: true, 
+                  collapseBooleanAttributes: true 
+              }
+            }
+          }
+        },
         watch: {
             styles: {
                 files: ['less/**/*.less'], // which files to watch
@@ -49,6 +61,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-csssplit');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-angular-templates');
   
     // Default task(s).
     grunt.registerTask('default', ['less']);

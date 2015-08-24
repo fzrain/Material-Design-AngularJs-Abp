@@ -22,7 +22,6 @@ body {
     font-weight: 400;
     padding-top: @header-height;
     padding-bottom: @footer-height;
-    .animated(fadeIn, 1000ms);
     position: relative;
 }
 
@@ -54,22 +53,22 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
     
     & > li {
         &:before {
-            font-family: 'Material Design Iconic Font';
+            font-family: @font-icon-md;
             margin: 0 10px 0 -20px;
             vertical-align: middle;
         }
     }
     
     &.clist-angle > li:before {
-        content: "\f1b6";
+        content: "\f2fb";
     }
     
     &.clist-check > li:before {
-        content: "\f299";
+        content: "\f26b";
     }
     
-    &.clist-star > li:before {
-        content: "\f2e5";
+    &.clist-star > li:before { 
+        content: "\f27d";
     }
 }
 

@@ -1,3 +1,52 @@
+input:active,
+input:focus {
+    outline: 0;
+    box-shadow: none !important;
+}
+
+
+.form-control {
+    box-shadow: none;
+    border: 0;
+    border-bottom: 1px solid #e0e0e0;
+    resize: none;
+    
+    &:active,
+    &:focus {
+        border-bottom-color: #b4b4b4;
+        box-shadow: none;
+    }
+    
+    &:not(.fc-alt) {
+        box-shadow: none;
+        border: 0;
+        border-bottom: 1px solid #e0e0e0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        padding: 0;
+        
+            
+        &:active,
+        &:focus {
+            border-bottom-color: #b4b4b4;
+        }
+        
+        &.auto-size {
+            padding-top: 6px;
+        }
+    }
+}
+
+.fc-alt {
+    border: 1px solid #E4E4E4;
+    
+    &:active,
+    &:focus {
+        border-color: #D7D7D7;
+    }
+}
+
 /*
  * Checkbox and Radio
  */
@@ -156,9 +205,9 @@ html:not(.ie9) {
         
         &:before {
             position: absolute;
-            top: 0;
+            top: -1px;
             content: "";
-            height: ~"calc(100% - 2px)";
+            height: ~"calc(100% - 1px)";
             width: 30px;
             background-color: #FFF;
             background-position: right ~"calc(100% - 7px)";
@@ -310,22 +359,6 @@ html:not(.ie9) {
     }
 }
 
-.form-control {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    padding: 0;
-    border-radius: 0;
-    
-    &:focus {
-        box-shadow: none;
-    }
-  
-    &.auto-size {
-        padding-top: 6px;
-    }
-}
-
 .form-group {
     margin-bottom: 30px;
 }
@@ -367,14 +400,14 @@ html:not(.ie9) {
     /* Mixin for Input Group */
     .ig-addon(@padding, @md-font-size) {
         &:not(.last) {
-            padding-right: @padding;
+            padding-right: @padding; 
         }
             
         &.last {
             padding-left: @padding;
         }
         
-        .md {
+        .zmdi {
             font-size: @md-font-size;
         }
     }
@@ -384,10 +417,9 @@ html:not(.ie9) {
         vertical-align: bottom;
         padding: 0;
         
-        .md {
+        .zmdi {
             line-height: 100%;
         }
-         
     }
     
     &:not(.input-group-lg):not(.input-group-sm) {
@@ -401,7 +433,7 @@ html:not(.ie9) {
             .ig-addon(15px, 30px);
         }
     }
-    
+     
     &.input-group-sm {
         .input-group-addon {
             .ig-addon(5px, 18px);
@@ -412,15 +444,25 @@ html:not(.ie9) {
         padding: 0;
     }
      
-    .fg-line {
-        padding: 0 10px;
+    .fg-line {     
+        padding: 0 10px; 
         
         &:after {
-            left: 10px;
+            left: 10px; 
         }
         
         &.fg-toggled:after {
             width: ~"calc(100% - 20px)";
+        }   
+    }
+    
+    .dropdown-menu {
+        &:not(.pull-right) {
+            left: 10px;
+        }
+        
+        &.pull-right {
+            right: 10px;
         }
     }
 }
@@ -541,7 +583,7 @@ html:not(.ie9) {
     &[data-ts-color="purple"] {
         .ts-color(@m-purple);
     }
-    
+     
     &[data-ts-color="pink"] {
         .ts-color(@m-pink);
     }
@@ -567,3 +609,4 @@ html:not(.ie9) {
     color: #888 !important;
     font-weight: normal;
 }
+

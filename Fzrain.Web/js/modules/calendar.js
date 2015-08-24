@@ -67,7 +67,7 @@ materialAdmin
                     ]
                 });
             }
-        };
+        }
     })
     
 
@@ -107,7 +107,7 @@ materialAdmin
                         {
                             title: 'Hangout with friends',
                             start: new Date(y, m, 1),
-                            end: new Date(y, m, 2),
+                            allDay: true,
                             className: 'bgm-cyan'
                         },
                         {
@@ -125,55 +125,61 @@ materialAdmin
                         {
                             title: 'Semester Exam',
                             start: new Date(y, m, 20),
-                            end: new Date(y, m, 23),
+                            allDay: true,
                             className: 'bgm-green'
                         },
                         {
                             title: 'Soccor match',
                             start: new Date(y, m, 5),
-                            end: new Date(y, m, 6),
+                            allDay: true,
                             className: 'bgm-purple'
                         },
                         {
                             title: 'Coffee time',
                             start: new Date(y, m, 21),
+                            allDay: true,
                             className: 'bgm-orange'
                         },
                         {
                             title: 'Job Interview',
                             start: new Date(y, m, 5),
+                            allDay: true,
                             className: 'bgm-dark'
                         },
                         {
                             title: 'IT Meeting',
                             start: new Date(y, m, 5),
+                            allDay: true,
                             className: 'bgm-cyan'
                         },
                         {
                             title: 'Brunch at Beach',
                             start: new Date(y, m, 1),
+                            allDay: true,
                             className: 'bgm-purple'
                         },
                         {
                             title: 'Live TV Show',
                             start: new Date(y, m, 15),
-                            end: new Date(y, m, 17),
+                            allDay: true,
                             className: 'bgm-orange'
                         },
                         {
                             title: 'Software Conference',
                             start: new Date(y, m, 25),
-                            end: new Date(y, m, 28),
+                            allDay: true,
                             className: 'bgm-blue'
                         },
                         {
                             title: 'Coffee time',
                             start: new Date(y, m, 30),
+                            allDay: true,
                             className: 'bgm-orange'
                         },
                         {
                             title: 'Job Interview',
                             start: new Date(y, m, 30),
+                            allDay: true,
                             className: 'bgm-dark'
                         },
                     ],
@@ -189,10 +195,9 @@ materialAdmin
                 
                   
                 //Add action links in calendar header
-                //var x = $compile(scope.$eval(attrs.actionLinks))(scope);
                 element.find('.fc-toolbar').append($compile(scope.actionLinks)(scope));
             }
-        };
+        }
     })
     
 
@@ -203,8 +208,8 @@ materialAdmin
             link: function(scope, element, attrs) {
                 element.on('click', function(){
                     $('#calendar').fullCalendar('changeView', attrs.calendarView);  
-                });
+                })
             }
-        };
-})
+        }
+    })
 

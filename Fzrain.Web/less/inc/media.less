@@ -11,11 +11,12 @@
  * Lightbox  
  */
 
-.lightbox {
+.lightbox {	
 	.lightbox-item {
 		
 		& > img {
-			width: 100%; 
+			width: 100%;
+			border-radius: 2px;
 		}
 
 		.hover-pop(rgba(0,0,0,0.1));
@@ -39,11 +40,12 @@
  */
 .carousel {
 	.carousel-control {
-		.transition(all);
+        cursor: pointer;
+		.transition(all); 
 		.transition-duration(250ms);
 		.opacity(0);
 		
-		.md {
+		.zmdi {
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -110,7 +112,7 @@
 			border: 0;
 			background: #fff;
 			height: 3px;
-			margin: 0;
+			margin: 0 2px;
 			.transition(all);
 			.transition-duration(250ms);
 			

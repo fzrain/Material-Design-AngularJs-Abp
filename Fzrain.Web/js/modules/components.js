@@ -1,105 +1,5 @@
 materialAdmin
-    
-    //-----------------------------------------------------
-    // TOOLTIP AND POPOVER
-    //-----------------------------------------------------
 
-    .directive('toggle', function(){
-        return {
-            restrict: 'A',
-            link: function(scope, element, attrs) {
-                var x = attrs.toggle;
-                
-                //Tooltip
-                if(x === 'tooltip') {
-                    element.tooltip();
-                } 
-                
-                //Popover
-                if(x === 'popover') {
-                    element.popover();
-                } 
-            }
-        };
-    })
-
-    
-    
-    //-----------------------------------------------------
-    // COLLAPSE
-    //-----------------------------------------------------
-    .directive('collapse', function(){
-        return {
-            restrict: 'C',
-            link: function(scope, element, attrs) {
-                element.on('show.bs.collapse', function (e) {
-                    $(this).closest('.panel').find('.panel-heading').addClass('active');
-                });
-
-                element.on('hide.bs.collapse', function (e) {
-                    $(this).closest('.panel').find('.panel-heading').removeClass('active');
-                });
-
-                //Add active class for pre opened items
-                $('.collapse.in').each(function(){
-                    $(this).closest('.panel').find('.panel-heading').addClass('active');
-                });
-            }
-        };
-    })
-
-
-
-    //-----------------------------------------------------
-    // ANIMATED DROPDOWN MENU
-    //-----------------------------------------------------
-
-    .directive('dropdown', function(){
-    
-        return {
-            restrict: 'C',
-            link: function(scope, element, attrs) {
-                element.on('shown.bs.dropdown', function (e) {
-                    if($(this).data('animation')) {
-                        $animArray = [];
-                        $animation = attrs.animation;
-                        $animArray = $animation.split(',');
-                        $animationIn = 'animated '+$animArray[0];
-                        $animationOut = 'animated '+ $animArray[1];
-                        $animationDuration = '';
-
-                        if(!$animArray[2]) {
-                            $animationDuration = 500; //if duration is not defined, default is set to 500ms
-                        }
-
-                        else {
-                            $animationDuration = $animArray[2];
-                        }
-
-                        $(this).find('.dropdown-menu').removeClass($animationOut);
-                        $(this).find('.dropdown-menu').addClass($animationIn);
-                    }
-                });
-
-                element.on('hide.bs.dropdown', function (e) {
-                    if($(this).data('animation')) {
-                        e.preventDefault();
-                        $this = $(this);
-                        $dropdownMenu = $this.find('.dropdown-menu');
-
-                        $dropdownMenu.addClass($animationOut);
-                        setTimeout(function(){
-                            $this.removeClass('open');
-                        }, $animationDuration);
-                        
-                    }
-                });
-            }
-        };
-    })
-
-
-    
     // =========================================================================
     // WEATHER WIDGET
     // =========================================================================
@@ -130,6 +30,205 @@ materialAdmin
                     }
                 });
             }
-        };
-})
+        }
+        
+    })
+
+
+
+    // =========================================================================
+    // SWEATALERT
+    // =========================================================================
+
+    //Basic
+    .directive('swalBasic', function(){
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.click(function(){
+                    swal("Here's a message!");
+                });
+            }
+        }
+    })
+    
+    //A title with a text under
+    .directive('swalText', function(){
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.click(function(){
+                    swal("Here's a message!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis")
+
+                });
+            }
+        }
+    })
+
+    //Success Message
+    .directive('swalSuccess', function(){
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.click(function(){
+                    swal("Good job!", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed lorem erat, tincidunt vitae ipsum et, pellentesque maximus enim. Mauris eleifend ex semper, lobortis purus sed, pharetra felis", "success")
+
+                });
+            }
+        }
+    })
+
+    //Warning Message
+    .directive('swalWarning', function(){
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.click(function(){
+                    swal({   
+                        title: "Are you sure?",   
+                        text: "You will not be able to recover this imaginary file!",   
+                        type: "warning",   
+                        showCancelButton: true,   
+                        confirmButtonColor: "#DD6B55",   
+                        confirmButtonText: "Yes, delete it!",   
+                        closeOnConfirm: false 
+                    }, function(){   
+                        swal("Deleted!", "Your imaginary file has been deleted.", "success"); 
+                    });
+                });
+            }
+        }
+    })
+
+    //Parameter
+    .directive('swalParams', function(){
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.click(function(){
+                    swal({   
+                        title: "Are you sure?",   
+                        text: "You will not be able to recover this imaginary file!",   
+                        type: "warning",   
+                        showCancelButton: true,   
+                        confirmButtonColor: "#DD6B55",   
+                        confirmButtonText: "Yes, delete it!",   
+                        cancelButtonText: "No, cancel plx!",   
+                        closeOnConfirm: false,   
+                        closeOnCancel: false 
+                    }, function(isConfirm){   
+                        if (isConfirm) {     
+                            swal("Deleted!", "Your imaginary file has been deleted.", "success");   
+                        } else {     
+                            swal("Cancelled", "Your imaginary file is safe :)", "error");   
+                        } 
+                    });
+                });
+            }
+        }
+    })
+
+    //Custom Image
+    .directive('swalImg', function(){
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.click(function(){
+                    swal({   
+                        title: "Sweet!",   
+                        text: "Here's a custom image.",   
+                        imageUrl: "img/thumbs-up.png" 
+                    });
+                });
+            }
+        }
+    })
+            
+    //Auto Close Timer
+    .directive('swalTimer', function(){
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                element.click(function(){
+                     swal({   
+                        title: "Auto close alert!",   
+                        text: "I will close in 2 seconds.",   
+                        timer: 2000,   
+                        showConfirmButton: false 
+                    });
+                });
+            }
+        }
+    })
+
+    
+
+    // =========================================================================
+    // GROWL
+    // =========================================================================
+
+    .directive('growlDemo', function(){
+        return {
+            restrict: 'A',
+            link: function(scope, element, attrs) {
+                function notify(from, align, icon, type, animIn, animOut){
+                    $.growl({
+                        icon: icon,
+                        title: ' Bootstrap Growl ',
+                        message: 'Turning standard Bootstrap alerts into awesome notifications',
+                        url: ''
+                    },{
+                            element: 'body',
+                            type: type,
+                            allow_dismiss: true,
+                            placement: {
+                                    from: from,
+                                    align: align
+                            },
+                            offset: {
+                                x: 20,
+                                y: 85
+                            },
+                            spacing: 10,
+                            z_index: 1031,
+                            delay: 2500,
+                            timer: 1000,
+                            url_target: '_blank',
+                            mouse_over: false,
+                            animate: {
+                                    enter: animIn,
+                                    exit: animOut
+                            },
+                            icon_type: 'class',
+                            template: '<div data-growl="container" class="alert" role="alert">' +
+                                            '<button type="button" class="close" data-growl="dismiss">' +
+                                                '<span aria-hidden="true">&times;</span>' +
+                                                '<span class="sr-only">Close</span>' +
+                                            '</button>' +
+                                            '<span data-growl="icon"></span>' +
+                                            '<span data-growl="title"></span>' +
+                                            '<span data-growl="message"></span>' +
+                                            '<a href="#" data-growl="url"></a>' +
+                                        '</div>'
+                    });
+                }
+                
+                element.on('click', function(e){
+                    e.preventDefault();
+                    
+                    var nFrom = attrs.from;
+                    var nAlign = attrs.align;
+                    var nIcons = attrs.icon;
+                    var nType = attrs.type;
+                    var nAnimIn = attrs.animationIn;
+                    var nAnimOut = attrs.animationOut;
+
+                    notify(nFrom, nAlign, nIcons, nType, nAnimIn, nAnimOut);
+            
+                })
+                
+                
+            }
+        }
+    })
 

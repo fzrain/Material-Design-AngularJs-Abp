@@ -1,23 +1,24 @@
 .btn {
-    .transition(all);
-    .transition-duration(300ms);
     border: 0;
     text-transform: uppercase;
-    
-    &[class*="bgm-"] {
+
+
+    &[class*="bgm-"]:not(.bgm-white) {
         color: #fff;
     }
 
-    &:not(.btn-link):not(.btn-float):not(.command-edit):not(.command-delete):not(.selectpicker) {
-        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-        
-        &:hover {
-            box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
-        }
-    }
-    
     .caret {
         margin-top: -3px;
+    }
+     
+    &:not(.btn-link) {
+        &:active,
+        &.active,
+        &:hover {
+            
+        }
+        
+        .z-depth(1);
     }
 }
 
@@ -69,9 +70,7 @@
     padding: 0;
     text-align: center;
     
-    .hover-pop(50%, 300ms);
-
-    .md {
+    .zmdi {
         font-size: 17px;
     }
     
@@ -84,8 +83,7 @@
 }
 
 .btn-icon-text {
-    & > .md, 
-    & > .socicon{
+    & > .zmdi {
         font-size: 15px;
         vertical-align: top;
         display: inline-block;
@@ -99,11 +97,10 @@
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    position: absolute;
-    line-height: 38px;
+    line-height: 45px !important;
     
-    &:hover {
-        box-shadow: 0 2px 7px rgba(0, 0, 0, 0.18);
+    &:not(.m-btn) {
+        position: absolute !important;
     }
 
     i {
@@ -111,13 +108,7 @@
         .transition(all);
         .transition-duration(500ms);
     }
-    
-    &:hover {
-        i {
-            .rotate(360deg);
-        }
-    }
-    
+
     &:not(.bgm-white):not(.bgm-gray) {
         & > i {
             color: #fff;
@@ -141,4 +132,18 @@
         outline: none !important;
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0) !important;
     }
+}
+
+/*
+ * Material Design Add button
+ */
+.m-btn {
+    z-index: 1;
+    bottom: 40px;
+    right: 40px;
+    position: fixed !important;
+}
+
+.btn-group .btn + .btn, .btn-group .btn + .btn-group, .btn-group .btn-group + .btn, .btn-group .btn-group + .btn-group {
+    margin-left: 0;
 }
