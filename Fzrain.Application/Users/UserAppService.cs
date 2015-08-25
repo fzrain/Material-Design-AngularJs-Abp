@@ -21,7 +21,7 @@ namespace Fzrain.Users
             this.userManager = userManager;
         }
 
-        public PagedResultOutput<UserDto> GetUsers(UserSelectedInput input)
+        public PagedResultOutput<UserDto> GetUsers(UserQueryInput input)
         {
             return new PagedResultOutput<UserDto>
             {

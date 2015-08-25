@@ -9,7 +9,7 @@ namespace Fzrain.Users
 {
     public interface IUserAppService : IApplicationService
     {
-        PagedResultOutput<UserDto> GetUsers(UserSelectedInput input);
+        PagedResultOutput<UserDto> GetUsers(UserQueryInput input);
         Task<UserDto> GetDetail(IdInput<long> input);
     }
 }

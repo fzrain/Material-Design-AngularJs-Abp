@@ -80,7 +80,22 @@ materialAdmin
                  url: '/userManager-auditLog',
                  templateUrl: abp.appPath + 'views/userManager/auditLog.cshtml'
              })
-
+             .state('userManager.permission', {
+                 url: '/userManager-permission',
+                 templateUrl: abp.appPath + 'views/userManager/permission.cshtml',
+                 resolve: {
+                     loadPlugin: function ($ocLazyLoad) {
+                         return $ocLazyLoad.load([
+                             {
+                                 name: 'vendors',
+                                 files: [
+                                     'bower_components/autosize/dist/autosize.min.js'
+                                 ]
+                             }
+                         ]);
+                     }
+                 }
+             })
 
 
             //------------------------------

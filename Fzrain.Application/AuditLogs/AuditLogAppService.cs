@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
@@ -31,9 +32,10 @@ namespace Fzrain.AuditLogs
             };
         }
 
-        public AuditLogDto GetDetail(IdInput<long> input)
+        public async Task<AuditLogDto> GetDetail(IdInput<long> input)
         {
-            return auditRepository.Get(input.Id).MapTo<AuditLogDto>();
+            var auditLog= await auditRepository.GetAsync(input.Id);
+            return auditLog.MapTo<AuditLogDto>();
         }
     }
 }

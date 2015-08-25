@@ -497,6 +497,7 @@
     <Content Include="vendors\sparklines\jquery.sparkline.js" />
     <Content Include="vendors\sparklines\jquery.sparkline.min.js" />
     <Content Include="Views\userManager\auditLog.js" />
+    <Content Include="Views\userManager\permission.js" />
     <Content Include="Views\userManager\role.js" />
     <Content Include="Views\userManager\user.js" />
     <Content Include="Web.config">
@@ -675,6 +676,7 @@
     <Content Include="Views\userManager\user.cshtml" />
     <Content Include="Views\userManager\auditLog.cshtml" />
     <Content Include="Views\userManager\role.cshtml" />
+    <Content Include="Views\userManager\permission.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

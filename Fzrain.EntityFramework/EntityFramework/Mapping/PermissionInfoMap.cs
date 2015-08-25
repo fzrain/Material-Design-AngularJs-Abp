@@ -10,7 +10,7 @@ namespace Fzrain.EntityFramework.Mapping
             ToTable("Permissions");
             HasKey(p => p.Id);
             Property(p => p.Description).HasMaxLength(200);
-            HasOptional(m => m.ParentPermission).WithMany(d => d.ChildrenPermissions);   
+         
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Fzrain.EntityFramework
         public virtual IDbSet<Tenant> Tenants { get; set; }
         public virtual IDbSet<Role> Roles { get; set; }
         public virtual IDbSet<UserLogin> UserLogins { get; set; }
+        public virtual IDbSet<PermissionInfo> PermissionInfos { get; set; }
         public virtual IDbSet<PermissionSetting> Permissions { get; set; }
         public virtual IDbSet<Setting> Settings { get; set; }
         public virtual IDbSet<AuditLog> AuditLogs { get; set; }

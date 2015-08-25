@@ -3,7 +3,7 @@ using Abp.Application.Services.Dto;
 
 namespace Fzrain.Users.Dto
 {
-    public class UserSelectedInput : IPagedResultRequest
+    public class UserQueryInput : IPagedResultRequest
     {
         [Range(0, 1000)]
         public int MaxResultCount { get; set; }

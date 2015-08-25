@@ -98,6 +98,10 @@
     <Compile Include="AuditLogs\IAuditLogAppService.cs" />
     <Compile Include="FzrainApplicationModule.cs" />
     <Compile Include="FzrainAppServiceBase.cs" />
+    <Compile Include="Permissions\Dto\PermissionDto.cs" />
+    <Compile Include="Permissions\Dto\PermissionQueryInput.cs" />
+    <Compile Include="Permissions\IPermissionInfoAppService.cs" />
+    <Compile Include="Permissions\PermissionInfoAppService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Roles\Dto\GetRolesInput.cs" />
     <Compile Include="Roles\Dto\RoleDto.cs" />
@@ -105,7 +109,7 @@
     <Compile Include="Roles\RoleAppService.cs" />
     <Compile Include="Users\Dto\UserCreateInput.cs" />
     <Compile Include="Users\Dto\UserDto.cs" />
-    <Compile Include="Users\Dto\UserSelectedInput.cs" />
+    <Compile Include="Users\Dto\UserQueryInput.cs" />
     <Compile Include="Users\IUserAppService.cs" />
     <Compile Include="Users\UserAppService.cs" />
   </ItemGroup>

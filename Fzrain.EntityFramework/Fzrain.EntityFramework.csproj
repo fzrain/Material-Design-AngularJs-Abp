@@ -109,6 +109,10 @@
     <Compile Include="Migrations\201508070946342_InitialCreate.Designer.cs">
       <DependentUpon>201508070946342_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508250633111_UpdatePermissionTableInfo.cs" />
+    <Compile Include="Migrations\201508250633111_UpdatePermissionTableInfo.Designer.cs">
+      <DependentUpon>201508250633111_UpdatePermissionTableInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="FzrainDataModule.cs" />
     <Compile Include="Migrations\SeedData\DefaultTenantRoleAndUserBuilder.cs" />
@@ -130,6 +134,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201508070946342_InitialCreate.resx">
       <DependentUpon>201508070946342_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508250633111_UpdatePermissionTableInfo.resx">
+      <DependentUpon>201508250633111_UpdatePermissionTableInfo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
