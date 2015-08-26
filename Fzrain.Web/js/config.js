@@ -87,9 +87,17 @@ materialAdmin
                      loadPlugin: function ($ocLazyLoad) {
                          return $ocLazyLoad.load([
                              {
+                                 name: 'css',
+                                 insertBefore: '#app-level',
+                                 files: [
+                                     'bower_components/chosen/chosen.min.css'
+                                 ]
+                             },
+                             {
                                  name: 'vendors',
                                  files: [
-                                     'bower_components/autosize/dist/autosize.min.js'
+                                    'bower_components/autosize/dist/autosize.min.js',                                       'bower_components/chosen/chosen.jquery.min.js',
+                                    'bower_components/angular-chosen-localytics/chosen.js'
                                  ]
                              }
                          ]);

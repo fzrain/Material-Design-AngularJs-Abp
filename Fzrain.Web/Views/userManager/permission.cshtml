@@ -10,7 +10,7 @@
 
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                        <a data-toggle="modal" href="" data-target="#modalPermissionEdit">新增权限</a>
+                        <a data-toggle="modal" href="" data-ng-click="vm.add()" data-target="#modalPermissionEdit">新增权限</a>
                     <li>
                         <a href="">导出excel</a>
                     </li>
@@ -33,7 +33,7 @@
                                 <i class="fa fa-cog"></i> 操作 <i class="caret"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="">修改</a></li>
+                                <li><a href="" ng-click="vm.edit(permission.id)" data-toggle="modal" data-target="#modalPermissionEdit">修改</a></li>
                                 <li><a href="">删除</a></li>
                             </ul>
                         </div>
@@ -59,37 +59,45 @@
                 </div>
 
                 <div class="modal-body">
-
-
                     <div class="form-group fg-float">
-                        <div class="fg-line">
+                        <div class="fg-line" data-ng-class="{'fg-toggled':vm.permission.name}">
                             <input type="text" class="form-control" ng-model="vm.permission.name">
                         </div>
                         <label class="fg-label">权限名称</label>
                     </div>
                     <div class="form-group fg-float">
-                        <div class="fg-line">
+                        <div class="fg-line" data-ng-class="{'fg-toggled':vm.permission.displayName}">
                             <input type="text" class="form-control" ng-model="vm.permission.displayName">
                         </div>
                         <label class="fg-label">展示名称</label>
                     </div>
                     <div class="form-group">
-                        <div class="fg-line">
+                        <p class="f-500 c-black m-b-15">Basic Example</p>
+                        <select chosen data-placeholder="Select a country..." class="w-100">
+                            <option value="United States">United States</option>
+                            <option value="United Kingdom">United Kingdom</option>
+                            <option value="Afghanistan">Afghanistan</option>
+                            <option value="Aland Islands">Aland Islands</option>
+                            <option value="Albania">Albania</option>
+                            <option value="Algeria">Algeria</option>
+                            <option value="American Samoa">American Samoa</option>
+                        </select>
+                        @*<div class="fg-line">
+                            <select chosen data-placeholder="Select a country..." class="w-100">
+                                <option data-ng-repeat="value in vm.parentPermissions">{{value}}</option>
+                            </select>
                             <div class="select">
                                 <select class="form-control" data-ng-model="vm.permission.parentName">
                                     <option>无</option>
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                    <option>Option 4</option>
-                                    <option>Option 5</option>
+                                
+
                                 </select>
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                     <div class="form-group fg-float">
-                        <div class="fg-line">
-                            <textarea class="form-control" data-auto-size ></textarea>
+                        <div class="fg-line" data-ng-class="{'fg-toggled':vm.permission.description}">
+                            <textarea class="form-control" data-auto-size data-ng-model="vm.permission.description"></textarea>
                         </div>
                         <label class="fg-label">描述</label>
                     </div>

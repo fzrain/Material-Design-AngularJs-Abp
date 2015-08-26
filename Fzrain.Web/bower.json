@@ -15,7 +15,7 @@
     "bootstrap-select": "1.7.3",
     "bootstrap-sweetalert": "0.4.5",
     "bower": "*",
-    "chosen": "1.4.2",
+    "chosen": "^1.4.2" ,
     "eonasdan-bootstrap-datetimepicker": "4.14.30",
     "farbtastic": "2.0.0-alpha.1",
     "flot": "0.8.3",
@@ -46,7 +46,8 @@
     "simpleWeather": "3.0.2",
     "summernote": "0.6.10",
     "sweetalert": "1.0.1",
-    "waves": "0.7.2"
+    "waves": "0.7.2",
+    "angular-chosen-localytics": "1.0.7" 
   },
   "resolutions": {
     "nouislider": "8.0.2",

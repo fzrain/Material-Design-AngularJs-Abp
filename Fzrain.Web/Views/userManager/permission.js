@@ -21,14 +21,27 @@
             });
             vm.permission = {};
             vm.add = function () {
-                vm.permission = null;
+                vm.permission = {};
+                vm.permission.parentName = "无";
+                permissionService.getPermissionNames().success(function (data) {
+                    vm.parentPermissions = data;
+                });
+            }
+            vm.edit = function (id) {
+                permissionService.getById({ id: id }).success(function (data) {
+                    vm.permission = data;
+                });
+                permissionService.getPermissionNames().success(function (data) {
+                    vm.parentPermissions = data;
+                });
             }
             vm.save = function () {
-                permissionService.add(vm.permission).success(function () {
+                permissionService.addOrUpdate(vm.permission).success(function () {
                     notifyService.notify('保存成功！', 'success');
                     $("#modalPermissionEdit").modal("hide");
                 });
             }
+           
         }
     ]);
 })();
