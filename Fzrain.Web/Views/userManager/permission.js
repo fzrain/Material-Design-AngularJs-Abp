@@ -22,7 +22,7 @@
             vm.permission = {};
             vm.add = function () {
                 vm.permission = {};
-                vm.permission.parentName = "无";
+                vm.permission.parentName = "Home";
                 permissionService.getPermissionNames().success(function (data) {
                     vm.parentPermissions = data;
                 });
@@ -40,8 +40,7 @@
                     notifyService.notify('保存成功！', 'success');
                     $("#modalPermissionEdit").modal("hide");
                 });
-            }
-           
+            }         
         }
     ]);
 })();

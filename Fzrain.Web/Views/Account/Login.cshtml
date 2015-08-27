@@ -6,67 +6,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Material Admin</title>
-
     <!-- Vendor CSS -->
     <link href="~/bower_components/animate.css/animate.min.css" rel="stylesheet">
-    <link href="~/bower_components/material-design-iconic-font/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="~/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
     <!-- CSS -->
-    <link href="~/css/app.min.1.css" rel="stylesheet">
-    <link href="~/css/app.min.2.css" rel="stylesheet">
-    <style>
-        #LoginArea{padding:15px;margin:0 auto}
-    </style>
+    <link href="~/css/app.css" rel="stylesheet" />
+    
 </head>
-
 <body class="login-content" data-ng-controller="loginCtrl as lctrl">
     <!-- Login -->
-    <div class="lc-block toggled" id="l-login" data-ng-if="lctrl.login === 1">
-        <div id="LoginArea" class="row">
-            <div class="input-group m-b-20">
-                <span class="input-group-addon"><i class="md md-person"></i></span>
-                <div class="fg-line">
-                    <input type="text" id="EmailAddressInput" class="form-control" placeholder="用户名">
-                </div>
+    <div class="lc-block" id="l-login" data-ng-class="{ 'toggled': lctrl.login === 1 }" data-ng-if="lctrl.login === 1">
+        <div class="input-group m-b-20">
+            <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+            <div class="fg-line">
+                <input type="text" id="EmailAddressInput" class="form-control" placeholder="Username">
             </div>
-            <div class="input-group m-b-20">
-                <span class="input-group-addon"><i class="md md-accessibility"></i></span>
-                <div class="fg-line">
-                    <input type="password" id="PasswordInput" class="form-control" placeholder="密码">
-                </div>
-            </div>
-            <div class="clearfix"></div>
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" id="RememberMeInput">
-                    <i class="input-helper"></i>
-                    记住我
-                </label>
-            </div>
-            <a href="" id="LoginButton" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>
-            <ul class="login-navigation">
-                <li data-block="#l-register" class="bgm-red" data-ng-click="lctrl.login = 0; lctrl.register = 1">注册新用户</li>
-                <li data-block="#l-forget-password" class="bgm-orange" data-ng-click="lctrl.login = 0; lctrl.forgot = 1">忘记密码?</li>
-            </ul>
         </div>
+        <div class="input-group m-b-20">
+            <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
+            <div class="fg-line">
+                <input type="password" id="PasswordInput" class="form-control" placeholder="Password">
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" id="RememberMeInput">
+                <i class="input-helper"></i>
+                Keep me signed in
+            </label>
+        </div>
+        <a href="" id="LoginButton" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
+        <ul class="login-navigation">
+            <li data-block="#l-register" class="bgm-red" data-ng-click="lctrl.login = 0; lctrl.register = 1">Register</li>
+            <li data-block="#l-forget-password" class="bgm-orange" data-ng-click="lctrl.login = 0; lctrl.forgot = 1">Forgot Password?</li>
+        </ul>
     </div>
     <!-- Register -->
-    <div class="lc-block" id="l-register" data-ng-if="lctrl.register === 1">
+    <div class="lc-block" id="l-register" data-ng-class="{ 'toggled': lctrl.register === 1 }" data-ng-if="lctrl.register === 1">
         <div class="input-group m-b-20">
-            <span class="input-group-addon"><i class="md md-person"></i></span>
+            <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
             <div class="fg-line">
-                <input type="text" class="form-control" placeholder="用户名">
+                <input type="text" class="form-control" placeholder="Username">
             </div>
         </div>
         <div class="input-group m-b-20">
-            <span class="input-group-addon"><i class="md md-mail"></i></span>
+            <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
             <div class="fg-line">
-                <input type="text" class="form-control" placeholder="邮箱">
+                <input type="text" class="form-control" placeholder="Email Address">
             </div>
         </div>
         <div class="input-group m-b-20">
-            <span class="input-group-addon"><i class="md md-accessibility"></i></span>
+            <span class="input-group-addon"><i class="zmdi zmdi-male"></i></span>
             <div class="fg-line">
-                <input type="password" class="form-control" placeholder="密码">
+                <input type="password" class="form-control" placeholder="Password">
             </div>
         </div>
         <div class="clearfix"></div>
@@ -74,125 +67,128 @@
             <label>
                 <input type="checkbox" value="">
                 <i class="input-helper"></i>
-                同意许可
+                Accept the license agreement
             </label>
         </div>
-        <a href="" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>
+        <a href="" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
         <ul class="login-navigation">
-            <li data-block="#l-login" class="bgm-green" data-ng-click="lctrl.register = 0; lctrl.login = 1">登陆</li>
-            <li data-block="#l-forget-password" class="bgm-orange" data-ng-click="lctrl.register = 0; lctrl.forgot = 1">忘记密码?</li>
+            <li data-block="#l-login" class="bgm-green" data-ng-click="lctrl.register = 0; lctrl.login = 1">Login</li>
+            <li data-block="#l-forget-password" class="bgm-orange" data-ng-click="lctrl.register = 0; lctrl.forgot = 1">Forgot Password?</li>
         </ul>
     </div>
     <!-- Forgot Password -->
-    <div class="lc-block" id="l-forget-password" data-ng-if="lctrl.forgot === 1">
+    <div class="lc-block" id="l-forget-password" data-ng-class="{ 'toggled': lctrl.forgot === 1 }" data-ng-if="lctrl.forgot === 1">
         <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu risus. Curabitur commodo lorem fringilla enim feugiat commodo sed ac lacus.</p>
         <div class="input-group m-b-20">
-            <span class="input-group-addon"><i class="md md-email"></i></span>
+            <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
             <div class="fg-line">
-                <input type="text" class="form-control" placeholder="邮箱">
+                <input type="text" class="form-control" placeholder="Email Address">
             </div>
         </div>
-        <a href="" class="btn btn-login btn-danger btn-float"><i class="md md-arrow-forward"></i></a>
+        <a href="" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
         <ul class="login-navigation">
-            <li data-block="#l-login" class="bgm-green" data-ng-click="lctrl.forgot = 0; lctrl.login = 1">登陆</li>
-            <li data-block="#l-register" class="bgm-red" data-ng-click="lctrl.forgot = 0; lctrl.register = 1">注册新用户</li>
+            <li data-block="#l-login" class="bgm-green" data-ng-click="lctrl.forgot = 0; lctrl.login = 1">Login</li>
+            <li data-block="#l-register" class="bgm-red" data-ng-click="lctrl.forgot = 0; lctrl.register = 1">Register</li>
         </ul>
     </div>
     <!-- Older IE warning message -->
     <!--[if lt IE 9]>
         <div class="ie-warning">
-            <h1 class="c-white">IE SUCKS!</h1>
-            <p>You are using an outdated version of Internet Explorer, upgrade to any of the following web browser <br/>in order to access the maximum functionality of this website. </p>
-            <ul class="iew-download">
-                <li>
-                    <a href="http://www.google.com/chrome/">
-                        <img src="~/img/browsers/chrome.png" alt="">
-                        <div>Chrome</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.mozilla.org/en-US/firefox/new/">
-                        <img src="~/img/browsers/firefox.png" alt="">
-                        <div>Firefox</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://www.opera.com">
-                        <img src="~/img/browsers/opera.png" alt="">
-                        <div>Opera</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://www.apple.com/safari/">
-                        <img src="~/img/browsers/safari.png" alt="">
-                        <div>Safari</div>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                        <img src="~/img/browsers/ie.png" alt="">
-                        <div>IE (New)</div>
-                    </a>
-                </li>
-            </ul>
-            <p>Upgrade your browser for a Safer and Faster web experience. <br/>Thank you for your patience...</p>
+            <h1 class="c-white">Warning!!</h1>
+            <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+            <div class="iew-container">
+                <ul class="iew-download">
+                    <li>
+                        <a href="http://www.google.com/chrome/">
+                            <img src="~/img/browsers/chrome.png" alt="">
+                            <div>Chrome</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/en-US/firefox/new/">
+                            <img src="~/img/browsers/firefox.png" alt="">
+                            <div>Firefox</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.opera.com">
+                            <img src="~/img/browsers/opera.png" alt="">
+                            <div>Opera</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.apple.com/safari/">
+                            <img src="~/img/browsers/safari.png" alt="">
+                            <div>Safari</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                            <img src="~/img/browsers/ie.png" alt="">
+                            <div>IE (New)</div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <p>Sorry for the inconvenience!</p>
         </div>
     <![endif]-->
+    
     <!-- Core -->
-    <script src="~/bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="~/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="~/bower_components/jquery/dist/jquery.min.js"></script>
+    
     <!-- Angular -->
-    <script src="~/bower_components/angular/angular.min.js"></script>
-    <script src="~/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="~/bower_components/angular/angular.js"></script>
     <script src="~/bower_components/angular-resource/angular-resource.min.js"></script>
     <script src="~/bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="~/bower_components/angular-resource/angular-resource.min.js"></script>
+    @Scripts.Render("~/Bundles/App/abp/js")
     <!-- Angular Modules -->
     <script src="~/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
     <script src="~/bower_components/angular-loading-bar/src/loading-bar.js"></script>
     <script src="~/bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
-
+    <script src="~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <!-- Common Vendors -->
     <script src="~/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-    <script src="~/bower_components/sweetalert/dist/sweetalert.min.js"></script>
     <script src="~/bower_components/Waves/dist/waves.min.js"></script>
-    <script src="~/bower_components/remarkable-bootstrap-notify/bootstrap-notify.min.js"></script>
-    <!-- Using below vendors in order to avoid misloading on resolve -->
-    <script src="~/bower_components/flot/jquery.flot.js"></script>
-    <script src="~/bower_components/flot.curvedlines/curvedLines.js"></script>
-    <script src="~/bower_components/flot/jquery.flot.resize.js"></script>
-    <script src="~/bower_components/moment/min/moment.min.js"></script>
-    <script src="~/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
-    <script src="~/bower_components/flot.orderbars/js/jquery.flot.orderBars.js"></script>
-    <script src="~/bower_components/flot/jquery.flot.pie.js"></script>,
-    <script src="~/bower_components/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    @Scripts.Render("~/Bundles/App/abp/js")
+    <script src="~/bower_components/angular-nouislider/src/nouislider.min.js"></script>
+    <script src="~/bower_components/ng-table/dist/ng-table.min.js"></script>
+    <!-- Placeholder for IE9 -->
+    <!--[if IE 9 ]>
+        <script src="~/bower_components/jquery-placeholder/jquery.placeholder.min.js"></script>
+    <![endif]-->
     <!-- App level -->
     <script src="~/js/app.js"></script>
     <script src="~/js/config.js"></script>
     <script src="~/js/controllers.js"></script>
     <script src="~/js/services.js"></script>
+    <script src="~/js/templates.js"></script>
+    <script src="~/js/controllers/ui-bootstrap.js"></script>
+    <script src="~/js/controllers/table.js"></script>
 
+    <!-- Template Modules -->
+    <script src="~/js/modules/template.js"></script>
+    <script src="~/js/modules/ui.js"></script>
     <script src="~/js/modules/form.js"></script>
-    <script src="~/js/modules/demo.js"></script>
     <script type="text/javascript">
-        $(function () {
-            $('#LoginButton').click(function (e) {
-                e.preventDefault();
-                abp.ui.setBusy(
-                    $('#LoginArea'),
-                    abp.ajax({
-                        url: abp.appPath + 'Account/Login',
-                        type: 'POST',
-                        data: JSON.stringify({
-                            usernameOrEmailAddress: $('#EmailAddressInput').val(),
-                            password: $('#PasswordInput').val(),
-                            rememberMe: $('#RememberMeInput').is(':checked')
-                        })
-                    })
-                );
-            });
+         $(function () {
+             $('#LoginButton').click(function (e) {
+                 e.preventDefault();
+                 abp.ui.setBusy(
+                     $('#LoginArea'),
+                     abp.ajax({
+                         url: abp.appPath + 'Account/Login',
+                         type: 'POST',
+                         data: JSON.stringify({
+                             usernameOrEmailAddress: $('#EmailAddressInput').val(),
+                             password: $('#PasswordInput').val(),
+                             rememberMe: $('#RememberMeInput').is(':checked')
+                         })
+                     })
+                 );
+             });
 
-        })
+         })
     </script>
 </body>
 </html>

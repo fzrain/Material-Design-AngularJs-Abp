@@ -96,7 +96,7 @@ materialAdmin
                              {
                                  name: 'vendors',
                                  files: [
-                                    'bower_components/autosize/dist/autosize.min.js',                                       'bower_components/chosen/chosen.jquery.min.js',
+                                    'bower_components/autosize/dist/autosize.min.js',                                       'js/chosen.jquery.js',
                                     'bower_components/angular-chosen-localytics/chosen.js'
                                  ]
                              }

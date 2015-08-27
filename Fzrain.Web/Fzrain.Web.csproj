@@ -392,6 +392,10 @@
     <Content Include="img\widgets\mate7.jpg" />
     <Content Include="img\widgets\note4.jpg" />
     <Content Include="img\widgets\preview.jpg" />
+    <Content Include="js\chosen.jquery.js" />
+    <Content Include="js\controllers\main.js" />
+    <Content Include="js\controllers\table.js" />
+    <Content Include="js\controllers\ui-bootstrap.js" />
     <Content Include="js\templates.js" />
     <Content Include="js\ui-bootstrap.js" />
     <Content Include="Views\Account\Login.cshtml" />

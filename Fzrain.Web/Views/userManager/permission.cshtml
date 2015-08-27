@@ -71,29 +71,10 @@
                         </div>
                         <label class="fg-label">展示名称</label>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group">                      
                         <p class="f-500 c-black m-b-15">Basic Example</p>
-                        <select chosen data-placeholder="Select a country..." class="w-100">
-                            <option value="United States">United States</option>
-                            <option value="United Kingdom">United Kingdom</option>
-                            <option value="Afghanistan">Afghanistan</option>
-                            <option value="Aland Islands">Aland Islands</option>
-                            <option value="Albania">Albania</option>
-                            <option value="Algeria">Algeria</option>
-                            <option value="American Samoa">American Samoa</option>
-                        </select>
-                        @*<div class="fg-line">
-                            <select chosen data-placeholder="Select a country..." class="w-100">
-                                <option data-ng-repeat="value in vm.parentPermissions">{{value}}</option>
-                            </select>
-                            <div class="select">
-                                <select class="form-control" data-ng-model="vm.permission.parentName">
-                                    <option>无</option>
-                                
-
-                                </select>
-                            </div>
-                        </div>*@
+                        <select chosen  class="w-100" ng-model="vm.permission.parentName" ng-options="p for p in vm.parentPermissions" >                         
+                        </select>                                           
                     </div>
                     <div class="form-group fg-float">
                         <div class="fg-line" data-ng-class="{'fg-toggled':vm.permission.description}">

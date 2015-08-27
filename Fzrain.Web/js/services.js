@@ -125,7 +125,7 @@ materialAdmin
                 delay: 2500,
                 animate: {
                     enter: 'animated fadeInDown',
-                    exit: 'animated fadeOutDown'
+                    exit: 'animated fadeOutUp'
                 },
                 offset: {
                     x: 20,
