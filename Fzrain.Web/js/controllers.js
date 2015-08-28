@@ -39,6 +39,8 @@
     // =========================================================================
     .controller('headerCtrl', function($timeout, messageService){
     
+        this.languages = abp.localization.languages;
+        this.currentLanguage = abp.localization.currentLanguage;
          // Top Search
         this.openSearch = function(){
             angular.element('#header').addClass('search-toggled');
@@ -55,7 +57,7 @@
         this.user = messageService.text;
 
         this.messageResult = messageService.getMessage(this.img, this.user, this.text);
-
+      
 
         //Clear Notification
         this.clearNotification = function($event) {

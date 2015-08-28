@@ -25,6 +25,7 @@
                 vm.permission.parentName = "Home";
                 permissionService.getPermissionNames().success(function (data) {
                     vm.parentPermissions = data;
+
                 });
             }
             vm.edit = function (id) {
@@ -37,10 +38,17 @@
             }
             vm.save = function () {
                 permissionService.addOrUpdate(vm.permission).success(function () {
+                    vm.tableBasic.reload();//刷新grid
                     notifyService.notify('保存成功！', 'success');
                     $("#modalPermissionEdit").modal("hide");
                 });
-            }         
+            }
+            vm.delete= function(id) {
+                permissionService.delete({ id: id }).success(function () {
+                    vm.tableBasic.reload();
+                    notifyService.notify('删除成功！', 'success');
+                });
+            }
         }
     ]);
 })();

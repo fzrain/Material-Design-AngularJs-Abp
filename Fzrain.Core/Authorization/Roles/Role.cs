@@ -11,7 +11,8 @@ namespace Fzrain.Authorization.Roles
    
   
     public class Role : FullAuditedEntity<int, User>, IRole<int>, IMayHaveTenant     
-    {    
+    {
+       
         public virtual Tenant Tenant { get; set; }   
         public virtual int? TenantId { get; set; }     
         public virtual string Name { get; set; }    

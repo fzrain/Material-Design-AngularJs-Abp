@@ -32,8 +32,8 @@
                             <button type="button" class="btn btn-primary" data-toggle="dropdown">
                                 <i class="fa fa-cog"></i> 操作 <i class="caret"></i></button>
                             <ul class="dropdown-menu">
-                                <li><a href="">修改</a></li>                            
-                                <li><a href="">删除</a></li>
+                                <li data-toggle="modal" data-target="#modalRoleEdit" data-ng-click="vm.getRoleDetail(role.id)"><a href="">修改</a></li>                            
+                                <li  data-ng-click="vm.delete(role.id)"><a href="">删除</a></li>
                             </ul>
                         </div>
                     </td>
@@ -58,7 +58,7 @@
         <div class="modal-dialog" style="width:400px">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">新增角色</h4>
+                    <h4 class="modal-title">编辑角色</h4>
                 </div>
 
                 <div class="modal-body">
@@ -69,7 +69,7 @@
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade" data-ng-class="{'in active':vm.activeTab==='role'}">
                             <div class="form-group fg-float">
-                                <div class="fg-line">
+                                <div class="fg-line" data-ng-class="{'fg-toggled':vm.role.name}">
                                     <input type="text" class="form-control" ng-model="vm.role.name">
                                 </div>
                                 <label class="fg-label">角色名称</label>

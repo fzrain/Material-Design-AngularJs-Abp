@@ -9,6 +9,7 @@ using Fzrain.Authorization.Permissions;
 
 namespace Fzrain.Permissions.Dto
 {
+    [AutoMapTo(typeof(PermissionInfo))]
     [AutoMapFrom(typeof(PermissionInfo))]
     public class PermissionDto: CreationAuditedEntityDto
     {

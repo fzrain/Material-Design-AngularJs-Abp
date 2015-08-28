@@ -9,7 +9,8 @@ namespace Fzrain.Roles
    public  interface  IRoleAppService:IApplicationService
     {
        PagedResultOutput<RoleDto> GetRoles(GetRolesInput input);
-        Task<IdentityResult> AddRole(RoleDto role);
-
+       Task AddOrUpdate(RoleDto roleDto);
+       Task<RoleDto> GetById(IdInput input);
+       Task Delete(IdInput input);
     }
 }

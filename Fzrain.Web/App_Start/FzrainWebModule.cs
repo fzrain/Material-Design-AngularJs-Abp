@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Abp.Localization;
+using Abp.Localization.Sources;
 using Abp.Localization.Sources.Xml;
 using Abp.Modules;
 
@@ -17,15 +18,14 @@ namespace Fzrain.Web
             //Add/remove languages for your application
             Configuration.Localization.Languages.Add(new LanguageInfo("en", "English", "famfamfam-flag-england", true));
             Configuration.Localization.Languages.Add(new LanguageInfo("tr", "Türkçe", "famfamfam-flag-tr"));
-
-            //Add/remove localization sources here
+            Configuration.Localization.Languages.Add(new LanguageInfo("zh-cn", "简体中文", "famfamfam-flag-cn"));
+            //Add/remove localization sources here          
             Configuration.Localization.Sources.Add(
-                new XmlLocalizationSource(
+                new DictionaryBasedLocalizationSource(
                     FzrainConsts.LocalizationSourceName,
+                new XmlFileLocalizationDictionaryProvider(
                     HttpContext.Current.Server.MapPath("~/Localization/Fzrain")
-                    )
-                );
-
+                    )));
             //Configure navigation/menu
             Configuration.Navigation.Providers.Add<FzrainNavigationProvider>();
         }

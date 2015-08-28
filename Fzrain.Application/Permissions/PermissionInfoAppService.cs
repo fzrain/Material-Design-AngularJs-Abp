@@ -24,16 +24,7 @@ namespace Fzrain.Permissions
 
         public async Task AddOrUpdate(PermissionDto permission)
         {
-
-            await permissionRepository.InsertOrUpdateAsync(new PermissionInfo
-            {
-                Id =permission.Id,
-                IsGrantedByDefault = permission.IsGrantedByDefault,
-                Description = permission.Description,
-                Name = permission.Name,
-                DisplayName = permission.DisplayName,
-                ParentName = permission.ParentName
-            });
+            await permissionRepository.InsertOrUpdateAsync(permission.MapTo<PermissionInfo>());
         }
 
         public async  Task<PermissionDto> GetById(IdInput input)
@@ -41,23 +32,18 @@ namespace Fzrain.Permissions
             var permission= await  permissionRepository.GetAsync(input.Id);
             return permission.MapTo<PermissionDto>();
         }
-
-
         public async Task Delete(IdInput input)
         {
             await permissionRepository.DeleteAsync(input.Id);
         }
-
         public async Task<PagedResultOutput<PermissionDto>> GetPermissions(PermissionQueryInput input)
         {
             return new PagedResultOutput<PermissionDto>
             {
                 TotalCount = await permissionRepository.CountAsync(),
                 Items = permissionRepository.GetAll().OrderByDescending(p => p.Id).PageBy(input).ToList().MapTo<List<PermissionDto>>()
-
             };
         }
-
         public List<string> GetPermissionNames()
         {
             return permissionRepository.GetAll().Select(p => p.Name).ToList();
