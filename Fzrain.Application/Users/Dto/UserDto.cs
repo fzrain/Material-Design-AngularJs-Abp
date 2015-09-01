@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Fzrain.Authorization.Users;
+using Fzrain.Roles.Dto;
 
 namespace Fzrain.Users.Dto
 {
@@ -15,5 +17,6 @@ namespace Fzrain.Users.Dto
         public virtual bool IsEmailConfirmed { get; set; }    
         public virtual DateTime? LastLoginTime { get; set; }    
         public virtual bool IsActive { get; set; }
+        public virtual List<RoleDto> Roles { get; set; }
     }
 }

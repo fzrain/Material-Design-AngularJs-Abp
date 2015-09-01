@@ -22,13 +22,18 @@ namespace Fzrain.Roles
            this.roleRepository = roleRepository;
        }
 
-       public PagedResultOutput<RoleDto> GetRoles(GetRolesInput input)
+       public PagedResultOutput<RoleDto> GetRoles(RoleQueryInput input)
        {
              return new PagedResultOutput<RoleDto>
                    {
                        Items = roleManager.Roles.OrderByDescending(r=>r.CreationTime).PageBy(input).ToList().MapTo<List<RoleDto>>(),
                        TotalCount =roleManager.Roles.Count()
                    };          
+       }
+
+       public dynamic GetAllRoleList()
+       {
+           return roleManager.Roles.MapTo<List<RoleDto>>().Select(r=>new {r.Id,r.Name,r.IsDefault});
        }
 
        public async  Task AddOrUpdate(RoleDto roleDto)

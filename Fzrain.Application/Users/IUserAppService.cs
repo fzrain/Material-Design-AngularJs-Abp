@@ -10,6 +10,7 @@ namespace Fzrain.Users
     public interface IUserAppService : IApplicationService
     {
         PagedResultOutput<UserDto> GetUsers(UserQueryInput input);
-        Task<UserDto> GetDetail(IdInput<long> input);
+        Task<UserDto> GetUserForEdit(IdInput<long?> input);
+        Task AddOrUpdate(UserEditInput userEditDto);
     }
 }

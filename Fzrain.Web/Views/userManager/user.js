@@ -26,13 +26,23 @@
                 }
             });
             vm.add = function () {
-                vm.user = null;
-            }
-            vm.getUserDetail = function (id) {
-                userService.getDetail({ id: id }).success(function (data) {
+                vm.user = {};
+                userService.getUserForEdit({id:null}).success(function (data) {
                     vm.user = data;
                 });
-            }        
+            }
+            vm.getUserDetail = function (id) {
+                userService.getUserForEdit({ id: id }).success(function (data) {
+                    vm.user = data;
+                });
+            }
+            vm.save = function () {
+                userService.addOrUpdate(vm.user).success(function () {
+                    vm.tableBasic.reload();
+                    notifyService.notify('保存成功！', 'success');
+                    $("#modalUserEdit").modal("hide");
+                });
+            }
         }
     ]);
 })();

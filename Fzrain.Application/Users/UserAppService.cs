@@ -6,6 +6,7 @@ using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
+using Fzrain.Authorization.Roles;
 using Fzrain.Authorization.Users;
 using Fzrain.Common.Application.Dtos;
 using Fzrain.Common.Application.Services;
@@ -16,9 +17,11 @@ namespace Fzrain.Users
     public class UserAppService : ApplicationService, IUserAppService
     {
         private readonly UserManager userManager;
-        public UserAppService(UserManager userManager)
+        private readonly RoleManager roleManager;
+        public UserAppService(UserManager userManager, RoleManager roleManager)
         {
             this.userManager = userManager;
+            this.roleManager = roleManager;
         }
 
         public PagedResultOutput<UserDto> GetUsers(UserQueryInput input)
@@ -31,10 +34,27 @@ namespace Fzrain.Users
             };
         }
 
-        public async  Task<UserDto> GetDetail(IdInput<long> input)
+        public async  Task<UserDto> GetUserForEdit(IdInput<long?> input)
         {
-            var user = await userManager.GetUserByIdAsync(input.Id);
+            User user = new User {Roles = roleManager.Roles.ToList()};
+            if (input.Id.HasValue)
+            {
+                 user = await userManager.GetUserByIdAsync((long)input.Id);
+               //  user.Roles = roleManager.Roles.ToList();
+            }                  
             return user.MapTo<UserDto>();
+        }
+
+        public async  Task AddOrUpdate(UserEditInput userEditDto)
+        {
+            if (userEditDto.Id<=0)
+            {
+                await userManager.CreateAsync(userEditDto.MapTo<User>());
+            }
+            else
+            {
+               await userManager.UpdateAsync(userEditDto.MapTo<User>());
+            }
         }
     }
 }
