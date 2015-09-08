@@ -404,7 +404,7 @@ namespace Fzrain.Authorization.Users
                         {
                             user = await source.Object.CreateUserAsync(userNameOrEmailAddress, tenant);
 
-                            user.Tenant = tenant;
+                          //  user.Tenant = tenant;
                             user.AuthenticationSource = source.Object.Name;
                             user.Password = new PasswordHasher().HashPassword(Guid.NewGuid().ToString("N").Left(16)); //Setting a random password since it will not be used
 

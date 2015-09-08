@@ -9,10 +9,9 @@ namespace Fzrain.Roles
 {
    public  interface  IRoleAppService:IApplicationService
     {
-       PagedResultOutput<RoleDto> GetRoles(RoleQueryInput input);
-        dynamic GetAllRoleList();
+       PagedResultOutput<RoleDto> GetRoles(RoleQueryInput input);    
        Task AddOrUpdate(RoleDto roleDto);
-       Task<RoleDto> GetById(IdInput input);
+       Task<EditRoleDto> GetById(IdInput input);
        Task Delete(IdInput input);
     }
 }

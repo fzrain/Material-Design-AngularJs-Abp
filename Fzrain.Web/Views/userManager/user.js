@@ -1,7 +1,7 @@
 ﻿(function () {
     materialAdmin.controller('userController', [
-        'abp.services.app.user','ngTableParams',
-        function (userService, ngTableParams) {
+        'abp.services.app.user','ngTableParams','notifyService',
+        function (userService, ngTableParams, notifyService) {
             var vm = this;
             vm.activeTab = "user";
             vm.roleTab = function () {

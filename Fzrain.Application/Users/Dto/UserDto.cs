@@ -11,7 +11,7 @@ namespace Fzrain.Users.Dto
     public class UserDto : EntityDto<long>
     {       
         public virtual string Name { get; set; }       
-        public virtual string Surname { get; set; }    
+        public virtual string MobilePhone { get; set; }    
         public virtual string UserName { get; set; }
         public virtual string EmailAddress { get; set; }
         public virtual bool IsEmailConfirmed { get; set; }    

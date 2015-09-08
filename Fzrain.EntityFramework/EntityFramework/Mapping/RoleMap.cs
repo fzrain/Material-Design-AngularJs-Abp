@@ -9,8 +9,7 @@ namespace Fzrain.EntityFramework.Mapping
        {
            ToTable("Role");
            Property(r => r.Name).IsRequired().HasMaxLength(32);
-           Property(r => r.DisplayName).IsRequired().HasMaxLength(64);
-           HasOptional(r => r.Tenant).WithOptionalDependent();
+          // HasOptional(r => r.Tenant).WithOptionalDependent().Map(c=>c.MapKey("TenantId"));
            HasMany(r => r.Permissions).WithOptional().HasForeignKey(p => p.RoleId);
        }
     }

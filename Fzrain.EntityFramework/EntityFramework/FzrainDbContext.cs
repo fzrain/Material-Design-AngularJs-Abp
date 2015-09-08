@@ -36,7 +36,8 @@ namespace Fzrain.EntityFramework
         public FzrainDbContext()
             : base("Default")
         {
-           
+            Configuration.LazyLoadingEnabled = false;
+            Configuration.ProxyCreationEnabled = false;
         }
 
         /* NOTE:

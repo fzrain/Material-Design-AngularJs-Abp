@@ -27,7 +27,7 @@ namespace Fzrain.Migrations.SeedData
             var adminRoleForTenancyOwner = _context.Set<Role>().FirstOrDefault(r => r.TenantId == null && r.Name == "Admin");
             if (adminRoleForTenancyOwner == null)
             {
-                adminRoleForTenancyOwner = _context.Set<Role>().Add(new Role { Name = "Admin", DisplayName = "Admin" });
+                adminRoleForTenancyOwner = _context.Set<Role>().Add(new Role { Name = "Admin" });
                 _context.SaveChanges();
             }
 
@@ -41,8 +41,7 @@ namespace Fzrain.Migrations.SeedData
                     {
                         TenantId = null,
                         UserName = "admin",
-                        Name = "System",
-                        Surname = "Administrator",
+                        Name = "系统管理员",                      
                         EmailAddress = "admin@aspnetboilerplate.com",
                         IsEmailConfirmed = true,
                         Password = "AM4OLBpptxBYmM79lGOX9egzZk3vIQU3d/gFCJzaBjAPXzYIK3tQ2N7X4fcrHtElTw==", //123qwe
@@ -68,7 +67,7 @@ namespace Fzrain.Migrations.SeedData
             var adminRoleForDefaultTenant = _context.Set<Role>().FirstOrDefault(r => r.TenantId == defaultTenant.Id && r.Name == "Admin");
             if (adminRoleForDefaultTenant == null)
             {
-                adminRoleForDefaultTenant = _context.Set<Role>().Add(new Role { TenantId = defaultTenant.Id, Name = "Admin", DisplayName = "Admin" });
+                adminRoleForDefaultTenant = _context.Set<Role>().Add(new Role { TenantId = defaultTenant.Id, Name = "Admin" });
                 _context.SaveChanges();
             }
 
@@ -82,8 +81,7 @@ namespace Fzrain.Migrations.SeedData
                     {
                         TenantId = defaultTenant.Id,
                         UserName = "admin",
-                        Name = "System",
-                        Surname = "Administrator",
+                        Name = "系统管理员",                   
                         EmailAddress = "admin@aspnetboilerplate.com",
                         IsEmailConfirmed = true,
                         Password = "AM4OLBpptxBYmM79lGOX9egzZk3vIQU3d/gFCJzaBjAPXzYIK3tQ2N7X4fcrHtElTw==" //123qwe

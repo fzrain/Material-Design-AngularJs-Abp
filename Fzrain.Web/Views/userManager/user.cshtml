@@ -42,8 +42,8 @@
                     </td>
                     <td data-title="'用户名'">{{user.userName}}</td>
                     <td data-title="'邮箱'">{{user.emailAddress}}</td>
-                    <td data-title="'姓氏'">{{user.surname}}</td>
-                    <td data-title="'名字'">{{user.name}}</td>    
+                    <td data-title="'名字'">{{user.name}}</td>
+                    <td data-title="'电话'">{{user.mobilePhone}}</td>
                 </tr>
             </table>
         </div>
@@ -71,13 +71,13 @@
                                         <div class="fg-line" data-ng-class="{'fg-toggled':vm.user.name}">
                                             <input type="text" class="form-control" ng-model="vm.user.name">
                                         </div>
-                                        <label class="fg-label">名字</label>
+                                        <label class="fg-label">姓名</label>
                                     </div>
                                     <div class="form-group fg-float">
-                                        <div class="fg-line" data-ng-class="{'fg-toggled':vm.user.surname}">
-                                            <input type="text" class="form-control" ng-model="vm.user.surname">
+                                        <div class="fg-line" data-ng-class="{'fg-toggled':vm.user.mobilePhone}">
+                                            <input type="text" class="form-control" ng-model="vm.user.mobilePhone">
                                         </div>
-                                        <label class="fg-label">姓氏</label>
+                                        <label class="fg-label">手机</label>
                                     </div>
                                 </div>
                             </div>

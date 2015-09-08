@@ -239,7 +239,7 @@ namespace Fzrain.Authorization.Roles
         /// <param name="role">Role</param>
         public override async Task<IdentityResult> CreateAsync(Role role)
         {
-            var result = await CheckDuplicateRoleNameAsync(role.Id, role.Name, role.DisplayName);
+            var result = await CheckDuplicateRoleNameAsync(role.Id, role.Name);
             if (!result.Succeeded)
             {
                 return result;
@@ -255,7 +255,7 @@ namespace Fzrain.Authorization.Roles
 
         public override async Task<IdentityResult> UpdateAsync(Role role)
         {
-            var result = await CheckDuplicateRoleNameAsync(role.Id, role.Name, role.DisplayName);
+            var result = await CheckDuplicateRoleNameAsync(role.Id, role.Name);
             if (!result.Succeeded)
             {
                 return result;
@@ -329,8 +329,7 @@ namespace Fzrain.Authorization.Roles
                 var role = new Role
                 {
                     TenantId = tenantId,
-                    Name = staticRoleDefinition.RoleName,
-                    DisplayName = staticRoleDefinition.RoleName,
+                    Name = staticRoleDefinition.RoleName,                 
                     IsStatic = true
                 };
 
@@ -344,27 +343,17 @@ namespace Fzrain.Authorization.Roles
             return IdentityResult.Success;
         }
 
-        public virtual async Task<IdentityResult> CheckDuplicateRoleNameAsync(int? expectedRoleId, string name, string displayName)
+        public virtual async Task<IdentityResult> CheckDuplicateRoleNameAsync(int? expectedRoleId, string name)
         {
             var role = await FindByNameAsync(name);
             if (role != null && role.Id != expectedRoleId)
             {
                 return IdentityResult.Failed(string.Format(L("RoleNameIsAlreadyTaken"), name));
-            }
-
-            role = await FindByDisplayNameAsync(displayName);
-            if (role != null && role.Id != expectedRoleId)
-            {
-                return IdentityResult.Failed(string.Format(L("RoleDisplayNameIsAlreadyTaken"), displayName));
-            }
-
+            }       
             return IdentityResult.Success;
         }
 
-        private Task<Role> FindByDisplayNameAsync(string displayName)
-        {
-            return AbpStore.FindByDisplayNameAsync(displayName);
-        }
+       
 
         private string L(string name)
         {

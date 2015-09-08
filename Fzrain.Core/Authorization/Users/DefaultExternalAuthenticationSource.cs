@@ -22,8 +22,7 @@ namespace Fzrain.Authorization.Users
                 new User
                 {
                     UserName = userNameOrEmailAddress,
-                    Name = userNameOrEmailAddress,
-                    Surname = userNameOrEmailAddress,
+                    Name = userNameOrEmailAddress,                  
                     EmailAddress = userNameOrEmailAddress,
                     IsEmailConfirmed = true,
                     IsActive = true

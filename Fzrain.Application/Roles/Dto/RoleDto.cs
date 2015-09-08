@@ -7,7 +7,7 @@ namespace Fzrain.Roles.Dto
 {
     [AutoMapTo(typeof(Role))]
     [AutoMapFrom(typeof(Role))]
-    public class RoleDto : FullAuditedEntity
+    public class RoleDto : CreationAuditedEntityDto
     {
         public string  Name { get; set; }
         public bool IsStatic { get; set; }

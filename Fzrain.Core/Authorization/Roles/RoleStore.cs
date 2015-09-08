@@ -59,14 +59,6 @@ namespace Fzrain.Authorization.Roles
                 role => role.Name == roleName
                 );
         }
-
-        public virtual async Task<Role> FindByDisplayNameAsync(string displayName)
-        {
-            return await _roleRepository.FirstOrDefaultAsync(
-                role => role.DisplayName == displayName
-                );
-        }
-
         /// <inheritdoc/>
         public virtual async Task AddPermissionAsync(Role role, PermissionGrantInfo permissionGrant)
         {

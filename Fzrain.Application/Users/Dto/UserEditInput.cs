@@ -12,10 +12,10 @@ using Fzrain.Roles.Dto;
 
 namespace Fzrain.Users.Dto
 {   [AutoMapTo(typeof(User))]
-    public  class UserEditInput:IdInput<long?>
+    public  class UserEditInput:IdInput<long>
 {   
         public virtual string Name { get; set; } 
-        public virtual string Surname { get; set; }     
+        public virtual string MobilePhone { get; set; }     
         public virtual string UserName { get; set; }   
         public virtual string Password { get; set; } 
         public virtual string EmailAddress { get; set; }   
