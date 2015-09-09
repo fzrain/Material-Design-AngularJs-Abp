@@ -89,48 +89,10 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-info waves-effect" data-ng-click="vm.save()"><i class="zmdi zmdi-save"></i>保存</button>
+                    <button type="button" class="btn btn-info waves-effect" data-ng-click="vm.getCheck()"><i class="zmdi zmdi-save"></i>保存</button>
                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="zmdi zmdi-close-circle"></i>取消</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
-<script type="text/javascript">
-    $(function () {
-        $('#permissionTree').jstree({
-            'plugins': ["wholerow", "checkbox"],
-            'core': {
-                'data': [{
-                    "text": "后台管理",
-                    "children": [{
-                        "text": "用户管理",
-                        "state": {
-                            "selected": true
-                        }
-                    }, {
-                        "text": "新增"
-
-                    }, {
-                        "text": "角色管理",
-                        "state": {
-                            "opened": true
-                        },
-                        "children": ["Another node"]
-                    }, {
-                        "text": "custom icon class",
-                        "icon": "glyphicon glyphicon-leaf"
-                    }]
-                },
-                       "And wholerow selection"
-                ],
-                'themes': {
-                    'name': 'proton',
-                    'responsive': true
-                }
-            }
-        });
-    });
-</script>

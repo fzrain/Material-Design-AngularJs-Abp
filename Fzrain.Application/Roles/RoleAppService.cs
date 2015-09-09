@@ -51,7 +51,7 @@ namespace Fzrain.Roles
             var role = await roleManager.GetRoleByIdAsync(input.Id);
             var roleEditDto = role.MapTo<EditRoleDto>();
             var permissionNames = permissionSettingRepository.GetAll().Where(p => p.RoleId == role.Id).Select(p => p.Name).ToList();
-            var permissionInfos = permissionRepository.GetAllList().Select(p=> new {p.Name,p.DisplayName,p.ParentName,p.IsGrantedByDefault});
+            var permissionInfos = permissionRepository.GetAllList().Select(p=> new {p.Id,p.Name,p.DisplayName,p.ParentName,p.IsGrantedByDefault});
             roleEditDto.Permissions = permissionInfos;
             foreach (var permissionInfo in roleEditDto.Permissions)
             {

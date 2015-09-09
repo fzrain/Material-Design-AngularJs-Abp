@@ -29,6 +29,12 @@
         vm.add = function () {
             vm.role = null;
         }
+        vm.getCheck = function () {
+
+            var nodes = $("#permissionTree").jstree("get_checked"); //使用get_checked方法 
+
+            alert(nodes);
+        }
         vm.save = function () {
             roleService.addOrUpdate(vm.role).success(function () {
                 vm.tableBasic.reload();
@@ -36,10 +42,10 @@
                 $("#modalRoleEdit").modal("hide");
             });
         }
-        vm.delete = function (id) {         
+        vm.delete = function (id) {
             swal(
                 {
-                    title:"确定要删除吗?",
+                    title: "确定要删除吗?",
                     text: "删除此记录将不可恢复!",
                     type: "warning",
                     showCancelButton: true,
@@ -49,16 +55,47 @@
                     cancelButtonText: "取消"
                 },
                 function () {
-                    roleService.delete({ id: id }).success(function() {
+                    roleService.delete({ id: id }).success(function () {
                         vm.tableBasic.reload();
                         swal("删除成功!", "此角色已删除！", "success");
                     });
-                  
-                });        
+
+                });
         }
         vm.getRoleDetail = function (id) {
             roleService.getById({ id: id }).success(function (data) {
                 vm.role = data;
+                var permission = [];
+                for (var i = 0; i < data.permissions.length; i++) {
+                    var node = {
+                        "id": data.permissions[i].name,
+                        "parent": data.permissions[i].parentName == "无" ? "#" : data.permissions[i].parentName,
+                        "text": data.permissions[i].displayName,
+                        "state": {
+                            "opened": true,
+                            "selected": data.permissions[i].isGrantedByDefault
+                        }
+                    }
+                    permission.push(node);
+                }
+                $('#permissionTree').jstree({
+                    'plugins': ["wholerow", "checkbox", "types"],
+                    'core': {
+                        'data': permission,
+                        'themes': {
+                            'name': 'proton',
+                            'responsive': true
+                        }
+                    },
+                    "types": {
+                        "default": {
+                            "icon": "fa fa-folder icon-state-warning icon-lg"
+                        },
+                        "file": {
+                            "icon": "fa fa-file icon-state-warning icon-lg"
+                        }
+                    }
+                });
             });
         }
     }
