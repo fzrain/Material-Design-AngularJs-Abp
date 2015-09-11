@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
+using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
@@ -23,8 +24,7 @@ namespace Fzrain.Users
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.userRepository = userRepository;
-        }
-
+        }  
         public PagedResultOutput<UserDto> GetUsers(UserQueryInput input)
         {
             return new PagedResultOutput<UserDto>
@@ -56,20 +56,23 @@ namespace Fzrain.Users
 
         public async  Task AddOrUpdate(UserEditInput userEditDto)
         {
-            var roleIds=  userEditDto.Roles.Where(r => r.IsDefault).Select(r=>r.Id);           
-            User user = new User
+            var roleIds=  userEditDto.Roles.Where(r => r.IsDefault).Select(r=>r.Id);         
+            var user = userEditDto.Id.HasValue ? userManager.Users.Where(u => u.Id == userEditDto.Id).IncludeProperties(u=>u.Roles).FirstOrDefault() : new User();           
+            if (user == null)
             {
-                Id = userEditDto.Id,
-                Name = userEditDto.Name,
-                UserName = userEditDto.UserName,
-                MobilePhone = userEditDto.MobilePhone,
-                TenantId = AbpSession.TenantId,
-                Password = userEditDto.Password,
-                EmailAddress = userEditDto.EmailAddress,
-                Roles = roleManager.Roles.Where(r => roleIds.Contains(r.Id)).ToList()
-            };
-            await userRepository.UpdateAsync(user);
-            //await userManager.UpdateAsync(user);
+                return;
+            }
+            user.Name = userEditDto.Name;
+            user.UserName = userEditDto.UserName;
+            user.MobilePhone = userEditDto.MobilePhone;
+            user.TenantId = AbpSession.TenantId;
+            user.Password = userEditDto.Password;
+            user.EmailAddress = userEditDto.EmailAddress;
+            user.Roles = roleManager.Roles.Where(r => roleIds.Contains(r.Id)).ToList();
+
+            await userRepository.InsertOrUpdateAsync(user);
+         
+                   
         }
     }
 }

@@ -8,7 +8,6 @@
                 <a href="" data-toggle="dropdown">
                     <i class="zmdi zmdi-more-vert"></i>
                 </a>
-
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li>
                         <a data-toggle="modal" href="" data-ng-click="vm.add()" data-target="#modalUserEdit">新增用户</a>
@@ -89,7 +88,7 @@
                             </div>
                             <div class="form-group fg-float">
                                 <div class="fg-line" data-ng-class="{'fg-toggled':vm.user.userName}">
-                                    <input type="text" class="form-control"  ng-model="vm.user.userName">
+                                    <input type="text" class="form-control" ng-model="vm.user.userName">
                                 </div>
                                 <label class="fg-label">用户名</label>
                                 <span class="help-block ng-hide" ng-show="!vm.canChangeUserName">管理用户，不能修改用户名.</span>
@@ -143,7 +142,7 @@
                                 <input type="checkbox" ng-model="role.isDefault">
                                 <i class="input-helper"></i>
                                 {{role.name}}
-                            </label>                        
+                            </label>
                         </div>
                     </div>
                 </div>

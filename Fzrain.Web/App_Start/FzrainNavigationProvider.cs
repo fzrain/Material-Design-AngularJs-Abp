@@ -13,22 +13,22 @@ namespace Fzrain.Web
     {
         public override void SetNavigation(INavigationProviderContext context)
         {
-            context.Manager.MainMenu
-                .AddItem(
-                    new MenuItemDefinition(
-                        "Home",
-                        new LocalizableString("HomePage", FzrainConsts.LocalizationSourceName),
-                        url: "#/",
-                        icon: "fa fa-home"
-                        )
-                ).AddItem(
-                    new MenuItemDefinition(
-                        "About",
-                        new LocalizableString("About", FzrainConsts.LocalizationSourceName),
-                        url: "#/about",
-                        icon: "fa fa-info"
-                        )
-                );
+            //context.Manager.MainMenu
+            //    .AddItem(
+            //        new MenuItemDefinition(
+            //            "Home",
+            //            new LocalizableString("HomePage", FzrainConsts.LocalizationSourceName),
+            //            url: "#/",
+            //            icon: "fa fa-home"
+            //            )
+            //    ).AddItem(
+            //        new MenuItemDefinition(
+            //            "About",
+            //            new LocalizableString("About", FzrainConsts.LocalizationSourceName),
+            //            url: "#/about",
+            //            icon: "fa fa-info"
+            //            )
+            //    );
         }
     }
 }

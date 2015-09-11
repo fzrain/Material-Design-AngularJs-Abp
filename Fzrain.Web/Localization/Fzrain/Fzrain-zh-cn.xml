@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<localizationDictionary culture="en">
+  <texts>
+    <text name="CreateUser" value="创建用户" />
+    <text name="Save" value="保存" />
+    <text name="Cancel" value="取消" />
+
+  </texts>
+</localizationDictionary>

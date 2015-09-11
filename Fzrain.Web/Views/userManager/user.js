@@ -29,11 +29,14 @@
                 vm.user = {};
                 userService.getUserForEdit({id:null}).success(function (data) {
                     vm.user = data;
+                    vm.user.id = null;
+                    vm.user.password = null;
                 });
             }
             vm.getUserDetail = function (id) {
                 userService.getUserForEdit({ id: id }).success(function (data) {
                     vm.user = data;
+                    
                 });
             }
             vm.save = function () {

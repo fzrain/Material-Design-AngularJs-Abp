@@ -63,6 +63,7 @@
                 });
         }
         vm.getRoleDetail = function (id) {
+         
             roleService.getById({ id: id }).success(function (data) {
                 vm.role = data;
                 var permission = [];
@@ -78,8 +79,12 @@
                     }
                     permission.push(node);
                 }
-                $('#permissionTree').jstree({
+                $('#permissionTree').data('jstree', false).empty().jstree({
                     'plugins': ["wholerow", "checkbox", "types"],
+                    "checkbox": {
+                        "three_state": false,
+                        "cascade": "down"
+                    },
                     'core': {
                         'data': permission,
                         'themes': {
@@ -95,7 +100,7 @@
                             "icon": "fa fa-file icon-state-warning icon-lg"
                         }
                     }
-                });
+                });               
             });
         }
     }

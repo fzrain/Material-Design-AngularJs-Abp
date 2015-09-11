@@ -2,7 +2,6 @@
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Fzrain.AuditLogs.Dto;
-using Fzrain.Common.Application.Dtos;
 
 namespace Fzrain.AuditLogs
 {

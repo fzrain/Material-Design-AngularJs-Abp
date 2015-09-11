@@ -18973,3 +18973,13 @@ hr.fc-divider {
 table th, td {
     text-align: center;
 }
+.icon-state-warning {
+    color: #dfba49;
+}
+.fa-lg:not(.fa-stack), .icon-lg {
+    font-size: 16px !important;
+}
+.jstree-open > .jstree-anchor > .fa-folder:before {
+    margin-left: 2px;
+    content: "\f07c";
+}

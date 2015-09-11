@@ -8,7 +8,6 @@ using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
 using Fzrain.Auditing;
 using Fzrain.AuditLogs.Dto;
-using Fzrain.Common.Application.Dtos;
 
 namespace Fzrain.AuditLogs
 {

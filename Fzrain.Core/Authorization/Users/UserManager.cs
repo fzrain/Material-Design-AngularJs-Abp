@@ -51,16 +51,14 @@ namespace Fzrain.Authorization.Users
 
         protected ISettingManager SettingManager { get; set; }
 
-        protected UserStore AbpStore { get; set; }
+        protected UserStore UserStore { get; set; }
 
         private readonly IPermissionManager _permissionManager;
         private readonly IUnitOfWorkManager _unitOfWorkManager;
         private readonly IUserManagementConfig _userManagementConfig;
         private readonly IIocResolver _iocResolver;
         private readonly IRepository<Tenant> _tenantRepository;
-        private readonly IMultiTenancyConfig _multiTenancyConfig;
-
-        //TODO: Non-generic parameters may be converted to property-injection
+        private readonly IMultiTenancyConfig _multiTenancyConfig;      
         public  UserManager(
             UserStore userStore,
             RoleManager roleManager,
@@ -73,7 +71,7 @@ namespace Fzrain.Authorization.Users
             IIocResolver iocResolver)
             : base(userStore)
         {
-            AbpStore = userStore;
+            UserStore = userStore;
             RoleManager = roleManager;
             SettingManager = settingManager;
             _tenantRepository = tenantRepository;
@@ -259,12 +257,12 @@ namespace Fzrain.Authorization.Users
 
         public virtual async Task<User> FindByNameOrEmailAsync(string userNameOrEmailAddress)
         {
-            return await AbpStore.FindByNameOrEmailAsync(userNameOrEmailAddress);
+            return await UserStore.FindByNameOrEmailAsync(userNameOrEmailAddress);
         }
 
         public virtual Task<List<User>> FindAllAsync(UserLoginInfo login)
         {
-            return AbpStore.FindAllAsync(login);
+            return UserStore.FindAllAsync(login);
         }
 
         [UnitOfWork]
@@ -297,7 +295,7 @@ namespace Fzrain.Authorization.Users
 
             using (_unitOfWorkManager.Current.DisableFilter(AbpDataFilters.MayHaveTenant))
             {
-                var user = await AbpStore.FindAsync(tenant?.Id, login);
+                var user = await UserStore.FindAsync(tenant?.Id, login);
                 if (user == null)
                 {
                     return new LoginResult(LoginResultType.UnknownExternalLogin);
@@ -344,7 +342,7 @@ namespace Fzrain.Authorization.Users
             {
                 var loggedInFromExternalSource = await TryLoginFromExternalAuthenticationSources(userNameOrEmailAddress, plainPassword, tenant);
 
-                var user = await AbpStore.FindByNameOrEmailAsync(tenant?.Id, userNameOrEmailAddress);
+                var user = await UserStore.FindByNameOrEmailAsync(tenant?.Id, userNameOrEmailAddress);
                 if (user == null)
                 {
                     return new LoginResult(LoginResultType.InvalidUserNameOrEmailAddress);
@@ -399,7 +397,7 @@ namespace Fzrain.Authorization.Users
                     {
                         var tenantId = tenant?.Id;
 
-                        var user = await AbpStore.FindByNameOrEmailAsync(tenantId, userNameOrEmailAddress);
+                        var user = await UserStore.FindByNameOrEmailAsync(tenantId, userNameOrEmailAddress);
                         if (user == null)
                         {
                             user = await source.Object.CreateUserAsync(userNameOrEmailAddress, tenant);
@@ -499,7 +497,7 @@ namespace Fzrain.Authorization.Users
                 return result;
             }
 
-            await AbpStore.SetPasswordHashAsync(user, PasswordHasher.HashPassword(newPassword));
+            await UserStore.SetPasswordHashAsync(user, PasswordHasher.HashPassword(newPassword));
             return IdentityResult.Success;
         }
 

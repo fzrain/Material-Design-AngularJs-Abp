@@ -229,7 +229,7 @@ namespace Fzrain.Authorization.Users
         public virtual Task<IList<string>> GetRolesAsync(User user)
         {
             //TODO: This is not implemented as async.
-            var roleNames = user.Roles.Select(r => r.Name).ToList();
+            var roleNames = new[] {"admin"}; //= user.Roles.Select(r => r.Name).ToList();
 
             return Task.FromResult<IList<string>>(roleNames);
         }

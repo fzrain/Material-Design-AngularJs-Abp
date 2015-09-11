@@ -10,7 +10,7 @@ namespace Fzrain.Authorization.Permissions
     /// <summary>
     /// Application should inherit this class to implement <see cref="IPermissionChecker"/>.
     /// </summary>
-    public abstract class PermissionChecker : IPermissionChecker, ITransientDependency
+    public  class PermissionChecker : IPermissionChecker, ITransientDependency
      
     {
         private readonly UserManager _userManager;
@@ -22,7 +22,7 @@ namespace Fzrain.Authorization.Permissions
         /// <summary>
         /// Constructor.
         /// </summary>
-        protected PermissionChecker(UserManager userManager)
+        public  PermissionChecker(UserManager userManager)
         {
             _userManager = userManager;
 
