@@ -10,5 +10,6 @@ namespace Fzrain.Users
         PagedResultOutput<UserDto> GetUsers(UserQueryInput input);
         Task<UserDto> GetUserForEdit(IdInput<long?> input);
         Task AddOrUpdate(UserEditInput userEditDto);
+        Task<dynamic> GetUserPermissions(IdInput<long> input);
     }
 }

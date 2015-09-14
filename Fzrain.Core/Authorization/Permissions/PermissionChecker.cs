@@ -8,9 +8,9 @@ using Fzrain.Authorization.Users;
 namespace Fzrain.Authorization.Permissions
 {
     /// <summary>
-    /// Application should inherit this class to implement <see cref="IPermissionChecker"/>.
+    /// 实现IPermissionChecker来定制权限认证
     /// </summary>
-    public  class PermissionChecker : IPermissionChecker, ITransientDependency
+    public class PermissionChecker : IPermissionChecker, ITransientDependency
      
     {
         private readonly UserManager _userManager;

@@ -58,8 +58,11 @@
                 }
             } else if(originalData.success === false) {
                 var messagePromise = null;
-
-                if (originalData.error) {
+                if (originalData.unAuthorizedRequest) {
+                    // abp.ng.http.handleUnAuthorizedRequest(messagePromise, originalData.targetUrl);
+                    swal("你没有操作的权限!", "请联系管理员！", "error");
+                }
+                else if (originalData.error) {
                     messagePromise = abp.ng.http.showError(originalData.error);
                 } else {
                     originalData.error = defaultError;
@@ -70,9 +73,7 @@
                 response.data = originalData.error;
                 defer.reject(response);
 
-                if (originalData.unAuthorizedRequest) {
-                    abp.ng.http.handleUnAuthorizedRequest(messagePromise, originalData.targetUrl);
-                }
+               
             }
         }
     }

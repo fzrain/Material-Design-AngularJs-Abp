@@ -19,34 +19,38 @@ namespace Fzrain.Users
         private readonly UserManager userManager;
         private readonly RoleManager roleManager;
         private readonly IRepository<User, long> userRepository;
-        public UserAppService(UserManager userManager, RoleManager roleManager, IRepository<User, long> userRepository)
+        private readonly IPermissionManager permissionManager;
+
+        public UserAppService(UserManager userManager, RoleManager roleManager, IRepository<User, long> userRepository, IPermissionManager permissionManager)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.userRepository = userRepository;
-        }  
+            this.permissionManager = permissionManager;
+        }
+        [AbpAuthorize("Administration.UserManger.Read")]
         public PagedResultOutput<UserDto> GetUsers(UserQueryInput input)
         {
             return new PagedResultOutput<UserDto>
             {
-                TotalCount =userManager.Users.Count(),
-                Items =userManager.Users.OrderByDescending(u=>u.CreationTime).PageBy(input).ToList().MapTo<List<UserDto>>()
+                TotalCount = userManager.Users.Count(),
+                Items = userManager.Users.OrderByDescending(u => u.CreationTime).PageBy(input).ToList().MapTo<List<UserDto>>()
 
             };
         }
 
-        public async  Task<UserDto> GetUserForEdit(IdInput<long?> input)
+        public async Task<UserDto> GetUserForEdit(IdInput<long?> input)
         {
-            User user = new User ();
+            User user = new User();
             if (input.Id.HasValue)
             {
-                 user = await userManager.GetUserByIdAsync((long)input.Id);             
-            }                           
-            var userDto= user.MapTo<UserDto>();
+                user = await userManager.GetUserByIdAsync((long)input.Id);
+            }
+            var userDto = user.MapTo<UserDto>();
             userDto.Roles = roleManager.Roles.MapTo<List<RoleDto>>();
             foreach (RoleDto role in userDto.Roles)
             {
-                if (user.Roles.Any(r => r.Id==role.Id))
+                if (user.Roles.Any(r => r.Id == role.Id))
                 {
                     role.IsDefault = true;
                 }
@@ -54,10 +58,10 @@ namespace Fzrain.Users
             return userDto;
         }
 
-        public async  Task AddOrUpdate(UserEditInput userEditDto)
+        public async Task AddOrUpdate(UserEditInput userEditDto)
         {
-            var roleIds=  userEditDto.Roles.Where(r => r.IsDefault).Select(r=>r.Id);         
-            var user = userEditDto.Id.HasValue ? userManager.Users.Where(u => u.Id == userEditDto.Id).IncludeProperties(u=>u.Roles).FirstOrDefault() : new User();           
+            var roleIds = userEditDto.Roles.Where(r => r.IsDefault).Select(r => r.Id);
+            var user = userEditDto.Id.HasValue ? userManager.Users.Where(u => u.Id == userEditDto.Id).IncludeProperties(u => u.Roles).FirstOrDefault() : new User();
             if (user == null)
             {
                 return;
@@ -71,8 +75,27 @@ namespace Fzrain.Users
             user.Roles = roleManager.Roles.Where(r => roleIds.Contains(r.Id)).ToList();
 
             await userRepository.InsertOrUpdateAsync(user);
-         
-                   
+
+
+        }
+
+        public async Task<dynamic> GetUserPermissions(IdInput<long> input)
+        {
+            var user = await userManager.GetUserByIdAsync(input.Id);
+            var permissions = await userManager.GetGrantedPermissionsAsync(user);
+            List<dynamic> list = new List<dynamic>();
+            foreach (Permission permission in permissionManager.GetAllPermissions())
+            {
+                var data = new
+                {
+                    permission.Name,
+                    DisplayName= permission.DisplayName.Localize(),
+                    ParentName = permission.Parent==null?"无": permission.Parent.Name,
+                    IsGrantedByDefault = permissions.Contains(permission) || permission.IsGrantedByDefault
+                };
+                list.Add(data);
+            }
+            return list;
         }
     }
 }

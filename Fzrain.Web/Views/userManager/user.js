@@ -35,8 +35,48 @@
             }
             vm.getUserDetail = function (id) {
                 userService.getUserForEdit({ id: id }).success(function (data) {
-                    vm.user = data;
-                    
+                    vm.user = data;                   
+                });
+            }
+            vm.getUserPermission = function (id) {
+                vm.userPermissionId = id;
+                userService.getUserPermissions({ id: id }).success(function (data) {
+                  //  vm.role = data;
+                    var permission = [];
+                    for (var i = 0; i < data.length; i++) {
+                        var node = {
+                            "id": data[i].name,
+                            "parent": data[i].parentName == "无" ? "#" : data[i].parentName,
+                            "text": data[i].displayName,
+                            "state": {
+                                "opened": true,
+                                "selected": data[i].isGrantedByDefault
+                            }
+                        }
+                        permission.push(node);
+                    }
+                    $('#permissionTree').data('jstree', false).empty().jstree({
+                        'plugins': ["wholerow", "checkbox", "types"],
+                        "checkbox": {
+                            "three_state": false,
+                            "cascade": "down"
+                        },
+                        'core': {
+                            'data': permission,
+                            'themes': {
+                                'name': 'proton',
+                                'responsive': true
+                            }
+                        },
+                        "types": {
+                            "default": {
+                                "icon": "fa fa-folder icon-state-warning icon-lg"
+                            },
+                            "file": {
+                                "icon": "fa fa-file icon-state-warning icon-lg"
+                            }
+                        }
+                    });
                 });
             }
             vm.save = function () {

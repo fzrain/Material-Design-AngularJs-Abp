@@ -36,6 +36,7 @@
             alert(nodes);
         }
         vm.save = function () {
+            vm.role.permissions = $("#permissionTree").jstree("get_checked"); //使用get_checked方法 
             roleService.addOrUpdate(vm.role).success(function () {
                 vm.tableBasic.reload();
                 notifyService.notify('保存成功！', 'success');

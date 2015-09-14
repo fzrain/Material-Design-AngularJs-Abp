@@ -34,7 +34,7 @@
                             </button>
                             <ul class="dropdown-menu">
                                 <li data-toggle="modal" data-target="#modalUserEdit" data-ng-click="vm.getUserDetail(user.id)"><a href="">修改</a></li>
-                                <li><a href="">权限</a></li>
+                                <li data-toggle="modal" href="" data-ng-click="vm.getUserPermission(user.id)" data-target="#modalUserPermissionEdit"><a href="">权限</a></li>
                                 <li><a href="">删除</a></li>
                             </ul>
                         </div>
@@ -148,6 +148,22 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-info waves-effect" data-ng-click="vm.save()"><i class="zmdi zmdi-save"></i>保存</button>
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="zmdi zmdi-close-circle"></i>取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalUserPermissionEdit" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" style="width:400px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">编辑权限</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="permissionTree"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info waves-effect" data-ng-click="vm.savePermission()"><i class="zmdi zmdi-save"></i>保存</button>
                     <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><i class="zmdi zmdi-close-circle"></i>取消</button>
                 </div>
             </div>
