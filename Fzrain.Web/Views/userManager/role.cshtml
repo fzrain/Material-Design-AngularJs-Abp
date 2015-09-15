@@ -10,7 +10,7 @@
 
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                    <a data-toggle="modal" href="" data-target="#modalRoleEdit">新增角色</a>               
+                    <a data-toggle="modal" href="" data-ng-click="vm.getRoleDetail(null)" data-target="#modalRoleEdit">新增角色</a>               
                     <li>
                         <a href="">导出excel</a>
                     </li>
@@ -33,7 +33,7 @@
                                 <i class="fa fa-cog"></i> 操作 <i class="caret"></i></button>
                             <ul class="dropdown-menu">
                                 <li data-toggle="modal" data-target="#modalRoleEdit" data-ng-click="vm.getRoleDetail(role.id)"><a href="">修改</a></li>                            
-                                <li  data-ng-click="vm.delete(role.id)"><a href="">删除</a></li>
+                                <li data-ng-click="vm.delete(role.id)"><a href="">删除</a></li>
                             </ul>
                         </div>
                     </td>

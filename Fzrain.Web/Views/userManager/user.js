@@ -25,12 +25,14 @@
 
                 }
             });
+          
             vm.add = function () {
                 vm.user = {};
                 userService.getUserForEdit({id:null}).success(function (data) {
                     vm.user = data;
                     vm.user.id = null;
                     vm.user.password = null;
+                  
                 });
             }
             vm.getUserDetail = function (id) {
@@ -84,6 +86,24 @@
                     vm.tableBasic.reload();
                     notifyService.notify('保存成功！', 'success');
                     $("#modalUserEdit").modal("hide");
+                });
+            }
+            vm.delete = function (id) {
+                notifyService.comform(function () {
+                    userService.delete({ id: id }).success(function () {
+                        vm.tableBasic.reload();
+                        window.swal("删除成功!", "此用户已删除！", "success");
+                    });
+                });
+            }
+            vm.savePermission = function () {
+                userService.updateUserPermission({
+                    id: vm.userPermissionId,
+                    permissions: $("#permissionTree").jstree("get_checked")
+                }).success(function () {
+                    vm.tableBasic.reload();
+                    notifyService.notify('保存权限成功！', 'success');
+                    $("#modalUserPermissionEdit").modal("hide");
                 });
             }
         }

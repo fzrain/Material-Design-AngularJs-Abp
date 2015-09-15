@@ -57,9 +57,13 @@ namespace Fzrain.Roles
             await roleRepository.InsertOrUpdateAsync(role);
         }
 
-        public async Task<EditRoleDto> GetById(IdInput input)
+        public async Task<EditRoleDto> GetById(IdInput<int?> input)
         {
-            var role = await roleManager.GetRoleByIdAsync(input.Id);
+            Role role = new Role();
+            if (input.Id.HasValue)
+            {
+                 role = await roleManager.GetRoleByIdAsync((int)input.Id);
+            }          
             var roleEditDto = role.MapTo<EditRoleDto>();
             var permissionNames = permissionSettingRepository.GetAll().Where(p => p.RoleId == role.Id).Select(p => p.Name).ToList();
             var permissionInfos = permissionRepository.GetAllList().Select(p => new { p.Id, p.Name, p.DisplayName, p.ParentName, IsGrantedByDefault = permissionNames.Contains(p.Name) || p.IsGrantedByDefault });

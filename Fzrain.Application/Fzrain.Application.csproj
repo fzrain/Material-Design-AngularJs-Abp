@@ -109,6 +109,7 @@
     <Compile Include="Roles\RoleAppService.cs" />
     <Compile Include="Users\Dto\UserDto.cs" />
     <Compile Include="Users\Dto\UserEditInput.cs" />
+    <Compile Include="Users\Dto\UserPermissionInput.cs" />
     <Compile Include="Users\Dto\UserQueryInput.cs" />
     <Compile Include="Users\IUserAppService.cs" />
     <Compile Include="Users\UserAppService.cs" />

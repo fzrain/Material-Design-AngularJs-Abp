@@ -16,11 +16,14 @@ namespace Fzrain.Users
 {
     public class UserAppService : ApplicationService, IUserAppService
     {
+        #region private field
         private readonly UserManager userManager;
         private readonly RoleManager roleManager;
         private readonly IRepository<User, long> userRepository;
         private readonly IPermissionManager permissionManager;
+        #endregion
 
+        #region ctor
         public UserAppService(UserManager userManager, RoleManager roleManager, IRepository<User, long> userRepository, IPermissionManager permissionManager)
         {
             this.userManager = userManager;
@@ -28,6 +31,8 @@ namespace Fzrain.Users
             this.userRepository = userRepository;
             this.permissionManager = permissionManager;
         }
+        #endregion
+
         [AbpAuthorize("Administration.UserManger.Read")]
         public PagedResultOutput<UserDto> GetUsers(UserQueryInput input)
         {
@@ -70,13 +75,19 @@ namespace Fzrain.Users
             user.UserName = userEditDto.UserName;
             user.MobilePhone = userEditDto.MobilePhone;
             user.TenantId = AbpSession.TenantId;
-            user.Password = userEditDto.Password;
+            user.Password = string.IsNullOrWhiteSpace(userEditDto.Password)?"11111": userEditDto.Password;
             user.EmailAddress = userEditDto.EmailAddress;
             user.Roles = roleManager.Roles.Where(r => roleIds.Contains(r.Id)).ToList();
-
+            await userManager.CreateAsync(user);
             await userRepository.InsertOrUpdateAsync(user);
 
 
+        }
+
+        public async  Task Delete(IdInput<long> input)
+        {
+           var user=await userManager.GetUserByIdAsync(input.Id);
+           await userManager.DeleteAsync(user);
         }
 
         public async Task<dynamic> GetUserPermissions(IdInput<long> input)
@@ -89,13 +100,20 @@ namespace Fzrain.Users
                 var data = new
                 {
                     permission.Name,
-                    DisplayName= permission.DisplayName.Localize(),
-                    ParentName = permission.Parent==null?"无": permission.Parent.Name,
+                    DisplayName = permission.DisplayName.Localize(),
+                    ParentName = permission.Parent == null ? "无" : permission.Parent.Name,
                     IsGrantedByDefault = permissions.Contains(permission) || permission.IsGrantedByDefault
                 };
                 list.Add(data);
             }
             return list;
+        }
+
+        public async Task UpdateUserPermission(UserPermissionInput input)
+        {
+            var user = await userManager.GetUserByIdAsync(input.Id);
+            var permissions = permissionManager.GetAllPermissions().Where(p => input.Permissions.Contains(p.Name));
+            await userManager.SetGrantedPermissionsAsync(user, permissions);
         }
     }
 }

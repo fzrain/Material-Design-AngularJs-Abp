@@ -35,7 +35,7 @@
                             <ul class="dropdown-menu">
                                 <li data-toggle="modal" data-target="#modalUserEdit" data-ng-click="vm.getUserDetail(user.id)"><a href="">修改</a></li>
                                 <li data-toggle="modal" href="" data-ng-click="vm.getUserPermission(user.id)" data-target="#modalUserPermissionEdit"><a href="">权限</a></li>
-                                <li><a href="">删除</a></li>
+                                <li data-ng-click="vm.delete(user.id)"><a href="">删除</a></li>
                             </ul>
                         </div>
                     </td>
@@ -57,7 +57,7 @@
                 <div class="modal-body">
                     <ul class="tab-nav tn-justified" role="tablist" style="width: 200px" data-tab-color="red">
                         <li role="presentation" class="active"><a href="" data-ng-click="vm.userTab()" aria-controls="user" role="tab" data-toggle="tab">用户信息</a></li>
-                        <li role="presentation"><a href="" data-ng-click="vm.roleTab()" aria-controls="role" role="tab" data-toggle="tab">角色信息</a></li>
+                        <li role="presentation"><a href="" data-ng-click="vm.roleTab()" aria-controls="role" role="tab" data-toggle="tab">角色信息<i class="role-counts">2</i></a></li>
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade" data-ng-class="{'in active':vm.activeTab==='user'}">
@@ -160,7 +160,7 @@
                     <h4 class="modal-title">编辑权限</h4>
                 </div>
                 <div class="modal-body">
-                    <div id="permissionTree"></div>
+                    <div id="permissionTree" style="margin-top:15px"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-info waves-effect" data-ng-click="vm.savePermission()"><i class="zmdi zmdi-save"></i>保存</button>

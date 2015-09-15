@@ -7432,9 +7432,9 @@ button.close {
     }
 
 .modal-header {
+     min-height: 16.43px;
     padding: 15px;
-    border-bottom: 1px solid transparent;
-    min-height: #0f0f0f;
+    border-bottom: 1px solid #e5e5e5;
 }
 
     .modal-header .close {
@@ -18983,3 +18983,14 @@ table th, td {
     margin-left: 2px;
     content: "\f07c";
 }
+.role-counts {
+        position: absolute;
+        color: #FFF;
+        font-style: normal;
+        background: #2E95DC;
+        padding: 1px 5px;
+        border-radius: 2px;
+        right: 1px;
+        top: 8px;
+        font-size: 10px;     
+    }

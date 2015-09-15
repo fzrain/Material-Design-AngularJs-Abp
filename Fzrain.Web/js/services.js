@@ -133,6 +133,20 @@ materialAdmin
                 }
             });
         }
-        
+        ns.comform = function (handlerEvent) {
+            window.swal(
+            {
+                title: "确定要删除吗?",
+                    text: "删除此记录将不可恢复!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "删除!",
+                    closeOnConfirm: false,
+                    cancelButtonText: "取消"
+            },
+           handlerEvent);
+
+        }
         return ns;
     })

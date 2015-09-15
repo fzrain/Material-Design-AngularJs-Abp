@@ -26,15 +26,6 @@
             }
         });
         vm.role = {};
-        vm.add = function () {
-            vm.role = null;
-        }
-        vm.getCheck = function () {
-
-            var nodes = $("#permissionTree").jstree("get_checked"); //使用get_checked方法 
-
-            alert(nodes);
-        }
         vm.save = function () {
             vm.role.permissions = $("#permissionTree").jstree("get_checked"); //使用get_checked方法 
             roleService.addOrUpdate(vm.role).success(function () {
@@ -44,27 +35,15 @@
             });
         }
         vm.delete = function (id) {
-            swal(
-                {
-                    title: "确定要删除吗?",
-                    text: "删除此记录将不可恢复!",
-                    type: "warning",
-                    showCancelButton: true,
-                    confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "删除!",
-                    closeOnConfirm: false,
-                    cancelButtonText: "取消"
-                },
-                function () {
-                    roleService.delete({ id: id }).success(function () {
-                        vm.tableBasic.reload();
-                        swal("删除成功!", "此角色已删除！", "success");
-                    });
-
+            notifyService.comform(function () {
+                roleService.delete({ id: id }).success(function () {
+                    vm.tableBasic.reload();
+                    window.swal("删除成功!", "此角色已删除！", "success");
                 });
+            });         
         }
         vm.getRoleDetail = function (id) {
-         
+
             roleService.getById({ id: id }).success(function (data) {
                 vm.role = data;
                 var permission = [];
@@ -101,7 +80,7 @@
                             "icon": "fa fa-file icon-state-warning icon-lg"
                         }
                     }
-                });               
+                });
             });
         }
     }
