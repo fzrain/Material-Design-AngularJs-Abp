@@ -34,7 +34,7 @@ namespace Fzrain.Authorization
             foreach (PermissionInfo permissionInfo in permissions)
             {
                 var childernPermission = permission.CreateChildPermission(permissionInfo.Name,
-                      new FixedLocalizableString(permissionInfo.DisplayName));
+                      new FixedLocalizableString(permissionInfo.DisplayName), permissionInfo.IsGrantedByDefault);
                 AddPermissions(permissionInfo, childernPermission);
             }
         }

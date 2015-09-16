@@ -138,8 +138,8 @@
 
                         </div>
                         <div role="tabpanel" class="tab-pane fade" data-ng-class="{'in active':vm.activeTab==='role'}">
-                            <label class="checkbox checkbox-inline m-r-20" ng-repeat="role in vm.user.roles">
-                                <input type="checkbox" ng-model="role.isDefault">
+                            <label class="checkbox checkbox-inline m-r-20" ng-repeat="role in vm.user.roleInfos">
+                                <input type="checkbox" ng-model="role.isAssigned">
                                 <i class="input-helper"></i>
                                 {{role.name}}
                             </label>

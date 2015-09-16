@@ -82,6 +82,12 @@
                 });
             }
             vm.save = function () {
+                vm.user.roles = [];
+                $.each(vm.user.roleInfos, function (i,n) {
+                    if (n.isAssigned) {
+                        vm.user.roles.push(n.name);
+                    }
+                });
                 userService.addOrUpdate(vm.user).success(function () {
                     vm.tableBasic.reload();
                     notifyService.notify('保存成功！', 'success');

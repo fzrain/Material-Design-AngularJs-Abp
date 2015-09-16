@@ -7,7 +7,6 @@ using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
-using Fzrain.Authorization.Permissions;
 using Fzrain.Authorization.Roles;
 using Fzrain.Roles.Dto;
 using Newtonsoft.Json.Linq;
@@ -17,19 +16,11 @@ namespace Fzrain.Roles
     public class RoleAppService : ApplicationService, IRoleAppService
     {
         private readonly RoleManager roleManager;
-        private readonly IRepository<Role> roleRepository;
-        private readonly IRepository<PermissionInfo> permissionRepository;
-        private readonly IRepository<PermissionSetting, long> permissionSettingRepository;
         private readonly IPermissionManager permissionManager;
 
-
-
-        public RoleAppService(RoleManager roleManager, IRepository<Role> roleRepository, IRepository<PermissionInfo> permissionRepository, IRepository<PermissionSetting, long> permissionSettingRepository, IPermissionManager permissionManager)
+        public RoleAppService(RoleManager roleManager,  IPermissionManager permissionManager)
         {
             this.roleManager = roleManager;
-            this.roleRepository = roleRepository;
-            this.permissionRepository = permissionRepository;
-            this.permissionSettingRepository = permissionSettingRepository;
             this.permissionManager = permissionManager;
         }
 
@@ -47,17 +38,20 @@ namespace Fzrain.Roles
         {
             Role role = new Role
             {
-                Id = roleDto.Id,
+                Id = roleDto.Id ?? 0,
                 Name = roleDto.Name,
                 IsDefault = roleDto.IsDefault,
                 TenantId = AbpSession.TenantId
-            };
+            };          
             var grantedPermissions = permissionManager.GetAllPermissions().Where(p => ((JArray)roleDto.Permissions).ToObject<List<string>>().Contains(p.Name)).ToList();
             await roleManager.SetGrantedPermissionsAsync(role, grantedPermissions);
-            await roleRepository.InsertOrUpdateAsync(role);
+            if (roleDto.Id.HasValue)
+             await roleManager.CreateAsync(role);
+            else         
+             await  roleManager.UpdateAsync(role);         
         }
 
-        public async Task<EditRoleDto> GetById(IdInput<int?> input)
+        public async Task<EditRoleDto> GetById(NullableIdInput input)
         {
             Role role = new Role();
             if (input.Id.HasValue)
@@ -65,15 +59,22 @@ namespace Fzrain.Roles
                  role = await roleManager.GetRoleByIdAsync((int)input.Id);
             }          
             var roleEditDto = role.MapTo<EditRoleDto>();
-            var permissionNames = permissionSettingRepository.GetAll().Where(p => p.RoleId == role.Id).Select(p => p.Name).ToList();
-            var permissionInfos = permissionRepository.GetAllList().Select(p => new { p.Id, p.Name, p.DisplayName, p.ParentName, IsGrantedByDefault = permissionNames.Contains(p.Name) || p.IsGrantedByDefault });
+            var permissions=await roleManager.GetGrantedPermissionsAsync(role);
+          
+            var permissionInfos = permissionManager.GetAllPermissions().Select(p => new {
+                p.Name,
+                DisplayName = p.DisplayName.Localize(),
+                ParentName = p.Parent == null ? "无" : p.Parent.Name,
+                IsGrantedByDefault = permissions.Contains(p) || p.IsGrantedByDefault
+            });
             roleEditDto.Permissions = permissionInfos;
             return roleEditDto;
         }
 
         public async Task Delete(IdInput input)
         {
-            await roleRepository.DeleteAsync(input.Id);
+           var role =await roleManager.GetRoleByIdAsync(input.Id);
+            await roleManager.DeleteAsync(role);
         }
     }
 }

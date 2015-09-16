@@ -107,8 +107,9 @@
     <Compile Include="Roles\Dto\RoleDto.cs" />
     <Compile Include="Roles\IRoleAppService.cs" />
     <Compile Include="Roles\RoleAppService.cs" />
-    <Compile Include="Users\Dto\UserDto.cs" />
+    <Compile Include="Users\Dto\UserEditOutput.cs" />
     <Compile Include="Users\Dto\UserEditInput.cs" />
+    <Compile Include="Users\Dto\UserListDto.cs" />
     <Compile Include="Users\Dto\UserPermissionInput.cs" />
     <Compile Include="Users\Dto\UserQueryInput.cs" />
     <Compile Include="Users\IUserAppService.cs" />

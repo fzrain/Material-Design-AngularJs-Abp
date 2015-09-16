@@ -11,7 +11,7 @@ using Fzrain.Authorization.Roles;
 namespace Fzrain.Roles.Dto
 {
     [AutoMapFrom(typeof (Role))]
-    public class EditRoleDto : IdInput
+    public class EditRoleDto : NullableIdInput
     {
         public string Name { get; set; }
         public bool IsDefault { get; set; }

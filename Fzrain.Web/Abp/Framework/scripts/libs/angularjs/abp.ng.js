@@ -17,10 +17,10 @@
         },
 
         showError: function (error) {
-            if (error.details) {
-                return abp.message.error(error.details, error.message);
+            if (error.details) {             
+                return swal(error.message, error.details, "error");
             } else {
-                return abp.message.error(error.message);
+                return swal(error.message, "", "error");
             }
         },
 
@@ -28,28 +28,31 @@
             location.href = targetUrl;
         },
 
-        handleUnAuthorizedRequest: function (messagePromise, targetUrl) {
-            if (messagePromise) {
-                messagePromise.done(function () {
-                    if (!targetUrl) {
-                        location.reload();
-                    } else {
-                        abp.ng.http.handleTargetUrl(targetUrl);
-                    }
-                });
-            } else {
-                if (!targetUrl) {
-                    location.reload();
-                } else {
-                    abp.ng.http.handleTargetUrl(targetUrl);
-                }
-            }
-        },
+        //handleUnAuthorizedRequest: function (messagePromise, targetUrl) {
+        //    if (messagePromise) {
+        //        messagePromise.done(function () {
+        //            if (!targetUrl) {
+        //                location.reload();
+        //            } else {
+        //                abp.ng.http.handleTargetUrl(targetUrl);
+        //            }
+        //        });
+        //    } else {
+        //        if (!targetUrl) {
+        //            location.reload();
+        //        } else {
+        //            abp.ng.http.handleTargetUrl(targetUrl);
+        //        }
+        //    }
+        //},
 
         handleResponse: function (response, defer) {
             var originalData = response.data;
 
             if (originalData.success === true) {
+                //if (originalData.result.succeeded==false) {
+                //    swal(originalData.result.errors[0], "", "error");
+                //}
                 response.data = originalData.result;
                 defer.resolve(response);
 
@@ -57,13 +60,12 @@
                     abp.ng.http.handleTargetUrl(originalData.targetUrl);
                 }
             } else if(originalData.success === false) {
-                var messagePromise = null;
+               // var messagePromise = null;
                 if (originalData.unAuthorizedRequest) {
-                    // abp.ng.http.handleUnAuthorizedRequest(messagePromise, originalData.targetUrl);
                     swal("你没有操作的权限!", "请联系管理员！", "error");
                 }
                 else if (originalData.error) {
-                    messagePromise = abp.ng.http.showError(originalData.error);
+                    abp.ng.http.showError(originalData.error);
                 } else {
                     originalData.error = defaultError;
                 }

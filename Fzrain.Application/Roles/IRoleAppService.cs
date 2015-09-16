@@ -11,7 +11,7 @@ namespace Fzrain.Roles
     {
        PagedResultOutput<RoleDto> GetRoles(RoleQueryInput input);    
        Task AddOrUpdate(EditRoleDto roleDto);
-       Task<EditRoleDto> GetById(IdInput<int?> input);
+       Task<EditRoleDto> GetById(NullableIdInput input);
        Task Delete(IdInput input);
     }
 }
