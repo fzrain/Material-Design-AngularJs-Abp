@@ -57,7 +57,7 @@
                 <div class="modal-body">
                     <ul class="tab-nav tn-justified" role="tablist" style="width: 200px" data-tab-color="red">
                         <li role="presentation" class="active"><a href="" data-ng-click="vm.userTab()" aria-controls="user" role="tab" data-toggle="tab">用户信息</a></li>
-                        <li role="presentation"><a href="" data-ng-click="vm.roleTab()" aria-controls="role" role="tab" data-toggle="tab">角色信息<i class="role-counts">2</i></a></li>
+                        <li role="presentation"><a href="" data-ng-click="vm.roleTab()" aria-controls="role" role="tab" data-toggle="tab">角色信息@*<i class="role-counts">2</i>*@</a></li>
                     </ul>
                     <div class="tab-content">
                         <div role="tabpanel" class="tab-pane fade" data-ng-class="{'in active':vm.activeTab==='user'}">
@@ -95,19 +95,19 @@
                             </div>
                             <div>
                                 <label class="checkbox checkbox-inline m-t-15">
-                                    <input type="checkbox" ng-model="vm.setRandomPassword">
+                                    <input type="checkbox" ng-model="vm.user.setDefaultPassword">
                                     <i class="input-helper"></i>
-                                    使用随机密码
+                                    使用默认密码
                                 </label>
                             </div>
-                            <div class="form-group fg-float m-t-30 " ng-if="!vm.setRandomPassword">
+                            <div class="form-group fg-float m-t-30 " ng-if="!vm.user.setDefaultPassword">
                                 <div class="fg-line">
                                     <input type="text" class="form-control" ng-model="vm.user.password">
                                 </div>
                                 <label class="fg-label">密码</label>
                             </div>
 
-                            <div class="form-group fg-float" ng-if="!vm.setRandomPassword">
+                            <div class="form-group fg-float" ng-if="!vm.user.setDefaultPassword">
                                 <div class="fg-line">
                                     <input type="text" class="form-control" ng-model="vm.user.passwordRepeat">
                                 </div>

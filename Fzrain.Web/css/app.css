@@ -7443,7 +7443,7 @@ button.close {
 
 .modal-title {
     margin: 0;
-    line-height: transparent;
+    /*line-height: transparent;*/
 }
 
 .modal-body {
@@ -7511,7 +7511,7 @@ button.close {
     line-break: auto;
     line-height: 1.42857143;
     text-align: left;
-    text-align: start;
+    /*text-align:  start;*/
     text-decoration: none;
     text-shadow: none;
     text-transform: none;
@@ -7645,7 +7645,7 @@ button.close {
     line-break: auto;
     line-height: 1.42857143;
     text-align: left;
-    text-align: start;
+    /*text-align:start;*/
     text-decoration: none;
     text-shadow: none;
     text-transform: none;
@@ -7800,7 +7800,7 @@ button.close {
         .carousel-inner > .item > a > img {
             line-height: 1;
         }
-
+      
 @media all and (transform-3d), (-webkit-transform-3d) {
     .carousel-inner > .item {
         -webkit-transition: -webkit-transform 0.6s ease-in-out;
@@ -9675,7 +9675,7 @@ a {
     }
 
 html {
-    overflow-x: hidden\0/;
+    overflow-x:hidden;
     -ms-overflow-style: none;
 }
 
@@ -9950,8 +9950,8 @@ body #content {
         right: 7px;
         top: -3px;
         font-size: 10px;
-        -webkit-animation-name: wobble;
-        animation-name: wobble;
+        -webkit-animation-name:'wobble';
+        animation-name: 'wobble';
         -webkit-animation-duration: 500ms;
         animation-duration: 500ms;
         -webkit-animation-fill-mode: both;
@@ -10222,7 +10222,7 @@ body #content {
     display: none;
 }
 
-:full-screen [data-action="fullscreen"] {
+:fullscreen [data-action="fullscreen"] {
     display: none;
 }
 
@@ -13863,7 +13863,8 @@ html:not(.ie9) .select.fg-line:before {
             background: #fafafa;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.28);
             border-radius: 50%;
-            webkit-transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+          
+            /*webkit-transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);*/
             transition: left 0.28s cubic-bezier(0.4, 0, 0.2, 1), background 0.28s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.28s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -14379,7 +14380,7 @@ a.thumbnail.active {
 }
 
 .modal .modal-body {
-    padding: 0 26px 10px;
+    padding: 25px 26px 10px 26px;
 }
 
 .modal .modal-footer .btn-link {

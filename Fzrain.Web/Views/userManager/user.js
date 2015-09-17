@@ -30,9 +30,7 @@
                 vm.user = {};
                 userService.getUserForEdit({id:null}).success(function (data) {
                     vm.user = data;
-                    vm.user.id = null;
-                    vm.user.password = null;
-                  
+                    vm.user.id = null;                                  
                 });
             }
             vm.getUserDetail = function (id) {
@@ -42,8 +40,7 @@
             }
             vm.getUserPermission = function (id) {
                 vm.userPermissionId = id;
-                userService.getUserPermissions({ id: id }).success(function (data) {
-                  //  vm.role = data;
+                userService.getUserPermissions({ id: id }).success(function (data) {              
                     var permission = [];
                     for (var i = 0; i < data.length; i++) {
                         var node = {

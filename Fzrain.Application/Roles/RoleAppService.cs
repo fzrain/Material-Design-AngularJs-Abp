@@ -5,7 +5,6 @@ using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.AutoMapper;
-using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
 using Fzrain.Authorization.Roles;
 using Fzrain.Roles.Dto;
@@ -36,19 +35,19 @@ namespace Fzrain.Roles
 
         public async Task AddOrUpdate(EditRoleDto roleDto)
         {
-            Role role = new Role
+            Role role = new Role();         
+            if (roleDto.Id.HasValue)
             {
-                Id = roleDto.Id ?? 0,
-                Name = roleDto.Name,
-                IsDefault = roleDto.IsDefault,
-                TenantId = AbpSession.TenantId
-            };          
+                role = await roleManager.GetRoleByIdAsync((int) roleDto.Id);             
+            }
+            role.Name = roleDto.Name;
+            role.IsDefault = roleDto.IsDefault;
             var grantedPermissions = permissionManager.GetAllPermissions().Where(p => ((JArray)roleDto.Permissions).ToObject<List<string>>().Contains(p.Name)).ToList();
             await roleManager.SetGrantedPermissionsAsync(role, grantedPermissions);
             if (roleDto.Id.HasValue)
-             await roleManager.CreateAsync(role);
-            else         
-             await  roleManager.UpdateAsync(role);         
+                await roleManager.UpdateAsync(role);
+            else                   
+                await roleManager.CreateAsync(role);
         }
 
         public async Task<EditRoleDto> GetById(NullableIdInput input)

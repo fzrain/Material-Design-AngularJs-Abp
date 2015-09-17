@@ -45,11 +45,15 @@ namespace Fzrain.Users
         public async Task<UserEditOutput> GetUserForEdit(NullableIdInput<long> input)
         {
             User user = new User();
-            IList<string> roleNames = new List<string>();
+            IList<string> roleNames;
             if (input.Id.HasValue)
             {
                 user = await userManager.GetUserByIdAsync((long)input.Id);
                 roleNames = await userManager.GetRolesAsync(user.Id);
+            }
+            else
+            {
+                roleNames = roleManager.Roles.Where(r => r.IsDefault).Select(r => r.Name).ToList();
             }
             var dto = user.MapTo<UserEditOutput>();
             dto.RoleInfos = new List<dynamic>();
@@ -58,7 +62,7 @@ namespace Fzrain.Users
                 dto.RoleInfos.Add(new
                 {
                     role.Name,
-                    IsAssigned = roleNames.Contains(role.Name) || role.IsDefault
+                    IsAssigned = roleNames.Contains(role.Name)
                 });
             }
             return dto;
@@ -66,23 +70,30 @@ namespace Fzrain.Users
 
         public async Task AddOrUpdate(UserEditInput userEditInput)
         {
-            var userId = userEditInput.Id;
-            List<string> roleNames = new List<string>();
-            foreach (var roleInfo in userEditInput.RoleInfos)
-            {
-                if (roleInfo.IsAssigned)
-                {
-                    roleNames.Add(roleInfo.Name);
-                }
-            }
-           // var roleNames = userEditInput.RoleInfos.Where(r => r.IsAssigned).Select(r => r.Name);
+            var userId = userEditInput.Id;         
             var user = userId.HasValue ? await userManager.GetUserByIdAsync((long) userId) : new User();
-            //   await userManager.SetRoles(user, (string[]) roleNames);
+              await userManager.SetRoles(user, userEditInput.Roles);
+            if (userEditInput.SetDefaultPassword)
+            {
+                userEditInput.Password = "111111";
+            }
+            else
+            {
+                if (string.IsNullOrWhiteSpace(userEditInput.Password))
+                {
+                    throw new UserFriendlyException("密码不能为空！");
+                }
+                if (!userEditInput.Password.Equals(userEditInput.PasswordRepeat))
+                {
+                    throw new UserFriendlyException("2次密码不匹配！");
+                }
+               
+            }
             user.Name = userEditInput.Name;
             user.UserName = userEditInput.UserName;
-            user.MobilePhone = userEditInput.MobilePhone;
-            user.TenantId = AbpSession.TenantId;
+            user.MobilePhone = userEditInput.MobilePhone;         
             user.EmailAddress = userEditInput.EmailAddress;
+            user.IsActive = userEditInput.IsActive;
             IdentityResult result;
             if (userEditInput.Id.HasValue)
             {
@@ -90,7 +101,7 @@ namespace Fzrain.Users
             }
             else
             {
-                result = await userManager.CreateAsync(user, string.IsNullOrWhiteSpace(userEditInput.Password) ? "111111" : userEditInput.Password);
+                result = await userManager.CreateAsync(user,userEditInput.Password);
             }          
             if (!result.Succeeded)
             {
@@ -128,6 +139,12 @@ namespace Fzrain.Users
             var user = await userManager.GetUserByIdAsync(input.Id);
             var permissions = permissionManager.GetAllPermissions().Where(p => input.Permissions.Contains(p.Name));
             await userManager.SetGrantedPermissionsAsync(user, permissions);
+        }
+
+        public async  Task ResetUserSpecificPermissions(IdInput<long> input)
+        {
+            var user =await userManager.GetUserByIdAsync(input.Id);
+            await userManager.ResetAllPermissionsAsync(user);         
         }
     }
 }

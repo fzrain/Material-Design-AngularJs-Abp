@@ -45,7 +45,11 @@
         vm.getRoleDetail = function (id) {
 
             roleService.getById({ id: id }).success(function (data) {
+               
                 vm.role = data;
+                if (id == null) {
+                    vm.role.id = null;
+                }
                 var permission = [];
                 for (var i = 0; i < data.permissions.length; i++) {
                     var node = {

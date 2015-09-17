@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using Abp.Dependency;
@@ -7,7 +8,6 @@ using Abp.Domain.Uow;
 using Fzrain.Authorization.Permissions;
 using Fzrain.Authorization.Roles;
 using Microsoft.AspNet.Identity;
-
 namespace Fzrain.Authorization.Users
 {
     /// <summary>
@@ -26,9 +26,9 @@ namespace Fzrain.Authorization.Users
         private readonly IRepository<User, long> _userRepository;
         private readonly IRepository<UserLogin, long> _userLoginRepository;
         private readonly IRepository<Role> _roleRepository;
-        private readonly IRepository<PermissionSetting, long> _permissionSettingRepository;
+        private readonly IRepository<PermissionSetting, long> _permissionSettingRepository;      
         private readonly IUnitOfWorkManager _unitOfWorkManager;
-
+       
         /// <summary>
         /// Constructor.
         /// </summary>
@@ -43,6 +43,7 @@ namespace Fzrain.Authorization.Users
             _userLoginRepository = userLoginRepository;
             _roleRepository = roleRepository;
             _unitOfWorkManager = unitOfWorkManager;
+          
             _permissionSettingRepository = permissionSettingRepository;
         }
 
@@ -80,24 +81,14 @@ namespace Fzrain.Authorization.Users
                 );
         }
 
-        /// <summary>
-        /// Tries to find a user with user name or email address.
-        /// </summary>
-        /// <param name="userNameOrEmailAddress">User name or email address</param>
-        /// <returns>User or null</returns>
+     
         public virtual async Task<User> FindByNameOrEmailAsync(string userNameOrEmailAddress)
         {
             return await _userRepository.FirstOrDefaultAsync(
                 user => (user.UserName == userNameOrEmailAddress || user.EmailAddress == userNameOrEmailAddress)
                 );
         }
-
-        /// <summary>
-        /// Tries to find a user with user name or email address.
-        /// </summary>
-        /// <param name="tenantId">Tenant Id</param>
-        /// <param name="userNameOrEmailAddress">User name or email address</param>
-        /// <returns>User or null</returns>
+      
         [UnitOfWork]
         public virtual async Task<User> FindByNameOrEmailAsync(int? tenantId, string userNameOrEmailAddress)
         {
@@ -226,12 +217,9 @@ namespace Fzrain.Authorization.Users
           
         }
 
-        public virtual Task<IList<string>> GetRolesAsync(User user)
+        public virtual async   Task<IList<string>> GetRolesAsync(User user)
         {
-            //TODO: This is not implemented as async.
-            var roleNames = new[] {"admin"}; //= user.Roles.Select(r => r.Name).ToList();
-
-            return Task.FromResult<IList<string>>(roleNames);
+            return (await _userRepository.GetAsync(user.Id)).Roles.Select(r => r.Name).ToList();
         }
 
         public virtual async Task<bool> IsInRoleAsync(User user, string roleName)

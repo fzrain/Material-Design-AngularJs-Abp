@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Abp.Application.Services.Dto;
+﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Fzrain.Authorization.Users;
 
@@ -15,10 +10,12 @@ namespace Fzrain.Users.Dto
         public string Name { get; set; }
         public string MobilePhone { get; set; }
         public string  Password { get; set; }
+        public string PasswordRepeat { get; set; }
         public string UserName { get; set; }
         public string EmailAddress { get; set; }
         public bool IsEmailConfirmed { get; set; }
         public bool IsActive { get; set; }
-        public  List<dynamic> RoleInfos { get; set; }
+        public bool SetDefaultPassword { get; set; }
+        public  string[] Roles { get; set; }
     }
 }
