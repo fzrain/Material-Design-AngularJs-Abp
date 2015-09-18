@@ -16,7 +16,7 @@ namespace Fzrain.Users.Dto
         public string MobilePhone { get; set; }       
         public string UserName { get; set; }
         public string EmailAddress { get; set; }
-        public bool IsEmailConfirmed { get; set; }
+        public bool CanChangeUserName { get; set; }
         public bool IsActive { get; set; }
         public  List<dynamic> RoleInfos { get; set; }
     }

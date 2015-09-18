@@ -67,7 +67,7 @@
                     'plugins': ["wholerow", "checkbox", "types"],
                     "checkbox": {
                         "three_state": false,
-                        "cascade": "down"
+                        //"cascade": "down"
                     },
                     'core': {
                         'data': permission,

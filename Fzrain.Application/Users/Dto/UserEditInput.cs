@@ -13,7 +13,7 @@ namespace Fzrain.Users.Dto
         public string PasswordRepeat { get; set; }
         public string UserName { get; set; }
         public string EmailAddress { get; set; }
-        public bool IsEmailConfirmed { get; set; }
+        public bool SendActivationEmail { get; set; }
         public bool IsActive { get; set; }
         public bool SetDefaultPassword { get; set; }
         public  string[] Roles { get; set; }

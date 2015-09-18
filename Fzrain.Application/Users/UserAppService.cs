@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
@@ -9,8 +11,11 @@ using Abp.Linq.Extensions;
 using Abp.UI;
 using Fzrain.Authorization.Roles;
 using Fzrain.Authorization.Users;
+using Fzrain.Service;
 using Fzrain.Users.Dto;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security.DataProtection;
 
 namespace Fzrain.Users
 {
@@ -65,11 +70,16 @@ namespace Fzrain.Users
                     IsAssigned = roleNames.Contains(role.Name)
                 });
             }
+            dto.CanChangeUserName = dto.UserName != "admin";
             return dto;
         }
 
         public async Task AddOrUpdate(UserEditInput userEditInput)
         {
+            userManager.EmailService = new EmailService();
+            var provider = new DpapiDataProtectionProvider();         
+            userManager.UserTokenProvider = new DataProtectorTokenProvider<User,long>(
+                provider.Create("EmailConfirmation"));
             var userId = userEditInput.Id;         
             var user = userId.HasValue ? await userManager.GetUserByIdAsync((long) userId) : new User();
               await userManager.SetRoles(user, userEditInput.Roles);
@@ -88,6 +98,12 @@ namespace Fzrain.Users
                     throw new UserFriendlyException("2次密码不匹配！");
                 }
                
+            }
+            if (userEditInput.SendActivationEmail)
+            {
+             var emailConfirmToken=  await  userManager.GenerateEmailConfirmationTokenAsync((long)userId);
+             
+                await  userManager.SendEmailAsync((long) userId, "账号激活", emailConfirmToken);
             }
             user.Name = userEditInput.Name;
             user.UserName = userEditInput.UserName;

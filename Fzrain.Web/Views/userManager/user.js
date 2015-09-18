@@ -38,6 +38,12 @@
                     vm.user = data;                   
                 });
             }
+            vm.resetPermissions = function () {
+                userService.resetUserSpecificPermissions({ id: vm.userPermissionId }).success(function () {
+                    vm.getUserPermission(vm.userPermissionId);
+                });
+                
+            }
             vm.getUserPermission = function (id) {
                 vm.userPermissionId = id;
                 userService.getUserPermissions({ id: id }).success(function (data) {              
@@ -58,7 +64,7 @@
                         'plugins': ["wholerow", "checkbox", "types"],
                         "checkbox": {
                             "three_state": false,
-                            "cascade": "down"
+                            //"cascade": "down"
                         },
                         'core': {
                             'data': permission,

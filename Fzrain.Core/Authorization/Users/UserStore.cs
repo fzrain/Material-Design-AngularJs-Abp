@@ -7,6 +7,7 @@ using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
 using Fzrain.Authorization.Permissions;
 using Fzrain.Authorization.Roles;
+using Fzrain.Runtime.Session;
 using Microsoft.AspNet.Identity;
 namespace Fzrain.Authorization.Users
 {
@@ -43,7 +44,8 @@ namespace Fzrain.Authorization.Users
             _userLoginRepository = userLoginRepository;
             _roleRepository = roleRepository;
             _unitOfWorkManager = unitOfWorkManager;
-          
+         
+
             _permissionSettingRepository = permissionSettingRepository;
         }
 
@@ -219,6 +221,7 @@ namespace Fzrain.Authorization.Users
 
         public virtual async   Task<IList<string>> GetRolesAsync(User user)
         {
+         //  var roleIds= _dbContext.Database.SqlQuery<int>("select Role_Id from User_R_Role where User_Id='" + user.Id + "'");
             return (await _userRepository.GetAsync(user.Id)).Roles.Select(r => r.Name).ToList();
         }
 
