@@ -8,6 +8,7 @@ using Fzrain.Web.Models.Account;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
+
 namespace Fzrain.Web.Controllers
 {
     public class AccountController : FzrainControllerBase
@@ -75,6 +76,13 @@ namespace Fzrain.Web.Controllers
             }
 
             return Json(new MvcAjaxResponse { TargetUrl = returnUrl });
+        }
+        [AllowAnonymous]
+        [HttpGet]
+        public async  Task<ActionResult> ConfirmEmail(long userId, string conformCode)
+        {          
+            IdentityResult result =await   _userManager.ConfirmEmailAsync(userId,conformCode);
+            return View(result);
         }
 
         public ActionResult Logout()

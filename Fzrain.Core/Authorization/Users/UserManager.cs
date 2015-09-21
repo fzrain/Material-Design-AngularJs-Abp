@@ -20,15 +20,18 @@ using Fzrain.Authorization.Permissions;
 using Fzrain.Authorization.Roles;
 using Fzrain.Configuration;
 using Fzrain.MultiTenancy;
+using Fzrain.Service;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security.DataProtection;
 
 namespace Fzrain.Authorization.Users
 {
     /// <summary>
     /// Extends <see cref="UserManager{TUser,TKey}"/> of ASP.NET Identity Framework.
     /// </summary>
-    public  class UserManager : UserManager<User, long>, ITransientDependency
-      
+    public  class UserManager : UserManager<User, long>, ISingletonDependency
+
     {
         private IUserPermissionStore UserPermissionStore
         {
@@ -81,6 +84,10 @@ namespace Fzrain.Authorization.Users
             _userManagementConfig = userManagementConfig;
             _iocResolver = iocResolver;
             LocalizationManager = NullLocalizationManager.Instance;
+            EmailService = new EmailService();
+            var provider = new DpapiDataProtectionProvider();
+            UserTokenProvider = new DataProtectorTokenProvider<User, long>(
+                provider.Create("EmailConfirmation")) {TokenLifespan =TimeSpan.FromHours(6)};
         }
 
         public override async Task<IdentityResult> CreateAsync(User user)

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Mail;
-using System.Text;
 using System.Threading.Tasks;
-using Abp.UI;
 using Microsoft.AspNet.Identity;
 using SendGrid;
 
@@ -26,16 +21,9 @@ namespace Fzrain.Service
             // Create a Web transport for sending email.
             var transportWeb = new Web(credentials);
             // Send the email.
-            try
-            {
-                await transportWeb.DeliverAsync(myMessage);
-            }
-            catch (Exception ex)
-            {
+            await transportWeb.DeliverAsync(myMessage);
 
-                throw new UserFriendlyException(ex.ToString());
-            }
 
-        }     
+        }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Policy;
+using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Abp.Authorization;
@@ -11,11 +12,8 @@ using Abp.Linq.Extensions;
 using Abp.UI;
 using Fzrain.Authorization.Roles;
 using Fzrain.Authorization.Users;
-using Fzrain.Service;
 using Fzrain.Users.Dto;
 using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security.DataProtection;
 
 namespace Fzrain.Users
 {
@@ -76,10 +74,9 @@ namespace Fzrain.Users
 
         public async Task AddOrUpdate(UserEditInput userEditInput)
         {
-            userManager.EmailService = new EmailService();
-            var provider = new DpapiDataProtectionProvider();         
-            userManager.UserTokenProvider = new DataProtectorTokenProvider<User,long>(
-                provider.Create("EmailConfirmation"));
+           // userManager.EmailService = new EmailService();
+           // var provider = new DpapiDataProtectionProvider();         
+          //  userManager.UserTokenProvider = new DataProtectorTokenProvider<User,long>(provider.Create("EmailConfirmation"));
             var userId = userEditInput.Id;         
             var user = userId.HasValue ? await userManager.GetUserByIdAsync((long) userId) : new User();
               await userManager.SetRoles(user, userEditInput.Roles);
@@ -99,12 +96,7 @@ namespace Fzrain.Users
                 }
                
             }
-            if (userEditInput.SendActivationEmail)
-            {
-             var emailConfirmToken=  await  userManager.GenerateEmailConfirmationTokenAsync((long)userId);
-             
-                await  userManager.SendEmailAsync((long) userId, "账号激活", emailConfirmToken);
-            }
+          
             user.Name = userEditInput.Name;
             user.UserName = userEditInput.UserName;
             user.MobilePhone = userEditInput.MobilePhone;         
@@ -118,7 +110,17 @@ namespace Fzrain.Users
             else
             {
                 result = await userManager.CreateAsync(user,userEditInput.Password);
-            }          
+            }
+            if (userEditInput.SendActivationEmail)
+            {
+                
+                // ReSharper disable once PossibleInvalidOperationException
+                var emailConfirmToken = await userManager.GenerateEmailConfirmationTokenAsync((long)userId);
+                
+                string callbackUrl = "http://localhost:6234/Account/ConfirmEmail?userId="+userId+"&conformCode="+ HttpUtility.UrlEncode(emailConfirmToken);
+                await userManager.SendEmailAsync((long)userId, "账号激活", "确定激活账号 <a href=\"" + callbackUrl + "\">确认</a>");
+           //   var r= await userManager.ConfirmEmailAsync((long) userId, emailConfirmToken);
+            }
             if (!result.Succeeded)
             {
                 throw new UserFriendlyException(result.Errors.FirstOrDefault());

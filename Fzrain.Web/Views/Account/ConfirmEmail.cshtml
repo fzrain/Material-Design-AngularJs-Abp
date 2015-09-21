@@ -1,0 +1,29 @@
+﻿@model Microsoft.AspNet.Identity.IdentityResult
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>激活确认</title>
+</head>
+<body>
+<div>
+    @if (Model.Succeeded)
+    {
+     <p>激活成功！</p>
+    }
+    else
+    {
+        <p>激活失败！</p>
+        foreach (var error in Model.Errors)
+        {
+          <p>@error</p>
+        }
+    }
+</div>
+</body>
+</html>
