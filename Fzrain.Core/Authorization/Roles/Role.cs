@@ -3,7 +3,6 @@ using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using Fzrain.Authorization.Permissions;
 using Fzrain.Authorization.Users;
-using Fzrain.MultiTenancy;
 using Microsoft.AspNet.Identity;
 
 namespace Fzrain.Authorization.Roles
@@ -18,7 +17,7 @@ namespace Fzrain.Authorization.Roles
         public virtual bool IsStatic { get; set; }
         public virtual bool IsDefault { get; set; }
         public virtual ICollection<PermissionSetting> Permissions { get; set; } = new List<PermissionSetting>();
-        public virtual ICollection<User> Users { get; set; } = new List<User>();
+      //  public virtual ICollection<User> Users { get; set; } = new List<User>();
 
 
     }

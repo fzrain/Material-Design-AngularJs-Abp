@@ -142,6 +142,7 @@
     <Compile Include="Authorization\Users\UserManagementConfig.cs" />
     <Compile Include="Authorization\Users\UserManager.cs" />
     <Compile Include="Authorization\Users\UserManagerExtensions.cs" />
+    <Compile Include="Authorization\Users\UserRole.cs" />
     <Compile Include="Authorization\Users\UserStore.cs" />
     <Compile Include="Authorization\Users\DefaultExternalAuthenticationSource.cs" />
     <Compile Include="Authorization\Users\IExternalAuthenticationSource.cs" />

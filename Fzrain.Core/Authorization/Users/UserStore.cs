@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Threading.Tasks;
 using Abp.Dependency;
@@ -7,14 +6,13 @@ using Abp.Domain.Repositories;
 using Abp.Domain.Uow;
 using Fzrain.Authorization.Permissions;
 using Fzrain.Authorization.Roles;
-using Fzrain.Runtime.Session;
 using Microsoft.AspNet.Identity;
 namespace Fzrain.Authorization.Users
 {
     /// <summary>
     /// Implements 'User Store' of ASP.NET Identity Framework.
     /// </summary>
-    public  class UserStore :
+    public class UserStore :
         IUserPasswordStore<User, long>,
         IUserEmailStore<User, long>,
         IUserLoginStore<User, long>,
@@ -22,29 +20,31 @@ namespace Fzrain.Authorization.Users
         IQueryableUserStore<User, long>,
         IUserPermissionStore,
         ITransientDependency
-       
+
     {
         private readonly IRepository<User, long> _userRepository;
         private readonly IRepository<UserLogin, long> _userLoginRepository;
+        private readonly IRepository<UserRole, long> _userRoleRepository;
         private readonly IRepository<Role> _roleRepository;
-        private readonly IRepository<PermissionSetting, long> _permissionSettingRepository;      
+        private readonly IRepository<PermissionSetting, long> _permissionSettingRepository;
         private readonly IUnitOfWorkManager _unitOfWorkManager;
-       
+
         /// <summary>
         /// Constructor.
         /// </summary>
         public UserStore(
-            IRepository<User,long> userRepository,
-            IRepository<UserLogin,long> userLoginRepository,
+            IRepository<User, long> userRepository,
+            IRepository<UserLogin, long> userLoginRepository,
             IRepository<Role> roleRepository,
-            IRepository<PermissionSetting,long> permissionSettingRepository,
-            IUnitOfWorkManager unitOfWorkManager)
+            IRepository<PermissionSetting, long> permissionSettingRepository,
+            IUnitOfWorkManager unitOfWorkManager, IRepository<UserRole, long> userRoleRepository)
         {
             _userRepository = userRepository;
             _userLoginRepository = userLoginRepository;
             _roleRepository = roleRepository;
             _unitOfWorkManager = unitOfWorkManager;
-         
+            _userRoleRepository = userRoleRepository;
+
 
             _permissionSettingRepository = permissionSettingRepository;
         }
@@ -83,14 +83,14 @@ namespace Fzrain.Authorization.Users
                 );
         }
 
-     
+
         public virtual async Task<User> FindByNameOrEmailAsync(string userNameOrEmailAddress)
         {
             return await _userRepository.FirstOrDefaultAsync(
                 user => (user.UserName == userNameOrEmailAddress || user.EmailAddress == userNameOrEmailAddress)
                 );
         }
-      
+
         [UnitOfWork]
         public virtual async Task<User> FindByNameOrEmailAsync(int? tenantId, string userNameOrEmailAddress)
         {
@@ -197,9 +197,9 @@ namespace Fzrain.Authorization.Users
         public virtual Task<User> FindAsync(int? tenantId, UserLoginInfo login)
         {
             var query = from userLogin in _userLoginRepository.GetAll()
-                join user in _userRepository.GetAll() on userLogin.UserId equals user.Id
-                where user.TenantId == tenantId && userLogin.LoginProvider == login.LoginProvider && userLogin.ProviderKey == login.ProviderKey
-                select user;
+                        join user in _userRepository.GetAll() on userLogin.UserId equals user.Id
+                        where user.TenantId == tenantId && userLogin.LoginProvider == login.LoginProvider && userLogin.ProviderKey == login.ProviderKey
+                        select user;
 
             return Task.FromResult(query.FirstOrDefault());
         }
@@ -207,28 +207,46 @@ namespace Fzrain.Authorization.Users
         public virtual async Task AddToRoleAsync(User user, string roleName)
         {
             var role = await _roleRepository.SingleAsync(r => r.Name == roleName);
-            user.Roles.Add(role);
-            await _userRepository.UpdateAsync(user);        
+            await _userRoleRepository.InsertAsync(new UserRole
+            {
+                UserId = user.Id,
+                RoleId = role.Id,
+            });
+            // user.Roles.Add(role);
+            //  await _userRepository.UpdateAsync(user);        
         }
 
         public virtual async Task RemoveFromRoleAsync(User user, string roleName)
         {
             var role = await _roleRepository.SingleAsync(r => r.Name == roleName);
-            user.Roles.Remove(role);
-            await _userRepository.UpdateAsync(user);
-          
+            var userRole = await _userRoleRepository.FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.RoleId == role.Id);
+            if (userRole == null)
+            {
+                return;
+            }
+
+            await _userRoleRepository.DeleteAsync(userRole);
+            //user.Roles.Remove(role);
+            //await _userRepository.UpdateAsync(user);
+
         }
 
-        public virtual async   Task<IList<string>> GetRolesAsync(User user)
+        public virtual Task<IList<string>> GetRolesAsync(User user)
         {
-         //  var roleIds= _dbContext.Database.SqlQuery<int>("select Role_Id from User_R_Role where User_Id='" + user.Id + "'");
-            return (await _userRepository.GetAsync(user.Id)).Roles.Select(r => r.Name).ToList();
+            //  var roleIds= _dbContext.Database.SqlQuery<int>("select Role_Id from User_R_Role where User_Id='" + user.Id + "'");
+            // return (await _userRepository.GetAsync(user.Id)).Roles.Select(r => r.Name).ToList();
+            var roleNames = _userRoleRepository.Query(userRoles => (from userRole in userRoles
+                             join role in _roleRepository.GetAll() on userRole.RoleId equals role.Id
+                              where userRole.UserId == user.Id
+                               select role.Name).ToList());
+
+            return Task.FromResult<IList<string>>(roleNames);
         }
 
         public virtual async Task<bool> IsInRoleAsync(User user, string roleName)
         {
             var role = await _roleRepository.SingleAsync(r => r.Name == roleName);
-            return user.Roles.Contains(role);
+            return await _userRoleRepository.FirstOrDefaultAsync(ur => ur.UserId == user.Id && ur.RoleId == role.Id) != null;
         }
 
         public virtual IQueryable<User> Users => _userRepository.GetAll();

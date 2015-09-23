@@ -31,7 +31,7 @@ namespace Fzrain.Authorization.Users
         public virtual DateTime? LastLoginTime { get; set; }
         public virtual bool IsActive { get; set; }
 
-        public virtual ICollection<Role> Roles { get; set; } = new List<Role>();
+        public virtual ICollection<UserRole> Roles { get; set; } = new List<UserRole>();
         public virtual ICollection<PermissionSetting> Permissions { get; set; } = new List<PermissionSetting>();
         public virtual ICollection<UserLogin> Logins { get; set; } = new List<UserLogin>();
         public virtual ICollection<Setting> Settings { get; set; } = new List<Setting>();

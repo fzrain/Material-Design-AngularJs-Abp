@@ -2,8 +2,6 @@
 using System.Reflection;
 using Abp.EntityFramework;
 using Abp.Modules;
-using Fzrain.Authorization.Roles;
-using Fzrain.Authorization.Users;
 using Fzrain.EntityFramework;
 
 namespace Fzrain

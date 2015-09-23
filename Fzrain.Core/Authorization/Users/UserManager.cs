@@ -18,7 +18,6 @@ using Abp.Runtime.Session;
 using Abp.Timing;
 using Fzrain.Authorization.Permissions;
 using Fzrain.Authorization.Roles;
-using Fzrain.Configuration;
 using Fzrain.MultiTenancy;
 using Fzrain.Service;
 using Microsoft.AspNet.Identity;
@@ -27,9 +26,7 @@ using Microsoft.Owin.Security.DataProtection;
 
 namespace Fzrain.Authorization.Users
 {
-    /// <summary>
-    /// Extends <see cref="UserManager{TUser,TKey}"/> of ASP.NET Identity Framework.
-    /// </summary>
+  
     public  class UserManager : UserManager<User, long>, ISingletonDependency
 
     {
@@ -413,10 +410,10 @@ namespace Fzrain.Authorization.Users
                             user.AuthenticationSource = source.Object.Name;
                             user.Password = new PasswordHasher().HashPassword(Guid.NewGuid().ToString("N").Left(16)); //Setting a random password since it will not be used
 
-                            user.Roles = new List<Role>();
+                            user.Roles = new List<UserRole>();
                             foreach (var defaultRole in RoleManager.Roles.Where(r => r.TenantId == tenantId && r.IsDefault).ToList())
                             {
-                                user.Roles.Add(defaultRole);
+                                user.Roles.Add(new UserRole {RoleId=defaultRole.Id});
                             }
 
                             await Store.CreateAsync(user);
@@ -530,7 +527,7 @@ namespace Fzrain.Authorization.Users
             //Remove from removed roles
             foreach (var userRole in user.Roles.ToList())
             {
-                var role = await RoleManager.FindByIdAsync(userRole.Id);
+                var role = await RoleManager.FindByIdAsync(userRole.RoleId);
                 if (roleNames.All(roleName => role.Name != roleName))
                 {
                     var result = await RemoveFromRoleAsync(user.Id, role.Name);
@@ -558,15 +555,15 @@ namespace Fzrain.Authorization.Users
             return IdentityResult.Success;
         }
 
-        private async Task<bool> IsEmailConfirmationRequiredForLoginAsync(int? tenantId)
-        {
-            if (tenantId.HasValue)
-            {
-                return await SettingManager.GetSettingValueForTenantAsync<bool>(SettingNames.IsEmailConfirmationRequiredForLogin , tenantId.Value);
-            }
+        //private async Task<bool> IsEmailConfirmationRequiredForLoginAsync(int? tenantId)
+        //{
+        //    if (tenantId.HasValue)
+        //    {
+        //        return await SettingManager.GetSettingValueForTenantAsync<bool>(SettingNames.IsEmailConfirmationRequiredForLogin , tenantId.Value);
+        //    }
 
-            return await SettingManager.GetSettingValueForApplicationAsync<bool>(SettingNames.IsEmailConfirmationRequiredForLogin);
-        }
+        //    return await SettingManager.GetSettingValueForApplicationAsync<bool>(SettingNames.IsEmailConfirmationRequiredForLogin);
+        //}
 
         private async Task<Tenant> GetDefaultTenantAsync()
         {

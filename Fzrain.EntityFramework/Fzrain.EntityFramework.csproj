@@ -107,6 +107,7 @@
     <Compile Include="EntityFramework\Mapping\TenantMap.cs" />
     <Compile Include="EntityFramework\Mapping\UserLoginMap.cs" />
     <Compile Include="EntityFramework\Mapping\UserMap.cs" />
+    <Compile Include="EntityFramework\Mapping\UserRoleMap.cs" />
     <Compile Include="EntityFramework\Repositories\FzrainRepositoryBase.cs" />
     <Compile Include="Migrations\201508070946342_InitialCreate.cs" />
     <Compile Include="Migrations\201508070946342_InitialCreate.Designer.cs">
@@ -119,6 +120,10 @@
     <Compile Include="Migrations\201509020753215_Update_UserRole_Fields.cs" />
     <Compile Include="Migrations\201509020753215_Update_UserRole_Fields.Designer.cs">
       <DependentUpon>201509020753215_Update_UserRole_Fields.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201509230933345_Update_Table_Struct.cs" />
+    <Compile Include="Migrations\201509230933345_Update_Table_Struct.Designer.cs">
+      <DependentUpon>201509230933345_Update_Table_Struct.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="FzrainDataModule.cs" />
@@ -148,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201509020753215_Update_UserRole_Fields.resx">
       <DependentUpon>201509020753215_Update_UserRole_Fields.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201509230933345_Update_Table_Struct.resx">
+      <DependentUpon>201509230933345_Update_Table_Struct.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -73,10 +73,7 @@ namespace Fzrain.Users
         }
 
         public async Task AddOrUpdate(UserEditInput userEditInput)
-        {
-           // userManager.EmailService = new EmailService();
-           // var provider = new DpapiDataProtectionProvider();         
-          //  userManager.UserTokenProvider = new DataProtectorTokenProvider<User,long>(provider.Create("EmailConfirmation"));
+        {           
             var userId = userEditInput.Id;         
             var user = userId.HasValue ? await userManager.GetUserByIdAsync((long) userId) : new User();
               await userManager.SetRoles(user, userEditInput.Roles);
@@ -95,8 +92,7 @@ namespace Fzrain.Users
                     throw new UserFriendlyException("2次密码不匹配！");
                 }
                
-            }
-          
+            }         
             user.Name = userEditInput.Name;
             user.UserName = userEditInput.UserName;
             user.MobilePhone = userEditInput.MobilePhone;         
@@ -119,7 +115,7 @@ namespace Fzrain.Users
                 
                 string callbackUrl = "http://localhost:6234/Account/ConfirmEmail?userId="+userId+"&conformCode="+ HttpUtility.UrlEncode(emailConfirmToken);
                 await userManager.SendEmailAsync((long)userId, "账号激活", "确定激活账号 <a href=\"" + callbackUrl + "\">确认</a>");
-           //   var r= await userManager.ConfirmEmailAsync((long) userId, emailConfirmToken);
+      
             }
             if (!result.Succeeded)
             {

@@ -18,7 +18,7 @@ namespace Fzrain.EntityFramework.Mapping
             Property(u => u.EmailConfirmationCode).HasMaxLength(128);
             Property(u => u.PasswordResetCode).HasMaxLength(128);
            // HasOptional(u => u.Tenant).WithOptionalDependent().Map(c=>c.MapKey("TenantId"));
-            HasMany(u => u.Roles).WithMany(r => r.Users).Map(c => c.ToTable("User_R_Role"));
+            HasMany(u => u.Roles).WithOptional().HasForeignKey(u => u.UserId);
             HasMany(u => u.Logins).WithRequired().HasForeignKey(l => l.UserId);
             HasMany(u => u.Permissions).WithOptional().HasForeignKey(p => p.UserId);
             HasMany(u => u.Settings).WithOptional().HasForeignKey(s => s.UserId);
