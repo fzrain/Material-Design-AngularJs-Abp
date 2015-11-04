@@ -34,7 +34,7 @@ namespace Fzrain.Users
         }
         #endregion
 
-        [AbpAuthorize("Administration.UserManger.Read")]
+        [AbpAuthorize("Administration.UserManager.Read")]
         public PagedResultOutput<UserListDto> GetUsers(UserQueryInput input)
         {
             return new PagedResultOutput<UserListDto>
@@ -44,7 +44,7 @@ namespace Fzrain.Users
 
             };
         }
-
+        [AbpAuthorize("Administration.UserManager.Edit")]
         public async Task<UserEditOutput> GetUserForEdit(NullableIdInput<long> input)
         {
             User user = new User();
@@ -71,7 +71,7 @@ namespace Fzrain.Users
             dto.CanChangeUserName = dto.UserName != "admin";
             return dto;
         }
-
+        [AbpAuthorize("Administration.UserManager.Edit", "Administration.UserManager.Create")]
         public async Task AddOrUpdate(UserEditInput userEditInput)
         {           
             var userId = userEditInput.Id;         
@@ -122,13 +122,13 @@ namespace Fzrain.Users
                 throw new UserFriendlyException(result.Errors.FirstOrDefault());
             }
         }
-
+        [AbpAuthorize("Administration.UserManager.Delete")]       
         public async Task Delete(IdInput<long> input)
         {
             var user = await userManager.GetUserByIdAsync(input.Id);
             await userManager.DeleteAsync(user);
         }
-
+        [AbpAuthorize("Administration.UserManager.Permission")]
         public async Task<dynamic> GetUserPermissions(IdInput<long> input)
         {
             var user = await userManager.GetUserByIdAsync(input.Id);
@@ -147,14 +147,14 @@ namespace Fzrain.Users
             }
             return list;
         }
-
+        [AbpAuthorize("Administration.UserManager.Permission")]
         public async Task UpdateUserPermission(UserPermissionInput input)
         {
             var user = await userManager.GetUserByIdAsync(input.Id);
             var permissions = permissionManager.GetAllPermissions().Where(p => input.Permissions.Contains(p.Name));
             await userManager.SetGrantedPermissionsAsync(user, permissions);
         }
-
+        [AbpAuthorize("Administration.UserManager.Permission")]
         public async  Task ResetUserSpecificPermissions(IdInput<long> input)
         {
             var user =await userManager.GetUserByIdAsync(input.Id);

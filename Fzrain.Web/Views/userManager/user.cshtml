@@ -10,7 +10,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                        <a data-toggle="modal" href="" data-ng-click="vm.add()" data-target="#modalUserEdit">新增用户</a>
+                        <a data-toggle="modal" ng-show="abp.auth.hasPermission('Administration.UserManager.Create')" href="" data-ng-click="vm.add()" data-target="#modalUserEdit">新增用户</a>
                     </li>
                     <li>
                         <a href="">导出excel</a>
