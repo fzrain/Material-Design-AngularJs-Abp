@@ -54,7 +54,7 @@
                             "parent": data[i].parentName == "无" ? "#" : data[i].parentName,
                             "text": data[i].displayName,
                             "state": {
-                                "opened": true,
+                                "opened": (data[i].name.split(".")).length <= 1,
                                 "selected": data[i].isGrantedByDefault
                             }
                         }

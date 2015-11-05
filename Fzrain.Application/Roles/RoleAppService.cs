@@ -22,7 +22,7 @@ namespace Fzrain.Roles
             this.roleManager = roleManager;
             this.permissionManager = permissionManager;
         }
-
+        [AbpAuthorize("Administration.Role.Read")]
         public PagedResultOutput<RoleDto> GetRoles(RoleQueryInput input)
         {
             return new PagedResultOutput<RoleDto>
@@ -32,7 +32,7 @@ namespace Fzrain.Roles
             };
         }
 
-
+        [AbpAuthorize("Administration.Role.Create", "Administration.Role.Edit")]
         public async Task AddOrUpdate(EditRoleDto roleDto)
         {
             Role role = new Role();         
@@ -49,7 +49,7 @@ namespace Fzrain.Roles
             else                   
                 await roleManager.CreateAsync(role);
         }
-
+        [AbpAuthorize("Administration.Role.Edit")]
         public async Task<EditRoleDto> GetById(NullableIdInput input)
         {
             Role role = new Role();
@@ -69,7 +69,7 @@ namespace Fzrain.Roles
             roleEditDto.Permissions = permissionInfos;
             return roleEditDto;
         }
-
+        [AbpAuthorize("Administration.Role.Delete")]
         public async Task Delete(IdInput input)
         {
            var role =await roleManager.GetRoleByIdAsync(input.Id);

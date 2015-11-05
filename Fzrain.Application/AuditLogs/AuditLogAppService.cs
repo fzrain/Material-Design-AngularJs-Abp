@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
+using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
@@ -19,7 +20,7 @@ namespace Fzrain.AuditLogs
         {
             this.auditRepository = auditRepository;
         }
-
+        [AbpAuthorize("Administration.AuditLog.Read")]
         public PagedResultOutput<AuditLogDto> GetAuditLogs(GetAuditLogInput input)
         {
             var auditLogCount = auditRepository.Count();
@@ -30,7 +31,7 @@ namespace Fzrain.AuditLogs
                 TotalCount = auditLogCount,
             };
         }
-
+        [AbpAuthorize("Administration.AuditLog.Detail")]
         public async Task<AuditLogDto> GetDetail(IdInput<long> input)
         {
             var auditLog= await auditRepository.GetAsync(input.Id);

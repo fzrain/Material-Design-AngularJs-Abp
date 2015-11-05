@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
+using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
@@ -21,21 +22,23 @@ namespace Fzrain.Permissions
         {
             this.permissionRepository = permissionRepository;
         }
-
+         [AbpAuthorize("Administration.Permission.Create", "Administration.Permission.Edit")]
         public async Task AddOrUpdate(PermissionDto permission)
         {
             await permissionRepository.InsertOrUpdateAsync(permission.MapTo<PermissionInfo>());
         }
-
+         [AbpAuthorize("Administration.Permission.Edit")]
         public async  Task<PermissionDto> GetById(IdInput input)
         {
             var permission= await  permissionRepository.GetAsync(input.Id);
             return permission.MapTo<PermissionDto>();
         }
+        [AbpAuthorize("Administration.Permission.Delete")]
         public async Task Delete(IdInput input)
         {
             await permissionRepository.DeleteAsync(input.Id);
         }
+        [AbpAuthorize("Administration.Permission.Read")]
         public async Task<PagedResultOutput<PermissionDto>> GetPermissions(PermissionQueryInput input)
         {
             return new PagedResultOutput<PermissionDto>
