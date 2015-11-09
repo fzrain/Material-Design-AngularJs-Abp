@@ -2,6 +2,7 @@
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using Fzrain.Users.Dto;
+using Microsoft.AspNet.Identity;
 
 namespace Fzrain.Users
 {
@@ -14,5 +15,6 @@ namespace Fzrain.Users
         Task<dynamic> GetUserPermissions(IdInput<long> input);
         Task UpdateUserPermission(UserPermissionInput input);
         Task ResetUserSpecificPermissions(IdInput<long> input);
+        Task<IdentityResult> ChangePassword(ChangePasswordInput model);
     }
 }

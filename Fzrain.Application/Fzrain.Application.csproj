@@ -110,6 +110,7 @@
     <Compile Include="Roles\Dto\RoleDto.cs" />
     <Compile Include="Roles\IRoleAppService.cs" />
     <Compile Include="Roles\RoleAppService.cs" />
+    <Compile Include="Users\Dto\ChangePasswordInput.cs" />
     <Compile Include="Users\Dto\UserEditOutput.cs" />
     <Compile Include="Users\Dto\UserEditInput.cs" />
     <Compile Include="Users\Dto\UserListDto.cs" />

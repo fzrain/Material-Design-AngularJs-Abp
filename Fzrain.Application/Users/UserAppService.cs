@@ -158,5 +158,10 @@ namespace Fzrain.Users
             var user =await userManager.GetUserByIdAsync(input.Id);
             await userManager.ResetAllPermissionsAsync(user);         
         }
+
+        public async Task<IdentityResult> ChangePassword(ChangePasswordInput input)
+        {
+           return  await userManager.ChangePasswordAsync((long)AbpSession.UserId, input.OldPassword, input.NewPassword);
+        }
     }
 }

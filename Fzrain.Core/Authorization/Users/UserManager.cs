@@ -85,6 +85,16 @@ namespace Fzrain.Authorization.Users
             var provider = new DpapiDataProtectionProvider();
             UserTokenProvider = new DataProtectorTokenProvider<User, long>(
                 provider.Create("EmailConfirmation")) {TokenLifespan =TimeSpan.FromHours(6)};
+            UserValidator = new UserValidator<User, long>(this)
+            {
+                AllowOnlyAlphanumericUserNames =true,
+                RequireUniqueEmail =true
+            };
+            PasswordValidator = new PasswordValidator
+            {
+                RequiredLength=6
+               
+            };
         }
 
         public override async Task<IdentityResult> CreateAsync(User user)

@@ -16,10 +16,10 @@ namespace Fzrain.Authorization
             this.permissionRepository = permissionRepository;
         }
 
-        private  IEnumerable<PermissionInfo> permissionInfos=> permissionRepository.GetAllList();
+        private  IEnumerable<PermissionInfo> PermissionInfos=> permissionRepository.GetAllList();
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
-            var rootPermission = permissionInfos.Where(p => p.ParentName == "无").First();
+            var rootPermission = PermissionInfos.Where(p => p.ParentName == "无").First();
             var permission = context.CreatePermission(rootPermission.Name, new FixedLocalizableString(rootPermission.DisplayName), rootPermission.IsGrantedByDefault);
             AddPermissions(rootPermission, permission);
         }
@@ -30,7 +30,7 @@ namespace Fzrain.Authorization
         /// <param name="permission"></param>
         private void AddPermissions(PermissionInfo rootPermission, Permission permission)
         {
-            var permissions = permissionInfos.Where(p => p.ParentName == rootPermission.Name);
+            var permissions = PermissionInfos.Where(p => p.ParentName == rootPermission.Name);
             foreach (PermissionInfo permissionInfo in permissions)
             {
                 var childernPermission = permission.CreateChildPermission(permissionInfo.Name,

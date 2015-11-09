@@ -439,6 +439,7 @@
     <Content Include="Abp\Framework\styles\abp.less" />
     <Content Include="Abp\Framework\styles\abp.css.map" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ComfirmResetPassword.cshtml" />
     <None Include="Views\index.cshtml" />
     <Content Include="js\app.js" />
     <Content Include="js\config.js" />

@@ -10,6 +10,11 @@
         vm.permissionTab = function () {
             vm.activeTab = "permission";
         }
+        vm.permission = {
+            add: "abp.auth.hasPermission('Administration.Role.Create')",
+            edit: "abp.auth.hasPermission('Administration.Role.Edit')",
+            delete: "abp.auth.hasPermission('Administration.Role.Delete')"
+        };
         vm.tableBasic = new ngTableParams({
             page: 1,
             count: 10

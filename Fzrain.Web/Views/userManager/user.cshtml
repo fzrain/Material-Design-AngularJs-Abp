@@ -10,7 +10,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                        <a data-toggle="modal" ng-show="abp.auth.hasPermission('Administration.UserManager.Create')" href="" data-ng-click="vm.add()" data-target="#modalUserEdit">新增用户</a>
+                        <a data-toggle="modal" ng-show="vm.permission.add" href="" data-ng-click="vm.add()" data-target="#modalUserEdit">新增用户</a>
                     </li>
                     <li>
                         <a href="">导出excel</a>
@@ -33,9 +33,9 @@
                                 <i class="fa fa-cog"></i> 操作 <i class="caret"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li data-toggle="modal" data-target="#modalUserEdit" data-ng-click="vm.getUserDetail(user.id)"><a href="">修改</a></li>
+                                <li data-toggle="modal" ng-show="vm.permission.edit" data-target="#modalUserEdit" data-ng-click="vm.getUserDetail(user.id)"><a href="">修改</a></li>
                                 <li data-toggle="modal" href="" data-ng-click="vm.getUserPermission(user.id)" data-target="#modalUserPermissionEdit"><a href="">权限</a></li>
-                                <li data-ng-click="vm.delete(user.id)"><a href="">删除</a></li>
+                                <li ng-show="vm.permission.delete" data-ng-click="vm.delete(user.id)"><a href="">删除</a></li>
 
                             </ul>
                         </div>
