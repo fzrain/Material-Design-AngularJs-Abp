@@ -11,9 +11,9 @@
             vm.activeTab = "permission";
         }
         vm.permission = {
-            add: "abp.auth.hasPermission('Administration.Role.Create')",
-            edit: "abp.auth.hasPermission('Administration.Role.Edit')",
-            delete: "abp.auth.hasPermission('Administration.Role.Delete')"
+            add: abp.auth.hasPermission('Administration.Role.Create'),
+            edit: abp.auth.hasPermission('Administration.Role.Edit'),
+            delete: abp.auth.hasPermission('Administration.Role.Delete')
         };
         vm.tableBasic = new ngTableParams({
             page: 1,
@@ -62,7 +62,7 @@
                         "parent": data.permissions[i].parentName == "无" ? "#" : data.permissions[i].parentName,
                         "text": data.permissions[i].displayName,
                         "state": {
-                            "opened": true,
+                            "opened": (data.permissions[i].name.split(".")).length <= 1,
                             "selected": data.permissions[i].isGrantedByDefault
                         }
                     }

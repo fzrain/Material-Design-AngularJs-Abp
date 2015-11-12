@@ -10,7 +10,7 @@
 
                 <ul class="dropdown-menu dropdown-menu-right">
                     <li>
-                    <a data-toggle="modal" href="" data-ng-click="vm.add()" data-target="#modalPermissionEdit">新增权限</a>
+                        <a data-toggle="modal" ng-show="vm.permission.add" href="" data-ng-click="vm.add()" data-target="#modalPermissionEdit">新增权限</a>
                         </li> 
                     <li>
                         <a href="">导出excel</a>
@@ -34,8 +34,8 @@
                                 <i class="fa fa-cog"></i> 操作 <i class="caret"></i>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a href="" ng-click="vm.edit(permission.id)" data-toggle="modal" data-target="#modalPermissionEdit">修改</a></li>
-                                <li data-ng-click="vm.delete(permission.id)"><a href="">删除</a></li>
+                                <li><a href="" ng-show="vm.permission.edit" ng-click="vm.edit(permission.id)" data-toggle="modal" data-target="#modalPermissionEdit">修改</a></li>
+                                <li ng-show="vm.permission.delete" data-ng-click="vm.delete(permission.id)"><a href="">删除</a></li>
                             </ul>
                         </div>
                     </td>                  

@@ -4,9 +4,9 @@
         function (userService, ngTableParams, notifyService) {
             var vm = this;
             vm.permission = {
-                add: "abp.auth.hasPermission('Administration.UserManager.Create')",
-                edit: "abp.auth.hasPermission('Administration.UserManager.Edit')",
-                delete: "abp.auth.hasPermission('Administration.UserManager.Delete')"
+                add: abp.auth.hasPermission('Administration.UserManager.Create'),
+                edit: abp.auth.hasPermission('Administration.UserManager.Edit'),
+                delete: abp.auth.hasPermission('Administration.UserManager.Delete')
             };
             vm.activeTab = "user";
             vm.roleTab = function () {

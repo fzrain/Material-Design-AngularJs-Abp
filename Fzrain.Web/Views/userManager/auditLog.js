@@ -2,7 +2,10 @@
     materialAdmin.controller('auditController', [
        'ngTableParams', 'abp.services.app.auditLog',
         function (ngTableParams, auditService) {
-            var vm = this;         
+            var vm = this;
+            vm.permission = {
+                detail: abp.auth.hasPermission('Administration.AuditLog.Detail')
+            };
             vm.tableBasic = new ngTableParams({
                 page: 1,
                 count: 10

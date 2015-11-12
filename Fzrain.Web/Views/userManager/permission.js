@@ -3,7 +3,11 @@
         'abp.services.app.permissionInfo', 'ngTableParams', 'notifyService',
         function (permissionService, ngTableParams, notifyService) {
             var vm = this;
-
+            vm.permission = {
+                add: abp.auth.hasPermission('Administration.Permission.Create'),
+                edit: abp.auth.hasPermission('Administration.Permission.Edit'),
+                delete: abp.auth.hasPermission('Administration.Permission.Delete')
+            };
             vm.tableBasic = new ngTableParams({
                 page: 1,
                 count: 10
