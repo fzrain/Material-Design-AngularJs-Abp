@@ -15,6 +15,6 @@ namespace Fzrain.Users
         Task<dynamic> GetUserPermissions(IdInput<long> input);
         Task UpdateUserPermission(UserPermissionInput input);
         Task ResetUserSpecificPermissions(IdInput<long> input);
-        Task<IdentityResult> ChangePassword(ChangePasswordInput model);
+        Task<IdentityResult> ChangePassword(ChangePasswordInput input);
     }
 }
