@@ -52,5 +52,4 @@
 * ASP.NET5(MVC6 EF7)
 * 更多的功能模块
 
-<br/>
-<form name="atool_alipay_img_form" style="padding-bottom: 0;border:none;" method="post" action="https://shenghuo.alipay.com/send/payment/fill.htm" target="_blank" accept-charset="GBK" onsubmit="document.charset='gbk';"><input type="hidden" value="250970574@qq.com" name="optEmail"><input type="hidden" value="20" name="payAmount"><input type="hidden" name="title" placeholder="付款说明" value=""><input type="image" value="支付宝收款" src="http://www.atool.org/res/alipay_1.png" name="pay"></form>
+<a href='https://shenghuo.alipay.com/send/payment/fill.htm?optEmail=250970574@qq.com&payAmount=20'> <img src='https://img.alipay.com/sys/personalprod/style/mc/btn-index.png' /> </a>
