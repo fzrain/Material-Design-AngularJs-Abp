@@ -1,6 +1,6 @@
 # 一套基于Abp(服务器端)+Material Admin(AngularJs客户端)的权限管理系统
 运行项目：
-* 使用VS2013（带Grunt Launcher插件）或VS2015（带Web Essentials插件）打开项目
+* 使用VS2013（带Grunt Launcher插件,还需要添加Microsoft.Net.Compilers的引用,否则C#6.0语法编译不过去）或VS2015（带Web Essentials插件）打开项目
 * 确保网络通畅还原package.json bower.json以及nuget引用的包
 * 数据库已提供，修改web.config的连接字符串指定对应的数据库实例即可
 * 登录名：admin 密码 111111
