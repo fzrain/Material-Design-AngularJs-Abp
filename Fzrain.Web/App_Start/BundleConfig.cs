@@ -12,13 +12,13 @@ namespace Fzrain.Web
             //~/Bundles/App/vendor/js
             bundles.Add(
                 new ScriptBundle("~/Bundles/App/abp/js")
-                    .Include(                      
-                        "~/Abp/Framework/scripts/abp.js",
-                        "~/Abp/Framework/scripts/libs/abp.jquery.js",
+                    .Include(
+                        "~/bower_components/abp-resources/Abp/Framework/scripts/abp.js",
+                        "~/bower_components/abp-resources/Abp/Framework/scripts/libs/abp.jquery.js",
                         //"~/Abp/Framework/scripts/libs/abp.toastr.js",
-                        "~/Abp/Framework/scripts/libs/abp.blockUI.js",
-                        "~/Abp/Framework/scripts/libs/abp.spin.js",
-                        "~/Abp/Framework/scripts/libs/angularjs/abp.ng.js"
+                        "~/bower_components/abp-resources/Abp/Framework/scripts/libs/abp.blockUI.js",
+                        "~/bower_components/abp-resources/Abp/Framework/scripts/libs/abp.spin.js",
+                        "~/js/abp.ng.js"
                     )
                 );
             //~/Bundles/App/Main/js

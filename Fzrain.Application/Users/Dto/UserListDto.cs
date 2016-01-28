@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
 using Fzrain.Authorization.Users;
-using Fzrain.Roles.Dto;
 
 namespace Fzrain.Users.Dto
 {

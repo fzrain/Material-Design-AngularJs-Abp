@@ -1,6 +1,5 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using Abp.Domain.Entities.Auditing;
 using Fzrain.Authorization.Roles;
 
 namespace Fzrain.Roles.Dto

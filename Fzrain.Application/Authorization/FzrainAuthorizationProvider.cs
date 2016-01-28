@@ -19,7 +19,7 @@ namespace Fzrain.Authorization
         private  IEnumerable<PermissionInfo> PermissionInfos=> permissionRepository.GetAllList();
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
-            var rootPermission = PermissionInfos.Where(p => p.ParentName == "无").First();
+            var rootPermission = PermissionInfos.First(p => p.ParentName == "无");
             var permission = context.CreatePermission(rootPermission.Name, new FixedLocalizableString(rootPermission.DisplayName), rootPermission.IsGrantedByDefault);
             AddPermissions(rootPermission, permission);
         }

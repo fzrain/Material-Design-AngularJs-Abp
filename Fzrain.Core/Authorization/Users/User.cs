@@ -4,9 +4,7 @@ using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using Abp.Extensions;
 using Fzrain.Authorization.Permissions;
-using Fzrain.Authorization.Roles;
 using Fzrain.Configuration;
-using Fzrain.MultiTenancy;
 using Microsoft.AspNet.Identity;
 
 namespace Fzrain.Authorization.Users

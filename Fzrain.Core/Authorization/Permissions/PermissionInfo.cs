@@ -1,6 +1,4 @@
-﻿
-using System.Collections.Generic;
-using Abp.Domain.Entities.Auditing;
+﻿using Abp.Domain.Entities.Auditing;
 using Fzrain.Authorization.Users;
 
 namespace Fzrain.Authorization.Permissions

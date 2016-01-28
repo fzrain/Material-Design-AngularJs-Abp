@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Domain.Entities.Auditing;
 
 namespace Fzrain.Authorization.Users

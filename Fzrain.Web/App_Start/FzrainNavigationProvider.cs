@@ -1,5 +1,4 @@
 ﻿using Abp.Application.Navigation;
-using Abp.Localization;
 
 namespace Fzrain.Web
 {
