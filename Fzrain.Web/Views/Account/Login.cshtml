@@ -9,6 +9,7 @@
     <!-- Vendor CSS -->
     <link href="~/bower_components/animate.css/animate.min.css" rel="stylesheet">
     <link href="~/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
+    <link href="~/bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet" />
     <!-- CSS -->
     <link href="~/css/app.css" rel="stylesheet" />
     
@@ -70,7 +71,7 @@
                 同意协议
             </label>
         </div>
-        <a href="" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
+        <a href="" id="registerButton" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
         <ul class="login-navigation">
             <li data-block="#l-login" class="bgm-green" data-ng-click="lctrl.register = 0; lctrl.login = 1">登录</li>
             <li data-block="#l-forget-password" class="bgm-orange" data-ng-click="lctrl.register = 0; lctrl.forgot = 1">忘记密码?</li>
@@ -85,7 +86,7 @@
                 <input type="text" class="form-control" placeholder="邮箱">
             </div>
         </div>
-        <a href="" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
+        <a href="" id="resetButton" onclick="haha()" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
         <ul class="login-navigation">
             <li data-block="#l-login" class="bgm-green" data-ng-click="lctrl.forgot = 0; lctrl.login = 1">登录</li>
             <li data-block="#l-register" class="bgm-red" data-ng-click="lctrl.forgot = 0; lctrl.register = 1">注册</li>
@@ -150,6 +151,7 @@
     <script src="~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <!-- Common Vendors -->
     <script src="~/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="~/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
     <script src="~/bower_components/Waves/dist/waves.min.js"></script>
     <script src="~/bower_components/angular-nouislider/src/nouislider.min.js"></script>
     <script src="~/bower_components/ng-table/dist/ng-table.min.js"></script>
@@ -174,21 +176,23 @@
          $(function () {
              $('#LoginButton').click(function (e) {
                  e.preventDefault();
-                 abp.ui.setBusy(
-                     $('#LoginArea'),
-                     abp.ajax({
-                         url: abp.appPath + 'Account/Login',
-                         type: 'POST',
-                         data: JSON.stringify({
-                             usernameOrEmailAddress: $('#EmailAddressInput').val(),
-                             password: $('#PasswordInput').val(),
-                             rememberMe: $('#RememberMeInput').is(':checked')
-                         })
-                     })
-                 );
+                 $('#LoginArea'),
+                      abp.ajax({
+                          url: abp.appPath + 'Account/Login',
+                          type: 'POST',
+                          data: JSON.stringify({
+                              usernameOrEmailAddress: $('#EmailAddressInput').val(),
+                              password: $('#PasswordInput').val(),
+                              rememberMe: $('#RememberMeInput').is(':checked')
+                          })
+                      })
              });
 
+           
          })
+         function haha() {
+             swal("你没有操作的权限!", "请联系管理员！", "success");
+         }
     </script>
 </body>
 </html>

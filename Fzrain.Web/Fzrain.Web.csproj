@@ -215,21 +215,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="404.html" />
-    <Content Include="Abp\Framework\scripts\abp.js" />
-    <Content Include="Abp\Framework\scripts\libs\abp.blockUI.js" />
-    <Content Include="Abp\Framework\scripts\libs\abp.jquery.js" />
-    <Content Include="Abp\Framework\scripts\libs\abp.jtable.js" />
-    <Content Include="Abp\Framework\scripts\libs\abp.spin.js" />
-    <Content Include="Abp\Framework\scripts\libs\abp.sweet-alert.js" />
-    <Content Include="Abp\Framework\scripts\libs\abp.toastr.js" />
-    <Content Include="Abp\Framework\scripts\libs\angularjs\abp.ng.js" />
-    <Content Include="Abp\Framework\scripts\libs\requirejs\plugins\service.js" />
-    <Content Include="Abp\Framework\scripts\utils\ie10fix.js" />
-    <Content Include="Abp\Framework\styles\abp.css" />
-    <Content Include="Abp\Framework\styles\abp.min.css" />
-    <Content Include="Abp\Framework\styles\abp.mixings.css" />
-    <Content Include="Abp\Framework\styles\abp.mixings.min.css" />
-    <Content Include="Abp\Framework\styles\utils\ie10fix.css" />
     <Content Include="css\app.css" />
     <Content Include="css\demo.css" />
     <Content Include="favicon.ico" />
@@ -405,7 +390,6 @@
     <Content Include="js\controllers\ui-bootstrap.js" />
     <Content Include="js\templates.js" />
     <Content Include="js\ui-bootstrap.js" />
-    <Content Include="Localization\Fzrain\Fzrain-zh-cn.xml" />
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="fonts\roboto\Roboto-Bold-webfont.eot" />
     <Content Include="fonts\roboto\Roboto-Bold-webfont.ttf" />
@@ -436,9 +420,6 @@
     <Content Include="less\inc\pricing-table.less" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ComfirmResetPassword.cshtml" />
-    <Content Include="Abp\Framework\styles\abp.mixings.less" />
-    <Content Include="Abp\Framework\styles\abp.less" />
-    <Content Include="Abp\Framework\styles\abp.css.map" />
     <None Include="Views\index.cshtml" />
     <Content Include="js\app.js" />
     <Content Include="js\config.js" />
@@ -454,8 +435,6 @@
     <Content Include="js\modules\template.js" />
     <Content Include="js\modules\ui.js" />
     <Content Include="js\services.js" />
-    <Content Include="Localization\Fzrain\Fzrain-tr.xml" />
-    <Content Include="Localization\Fzrain\Fzrain.xml" />
     <Content Include="log4net.config" />
     <Content Include="media\big_buck_bunny.jpg" />
     <Content Include="media\big_buck_bunny.mp4" />

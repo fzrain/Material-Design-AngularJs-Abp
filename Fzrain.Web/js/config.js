@@ -1,3 +1,5 @@
+/// <reference path="../bower_components/chosen/chosen.jquery.min.js" />
+/// <reference path="../bower_components/chosen/chosen.jquery.min.js" />
 /// <reference path="E:\ÆäËû\MyFramework\Fzrain\Fzrain.Web\vendors/bower_components/fullcalendar/dist/lang/zh-cn.js" />
 materialAdmin
 
@@ -96,7 +98,8 @@ materialAdmin
                              {
                                  name: 'vendors',
                                  files: [
-                                    'bower_components/autosize/dist/autosize.min.js',                                       'js/chosen.jquery.js',
+                                    'bower_components/autosize/dist/autosize.min.js',
+                                    'js/chosen.jquery.js',
                                     'bower_components/angular-chosen-localytics/chosen.js'
                                  ]
                              }

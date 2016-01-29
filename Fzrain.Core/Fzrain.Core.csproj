@@ -174,7 +174,12 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Localization\Source\Fzrain-pt-BR.xml" />
+    <Content Include="Localization\Source\Fzrain-tr.xml" />
+    <Content Include="Localization\Source\Fzrain-zh-CN.xml" />
+    <Content Include="Localization\Source\Fzrain.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

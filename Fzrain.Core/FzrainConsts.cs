@@ -2,6 +2,6 @@
 {
     public class FzrainConsts
     {
-        public const string LocalizationSourceName = "Fzrain-zh-cn";
+        public const string LocalizationSourceName = "Fzrain";
     }
 }
