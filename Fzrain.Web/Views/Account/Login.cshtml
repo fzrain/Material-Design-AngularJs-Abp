@@ -9,7 +9,6 @@
     <!-- Vendor CSS -->
     <link href="~/bower_components/animate.css/animate.min.css" rel="stylesheet">
     <link href="~/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css" rel="stylesheet">
-    <link href="~/bower_components/bootstrap-sweetalert/lib/sweet-alert.css" rel="stylesheet" />
     <!-- CSS -->
     <link href="~/css/app.css" rel="stylesheet" />
     
@@ -83,10 +82,10 @@
         <div class="input-group m-b-20">
             <span class="input-group-addon"><i class="zmdi zmdi-email"></i></span>
             <div class="fg-line">
-                <input type="text" class="form-control" placeholder="邮箱">
+                <input type="text" id="emailResetPassword" class="form-control" placeholder="邮箱">
             </div>
         </div>
-        <a href="" id="resetButton" onclick="haha()" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
+        <a href="" id="resetButton" onclick="sendEmail()" class="btn btn-login btn-danger btn-float"><i class="zmdi zmdi-arrow-forward"></i></a>
         <ul class="login-navigation">
             <li data-block="#l-login" class="bgm-green" data-ng-click="lctrl.forgot = 0; lctrl.login = 1">登录</li>
             <li data-block="#l-register" class="bgm-red" data-ng-click="lctrl.forgot = 0; lctrl.register = 1">注册</li>
@@ -151,7 +150,6 @@
     <script src="~/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <!-- Common Vendors -->
     <script src="~/bower_components/jquery.nicescroll/jquery.nicescroll.min.js"></script>
-    <script src="~/bower_components/bootstrap-sweetalert/lib/sweet-alert.min.js"></script>
     <script src="~/bower_components/Waves/dist/waves.min.js"></script>
     <script src="~/bower_components/angular-nouislider/src/nouislider.min.js"></script>
     <script src="~/bower_components/ng-table/dist/ng-table.min.js"></script>
@@ -176,22 +174,30 @@
          $(function () {
              $('#LoginButton').click(function (e) {
                  e.preventDefault();
-                 $('#LoginArea'),
-                      abp.ajax({
-                          url: abp.appPath + 'Account/Login',
-                          type: 'POST',
-                          data: JSON.stringify({
-                              usernameOrEmailAddress: $('#EmailAddressInput').val(),
-                              password: $('#PasswordInput').val(),
-                              rememberMe: $('#RememberMeInput').is(':checked')
-                          })
-                      })
+
+                 abp.ajax({
+                     url: abp.appPath + 'Account/Login',
+                     type: 'POST',
+                     data: JSON.stringify({
+                         usernameOrEmailAddress: $('#EmailAddressInput').val(),
+                         password: $('#PasswordInput').val(),
+                         rememberMe: $('#RememberMeInput').is(':checked')
+                     })
+                 });
              });
 
            
          })
-         function haha() {
-             swal("你没有操作的权限!", "请联系管理员！", "success");
+         function sendEmail() {
+             abp.ajax({
+                 url: abp.appPath + 'Account/ResetPassword',
+                 type: 'POST',
+                 data: JSON.stringify({
+                     email: $('#emailResetPassword').val()
+                  
+                 })
+             });
+             alert("邮件发送成功!");
          }
     </script>
 </body>

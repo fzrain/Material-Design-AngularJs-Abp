@@ -80,7 +80,6 @@ namespace Fzrain.Web.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet]
         public async Task<ActionResult> ConfirmEmail(long userId, string conformCode)
         {
             var result = await _userManager.ConfirmEmailAsync(userId, conformCode);
@@ -88,7 +87,6 @@ namespace Fzrain.Web.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet]
         public async Task<ActionResult> ResetPassword(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
