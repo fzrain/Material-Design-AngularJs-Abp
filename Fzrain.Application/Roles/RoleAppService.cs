@@ -6,6 +6,7 @@ using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Linq.Extensions;
+using Abp.Localization;
 using Fzrain.Authorization.Roles;
 using Fzrain.Roles.Dto;
 using Newtonsoft.Json.Linq;
@@ -16,11 +17,13 @@ namespace Fzrain.Roles
     {
         private readonly RoleManager roleManager;
         private readonly IPermissionManager permissionManager;
+        private readonly ILocalizationContext localizationContext;
 
-        public RoleAppService(RoleManager roleManager,  IPermissionManager permissionManager)
+        public RoleAppService(RoleManager roleManager,  IPermissionManager permissionManager, ILocalizationContext localizationContext)
         {
             this.roleManager = roleManager;
             this.permissionManager = permissionManager;
+            this.localizationContext = localizationContext;
         }
         [AbpAuthorize("Administration.Role.Read")]
         public PagedResultOutput<RoleDto> GetRoles(RoleQueryInput input)
@@ -62,7 +65,7 @@ namespace Fzrain.Roles
           
             var permissionInfos = permissionManager.GetAllPermissions().Select(p => new {
                 p.Name,
-                DisplayName = p.DisplayName.Localize(),
+                DisplayName = p.DisplayName.Localize(localizationContext),
                 ParentName = p.Parent == null ? "无" : p.Parent.Name,
                 IsGrantedByDefault = permissions.Contains(p) || p.IsGrantedByDefault
             });

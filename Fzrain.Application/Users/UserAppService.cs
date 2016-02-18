@@ -7,6 +7,7 @@ using Abp.Application.Services.Dto;
 using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Linq.Extensions;
+using Abp.Localization;
 using Abp.UI;
 using Fzrain.Authorization.Roles;
 using Fzrain.Authorization.Users;
@@ -21,14 +22,16 @@ namespace Fzrain.Users
         private readonly UserManager userManager;
         private readonly RoleManager roleManager;
         private readonly IPermissionManager permissionManager;
+        private readonly ILocalizationContext localizationContext;
         #endregion
 
         #region ctor
-        public UserAppService(UserManager userManager, RoleManager roleManager,  IPermissionManager permissionManager)
+        public UserAppService(UserManager userManager, RoleManager roleManager,  IPermissionManager permissionManager, ILocalizationContext localizationContext)
         {
             this.userManager = userManager;
             this.roleManager = roleManager;
             this.permissionManager = permissionManager;
+            this.localizationContext = localizationContext;
         }
         #endregion
 
@@ -137,7 +140,7 @@ namespace Fzrain.Users
                 var data = new
                 {
                     permission.Name,
-                    DisplayName = permission.DisplayName.Localize(),
+                    DisplayName = permission.DisplayName.Localize(localizationContext),
                     ParentName = permission.Parent == null ? "无" : permission.Parent.Name,
                     IsGrantedByDefault = permissions.Contains(permission) || permission.IsGrantedByDefault
                 };
