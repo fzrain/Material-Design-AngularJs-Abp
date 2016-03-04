@@ -15,9 +15,11 @@
             vm.userTab = function () {
                 vm.activeTab = "user";
             }
+         
             vm.tableBasic = new ngTableParams({
                 page: 1,
                 count: 10
+              
             }, {
                 total: 0,
                 getData: function ($defer, params) {

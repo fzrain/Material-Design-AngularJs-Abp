@@ -18970,7 +18970,15 @@ hr.fc-divider {
 .jstree-node {
     margin-top: 5px;
 }
-
+.jstree-proton > .jstree-wholerow-ul .jstree-hovered,
+.jstree-proton > .jstree-wholerow-ul .jstree-clicked {
+  color:rgb(94,94,94);
+  box-shadow: none;
+  border-radius: 0;
+}
+.jstree-proton .jstree-wholerow-hovered {
+  background: #fff;
+}
 table th, td {
     text-align: center;
 }
