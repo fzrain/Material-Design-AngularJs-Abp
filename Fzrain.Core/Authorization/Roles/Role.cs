@@ -12,11 +12,11 @@ namespace Fzrain.Authorization.Roles
     public class Role : FullAuditedEntity<int, User>, IRole<int>, IMayHaveTenant     
     {
              
-        public virtual int? TenantId { get; set; }     
-        public virtual string Name { get; set; }        
-        public virtual bool IsStatic { get; set; }
-        public virtual bool IsDefault { get; set; }
-        public virtual ICollection<PermissionSetting> Permissions { get; set; } = new List<PermissionSetting>();
+        public  int? TenantId { get; set; }     
+        public  string Name { get; set; }        
+        public  bool IsStatic { get; set; }
+        public  bool IsDefault { get; set; }
+        public  ICollection<PermissionSetting> Permissions { get; set; } = new List<PermissionSetting>();
       //  public virtual ICollection<User> Users { get; set; } = new List<User>();
 
 

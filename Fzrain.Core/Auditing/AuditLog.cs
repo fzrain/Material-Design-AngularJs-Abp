@@ -9,31 +9,31 @@ namespace Fzrain.Auditing
     public class AuditLog : Entity<long>, IMayHaveTenant
     {
            
-        public virtual int? TenantId { get; set; }
+        public  int? TenantId { get; set; }
 
-        public virtual long? UserId { get; set; }
-
-     
-        public virtual string ServiceName { get; set; }
+        public  long? UserId { get; set; }
 
      
-        public virtual string MethodName { get; set; }
+        public  string ServiceName { get; set; }
+
+     
+        public  string MethodName { get; set; }
         
-        public virtual string Parameters { get; set; }
+        public  string Parameters { get; set; }
 
       
-        public virtual DateTime ExecutionTime { get; set; }
+        public  DateTime ExecutionTime { get; set; }
 
-        public virtual int ExecutionDuration { get; set; }
+        public  int ExecutionDuration { get; set; }
 
      
-        public virtual string ClientIpAddress { get; set; }
+        public  string ClientIpAddress { get; set; }
 
-        public virtual string ClientName { get; set; }
+        public  string ClientName { get; set; }
 
-        public virtual string BrowserInfo { get; set; }   
+        public  string BrowserInfo { get; set; }   
       
-        public virtual string Exception { get; set; }
+        public  string Exception { get; set; }
         public static AuditLog CreateFromAuditInfo(AuditInfo auditInfo)
         {
             var exceptionMessage = auditInfo.Exception?.ToString();

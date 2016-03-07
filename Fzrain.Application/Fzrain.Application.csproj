@@ -99,6 +99,8 @@
     <Compile Include="AuditLogs\Dto\GetAuditLogInput.cs" />
     <Compile Include="AuditLogs\IAuditLogAppService.cs" />
     <Compile Include="Authorization\FzrainAuthorizationProvider.cs" />
+    <Compile Include="Common\BaseInputDto.cs" />
+    <Compile Include="Common\QueryableExtension.cs" />
     <Compile Include="FzrainApplicationModule.cs" />
     <Compile Include="FzrainAppServiceBase.cs" />
     <Compile Include="Permissions\Dto\PermissionDto.cs" />

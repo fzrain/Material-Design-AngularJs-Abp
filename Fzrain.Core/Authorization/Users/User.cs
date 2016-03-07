@@ -16,18 +16,18 @@ namespace Fzrain.Authorization.Users
     {
 
         public const string AdminUserName = "admin"; 
-        public virtual int? TenantId { get; set; }            
-        public virtual string AuthenticationSource { get; set; }     
-        public virtual string Name { get; set; }
+        public  int? TenantId { get; set; }            
+        public  string AuthenticationSource { get; set; }     
+        public  string Name { get; set; }
         public string  MobilePhone { get; set; } 
-        public virtual string UserName { get; set; }  
-        public virtual string Password { get; set; }
-        public virtual string EmailAddress { get; set; }
-        public virtual bool IsEmailConfirmed { get; set; }     
-        public virtual string EmailConfirmationCode { get; set; }    
-        public virtual string PasswordResetCode { get; set; }
-        public virtual DateTime? LastLoginTime { get; set; }
-        public virtual bool IsActive { get; set; }
+        public  string UserName { get; set; }  
+        public  string Password { get; set; }
+        public  string EmailAddress { get; set; }
+        public  bool IsEmailConfirmed { get; set; }     
+        public  string EmailConfirmationCode { get; set; }    
+        public  string PasswordResetCode { get; set; }
+        public  DateTime? LastLoginTime { get; set; }
+        public  bool IsActive { get; set; }
 
         public virtual ICollection<UserRole> Roles { get; set; } = new List<UserRole>();
         public virtual ICollection<PermissionSetting> Permissions { get; set; } = new List<PermissionSetting>();

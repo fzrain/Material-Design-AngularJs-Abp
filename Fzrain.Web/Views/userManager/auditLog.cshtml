@@ -9,14 +9,14 @@
             <div class="table-responsive">
                 <table ng-table="vm.tableBasic" class="table table-striped table-vmiddle" show-filter="true">
                     <tr ng-repeat="log in $data">
-                        <td data-title="'查看详情'" ng-show="vm.permission.detail">
+                        <td data-title="'详情'" ng-show="vm.permission.detail">
                             <button data-toggle="modal" data-target="#modalAdultDetail" data-ng-click="vm.getAuditDetail(log.id)" class="btn btn-info waves-effect"><i class="zmdi zmdi-search"></i></button>
                         </td>
                         <td data-title="'服务名称'" filter="{ serviceName: 'text'}">{{log.serviceName}}</td>
                         <td data-title="'方法名称'" filter="{ methodName: 'text'}">{{log.methodName}}</td>
-                        <td data-title="'Ip'">{{log.clientIpAddress}}</td>
-                        <td data-title="'客户端'">{{log.clientName}}</td>
-                        <td data-title="'浏览器'">{{log.browserInfo}}</td>
+                        <td data-title="'Ip'" filter="{ clientIpAddress: 'text'}">{{log.clientIpAddress}}</td>
+                        <td data-title="'客户端'" filter="{ clientName: 'text'}">{{log.clientName}}</td>
+                        <td data-title="'浏览器'" filter="{ browserInfo: 'text'}">{{log.browserInfo}}</td>
                     </tr>
                 </table>
             </div>

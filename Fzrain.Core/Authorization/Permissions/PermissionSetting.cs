@@ -7,10 +7,10 @@ namespace Fzrain.Authorization.Permissions
     /// </summary>
     public class PermissionSetting : CreationAuditedEntity<long>
     {     
-        public virtual string Name { get; set; }     
+        public  string Name { get; set; }     
         public bool IsGranted { get; set; } = true;
-        public virtual long? UserId { get; set; }
-        public virtual int? RoleId { get; set; }
+        public  long? UserId { get; set; }
+        public  int? RoleId { get; set; }
 
      
     }
