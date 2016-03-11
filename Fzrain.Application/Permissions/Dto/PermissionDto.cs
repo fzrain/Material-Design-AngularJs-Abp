@@ -1,6 +1,5 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
-using Fzrain.Authorization.Permissions;
 
 namespace Fzrain.Permissions.Dto
 {

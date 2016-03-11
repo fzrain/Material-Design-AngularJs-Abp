@@ -10,7 +10,6 @@ using Abp.Linq.Extensions;
 using Abp.Localization;
 using Abp.UI;
 using Fzrain.Authorization.Roles;
-using Fzrain.Authorization.Users;
 using Fzrain.Users.Dto;
 using Microsoft.AspNet.Identity;
 

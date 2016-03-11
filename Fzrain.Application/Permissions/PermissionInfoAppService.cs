@@ -7,7 +7,6 @@ using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
-using Fzrain.Authorization.Permissions;
 using Fzrain.Permissions.Dto;
 
 namespace Fzrain.Permissions

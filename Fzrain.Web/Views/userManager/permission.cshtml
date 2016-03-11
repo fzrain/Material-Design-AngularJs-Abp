@@ -44,7 +44,7 @@
                         <span ng-show="!permission.isGrantedByDefault" class="label label-default">否</span>
                     </td>
                     <td data-title="'权限名称'">{{permission.name}}</td>
-                    <td data-title="'展示名称'">{{permission.displayName}}</td>
+                    <td data-title="'节点名称'">{{permission.displayName}}</td>
                     <td data-title="'父节点'">{{permission.parentName}}</td>
                 </tr>
             </table>
@@ -70,7 +70,7 @@
                         <div class="fg-line" data-ng-class="{'fg-toggled':vm.permission.displayName}">
                             <input type="text" class="form-control" ng-model="vm.permission.displayName">
                         </div>
-                        <label class="fg-label">展示名称</label>
+                        <label class="fg-label">节点名称</label>
                     </div>
                     <div class="form-group">                      
                         <p class="f-400 c-gray m-b-15">父权限节点</p>

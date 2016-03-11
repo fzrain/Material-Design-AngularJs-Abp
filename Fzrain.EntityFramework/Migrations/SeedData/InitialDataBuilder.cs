@@ -1,4 +1,5 @@
-﻿using Fzrain.EntityFramework;
+﻿using EntityFramework.DynamicFilters;
+using Fzrain.EntityFramework;
 
 namespace Fzrain.Migrations.SeedData
 {
@@ -13,7 +14,11 @@ namespace Fzrain.Migrations.SeedData
 
         public void Build()
         {
+            _context.DisableAllFilters();
+
+            new DefaultEditionsBuilder(_context).Build();
             new DefaultTenantRoleAndUserBuilder(_context).Build();
+            new DefaultLanguagesBuilder(_context).Build();
         }
     }
 }

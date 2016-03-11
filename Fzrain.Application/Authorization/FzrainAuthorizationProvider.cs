@@ -3,7 +3,7 @@ using System.Linq;
 using Abp.Authorization;
 using Abp.Domain.Repositories;
 using Abp.Localization;
-using Fzrain.Authorization.Permissions;
+using Fzrain.Permissions;
 
 namespace Fzrain.Authorization
 {

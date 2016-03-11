@@ -1,12 +1,12 @@
 ﻿using System.Data.Entity;
 using System.Reflection;
-using Abp.EntityFramework;
 using Abp.Modules;
+using Abp.Zero.EntityFramework;
 using Fzrain.EntityFramework;
 
 namespace Fzrain
 {
-    [DependsOn(typeof(AbpEntityFrameworkModule), typeof(FzrainCoreModule))]
+    [DependsOn(typeof(AbpZeroEntityFrameworkModule), typeof(FzrainCoreModule))]
     public class FzrainDataModule : AbpModule
     {
         public override void PreInitialize()

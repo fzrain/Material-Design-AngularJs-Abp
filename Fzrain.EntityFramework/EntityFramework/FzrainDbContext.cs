@@ -3,32 +3,20 @@ using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Reflection;
-using Abp.EntityFramework;
-using Fzrain.Auditing;
-using Fzrain.Authorization.Permissions;
+using Abp.Zero.EntityFramework;
 using Fzrain.Authorization.Roles;
-using Fzrain.Authorization.Users;
-using Fzrain.Configuration;
 using Fzrain.MultiTenancy;
+using Fzrain.Permissions;
+using Fzrain.Users;
 
 namespace Fzrain.EntityFramework
 {
-    public class FzrainDbContext : AbpDbContext
+    public class FzrainDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
        
         //TODO: Define an IDbSet for each Entity...
-        //Example:
-        public virtual IDbSet<User> Users { get; set; }
-        public virtual IDbSet<Tenant> Tenants { get; set; }
-        public virtual IDbSet<Role> Roles { get; set; }
-        public virtual IDbSet<UserRole> UserRoles { get; set; }
-        public virtual IDbSet<UserLogin> UserLogins { get; set; }
+     
         public virtual IDbSet<PermissionInfo> PermissionInfos { get; set; }
-        public virtual IDbSet<PermissionSetting> Permissions { get; set; }
-        public virtual IDbSet<Setting> Settings { get; set; }
-        public virtual IDbSet<AuditLog> AuditLogs { get; set; }
-
-
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
          *   But it may cause problems when working Migrate.exe of EF. If you will apply migrations on command line, do not
@@ -66,6 +54,7 @@ namespace Fzrain.EntityFramework
             //常规配置法
             //modelBuilder.Configurations.Add(new LanguageMap());
             base.OnModelCreating(modelBuilder);
+            modelBuilder.ChangeAbpTablePrefix<Tenant, Role, User>("");
         }
     }
 }

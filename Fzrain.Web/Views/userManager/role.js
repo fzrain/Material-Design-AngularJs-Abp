@@ -15,6 +15,8 @@
             edit: abp.auth.hasPermission('Administration.Role.Edit'),
             delete: abp.auth.hasPermission('Administration.Role.Delete')
         };
+
+        vm.boolValue= {"是":true,"否":false}
         vm.tableBasic = new ngTableParams({
             page: 1,
             count: 10

@@ -1,5 +1,4 @@
 using System.Data.Entity.Migrations;
-using EntityFramework.DynamicFilters;
 using Fzrain.EntityFramework;
 using Fzrain.Migrations.SeedData;
 
@@ -10,15 +9,12 @@ namespace Fzrain.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-        
+            ContextKey = "Fzrain";
         }
 
         protected override void Seed(FzrainDbContext context)
         {
-            context.DisableAllFilters();
-            new InitialDataBuilder(context).Build();       
-            // This method will be called every time after migrating to the latest version.
-            // You can add any seed data here...
+            new InitialDataBuilder(context).Build();
         }
     }
 }

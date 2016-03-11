@@ -1,7 +1,6 @@
-﻿using System;
-using Abp.Application.Services.Dto;
+﻿using Abp.Application.Services.Dto;
+using Abp.Auditing;
 using Abp.AutoMapper;
-using Fzrain.Auditing;
 
 namespace Fzrain.AuditLogs.Dto
 {

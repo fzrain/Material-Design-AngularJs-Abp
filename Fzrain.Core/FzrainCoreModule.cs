@@ -2,17 +2,18 @@
 using Abp.Localization.Dictionaries;
 using Abp.Localization.Dictionaries.Xml;
 using Abp.Modules;
-using Fzrain.Authorization.Roles;
-using Fzrain.Authorization.Users;
+using Abp.Zero;
+using Fzrain.Authorization;
+
 
 namespace Fzrain
 {
+    [DependsOn(typeof(AbpZeroCoreModule))]
     public class FzrainCoreModule : AbpModule
     {
         public override void PreInitialize()
         {
-            IocManager.Register<IRoleManagementConfig, RoleManagementConfig>();
-            IocManager.Register<IUserManagementConfig, UserManagementConfig>();
+            Configuration.MultiTenancy.IsEnabled = true;
             Configuration.Localization.Sources.Add(
               new DictionaryBasedLocalizationSource(
                   FzrainConsts.LocalizationSourceName,
@@ -23,7 +24,7 @@ namespace Fzrain
                   )
               );
             //  IocManager.Register<IPermissionChecker, PermissionChecker>();
-
+            Configuration.Authorization.Providers.Add<FzrainAuthorizationProvider>();
         }
         public override void Initialize()
         {

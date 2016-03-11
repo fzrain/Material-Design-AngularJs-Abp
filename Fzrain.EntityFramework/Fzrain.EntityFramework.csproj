@@ -35,12 +35,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Abp, Version=0.8.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.0.8.2.0\lib\net452\Abp.dll</HintPath>
+    <Reference Include="Abp, Version=0.8.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.0.8.3.0\lib\net452\Abp.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Abp.EntityFramework, Version=0.8.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Abp.EntityFramework.0.8.2.0\lib\net452\Abp.EntityFramework.dll</HintPath>
+    <Reference Include="Abp.EntityFramework, Version=0.8.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.EntityFramework.0.8.3.0\lib\net452\Abp.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Abp.Zero, Version=0.8.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Zero.0.8.3.0\lib\net452\Abp.Zero.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Abp.Zero.EntityFramework, Version=0.8.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Abp.Zero.EntityFramework.0.8.3.0\lib\net452\Abp.Zero.EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Castle.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
@@ -102,34 +110,55 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EntityFramework\FzrainDbContext.cs" />
-    <Compile Include="EntityFramework\Mapping\AuditLogMap.cs" />
-    <Compile Include="EntityFramework\Mapping\PermissionInfoMap.cs" />
-    <Compile Include="EntityFramework\Mapping\PermissionSettingMap.cs" />
-    <Compile Include="EntityFramework\Mapping\RoleMap.cs" />
-    <Compile Include="EntityFramework\Mapping\SettingMap.cs" />
-    <Compile Include="EntityFramework\Mapping\TenantMap.cs" />
-    <Compile Include="EntityFramework\Mapping\UserLoginMap.cs" />
-    <Compile Include="EntityFramework\Mapping\UserMap.cs" />
-    <Compile Include="EntityFramework\Mapping\UserRoleMap.cs" />
     <Compile Include="EntityFramework\Repositories\FzrainRepositoryBase.cs" />
-    <Compile Include="Migrations\201508070946342_InitialCreate.cs" />
-    <Compile Include="Migrations\201508070946342_InitialCreate.Designer.cs">
-      <DependentUpon>201508070946342_InitialCreate.cs</DependentUpon>
+    <Compile Include="FzrainDataModule.cs" />
+    <Compile Include="Migrations\201506210746108_AbpZero_Initial.cs" />
+    <Compile Include="Migrations\201506210746108_AbpZero_Initial.Designer.cs">
+      <DependentUpon>201506210746108_AbpZero_Initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201508250633111_UpdatePermissionTableInfo.cs" />
-    <Compile Include="Migrations\201508250633111_UpdatePermissionTableInfo.Designer.cs">
-      <DependentUpon>201508250633111_UpdatePermissionTableInfo.cs</DependentUpon>
+    <Compile Include="Migrations\201509081207232_UpdateModuleZeroTo_0_6_9.cs" />
+    <Compile Include="Migrations\201509081207232_UpdateModuleZeroTo_0_6_9.Designer.cs">
+      <DependentUpon>201509081207232_UpdateModuleZeroTo_0_6_9.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201509020753215_Update_UserRole_Fields.cs" />
-    <Compile Include="Migrations\201509020753215_Update_UserRole_Fields.Designer.cs">
-      <DependentUpon>201509020753215_Update_UserRole_Fields.cs</DependentUpon>
+    <Compile Include="Migrations\201509290947427_Upgrade_To_ModuleZero_0_7_1.cs" />
+    <Compile Include="Migrations\201509290947427_Upgrade_To_ModuleZero_0_7_1.Designer.cs">
+      <DependentUpon>201509290947427_Upgrade_To_ModuleZero_0_7_1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201509230933345_Update_Table_Struct.cs" />
-    <Compile Include="Migrations\201509230933345_Update_Table_Struct.Designer.cs">
-      <DependentUpon>201509230933345_Update_Table_Struct.cs</DependentUpon>
+    <Compile Include="Migrations\201510141938232_Upgrade_Abp_And_Module_Zero_To_0_7_3.cs" />
+    <Compile Include="Migrations\201510141938232_Upgrade_Abp_And_Module_Zero_To_0_7_3.Designer.cs">
+      <DependentUpon>201510141938232_Upgrade_Abp_And_Module_Zero_To_0_7_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511091457384_Upgrade_To_ModuleZero_0_7_4.cs" />
+    <Compile Include="Migrations\201511091457384_Upgrade_To_ModuleZero_0_7_4.Designer.cs">
+      <DependentUpon>201511091457384_Upgrade_To_ModuleZero_0_7_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512241146128_Upgrade_To_Module_Zero_0_7_6.cs" />
+    <Compile Include="Migrations\201512241146128_Upgrade_To_Module_Zero_0_7_6.Designer.cs">
+      <DependentUpon>201512241146128_Upgrade_To_Module_Zero_0_7_6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512241148372_Created_Indexes.cs" />
+    <Compile Include="Migrations\201512241148372_Created_Indexes.Designer.cs">
+      <DependentUpon>201512241148372_Created_Indexes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601032115057_Upgraded_Module_Zero_0_7_7.cs" />
+    <Compile Include="Migrations\201601032115057_Upgraded_Module_Zero_0_7_7.Designer.cs">
+      <DependentUpon>201601032115057_Upgraded_Module_Zero_0_7_7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602161446590_Upgrade_Abp_And_Module_Zero_To_0_8_1.cs" />
+    <Compile Include="Migrations\201602161446590_Upgrade_Abp_And_Module_Zero_To_0_8_1.Designer.cs">
+      <DependentUpon>201602161446590_Upgrade_Abp_And_Module_Zero_To_0_8_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603021000202_Upgrade_Abp_And_Module_Zero_To_0_8_2.cs" />
+    <Compile Include="Migrations\201603021000202_Upgrade_Abp_And_Module_Zero_To_0_8_2.Designer.cs">
+      <DependentUpon>201603021000202_Upgrade_Abp_And_Module_Zero_To_0_8_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603110756553_Update_Db_Structs.cs" />
+    <Compile Include="Migrations\201603110756553_Update_Db_Structs.Designer.cs">
+      <DependentUpon>201603110756553_Update_Db_Structs.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="FzrainDataModule.cs" />
+    <Compile Include="Migrations\SeedData\DefaultEditionsBuilder.cs" />
+    <Compile Include="Migrations\SeedData\DefaultLanguagesBuilder.cs" />
     <Compile Include="Migrations\SeedData\DefaultTenantRoleAndUserBuilder.cs" />
     <Compile Include="Migrations\SeedData\InitialDataBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -148,17 +177,38 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508070946342_InitialCreate.resx">
-      <DependentUpon>201508070946342_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201506210746108_AbpZero_Initial.resx">
+      <DependentUpon>201506210746108_AbpZero_Initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201508250633111_UpdatePermissionTableInfo.resx">
-      <DependentUpon>201508250633111_UpdatePermissionTableInfo.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201509081207232_UpdateModuleZeroTo_0_6_9.resx">
+      <DependentUpon>201509081207232_UpdateModuleZeroTo_0_6_9.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509020753215_Update_UserRole_Fields.resx">
-      <DependentUpon>201509020753215_Update_UserRole_Fields.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201509290947427_Upgrade_To_ModuleZero_0_7_1.resx">
+      <DependentUpon>201509290947427_Upgrade_To_ModuleZero_0_7_1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201509230933345_Update_Table_Struct.resx">
-      <DependentUpon>201509230933345_Update_Table_Struct.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201510141938232_Upgrade_Abp_And_Module_Zero_To_0_7_3.resx">
+      <DependentUpon>201510141938232_Upgrade_Abp_And_Module_Zero_To_0_7_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511091457384_Upgrade_To_ModuleZero_0_7_4.resx">
+      <DependentUpon>201511091457384_Upgrade_To_ModuleZero_0_7_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512241146128_Upgrade_To_Module_Zero_0_7_6.resx">
+      <DependentUpon>201512241146128_Upgrade_To_Module_Zero_0_7_6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512241148372_Created_Indexes.resx">
+      <DependentUpon>201512241148372_Created_Indexes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601032115057_Upgraded_Module_Zero_0_7_7.resx">
+      <DependentUpon>201601032115057_Upgraded_Module_Zero_0_7_7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602161446590_Upgrade_Abp_And_Module_Zero_To_0_8_1.resx">
+      <DependentUpon>201602161446590_Upgrade_Abp_And_Module_Zero_To_0_8_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603021000202_Upgrade_Abp_And_Module_Zero_To_0_8_2.resx">
+      <DependentUpon>201603021000202_Upgrade_Abp_And_Module_Zero_To_0_8_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603110756553_Update_Db_Structs.resx">
+      <DependentUpon>201603110756553_Update_Db_Structs.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
