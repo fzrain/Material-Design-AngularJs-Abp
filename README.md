@@ -27,19 +27,20 @@
 ###服务器端
 * Asp.Net.Mvc 5.2.3
 * EntityFramework 6.1.3
-* AutoMapper 4.1.1
+* AutoMapper 4.2.1
 * Castle 3.3.3
 * AspNet.Identity 2.2.1
-* Newtonsoft.Json 7.0.1
+* Newtonsoft.Json 8.0.3
 * log4net 1.2.10
-* Abp 7.4.1
+* Sendgrid 6.3.4
+* Abp 0.8.4
 
 ###客户端
 * angular 1.4.4
 * bootstrap 3.3.5
 * jquery 2.1.4
 * jstree 3.0.9
-* ng-table 0.8.3
+* ng-table 1.0.0-beta.9
 * sweetalert 1.0.1
 * material-design-iconic-font 2.1.2
 * nouislider 8.0.2
@@ -49,7 +50,8 @@
 计划：
 * 合格的单元测试
 * 完整的文档
-* ASP.NET5(MVC6 EF7)
+* ASP.NET Core 1.0
+* Bootstrap 4
+* AngularJS 2
 * 更多的功能模块
 
-<a href='https://shenghuo.alipay.com/send/payment/fill.htm?optEmail=250970574@qq.com&payAmount=20'> <img src='https://img.alipay.com/sys/personalprod/style/mc/btn-index.png' /> </a>
