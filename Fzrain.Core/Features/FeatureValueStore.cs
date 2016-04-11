@@ -1,4 +1,7 @@
 using Abp.Application.Features;
+using Abp.Domain.Repositories;
+using Abp.MultiTenancy;
+using Abp.Runtime.Caching;
 using Fzrain.Authorization.Roles;
 using Fzrain.MultiTenancy;
 using Fzrain.Users;
@@ -7,8 +10,8 @@ namespace Fzrain.Features
 {
     public class FeatureValueStore : AbpFeatureValueStore<Tenant, Role, User>
     {
-        public FeatureValueStore(TenantManager tenantManager)
-            : base(tenantManager)
+        public FeatureValueStore(ICacheManager cacheManager,IRepository<TenantFeatureSetting,long> tenantFeatureSettingRepository,IRepository<Tenant> tenantRepository, IRepository<EditionFeatureSetting, long> editionFeatureRepository,IFeatureManager featureManager)
+            : base(cacheManager, tenantFeatureSettingRepository, tenantRepository, editionFeatureRepository, featureManager)
         {
         }
     }

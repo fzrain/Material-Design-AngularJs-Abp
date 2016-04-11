@@ -1,9 +1,11 @@
 ﻿using System.Reflection;
 using Abp.Localization.Dictionaries;
-using Abp.Localization.Dictionaries.Xml;
+using Abp.Localization.Dictionaries.Json;
 using Abp.Modules;
 using Abp.Zero;
+using Abp.Zero.Configuration;
 using Fzrain.Authorization;
+using Fzrain.Authorization.Roles;
 
 
 namespace Fzrain
@@ -17,12 +19,13 @@ namespace Fzrain
             Configuration.Localization.Sources.Add(
               new DictionaryBasedLocalizationSource(
                   FzrainConsts.LocalizationSourceName,
-                  new XmlEmbeddedFileLocalizationDictionaryProvider(
+                  new JsonEmbeddedFileLocalizationDictionaryProvider(
                       Assembly.GetExecutingAssembly(),
                       "Fzrain.Localization.Source"
                       )
                   )
               );
+            AppRoleConfig.Configure(Configuration.Modules.Zero().RoleManagement);
             //  IocManager.Register<IPermissionChecker, PermissionChecker>();
             Configuration.Authorization.Providers.Add<FzrainAuthorizationProvider>();
         }

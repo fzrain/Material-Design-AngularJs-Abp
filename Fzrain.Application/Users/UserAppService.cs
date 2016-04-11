@@ -133,7 +133,7 @@ namespace Fzrain.Users
         {
             var user = await userManager.GetUserByIdAsync(input.Id);
             var permissions = await userManager.GetGrantedPermissionsAsync(user);
-            List<dynamic> list = new List<dynamic>();
+            var list = new List<dynamic>();
             foreach (Permission permission in permissionManager.GetAllPermissions())
             {
                 var data = new

@@ -1,6 +1,7 @@
 ﻿using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
+using Abp.Auditing;
 using Fzrain.AuditLogs.Dto;
 
 namespace Fzrain.AuditLogs
@@ -8,6 +9,6 @@ namespace Fzrain.AuditLogs
    public  interface IAuditLogAppService : IApplicationService
     {
        PagedResultOutput<AuditLogDto> GetAuditLogs(GetAuditLogInput input);
-       Task<AuditLogDto> GetDetail(IdInput<long> input);
+       Task<AuditLog> GetDetail(IdInput<long> input);
     }
 }

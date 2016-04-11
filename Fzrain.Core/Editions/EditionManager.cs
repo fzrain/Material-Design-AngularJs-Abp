@@ -9,12 +9,9 @@ namespace Fzrain.Editions
         public const string DefaultEditionName = "Standard";
 
         public EditionManager(
-            IRepository<Edition> editionRepository, 
-            IRepository<EditionFeatureSetting, long> editionFeatureRepository)
-            : base(
-                editionRepository, 
-                editionFeatureRepository
-            )
+            IRepository<Edition> editionRepository,
+           IAbpZeroFeatureValueStore featureValueStore)
+            : base(editionRepository,featureValueStore)
         {
         }
     }

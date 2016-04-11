@@ -1,0 +1,11 @@
+﻿{
+    "culture": "zh-CN",
+    "texts": {
+        "HomePage": "主页",
+        "Operation": "操作",
+        "Add": "新增",
+        "Edit": "编辑",
+        "Delete": "删除"
+
+    }
+}

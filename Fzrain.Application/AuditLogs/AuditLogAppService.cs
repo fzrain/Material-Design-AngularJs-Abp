@@ -33,10 +33,10 @@ namespace Fzrain.AuditLogs
             };
         }
         [AbpAuthorize("Administration.AuditLog.Detail")]
-        public async Task<AuditLogDto> GetDetail(IdInput<long> input)
+        public async Task<AuditLog> GetDetail(IdInput<long> input)
         {
             var auditLog= await auditRepository.GetAsync(input.Id);
-            return auditLog.MapTo<AuditLogDto>();
+            return auditLog;
         }
     }
 }
