@@ -100,7 +100,7 @@
   <ItemGroup>
     <Compile Include="AuditLogs\AuditLogAppService.cs" />
     <Compile Include="AuditLogs\Dto\AuditLogDto.cs" />
-    <Compile Include="AuditLogs\Dto\GetAuditLogInput.cs" />
+    <Compile Include="AuditLogs\Dto\AuditLogQueryInput.cs" />
     <Compile Include="AuditLogs\IAuditLogAppService.cs" />
     <Compile Include="Authorization\FzrainAuthorizationProvider.cs" />
     <Compile Include="Common\BaseInputDto.cs" />
@@ -120,7 +120,7 @@
     <Compile Include="Users\Dto\ChangePasswordInput.cs" />
     <Compile Include="Users\Dto\UserEditOutput.cs" />
     <Compile Include="Users\Dto\UserEditInput.cs" />
-    <Compile Include="Users\Dto\UserListDto.cs" />
+    <Compile Include="Users\Dto\UserDto.cs" />
     <Compile Include="Users\Dto\UserPermissionInput.cs" />
     <Compile Include="Users\Dto\UserQueryInput.cs" />
     <Compile Include="Users\IUserAppService.cs" />

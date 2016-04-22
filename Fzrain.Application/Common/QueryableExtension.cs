@@ -17,7 +17,7 @@ namespace Fzrain.Common
                 if (prop.GetValue(input.Filter)!=null&&!string.IsNullOrWhiteSpace(prop.GetValue(input.Filter).ToString()))
                 {
                     var value = prop.GetValue(input.Filter).ToString();
-                    if (prop.PropertyType.IsPrimitive || prop.PropertyType == typeof(string) || prop.PropertyType == typeof(DateTime) || prop.PropertyType.IsEnum)  //判断是否为基本类型或String或DateTime
+                    if (prop.PropertyType.IsPrimitive || prop.PropertyType == typeof(string) || prop.PropertyType == typeof(DateTime) || prop.PropertyType.IsEnum||prop.PropertyType ==typeof(bool?))  //判断是否为基本类型或String或DateTime或Boolen
                     {
                             var domainProp= typeof(T).GetProperties().FirstOrDefault(p => p.Name == prop.Name);
                         if (domainProp!=null)
@@ -44,6 +44,13 @@ namespace Fzrain.Common
                             {
                                 var expression = Expression.Equal(Expression.Property(param, domainProp),
                                   Expression.Constant(Enum.Parse(domainProp.PropertyType, value)));
+                                whereExpression = Expression.AndAlso(whereExpression, expression);
+                                break;
+                            }
+                            if (domainProp.PropertyType==typeof(bool))//Bool类型精确匹配
+                            {
+                                var expression = Expression.Equal(Expression.Property(param, domainProp),
+                                Expression.Constant(Convert.ToBoolean(value)));
                                 whereExpression = Expression.AndAlso(whereExpression, expression);
                                 break;
                             }

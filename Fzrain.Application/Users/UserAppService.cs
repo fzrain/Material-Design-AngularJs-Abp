@@ -12,6 +12,7 @@ using Abp.UI;
 using Fzrain.Authorization.Roles;
 using Fzrain.Users.Dto;
 using Microsoft.AspNet.Identity;
+using Fzrain.Common;
 
 namespace Fzrain.Users
 {
@@ -35,12 +36,13 @@ namespace Fzrain.Users
         #endregion
 
         [AbpAuthorize("Administration.UserManager.Read")]
-        public PagedResultOutput<UserListDto> GetUsers(UserQueryInput input)
+        public PagedResultOutput<UserDto> GetUsers(UserQueryInput input)
         {
-            return new PagedResultOutput<UserListDto>
+            int totalCount;
+            return new PagedResultOutput<UserDto>
             {
                 TotalCount = userManager.Users.Count(),
-                Items = userManager.Users.OrderByDescending(u => u.CreationTime).PageBy(input).ToList().MapTo<List<UserListDto>>()
+                Items = userManager.Users.FilterBy(input, out totalCount).OrderByDescending(u => u.CreationTime).PageBy(input).ToList().MapTo<List<UserDto>>()
 
             };
         }

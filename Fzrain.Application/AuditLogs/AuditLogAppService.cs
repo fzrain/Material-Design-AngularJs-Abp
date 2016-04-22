@@ -22,7 +22,7 @@ namespace Fzrain.AuditLogs
             this.auditRepository = auditRepository;
         }
         [AbpAuthorize("Administration.AuditLog.Read")]
-        public PagedResultOutput<AuditLogDto> GetAuditLogs(GetAuditLogInput input)
+        public PagedResultOutput<AuditLogDto> GetAuditLogs(AuditLogQueryInput input)
         {
             int totalCount;
             var auditLogs = auditRepository.GetAll().FilterBy(input,out totalCount).OrderByDescending(a=>a.ExecutionTime).PageBy(input).ToList();

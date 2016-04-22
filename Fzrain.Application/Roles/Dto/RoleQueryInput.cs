@@ -1,12 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Abp.Application.Services.Dto;
+using Fzrain.Common;
 
 namespace Fzrain.Roles.Dto
 {
-   public  class RoleQueryInput: IPagedResultRequest
-    {
-        [Range(0, 1000)]
-        public int MaxResultCount { get; set; }
-       public int SkipCount { get; set; }
+   public  class RoleQueryInput: BaseInputDto<RoleDto>
+    {      
     }
 }

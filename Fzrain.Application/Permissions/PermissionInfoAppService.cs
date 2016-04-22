@@ -7,6 +7,7 @@ using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Linq.Extensions;
+using Fzrain.Common;
 using Fzrain.Permissions.Dto;
 
 namespace Fzrain.Permissions
@@ -38,10 +39,11 @@ namespace Fzrain.Permissions
         [AbpAuthorize("Administration.Permission.Read")]
         public async Task<PagedResultOutput<PermissionDto>> GetPermissions(PermissionQueryInput input)
         {
+            int totalCount;
             return new PagedResultOutput<PermissionDto>
             {
                 TotalCount = await permissionRepository.CountAsync(),
-                Items = permissionRepository.GetAll().OrderByDescending(p => p.Id).PageBy(input).ToList().MapTo<List<PermissionDto>>()
+                Items = permissionRepository.GetAll().FilterBy(input, out totalCount).OrderByDescending(p => p.Id).PageBy(input).ToList().MapTo<List<PermissionDto>>()
             };
         }
         public List<string> GetPermissionNames()

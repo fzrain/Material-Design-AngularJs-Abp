@@ -10,6 +10,8 @@ using Abp.Localization;
 using Fzrain.Authorization.Roles;
 using Fzrain.Roles.Dto;
 using Newtonsoft.Json.Linq;
+using Fzrain.Common;
+
 
 namespace Fzrain.Roles
 {
@@ -28,9 +30,10 @@ namespace Fzrain.Roles
         [AbpAuthorize("Administration.Role.Read")]
         public PagedResultOutput<RoleDto> GetRoles(RoleQueryInput input)
         {
+            int totalCount;
             return new PagedResultOutput<RoleDto>
-            {
-                Items = roleManager.Roles.OrderByDescending(r => r.CreationTime).PageBy(input).ToList().MapTo<List<RoleDto>>(),
+            {             
+                Items = roleManager.Roles.FilterBy(input, out totalCount).OrderByDescending(r => r.CreationTime).PageBy(input).ToList().MapTo<List<RoleDto>>(),
                 TotalCount = roleManager.Roles.Count()
             };
         }

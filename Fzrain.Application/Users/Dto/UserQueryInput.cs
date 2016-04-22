@@ -1,13 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Abp.Application.Services.Dto;
+using Fzrain.Common;
 
 namespace Fzrain.Users.Dto
 {
-    public class UserQueryInput : IPagedResultRequest
+    public class UserQueryInput : BaseInputDto<UserDto>
     {
-        [Range(0, 1000)]
-        public int MaxResultCount { get; set; }
-        public int SkipCount { get; set; }
-        
+       
     }
 }

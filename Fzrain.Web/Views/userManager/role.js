@@ -16,7 +16,7 @@
             delete: abp.auth.hasPermission('Administration.Role.Delete')
         };
 
-        vm.boolValue= {"是":true,"否":false}
+        vm.boolValue = [{ id: "true", title: "是" }, { id: "false", title: "否" }];
         vm.tableBasic = new ngTableParams({
             page: 1,
             count: 10
@@ -24,7 +24,7 @@
             total: 0,
             getData: function ($defer, params) {
                 roleService.getRoles({
-                    skipCount: (params.page() - 1) * params.count(), maxResultCount: params.count()
+                    skipCount: (params.page() - 1) * params.count(), maxResultCount: params.count(), filter: params.filter()
                 }).success(function (data) {
                     params.total(data.totalCount);
                     $defer.resolve(data.items);

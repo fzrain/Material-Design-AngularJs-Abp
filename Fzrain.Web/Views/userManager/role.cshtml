@@ -1,4 +1,15 @@
-﻿<div class="container" ng-controller="roleController as vm">
+﻿
+
+<div class="container" ng-controller="roleController as vm">
+    <script type="text/ng-template" id="ng-table/filters/tplBoolValue.html">
+        <label class="radio-inline">
+            <input type="radio"  ng-model="params.filter()[name]" value="" /> 全部
+        </label>
+        <br />
+        <label class="radio-inline" ng-repeat="data in vm.boolValue">
+            <input type="radio"  ng-model="params.filter()[name]" ng-value="data.id" /> {{data.title}}
+        </label>
+    </script>
     <div class="block-header">
         <h2>角色管理</h2>
         <ul class="actions">
@@ -46,11 +57,11 @@
                         </div>
                     </td>
 
-                    <td data-title="'系统角色'" filter="{ isStatic: 'select'}" filter-data="vm.boolValue">
+                    <td data-title="'系统角色'" filter="{ isStatic: 'tplBoolValue'}" filter-data="vm.boolValue">
                         <span ng-show="role.isStatic" class="label label-success">是</span>
                         <span ng-show="!role.isStatic" class="label label-default">否</span>
                     </td>
-                    <td data-title="'默认角色'" filter="{ isDefault: 'select'}">
+                    <td data-title="'默认角色'" filter="{ isDefault: 'select'}" filter-data="vm.boolValue">
                         <span ng-show="role.isDefault" class="label label-success">是</span>
                         <span ng-show="!role.isDefault" class="label label-default">否</span>
                     </td>

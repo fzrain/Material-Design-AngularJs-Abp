@@ -40,10 +40,10 @@
                             </ul>
                         </div>
                     </td>
-                    <td data-title="'用户名'">{{user.userName}}</td>
-                    <td data-title="'邮箱'">{{user.emailAddress}}</td>
-                    <td data-title="'名字'">{{user.name}}</td>
-                    <td data-title="'电话'">{{user.mobilePhone}}</td>
+                    <td data-title="'用户名'" filter="{ userName: 'text'}">{{user.userName}}</td>
+                    <td data-title="'邮箱'" filter="{ emailAddress: 'text'}">{{user.emailAddress}}</td>
+                    <td data-title="'名字'" filter="{ name: 'text'}">{{user.name}}</td>
+                    <td data-title="'电话'" filter="{ mobilePhone: 'text'}">{{user.mobilePhone}}</td>
                 </tr>
             </table>
         </div>

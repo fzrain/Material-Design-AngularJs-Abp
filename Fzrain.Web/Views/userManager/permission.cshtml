@@ -39,13 +39,13 @@
                             </ul>
                         </div>
                     </td>                  
-                    <td data-title="'完全公开'">
+                    <td data-title="'完全公开'" filter="{ isGrantedByDefault: 'select'}" filter-data="vm.boolValue">
                         <span ng-show="permission.isGrantedByDefault" class="label label-success">是</span>
                         <span ng-show="!permission.isGrantedByDefault" class="label label-default">否</span>
                     </td>
-                    <td data-title="'权限名称'">{{permission.name}}</td>
-                    <td data-title="'节点名称'">{{permission.displayName}}</td>
-                    <td data-title="'父节点'">{{permission.parentName}}</td>
+                    <td data-title="'权限名称'" filter="{ name: 'text'}">{{permission.name}}</td>
+                    <td data-title="'节点名称'" filter="{ displayName: 'text'}">{{permission.displayName}}</td>
+                    <td data-title="'父节点'" filter="{ parentName: 'text'}">{{permission.parentName}}</td>
                 </tr>
             </table>
 

@@ -24,7 +24,7 @@
                 total: 0,
                 getData: function ($defer, params) {
                     userService.getUsers({
-                        skipCount: (params.page() - 1) * params.count(), maxResultCount: params.count()
+                        skipCount: (params.page() - 1) * params.count(), maxResultCount: params.count(), filter: params.filter()
                     }).success(function (data) {
                         params.total(data.totalCount);
                         $defer.resolve(data.items);

@@ -3,6 +3,7 @@
         'abp.services.app.permissionInfo', 'ngTableParams', 'notifyService',
         function (permissionService, ngTableParams, notifyService) {
             var vm = this;
+            vm.boolValue = [{ id: "true", title: "是" }, { id: "false", title: "否" }];
             vm.actionPermission = {
                 add: abp.auth.hasPermission('Administration.Permission.Create'),
                 edit: abp.auth.hasPermission('Administration.Permission.Edit'),
@@ -15,7 +16,7 @@
                 total: 0,
                 getData: function ($defer, params) {
                     permissionService.getPermissions({
-                        skipCount: (params.page() - 1) * params.count(), maxResultCount: params.count()
+                        skipCount: (params.page() - 1) * params.count(), maxResultCount: params.count(), filter: params.filter()
                     }).success(function (data) {
                         params.total(data.totalCount);
                         $defer.resolve(data.items);

@@ -2,7 +2,7 @@
 
 namespace Fzrain.AuditLogs.Dto
 {
-   public  class GetAuditLogInput : BaseInputDto<AuditLogDto>
+   public  class AuditLogQueryInput : BaseInputDto<AuditLogDto>
    {
      
    }
