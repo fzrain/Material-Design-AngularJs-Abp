@@ -6,7 +6,7 @@ using Fzrain.Users;
 
 namespace Fzrain.Authorization.Roles
 {
-    public class RoleStore : AbpRoleStore<Tenant, Role, User>
+    public class RoleStore : AbpRoleStore<Role, User>
     {
         public RoleStore(
             IRepository<Role> roleRepository,

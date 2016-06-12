@@ -3,7 +3,7 @@ using Fzrain.Users;
 
 namespace Fzrain.MultiTenancy
 {
-    public class Tenant : AbpTenant<Tenant, User>
+    public class Tenant : AbpTenant<User>
     {
         public Tenant()
         {

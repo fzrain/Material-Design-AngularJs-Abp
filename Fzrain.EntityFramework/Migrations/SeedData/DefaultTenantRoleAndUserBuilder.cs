@@ -78,7 +78,7 @@ namespace Fzrain.Migrations.SeedData
 
                 _context.SaveChanges();
 
-                _context.UserRoles.Add(new UserRole(adminUserForHost.Id, adminRoleForHost.Id));
+                _context.UserRoles.Add(new UserRole(null,adminUserForHost.Id, adminRoleForHost.Id));
 
                 _context.SaveChanges();
             }
@@ -141,7 +141,7 @@ namespace Fzrain.Migrations.SeedData
                     });
                 _context.SaveChanges();
 
-                _context.UserRoles.Add(new UserRole(adminUserForDefaultTenant.Id, adminRoleForDefaultTenant.Id));
+                _context.UserRoles.Add(new UserRole(null,adminUserForDefaultTenant.Id, adminRoleForDefaultTenant.Id));
                 _context.SaveChanges();
             }
         }

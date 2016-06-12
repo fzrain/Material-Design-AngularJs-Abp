@@ -4,7 +4,7 @@ using Fzrain.Users;
 
 namespace Fzrain.Authorization.Roles
 {
-    public class Role : AbpRole<Tenant, User>
+    public class Role : AbpRole<User>
     {
 
     }

@@ -6,7 +6,7 @@ using Fzrain.MultiTenancy;
 
 namespace Fzrain.Users
 {
-    public class UserStore : AbpUserStore<Tenant, Role, User>
+    public class UserStore : AbpUserStore<Role, User>
     {
         public UserStore(
             IRepository<User, long> userRepository,
