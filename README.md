@@ -1,6 +1,6 @@
 # 一套基于Abp(服务器端)+Material Admin(AngularJs客户端)的权限管理系统
 
-AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/tvad583r9lbimxh4?svg=true)](https://ci.appveyor.com/project/Fzrain/material-design-angularjs-abp)
+AppVeyor: [![Build status](https://ci.appveyor.com/api/projects/status/xl8n52owgovxsusu?svg=true)](https://ci.appveyor.com/project/Fzrain/material-design-angularjs-abp)
 
 运行项目：
 * 使用VS2013（带Grunt Launcher插件,还需要添加Microsoft.Net.Compilers的引用,否则C#6.0语法编译不过去）或VS2015（带Web Essentials插件）打开项目
