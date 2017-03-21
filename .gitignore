@@ -180,3 +180,4 @@ sample/ModuleZeroSampleProject.Web/Logs/
 bower_components/
 node_modules/
 Logs/
+less/

@@ -2,12 +2,12 @@
 
 <div class="container" ng-controller="roleController as vm">
     <script type="text/ng-template" id="ng-table/filters/tplBoolValue.html">
-        <label class="radio-inline">
-            <input type="radio"  ng-model="params.filter()[name]" value="" /> 全部
-        </label>
-        <br />
+       
         <label class="radio-inline" ng-repeat="data in vm.boolValue">
-            <input type="radio"  ng-model="params.filter()[name]" ng-value="data.id" /> {{data.title}}
+            <input type="radio" ng-model="params.filter()[name]" ng-value="data.id" /> {{data.title}}
+        </label>
+        <label class="radio-inline" ng-repeat="data in data in vm.boolValue">
+            <input type="radio" ng-model="params.filter()[name]" ng-value="data.id" ng-change="vm.tableBasic.reload()" /> {{data.title}}
         </label>
     </script>
     <div class="block-header">
